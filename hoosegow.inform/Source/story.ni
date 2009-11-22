@@ -27,7 +27,7 @@ Understand "take inventory" as taking inventory.
 Understand the commands "carry" and "hold" as "take".
 
 Understand the command "get" as something new.
-Understand "get out/off/up" as standing.
+Understand "get out/off/up" as exiting.
 Understand "get [thing]" as taking.
 Understand "get in/into/on/onto [thing]" as entering.
 Understand "get off [thing]" as getting off.
@@ -43,6 +43,8 @@ The block kissing rule is not listed in any rulebook.
 The kissing yourself rule is not listed in any rulebook.
 
 Chapter Declare Global Variables
+
+The last mentioned thing is a thing that varies.
 
 Chapter Class Definitions
 
@@ -96,6 +98,8 @@ After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license or just blaze on impetuously.".
 
 Chapter Jail Cell
+
+The cell is a room.
 
 Chapter Office
 
