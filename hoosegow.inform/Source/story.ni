@@ -1,10 +1,21 @@
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
 
-The story headline is "An Interactive Fiction".
+The story headline is "A Wild West Wreck".
 The release number is 1.
-The story genre is "Wild West Fiction".
-The story creation year is 2009.
-The story description is "Muddy's plan done landed you and yer par'ner Muddy in the hoosegow. Now yer fixin' to rectificate the matter before the Marshall introduces you to the business end of a hangin' rope at dawn."
+The story creation year is 2010.
+The story description is "Muddy's plan done landed you and yer par'ner in the hoosegow. Now yer fixin' to rectificate th' matter before the Marshall introduces you to the business end of a hangin' rope at dawn.".
+
+The intro-text is a text that varies.  Intro-text is "September 1869. A red sun hangs low in the sky, casting long shadows across the dusty plains of western Oklahoma.
+
+The Deputy angrily twists your arms behind your back and you feel the rusty clink of cuffs snapping together. Muddy Charlie, your dubious conspirator, winks at you as the two of you are shoved into the paddywagon, a two horse coach with barred windows.
+
+'Hang tight, par[apostrophe]ner! You done good blowin[apostrophe] up that tunnel, and we dang stopped that train jus[apostrophe] I like I planned. Didn't plan on the Sheriff gettin[apostrophe] word ahead of time, tho[apostrophe]. That were powerful bad luck.'
+
+The Deputy climbs onto his horse, spits, and you begin to rumble forward.  'You boys really got it comin[apostrophe] this time!', he yells back cheerfully.
+
+Muddy shakes his head. 'No offense, Deputy, but ah thinks you got the wrong men. We was just on our way to the thee-ate-ter.'
+
+The Deputy disagrees. 'The only place you boys are headin[apostrophe] is straight to the [paragraph break]".
 
 Include Menus by Emily Short.
 Include Plurality by Emily Short.
@@ -13,6 +24,8 @@ Include Default Messages by David Fisher.
 Use full-length room descriptions, american dialect and the serial comma.
 
 [Release along with cover art.   ###TODO: Cover art]
+
+
 
 Book 1 Mechanics
 
@@ -97,14 +110,15 @@ When play begins:
 Chapter Initialize
 
 When play begins:
-	do nothing.
+	say the intro-text.
 
 After printing the banner text:
-	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license or just blaze on impetuously.".
+	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
+	say "In the twilight, you sight the Sheriff's single story office near the edge of town. As dust and tumbleweeds waft lazily past the coach, you notice the bright coat of fresh whitewash on the outside of the sturdy brick structure. Muddy notices too, and shakes his head, 'That's mighty fine construction. Mighty fine indeed.'  [paragraph break] The horses stop short, the coach grinds to a halt, and the rider dismounts. A thick arm reaches into the dark coach and yanks you roughly from your seat. With your arms bound, you land awkwardly in the rutted street, and the Sheriff holds you in place with the heel of one boot while he similarly extracts Muddy from the coach.  The two of you are manhandled into the Sheriff's office and before you get a good chance to look around, you and Muddy are shoved behind bars, into a primitive holding cell which occupies about a third of the building's interior.[paragraph break]".
 
 Chapter Jail Cell
 
-The cell is a room.
+The Jail Cell is a room. "[if unvisited][paragraph break]Ah, the clink. Your home-away-from-home, just like you left it a year ago. [paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through bars you can see the rest of the Office. A tiny barred window is buried in a brick wall about two feet over your head."
 
 Chapter Office
 
