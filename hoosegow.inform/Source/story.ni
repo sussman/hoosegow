@@ -3,6 +3,7 @@
 The story headline is "A Wild West Wreck".
 The release number is 1.
 The story creation year is 2010.
+The story genre is "Western".
 The story description is "Muddy's plan done landed you and yer par'ner in the hoosegow. Now yer fixin' to rectificate th' matter before the Marshall introduces you to the business end of a hangin' rope at dawn.".
 
 The intro-text is a text that varies.  Intro-text is "September, 1869.  A red sun hangs low in the sky, casting long shadows across the dusty plains of western Oklahoma.
@@ -57,6 +58,22 @@ Chapter Rules Modifications
 [Override inherent prudeness -- allow PC to kiss anything]
 The block kissing rule is not listed in any rulebook.
 The kissing yourself rule is not listed in any rulebook.
+
+
+Chapter Time
+
+The player carries a pocketwatch.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's a rusty wind-up timepiece, handed down from your uncle.  It currently reads [time of day + 1 minute]."
+
+Time-checking is an action applying to nothing.  Understand "time" as time-checking.
+Carry out time-checking:
+	if the player carries the pocketwatch and the pocketwatch is not concealed
+	begin;
+		if the location of the player is dark, say "It's too dark to see your watch.";
+		otherwise say "Your pocketwatch reads [time of day + 1 minute].";
+	otherwise;
+		say "You have no way of checking the time.";
+	end if.
+	
 
 Section Intervisibility
 [Taken from example 346 "Rock Garden"]
@@ -138,12 +155,17 @@ When play begins:
 	
 Chapter Initialize
 
+The maximum score is 10. [change this later]
+
 When play begins:
-	say the intro-text.
+	say the intro-text;
+	change the time of day to 7:15 PM;
+        	change the left hand status line to "[the player's surroundings]";
+        	change right hand status line to "Score: [score]/[maximum score]".
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
-	say "In the twilight, you sight the Sheriff's single story office near the edge of town. As dust and tumbleweeds waft lazily past the coach, you notice the bright coat of fresh whitewash on the outside of the sturdy brick structure. Muddy notices too, and shakes his head, 'That's mighty fine construction. Mighty fine indeed.'  The horses stop short, the coach grinds to a halt, and the posse dismounts. A thick arm reaches into the dark coach and yanks you roughly from your seat. With your arms bound, you land awkwardly in the rutted street, and the Deputy holds you in place with the heel of one boot while he similarly extracts Muddy from the coach. The two of you are manhandled into the Sheriff's office and before you get a good chance to look around, you and Muddy are shoved towards a ten by ten foot holding cell.[paragraph break]As you bustle into the office, the Deputy wakes with a start, and seeing the Sheriff whips his dusty boots off the desk, stands, and tucks his shirt back into his pants. The Sheriff gives him a brief, judgemental glance and offhandedly tosses your arrest warrant on the desk. The Deputy stares at it for a moment and stuffs it into his pocket. With you behind bars, the Sheriff turns towards the door and instructs the Deputy, 'Picked up these two down near the train. A federal marshall will be comin' for them at eight o'clock tomorrow morning. There's goin' to be a hangin'!'. The deputy nods, this torrent of information overwhelming his limited comprehension. The Sheriff sarcastically adds, 'Please take care of our... guests. I got some business in the next county to take care of, so you is in charge.' After a moment, the Deputy brightens, as he realizes he's the acting Sheriff. The Sheriff crushes his mood immediately, though, by concluding 'Jimbo, don't screw up,' as he heads out the door.[paragraph break]".
+	say "In the twilight, you sight the Sheriff's single story office near the edge of town. As dust and tumbleweeds waft lazily past the coach, you notice the bright coat of fresh whitewash on the outside of the sturdy brick structure.[paragraph break]Muddy notices too, and shakes his head. 'That's mighty fine construction. Mighty fine indeed.' [paragraph break]The horses stop short, the coach grinds to a halt, and the posse dismounts. A thick arm reaches into the dark coach and yanks you roughly from your seat. With your arms bound, you land awkwardly in the rutted street, and the Deputy holds you in place with the heel of one boot while he similarly extracts Muddy from the coach. The two of you are manhandled into the Sheriff's office and before you get a good chance to look around, you and Muddy are shoved towards a ten by ten foot holding cell.[paragraph break]As you bustle into the office, the Deputy wakes with a start, and seeing the Sheriff whips his dusty boots off the desk, stands, and tucks his shirt back into his pants. The Sheriff gives him a brief, judgemental glance and offhandedly tosses your arrest warrant on the desk. The Deputy stares at it for a moment and stuffs it into his pocket. With you behind bars, the Sheriff turns towards the door and instructs the Deputy.[paragraph break]'Picked up these two down near the train. A federal marshall will be comin[apostrophe] for them at eight o'clock tomorrow morning. There's goin[apostrophe] to be a hangin[apostrophe]!'.[paragraph break]The deputy nods, this torrent of information overwhelming his limited comprehension.[paragraph break]The Sheriff sarcastically adds, 'Please take care of our... guests. I got some business in the next county to take care of, so you is in charge.'[paragraph break]After a moment, the Deputy brightens, as he realizes he's the acting Sheriff. The Sheriff crushes his mood immediately, though, by concluding 'Jimbo, don't screw up,' as he heads out the door.[paragraph break]".
 
 
 Chapter Office
@@ -153,11 +175,19 @@ The Office is a room.  "An efficiently trimmed office, ready for all manner of b
 
 Chapter Jail Cell
 
-The Jail Cell is west of the office.   "[if unvisited]Ah, the clink. Your home-away-from-home, just like you left it a year ago. [paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through the bars you can see the rest of the Sheriff's office, full of all sorts of interesting things.  A tiny barred window is buried in a brick wall about two feet over your head."
+The jail door is a door.  Jail door is west of the Office and east of the Jail Cell.  The door is locked.
 
-The jail cell is connected with office.  The jail cell contains the player.
+The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Ah, the clink. Your home-away-from-home, just like you left it a year ago. [paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through the bars you can see the rest of the Sheriff's office, full of all sorts of interesting things.  A tiny barred window is buried in a brick wall about two feet over your head."
 
-The jail cell contains a stool.  The stool is a supporter and portable.
+The jail cell contains the player.  The jail cell contains a stool.  The stool is a supporter and portable.
+
+The Street is a room.  "A dusty road with a few buildings lining it."
+
+[Taken from example 20]
+The cell window is a door.  The cell window is west of the jail cell and east of the Street.
+
+Instead of searching the window: 
+    say "Through the window, you make out [the other side of the window]."
 
 
 Chapter Menus
