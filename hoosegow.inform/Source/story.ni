@@ -25,7 +25,7 @@ Include Default Messages by David Fisher.
 Use full-length room descriptions, american dialect and the serial comma.
 Use memory economy.
 
-[Release along with cover art.   ###TODO: Cover art]
+Release along with cover art.
 
 
 
