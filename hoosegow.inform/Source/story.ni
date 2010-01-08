@@ -62,11 +62,9 @@ The kissing yourself rule is not listed in any rulebook.
 
 Chapter Time
 
-The player carries a pocketwatch.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's a rusty wind-up timepiece, handed down from your uncle.  It currently reads [time of day + 1 minute]."
-
 Time-checking is an action applying to nothing.  Understand "time" as time-checking.
 Carry out time-checking:
-	if the player carries the pocketwatch and the pocketwatch is not concealed
+	if the player carries the pocketwatch
 	begin;
 		if the location of the player is dark, say "It's too dark to see your watch.";
 		otherwise say "Your pocketwatch reads [time of day + 1 minute].";
@@ -179,15 +177,73 @@ The jail door is a door.  Jail door is west of the Office and east of the Jail C
 
 The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Ah, the clink. Your home-away-from-home, just like you left it a year ago. [paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through the bars you can see the rest of the Sheriff's office, full of all sorts of interesting things.  A tiny barred window is buried in a brick wall about two feet over your head."
 
-The jail cell contains the player.  The jail cell contains a stool.  The stool is a supporter and portable.
+The jail cell contains the player.  
 
-The Street is a room.  "A dusty road with a few buildings lining it."
+The jail cell contains a stool.  The stool is an enterable portable supporter.  The description of the stool is "foo".
+
+
+Chapter Window and Street
+
+The street is a room.  "A dusty road with a few buildings lining it."  The street contains a plant and a barrel.
 
 [Taken from example 20]
-The cell window is a door.  The cell window is west of the jail cell and east of the Street.
+The cell window is a door.  The description of the cell window is "A barred window about a foot square."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
 
-Instead of searching the window: 
-    say "Through the window, you make out [the other side of the window]."
+Understand "look out [something]" as searching.
+Instead of searching the window:
+	if the player is in the jail cell and the player is on the stool:
+		say "(standing on tiptoes) Through the window, you make out [a list of things in the Street].";
+	otherwise:
+		say "The window is too high above you.".
+Instead of climbing the window: 
+	try entering the window.
+Understand "climb through [something]" as climbing. Understand "jump through [something]" as climbing.
+Instead of going through the window:
+	say "Those bars aren't going anywhere;  at most, you can maybe reach your hand through them."
+Instead of opening the window:
+	say "The window isn't openable."
+
+After deciding the scope of the player while in the jail cell:
+	if the player is on the stool:
+		place the street in scope.
+
+
+Chapter Characters
+
+Section Muddy
+
+Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against a two-legged stool and taps a harmonica on his arm. "
+
+Muddy carries a harmonica.  The harmonica is a prop.
+
+
+Section Rick
+
+Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Almost... isquiesque.  You're quite the desperado, ain't ya?".
+
+The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's a rusty wind-up timepiece, handed down from your uncle.  It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
+
+The player wears a hat.  The hat is a portable container.  The description of the hat is "A wide-brimmed hat to protect you from the sun, and which clearly marks you as a denizen of the plains.  [if the hat contains something]In the hat you see [contents of hat].[otherwise]In the hat is ten gallons of nothing.  You sure could shove a lot of loot in there you reckon.[end if]".   Instead of eating the hat, say "If you don't git out of this place, you sure will!"
+
+The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles:  '1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
+
+The player wears an overcoat.
+
+The player wears boots.
+
+
+Section Pete
+
+Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."
+
+
+
+Section Flash
+
+
+Section Deputy
+
+
 
 
 Chapter Menus
