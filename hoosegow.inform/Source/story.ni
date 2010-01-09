@@ -25,7 +25,7 @@ Include Default Messages by David Fisher.
 Use full-length room descriptions, american dialect and the serial comma.
 Use memory economy.
 
-[Release along with cover art.   ###TODO: Cover art]
+Release along with cover art.
 
 
 
@@ -111,6 +111,7 @@ A prop is a kind of thing. It is usually portable. [If props can be carried out 
 
 A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.]
 
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -128,6 +129,7 @@ To say it-they:
 To say (regular verb - some text) in correct agreement:
 	say "[regular verb][if the last mentioned thing is not plural-named]s".
 
+
 Chapter Verbs
 	
 [
@@ -144,6 +146,16 @@ Report using:
 		-- xxx		
 ]
 	
+Section Playing
+
+Understand the command "play" as something new.  Playing is an action applying to one thing.  Understand "play [a thing]" as playing.
+Report playing:
+	if the noun is the harmonica:
+		say "You play a lovely melody.";  [TODO:   change this!]
+	otherwise:
+		say "You don[apostrophe] rightly know how to play such a thing."
+
+
 Chapter General Insteads
 
 Chapter Not Ready For Prime Time - Not for release
@@ -168,21 +180,68 @@ After printing the banner text:
 
 Chapter Office
 
-The Office is a room.  "An efficiently trimmed office, ready for all manner of bureaucracy."  The office contains a desk.  The desk is a supporter and fixed in place.  On the desk is a pen.
+The office is a room.  "An efficiently trimmed office, ready for all manner of bureaucracy."  The office contains a desk.  The desk is a supporter and fixed in place.  On the desk is a pen.
 
 
 Chapter Jail Cell
 
-The jail door is a door.  Jail door is west of the Office and east of the Jail Cell.  The door is locked.
 
-The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Ah, the clink. Your home-away-from-home, just like you left it a year ago. [paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through the bars you can see the rest of the Sheriff's office, full of all sorts of interesting things.  A tiny barred window is buried in a brick wall about two feet over your head."
+
+The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Ah, the clink. Your home-away-from-home, just like you left it a year ago.[paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through the bars you can see the rest of the Sheriff's office, full of all sorts of interesting things.  A tiny barred window is buried in a brick wall about two feet over your head."
 
 The jail cell contains the player.  
+
+
+Section Jail Door
+
+The jail door is a door.  Jail door is west of the Office and east of the Jail Cell.  [The door is locked.]
+
+Section Stool
 
 The jail cell contains a stool.  The stool is an enterable portable supporter.  The description of the stool is "foo".
 
 
-Chapter Window and Street
+Section Harmonica
+
+The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "The harmonica is attached to the wall by a silvery chain.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.
+
+Instead of examining the harmonica for the first time:
+	if the harmonica is not discussed:
+		say "[initial harmonica dialogue]";
+	now the harmonica is discussed;
+	try examining the harmonica.
+	
+Instead of taking the harmonica for the first time:
+	if the harmonica is not discussed:
+		say "[initial harmonica dialogue]";
+	now the harmonica is discussed.
+
+Instead of playing the harmonica for the first time:
+	if the harmonica is not discussed:
+		say "[initial harmonica dialogue]";
+	now the harmonica is discussed;
+	try playing the harmonica.
+
+The inscription is part of the harmonica.  The description of the inscription is "'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One'". 
+
+Instead of examining the inscription for the first time:
+	say "[initial harmonica inscription dialogue]".
+	
+The chain is part of the harmonica.  The description of the chain is "You pause to inspect the chain that tethers the harmonica to the wall. The links are fine as cream gravy, and there isn't a spot of rust. From your professional experience in the jewelry industry, primarily on the selling side, you recognize that this well-crafted chain is probably silver and would fetch a good penny.".
+
+Instead of pulling the harmonica:
+	say "You give the harmonica a little tug, and then you pull harder, putting your back into it. The fine silver chain pulls taut, but is well crafted and doesn't give at all.".
+
+[TODO:  After we define 'use' verb:  Instead of using the harmonica:  try playing it.]
+
+Instead of going when the player is in the jail cell:
+	if player is carrying the harmonica:
+		move the harmonica to the jail cell;
+		say "As you leave to go, the harmonica is yanked away from you by the wall-chain.[paragraph break]";
+	continue the action.
+
+
+Section Window and Street
 
 The street is a room.  "A dusty road with a few buildings lining it."  The street contains a plant and a barrel.
 
@@ -212,9 +271,8 @@ Chapter Characters
 
 Section Muddy
 
-Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against a two-legged stool and taps a harmonica on his arm. "
+Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against a two-legged stool and taps a harmonica on his arm. ".  The description of Muddy is "Muddy is well... muddy. He's a bit short and pudgy, but always more nimble than you'd expect. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat which is covered with dust and mud. He hasn't shaved for days, and when he grins you notice one of his front teeth is missing."
 
-Muddy carries a harmonica.  The harmonica is a prop.
 
 
 Section Rick
@@ -223,18 +281,31 @@ Instead of examining the player, say "Big boots, pants, plains hat and a tattere
 
 The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's a rusty wind-up timepiece, handed down from your uncle.  It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
 
-The player wears a hat.  The hat is a portable container.  The description of the hat is "A wide-brimmed hat to protect you from the sun, and which clearly marks you as a denizen of the plains.  [if the hat contains something]In the hat you see [contents of hat].[otherwise]In the hat is ten gallons of nothing.  You sure could shove a lot of loot in there you reckon.[end if]".   Instead of eating the hat, say "If you don't git out of this place, you sure will!"
+The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun, and which clearly marks you as a denizen of the plains.  [if the hat contains something]In the hat you see [contents of hat].[otherwise]In the hat is ten gallons of nothing.  You sure could shove a lot of loot in there you reckon.[end if]".   Instead of eating the hat, say "If you don't git out of this place, you sure will!"
 
 The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles:  '1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
 
 The player wears an overcoat.
 
-The player wears boots.
+The player wears boots.  The description of the boots is "Black boots that have seen better days.  The left boot is missing a heel spur.".
+
+The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off.".  The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel.".  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount.[if the spur is part of the right boot]The spur is loosely attached to the heel of the right boot.[end if]".  The mount is part of the spur.  The description of the mount is "The mount is part of the spur.".
+
+Instead of taking the spur when the spur is part of the right boot:
+	now the player carries the spur;
+	say "You yank the spur off your right boot, being careful not to cut yourself in the process.";
+	award 1 point.
+
+[TODO: removing boots, smell, etc.]
 
 
 Section Pete
 
-Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."
+Pete is a man in the jail cell.  "Along one wall of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "man" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He almost looks half-respectable, if it weren't for the immediate environment. He wreaks of booze and snores loudly. A pamphlet is sticking out of his pocket.".
+
+Pete carries a pamphlet.  The pamphlet is a prop.  [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
+
+Pete carries a tin.  The tin is a portable openable container.  The carrying capacity of the tin is 1.   The tin contains some tobacco.  The tobacco is edible.
 
 
 
@@ -244,6 +315,17 @@ Section Flash
 Section Deputy
 
 
+
+Section Scripted Conversations
+
+[Here are some canned discussions for humor, depth, etc.]
+
+To say initial harmonica dialogue:
+	now the player holds the harmonica;
+	say "'I ain't never seen you play the mouth organ, Muddy.'[paragraph break]Your partner turns the harmonica back and forth, and a chain rattles. 'That's [apostrophe]cuz I ain't never learned how', he replies.[paragraph break]Muddy hands the harmonica to you.".
+
+To say initial harmonica inscription dialogue:
+	say "'Lookie here, Mud. There's some fancy writin[apostrophe] on the harmonica.'[paragraph break]'Don't that beat all. What's it say?'[paragraph break]'Let's see. Ah could do with more light. You got a lantern?'[paragraph break]'Nope.'[paragraph break]'Torch?'[paragraph break]'Unh-uh.'[paragraph break]'Matches?'[paragraph break]'Nary one.'[paragraph break]'Dang. Didn't we say that next adventure we'd bring [apostrophe]em?'[paragraph break]'I reckon we did, at that.'[paragraph break]'Well, the moon's up, I can see a little. It says, --Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.--'[paragraph break]'These is some Ace-high acco-mo-dations we got us, I'll say.'".
 
 
 Chapter Menus
@@ -356,7 +438,7 @@ LibMsg <pronoun not set>		"Ah don't rightly twig what '{pronoun}' refers to."
 LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash."  
 LibMsg <cannot talk to absent person>	"Yer cake hole is jabberin', but I can't rightly say to who you is talkin'."  
 LibMsg <confirm Restart>			"You shure wanna turn tail and restart? "     
-LibMsg <Inventory initial text>		"Yer haulin'"  
+LibMsg <Inventory initial text>		"Yer haulin[apostrophe]"  
 LibMsg <Inventory no possessions> 	"[youAint]haulin[apostrophe] nothing." 
 LibMsg <entering darkness>		"It's darker than midnight in a coal mine!"
 LibMsg <dark description>		"It's darker than the shine on your granddaddy's boots. You ain't able to see yer own self here."  
@@ -423,6 +505,7 @@ LibMsg <block singing>			"You got a right fine voice. [apostrophe]Jes not fer si
 LibMsg <block thinking>			"What a plumb good ideer."  
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy."  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream."  
+
 
 Chapter Every Turn
 
