@@ -4,19 +4,9 @@ The story headline is "A Wild West Wreck".
 The release number is 1.
 The story creation year is 2010.
 The story genre is "Western".
-The story description is "Muddy's plan done landed you and yer par'ner in the hoosegow. Now yer fixin' to rectificate th' matter before the Marshall introduces you to the business end of a hangin' rope at dawn.".
+The story description is "Muddy's plan done landed you and yer partner in the hoosegow. Now you're fixing to rectificate the matter before the Marshall introduces you to the business end of a hanging rope at dawn.".
 
-The intro-text is a text that varies.  Intro-text is "May, 1869.  A red sun hangs low in the sky, casting long shadows across the dusty plains of western Oklahoma.
-
-The Sheriff angrily twists your arms behind your back and you feel the rusty clink of cuffs snapping together. Muddy Charlie, your dubious conspirator, winks at you as the two of you are shoved into the paddywagon, a two horse coach with barred windows.
-
-'Hang tight, par[apostrophe]ner! You done good blowin[apostrophe] up that tunnel, and we dang stopped that train jus[apostrophe] I like I planned. Didn't plan on the Sheriff gettin[apostrophe] word ahead of time, tho[apostrophe]. That were powerful bad luck.'
-
-The Sheriff climbs onto his horse, spits, and you begin to rumble forward.  'You boys really got it comin[apostrophe] this time!', he yells back cheerfully.
-
-Muddy shakes his head. 'No offense, Sheriff, but ah thinks you got the wrong men. We was just on our way to the thee-ate-ter.'
-
-The Sheriff disagrees. 'The only place you boys are headin[apostrophe] is straight to the [paragraph break]".
+The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, the sheriff angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and the pile of silver dollars, which until recently had been the property of the Missouri, Kansas & Texas line.[paragraph break]Muddy furtively whispers, 'Hang tight, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the [paragraph break]".
 
 Include Menus by Emily Short.
 Include Plurality by Emily Short.
@@ -175,8 +165,8 @@ When play begins:
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
-	say "In the twilight, you sight the Sheriff's single story office near the edge of town. As dust and tumbleweeds waft lazily past the coach, you notice the bright coat of fresh whitewash on the outside of the sturdy brick structure.[paragraph break]Muddy notices too, and shakes his head. 'That's mighty fine construction. Mighty fine indeed.' [paragraph break]The horses stop short, the coach grinds to a halt, and the posse dismounts. A thick arm reaches into the dark coach and yanks you roughly from your seat. With your arms bound, you land awkwardly in the rutted street, and the Sheriff holds you in place with the heel of one boot while he similarly extracts Muddy from the coach. The two of you are manhandled into the Sheriff's office and before you get a good chance to look around, you and Muddy are shoved towards a ten by ten foot holding cell.[paragraph break]As you bustle into the office, the Deputy wakes with a start, and seeing the Sheriff whips his dusty boots off the desk, stands, and tucks his shirt back into his pants. The Sheriff gives him a brief, judgemental glance and offhandedly tosses your arrest warrant on the desk. The Deputy stares at it for a moment and stuffs it into his pocket. With you behind bars, the Sheriff turns towards the door and instructs the Deputy.[paragraph break]'Picked up these two down near the train. A federal marshall will be comin[apostrophe] for them at eight o'clock tomorrow morning. There's goin[apostrophe] to be a hangin[apostrophe]!'.[paragraph break]The deputy nods, this torrent of information overwhelming his limited comprehension.[paragraph break]The Sheriff sarcastically adds, 'Please take care of our... guests. I got some business in the next county to take care of, so you is in charge.'[paragraph break]After a moment, the Deputy brightens, as he realizes he's the acting Sheriff. The Sheriff crushes his mood immediately, though, by concluding 'Jimbo, don't screw up,' as he heads out the door.[paragraph break]".
-
+	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less fiesty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshall will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door.".
+	
 
 Chapter Office
 
@@ -187,18 +177,20 @@ Chapter Jail Cell
 
 
 
-The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Ah, the clink. Your home-away-from-home, just like you left it a year ago.[paragraph break][end if]The cell sports brick walls on three sides (which have been recently repainted), and the fourth wall is solid iron bars about two and a half inches apart. Through the bars you can see the rest of the Sheriff's office, full of all sorts of interesting things.  A tiny barred window is buried in a brick wall about two feet over your head."
+The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with a [if the jail door is locked]tightly locked[otherwise]unlocked[end if] metal door.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
 
 The jail cell contains the player.  
 
 
 Section Jail Door
 
-The jail door is a door.  Jail door is west of the Office and east of the Jail Cell.  [The door is locked.]
+The jail door is a door.  The jail door is scenery.  Jail door is west of the Office and east of the Jail Cell.  The door is locked.
 
-Section Stool
+Section Stool & Bench
 
-The jail cell contains a stool.  The stool is an enterable portable supporter.  The description of the stool is "foo".
+The stool is a portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
+
+The bench is a furniture in the jail cell.  The description of the bench is "blah".
 
 
 Section Harmonica
@@ -246,7 +238,7 @@ Section Window and Street
 The street is a room.  "A dusty road with a few buildings lining it."  The street contains a plant and a barrel.
 
 [Taken from example 20]
-The cell window is a door.  The description of the cell window is "A barred window about a foot square."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
+The cell window is a door.  The cell window is scenery.  The description of the cell window is "A barred window about a foot square."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
 
 Understand "look out [something]" as searching.
 Instead of searching the window:
@@ -271,7 +263,7 @@ Chapter Characters
 
 Section Muddy
 
-Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against a two-legged stool and taps a harmonica on his arm. ".  The description of Muddy is "Muddy is well... muddy. He's a bit short and pudgy, but always more nimble than you'd expect. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat which is covered with dust and mud. He hasn't shaved for days, and when he grins you notice one of his front teeth is missing."
+Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against the wall tapping a harmonica on his arm.".  The description of Muddy is "Muddy is well... muddy. He's a bit short and pudgy, but always more nimble than you'd expect. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat which is covered with dust and mud. He hasn't shaved for days, and when he grins you notice one of his front teeth is missing."
 
 
 
@@ -301,7 +293,7 @@ Instead of taking the spur when the spur is part of the right boot:
 
 Section Pete
 
-Pete is a man in the jail cell.  "Along one wall of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "man" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He almost looks half-respectable, if it weren't for the immediate environment. He wreaks of booze and snores loudly. A pamphlet is sticking out of his pocket.".
+Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "man" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He almost looks half-respectable, if it weren't for the immediate environment. He wreaks of booze and snores loudly. A pamphlet is sticking out of his pocket.".
 
 Pete carries a pamphlet.  The pamphlet is a prop.  [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
 
