@@ -178,7 +178,8 @@ When play begins:
 	say the intro-text;
 	change the time of day to 7:15 PM;
         	change the left hand status line to "[the player's surroundings]";
-        	change right hand status line to "Score: [score]/[maximum score]".
+        	change right hand status line to "Score: [score]/[maximum score]";
+	move the harmonica to Muddy.
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
@@ -317,20 +318,23 @@ The whiskey is prop on the top of the cabinet. The printed name of the whiskey i
 
 Chapter Jail Cell
 
-The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with a [if the jail door is locked]tightly locked[otherwise]unlocked[end if] metal door.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
+The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with [if the gate is locked]a tightly locked[otherwise]an unlocked[end if] gate.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
 
 The jail cell contains the player.  
 
 
-Section Jail Door
+Section Gate
 
-The jail door is a door.  The jail door is scenery.  Jail door is west of the Office and east of the Jail Cell.  The door is locked.
+The gate is a door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  Understand "door" as the gate.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
+
+The gate lock is part of the gate.
+
 
 Section Stool & Bench
 
 The stool is a portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
 
-The bench is a furniture in the jail cell.  The description of the bench is "blah".
+The bench is a furniture in the jail cell.  The description of the bench is "blah". [TODO]
 
 
 Section Harmonica
@@ -373,6 +377,18 @@ Instead of going when the player is in the jail cell:
 	continue the action.
 
 
+Section Bars
+
+The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. All except one, which is sort of gray in color. They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black, except for one which is slightly lighter in color -- a grey one.[stopping]".
+
+Instead of attacking the bars:
+	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
+
+The grey bar is part of the bars.  The grey bar is portable scenery.  [TODO:  much more here, like being able to fetch the bar by playing harmonica.  When it falls, it's no longer part of the bars, I guess.]
+
+[TODO:  pulling, pushing, or attacking the bars (or anything escape-ish) should enhance some sort of "deputy anger" scale, allowing him to react and eventually shoot the player.]
+
+
 Section Window and Street
 
 The street is a room.  "A dusty road with a few buildings lining it."  The street contains a plant and a barrel.
@@ -403,17 +419,20 @@ Chapter Characters
 
 Section Muddy
 
-Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against the wall tapping a harmonica on his arm.".  The description of Muddy is "Muddy is well... muddy. He's a bit short and pudgy, but always more nimble than you'd expect. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat which is covered with dust and mud. He hasn't shaved for days, and when he grins you notice one of his front teeth is missing."
+Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against the wall tapping a harmonica on his arm.".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]"
 
 
 
 Section Rick
 
-Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Almost... isquiesque.  You're quite the desperado, ain't ya?".
+Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Not so different from the uniform you once wore, just more lived-in.".
 
-The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's a rusty wind-up timepiece, handed down from your uncle.  It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
+The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up time piece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
 
-The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun, and which clearly marks you as a denizen of the plains.  [if the hat contains something]In the hat you see [contents of hat].[otherwise]In the hat is ten gallons of nothing.  You sure could shove a lot of loot in there you reckon.[end if]".   Instead of eating the hat, say "If you don't git out of this place, you sure will!"
+The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun."
+
+Instead of searching the hat:
+	say "[if the hat contains something]In the hat you see [contents of hat].[otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon.[end if]".   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
 
 The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles:  '1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
 
@@ -433,9 +452,19 @@ Instead of taking the spur when the spur is part of the right boot:
 
 Section Pete
 
-Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "man" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He almost looks half-respectable, if it weren't for the immediate environment. He wreaks of booze and snores loudly. A pamphlet is sticking out of his pocket.".
+Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "man" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He almost looks half-respectable, if it weren't for the immediate environment. He wreaks of booze and snores loudly. [if Pete carries the pamphlet]A pamphlet is sticking out of his pocket.[end if]".
 
 Pete carries a pamphlet.  The pamphlet is a prop.  [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
+
+Instead of taking the pamphlet when Pete carries the pamphlet:
+	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
+	move the pamphlet to the player.
+
+Check examining the pamphlet:
+	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
+
+The description of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
+
 
 Pete carries a tin.  The tin is a portable openable container.  The carrying capacity of the tin is 1.   The tin contains some tobacco.  The tobacco is edible.
 
@@ -466,6 +495,15 @@ To say initial harmonica dialogue:
 
 To say initial harmonica inscription dialogue:
 	say "'Lookie here, Mud. There's some fancy writin[apostrophe] on the harmonica.'[paragraph break]'Don't that beat all. What's it say?'[paragraph break]'Let's see. Ah could do with more light. You got a lantern?'[paragraph break]'Nope.'[paragraph break]'Torch?'[paragraph break]'Unh-uh.'[paragraph break]'Matches?'[paragraph break]'Nary one.'[paragraph break]'Dang. Didn't we say that next adventure we'd bring [apostrophe]em?'[paragraph break]'I reckon we did, at that.'[paragraph break]'Well, the moon's up, I can see a little. It says, --Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.--'[paragraph break]'These is some Ace-high acco-mo-dations we got us, I'll say.'".
+
+To say initial pamphlet dialogue:
+	say "Muddy, who had been staring intently at his boot tips looks up, eye brows knit in concentration. 'Ah don't get it. Why would anything need two hundred ninety-one thousand, eight hundred and forty eyes?'[paragraph break]'What?' you remark, looking up from the pamphlet. 'Are you kidding me? How could you figure that out?'[paragraph break]'Don't rightly know. Just something I do. Same way as I know there's 69,105 railroad ties between here and Muskogee. Ma said I was some kind of idiot savage.'[paragraph break]Dumbfounded, you stop reading halfway through the pamphlet to stare incredulously at Muddy, who picks his nose. 'Yeah, go on. What else's it say?'".
+
+To say second pamphlet dialogue:
+	say "You straighten out the pamphlet and skim it, paraphrasing for Muddy.[paragraph break]'Well let's see. It keeps going on like that for a ways without really saying much. By and by there's this part about a revival meeting. Some kind of doxology works, but out in the open, like under a circus tent. It says they'll be some preaching, some healing and even some dancing. I'd allow it sounds like a right pleasant shindig, it do.'[paragraph break]Muddy pauses.'Can I see that pamphlet a minute?'".
+
+To say pamphlet sermon:
+	say "'The Prairie Gospel Church of Uncanny Righteousness'[paragraph break]'For lo, the impetuous and retributive spirit of FINAL JUDGEMENT is stirring in the heart of the unfaithful, and a FIERY thunderhead of retribution is gathering across the plains of the undeserving, the bereft of propriety, and promulgators of heresy, and the scalding hot sparks of TRUTH are spraying forth, catching light the arid and HIGHLY FLAMMABLE and veritably kerosene-soaked sawdust of the weak-willed. And into this fray, the unwholesome BEAST shall arise and the earth shall tremble. Its body shall tower above like a mountain, and upon the body shall be nineteen heads, each like unto a serpent. Upon each head, twelve horns, like that of the ram, the bull, and the elephant, say four of each. And upon each horn, sixteen stalks, not unlike celery in some respects, yet more flexible, more like the arms of an octopus, except being twice as numerous. And upon each stalk, eighty eyes, or forty pairs of eyes, if you prefer!'".
 
 
 Chapter Menus
