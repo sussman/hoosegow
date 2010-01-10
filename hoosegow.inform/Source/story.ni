@@ -167,8 +167,8 @@ Chapter General Insteads
 
 Chapter Not Ready For Prime Time - Not for release
 
-When play begins:
-	change library message debug to on.
+[When play begins:
+	change library message debug to on.]
 	
 Chapter Initialize
 
@@ -236,7 +236,7 @@ To say lever position:
 
 Section Cabinet
 
-The cabinet is a closed openable container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]."
+The cabinet is a closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]."
 
 Does the player mean doing something with the cabinet:
 	It is very likely.
@@ -521,10 +521,10 @@ title	subtable		description	toggle
 Chapter Default Messages
 
 To say apologies:
-	say "Mah apologies".
+	say "My sincere apologies".
 
 To say fixedObject:
-	say "It ain't goin[apostrophe] nowhere."
+	say "It ain't going nowhere."
 
 To say notAbleTo:
 	say "Nohow -- you ain[apostrophe]t able to."
@@ -539,57 +539,56 @@ To say aintNo:
 	say "ain[apostrophe]t no ".
 
 To say aintNothing:
-	say "ain[apostrophe]t nothin[apostrophe] ".
+	say "ain[apostrophe]t nothing ".
 
 Table of custom library messages (continued)
 Message Id				Message Text
-LibMsg <confirm Quit>			"Fer real? Give up now [apostrophe]jes when things is gettin[apostrophe] hoppin?"
+LibMsg <confirm Quit>			"For real? Give up now just when things is getting hopping?"
 LibMsg <you have died>			"You done cashed it in."
 LibMsg <you have won>			"You has won."
-LibMsg <player self description>		"yerself"
-LibMsg <unimportant object>		"That/they ain't summit what you gotta pay heed to 'round these parts."
-LibMsg <empty line>			"Sorry cit'zen, I didn't hear you rightly. What?"  
-LibMsg <confirm Quit>			"I didn't mark you fer a quitter. You sure?"  
+LibMsg <unimportant object>		"That/they ain't something what you gotta pay heed to round these parts."
+LibMsg <empty line>			"Sorry citizen, I didn't hear you rightly. What?"  
+LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure?"  
 LibMsg <yes or no prompt>		"Ain't you got no manners? Answer yes or no."  
-LibMsg <restrict answer>			"Enough of yer blatheration. Give one of them answers from above."  
-LibMsg <page prompt>			"[bracket]Press SPACE iffn' you wanna go on a pace.[close bracket]"  
+LibMsg <restrict answer>			"Enough of your blatheration. Give one of them answers from above."  
+LibMsg <page prompt>			"[bracket]Press SPACE if'n you want to go on a pace.[close bracket]"  
 LibMsg <undo succeeded>		"[bracket]You done backtracked[dot][close bracket]"  
-LibMsg <undo failed>			"[apostrophe]Undo[apostrophe] failed real miserable like. [bracket]Not all interpreters got the cahones to get undid[dot][close bracket]"
+LibMsg <undo failed>			"[apostrophe]Undo[apostrophe] failed real miserable-like. [bracket]Not all interpreters got the cajones to get undid[dot][close bracket]"
 LibMsg <undo not provided>		"[bracket]Your 'terp don't provide [apostrophe]undo[apostrophe]. [apologies].[ExMark][close bracket]"  
 LibMsg <cannot undo nothing>		"[bracket]You can't [apostrophe]undo[apostrophe] what ain't been did none[ExMark][close bracket]"   
-LibMsg <oops failed>			"That were so balled up, ain't nothin' gonna fix it."
+LibMsg <oops failed>			"That were so balled up, ain't nothing can fix it."
 LibMsg <oops no arguments>		"[aintNothing]." 
 LibMsg <cannot do again>		"You can't hardly repeat that."   
-LibMsg <command not understood>	"Is you talkin' plain Inglish? Ah ain't follering what yer saying. Prehaps it's yer accent."  
-LibMsg <command partly understood>	"I only twigged yer meanin' as far as hankerin' to "    
-LibMsg <command incomplete>		"You seem to have said too little! Normally, ah like that in a persun."   
-LibMsg <cannot begin at comma>		"Commas ain't fer beginning sentences with. Land sakes, ain't you got no grammar?"  
-LibMsg <unknown object>		"[youAint]able to see any sech thing."  
+LibMsg <command not understood>	"Is you talking plain English? I ain't following the words coming out of your lips. Mayhaps it's your accent."  
+LibMsg <command partly understood>	"I only twigged your meaning as far as hankering to "    
+LibMsg <command incomplete>		"You seem to have said too little! Normally, I find that right pleasant."   
+LibMsg <cannot begin at comma>		"Commas ain't for beginning sentences with. Land sakes, ain't you got no grammar?"  
+LibMsg <unknown object>		"[youAint]able to see no such thing."  
 LibMsg <object not held>			"[youAint]holdin' that!"  
-LibMsg <unknown verb>			"That [aintNo]verb ah know."   
-LibMsg <cannot exceed carrying capacity>	"Yer carrying too dang blasted many things already."    
+LibMsg <unknown verb>			"That [aintNo]verb I got no knowledge of."   
+LibMsg <cannot exceed carrying capacity>	"Your carrying too dang-blasted many things already."    
 LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more room in [the main object]."  
 LibMsg <cannot put if this exceeds carrying capacity>		"There [aintNo]more room on [the main object]."  
 LibMsg <who disambiguation>		"That warn't clear. Who all do you mean, "  
 LibMsg <which disambiguation>		"Which all do you mean, "  
 LibMsg <whom disambiguation>		"Who all do you want to {command}?"  
 LibMsg <what disambiguation>		"What in tarnation do you want to {command}?"  
-LibMsg <pronoun not set>		"Ah don't rightly twig what '{pronoun}' refers to."  
+LibMsg <pronoun not set>		"I don't rightly twig what '{pronoun}' refers to."  
 LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash."  
-LibMsg <cannot talk to absent person>	"Yer cake hole is jabberin', but I can't rightly say to who you is talkin'."  
-LibMsg <confirm Restart>			"You shure wanna turn tail and restart? "     
-LibMsg <Inventory initial text>		"Yer haulin[apostrophe]"  
-LibMsg <Inventory no possessions> 	"[youAint]haulin[apostrophe] nothing." 
+LibMsg <cannot talk to absent person>	"Your cake hole is jabbering, but I can't rightly say to who you is talking."  
+LibMsg <confirm Restart>			"You sure you want to turn tail and restart? "     
+LibMsg <Inventory initial text>		"You're hauling"  
+LibMsg <Inventory no possessions> 	"[youAint]hauling nothing." 
 LibMsg <entering darkness>		"It's darker than midnight in a coal mine!"
-LibMsg <dark description>		"It's darker than the shine on your granddaddy's boots. You ain't able to see yer own self here."  
-LibMsg <examine while dark>		"Ain't no seein' to be had on account of it's so dark here."  
+LibMsg <dark description>		"It's darker than the shine on your granddaddy's boots. You ain't able to see your own self here."  
+LibMsg <examine while dark>		"Ain't no seeing to be had on account of it's so dark here."  
 LibMsg <report player taking>		"Fetched."  
-LibMsg <cannot take other people>	"I don't reckon [the main object] would mech care fer that."  
+LibMsg <cannot take other people>	"I don't reckon [the main object] would much care for that."  
 LibMsg <cannot take something you are within>		"You[apostrophe]d have to get off/out of [the main object] first."  
 LibMsg <cannot take something already taken>		"Sakes alive. You already done got that/those."    
 LibMsg <cannot reach within closed containers>		"[The main object] ain't open."  
 LibMsg <cannot take scenery>		"That/they ain't hardly what a body would aim to carry about."  
-LibMsg <cannot take something fixed>	"That's/they're planted real good and not going anywhere, ah reckon."
+LibMsg <cannot take something fixed>	"That's/they're planted real good and not going anywhere, I do reckon."
 LibMsg <report player removing>		"Snatched."  
 LibMsg <cannot remove something not within>		"But it/they ain't there now."  
 LibMsg <report player dropping>		"Ditched."  
@@ -602,21 +601,21 @@ LibMsg <cannot exit when not within anything>		"[youAint]in anything at the mome
 LibMsg <cannot get off things>		"[youAint]on [the main object] at the moment."  
 LibMsg <cannot go up through closed doors>		"[youAint]able to climb [the main object]."  
 LibMsg <brief look mode>			"{Story name} is now 'brief' printing mode, what gives long descriptions of places you ain't visited before and short descriptions otherwise."  
-LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if yer ain't been there before)."  
-LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you  been there plenty)."  
-LibMsg <cannot search unless container or supporter>	"You don't find nothin' t'all."  
-LibMsg <cannot search closed opaque containers>		"[youAint] able to peek inside, seein' as how [the main object] is/are closed."  
+LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before)."  
+LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty)."  
+LibMsg <cannot search unless container or supporter>	"You don't find nothing at all."  
+LibMsg <cannot search closed opaque containers>		"[youAint] able to peek inside, seeing as how [the main object] is/are closed."  
 LibMsg <nothing found on top of>	"There [aintNothing]on [the main object]."  
 LibMsg <cannot open unless openable>	"That/They ain't something you can open."  
 LibMsg <cannot switch on unless switchable>		"That/They ain't something you can switch."  
 LibMsg <cannot take off something not worn>		"[youAint]wearing that/them."  
 LibMsg <report player eating>		"You choke down [the main object]. Not bad."  
-LibMsg <cannot eat unless edible>		"Any tom fool could see that/they ain't fer eatin."  
-LibMsg <block drinking>			"There's [aintNothing]proper fit fer drinkin' here."  
+LibMsg <cannot eat unless edible>		"Any tom fool could see that/they ain't for eating."  
+LibMsg <block drinking>			"There's [aintNothing]proper fit for drinking here."  
 LibMsg <report player touching self>	"If you reckon that'll help."  
-LibMsg <report player touching other people>		"Keep yer filthy hands to yer lonesome!"  
-LibMsg <block saying sorry>		"Oh, shove yer boot-lickin'."  
-LibMsg <block swearing obscenely>	"Ain't no need to air yer lungs so. We keep a civil tongue in these parts. Mostly."  
+LibMsg <report player touching other people>		"Keep your filthy sheep shearing, pig wallowing, cow poking hands to your lonesome!"  
+LibMsg <block saying sorry>		"Oh, shove your boot-lickin'."  
+LibMsg <block swearing obscenely>	"Ain't no need to air your lungs so. We keep a civil tongue in these parts. Mostly."  
 LibMsg <block swearing mildly>		"Ain't it, though."  
 LibMsg <block climbing>			"I don't think much is to be achieved by that."  
 LibMsg <block jumping>			"You dance about like a niner soaked full of nose paint."
@@ -626,8 +625,8 @@ LibMsg <block attacking>			"You reckon violence usually is the answer, but maybe
 LibMsg <block rubbing>			"That don't seem to serve no purpose."  
 LibMsg <report player waving things>	"You look stranger than a preacher in a vaulting house waving [the main object]."  
 LibMsg <cannot wave something not held>		"Nope. [youAint]holding that/those."  
-LibMsg <squeezing people>		"Keep yer paws to yerself."  
-LibMsg <report player squeezing>		"That don't get nothin' done."  
+LibMsg <squeezing people>		"Keep your paws to yerself."  
+LibMsg <report player squeezing>		"That don't get nothing done."  
 LibMsg <not pushed in a direction>	"That [aintNo]direction."  
 LibMsg <pushed in illegal direction>  	"Not that way you can't."  
 LibMsg <cannot push something fixed in place>		"[fixedObject]"  
@@ -641,8 +640,8 @@ LibMsg <cannot pull people>		"[notNeighborly]"
 LibMsg <cannot turn people>		"[notNeighborly]"  
 LibMsg <block answering>		"There [aintNo]reply."  
 LibMsg <block asking>			"There [aintNo]reply."  
-LibMsg <block singing>			"You got a right fine voice. [apostrophe]Jes not fer singin[apostrophe]."  
-LibMsg <block thinking>			"What a plumb good ideer."  
+LibMsg <block singing>			"You got a right fine voice. [apostrophe]Just not for singing."  
+LibMsg <block thinking>			"What a plumb good idea."  
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy."  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream."  
 
