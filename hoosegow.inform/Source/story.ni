@@ -135,6 +135,36 @@ Report using:
 		-- xxx		
 ]
 
+Section Chewing
+
+Chewing is an action applying to one thing. Understand "chew [a thing]" as chewing.
+
+Check chewing:
+	if the noun is not tobacco:
+		say "Tobacco's the only thing worth chewing." instead;
+	if tobacco is not in the mouth:
+		say "(first sticking some in your maw)[command clarification break]";
+		move the tobacco to the mouth.
+		
+Carry out chewing:
+	increase the chew count by one;
+	if the chew count is:
+		-- 1: say "The tobacco is getting juicy and soft.";
+		-- 2: say "It tastes pretty horrid.";
+		-- 3: say "You wonder if tobacco is really good for you, like the doctors say.";
+		-- 4: say "The taste of the tobacco is beginning to disgust you. You'd like to get it out of your mouth.";
+		-- 5: say "You have an urge to spit the tobacco out.";
+		-- 6: say "Now you know why it's called spitting image. If you don't spit the stuff out of your mouth, you're going to be sick.";
+		-- 7: say "You can't abide the taste of the tobacco one second more. You spit it out the window. [paragraph break][if the tobacco is not commented][quotation mark]Hey, you're a right powerful tobacco spitter -- not bad for a fancy plantation gentleman,[quotation mark] observes Muddy. [quotation mark]You might consider entering a contest at the next fair we come to.[quotation mark][paragraph break][end if]";
+			now the tobacco is commented;
+			now the chew count is zero;
+			move the tobacco to the tin;
+		-- otherwise: say "### debug problem. overchewed tobacco".
+				  
+Does the player mean chewing the tobacco:
+	it is very likely.[to prevent the player from chewing the cabinet by default ?!]
+
+
 Section Playing
 
 Understand the command "play" as something new.  Playing is an action applying to one thing.  Understand "play [a thing]" as playing.
@@ -161,7 +191,61 @@ Shooting is an action applying to one thing. Understand "shoot [a thing]" as sho
 
 Carry out shooting:
 	say "Bang!" [### a placeholder]
+	
+Section Spitting
 
+[###TODO kill the parenthetical expression after tin in inventory -- it betrays that the tobacco isn't in the tin, contrary to the static description.
+
+May need to consider cases where the tobacco isn't in tin, mouth, or held by Rick.]
+
+Understand "tobacco" or "chaw" or "chewing tobacco" or "wad" as "[wad]".
+
+This is the tobacco sequence rule:
+	if the tobacco is in the mouth and the chew count is greater than one:
+		the rule succeeds;
+	otherwise:
+		if the tobacco is in the mouth and the chew count is less than one:
+			if the chew count has been greater than one:
+				say "(first chewing some tobacco)[command clarification break]";
+				increase the chew count by one;
+				the rule succeeds;
+			otherwise:
+				say "You ain't chawn your tobacco enough yet.";
+				the rule fails;
+		otherwise:
+			if the tobacco is not in the mouth: 
+				if the tobacco has been in the mouth and the player encloses the tobacco:
+					say "(first ";
+					if the tobacco is in the tin and the tin is closed:
+						now the tin is open;
+						say "opening the tin and ";
+					say "chewing some tobacco)[command clarification break]";
+					increase the chew count by one;
+					the rule succeeds;
+				otherwise:
+					say "There ain't no tobacco in your mouth. Spitting ain't hardly for nothing, what you ain't got no tobacco to spit with!";
+					the rule fails.
+
+SimpleSpitting is an action applying to nothing. Understand "spit" or "spit [wad]" as simpleSpitting.
+
+Check simpleSpitting:
+	Abide by the tobacco sequence rule.
+		
+Carry out simpleSpitting:
+	say "[one of]Straight up? It would hit you in the eye on the return trip. [or][stopping]You have to say what you want to spit it at."
+
+DirectedSpitting at is an action applying to one thing. Understand "spit [wad] at/on/onto/towards [something]" or "spit at/on/onto/towards [something]" as directedSpitting at.
+
+Check directedSpitting at:
+	Abide by the tobacco sequence rule.
+		
+Carry out directedSpitting at:
+	if the noun is:
+		-- Muddy: say "Muddy grins and dodges the tobacco. The wad flies out the window.";
+		-- otherwise: say "The tobacco hits [the noun]."; [should not get here.]
+	now the chew count is zero;
+	move the tobacco to the tin.
+	[###TODO add other cases]
 
 Chapter General Insteads
 
@@ -320,8 +404,13 @@ Chapter Jail Cell
 
 The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with [if the gate is locked]a tightly locked[otherwise]an unlocked[end if] gate.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
 
-The jail cell contains the player.  
+The jail cell contains the player. The mouth is part of the player. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth.
 
+Instead of inserting something inedible into the mouth:
+	say "That ain't hardly something to go putting into your mouth."
+	
+After inserting something into the mouth:
+	say "You pop [the noun] into your gaping maw."
 
 Section Gate
 
@@ -427,20 +516,20 @@ Section Rick
 
 Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Not so different from the uniform you once wore, just more lived-in.".
 
-The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up time piece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
+The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
 
 The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun."
 
 Instead of searching the hat:
-	say "[if the hat contains something]In the hat you see [contents of hat].[otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon.[end if]".   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
+	say "[if the hat contains something]In the hat you see [contents of hat][otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon[end if]."   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
 
-The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles:  '1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
+The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles: 'DEER RICK, 1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
 
 The player wears an overcoat.
 
 The player wears boots.  The description of the boots is "Black boots that have seen better days.  The left boot is missing a heel spur.".
 
-The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off.".  The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel.".  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount.[if the spur is part of the right boot]The spur is loosely attached to the heel of the right boot.[end if]".  The mount is part of the spur.  The description of the mount is "The mount is part of the spur.".
+The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off.".  The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount.[if the spur is part of the right boot]The spur is loosely attached to the heel of the right boot.[end if]".  The mount is part of the spur.  The description of the mount is "The mount is part of the spur.".
 
 Instead of taking the spur when the spur is part of the right boot:
 	now the player carries the spur;
@@ -452,7 +541,7 @@ Instead of taking the spur when the spur is part of the right boot:
 
 Section Pete
 
-Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "man" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He almost looks half-respectable, if it weren't for the immediate environment. He wreaks of booze and snores loudly. [if Pete carries the pamphlet]A pamphlet is sticking out of his pocket.[end if]".
+Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete carries the pamphlet]. A pamphlet is sticking out of his pocket[end if]."
 
 Pete carries a pamphlet.  The pamphlet is a prop.  [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
 
@@ -462,15 +551,47 @@ Instead of taking the pamphlet when Pete carries the pamphlet:
 
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
+	
+The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture."
 
-The description of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
+The sermon is part of the pamphlet. The description of the sermon is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
 
+Pete carries a tin.  The tin is a closed portable openable container.  The carrying capacity of the tin is 1. 
 
-Pete carries a tin.  The tin is a portable openable container.  The carrying capacity of the tin is 1.   The tin contains some tobacco.  The tobacco is edible.
+Instead of searching Pete:
+	if Pete carries the tin:
+		say "You find a tin of chewing tobacco. It looks interesting, so you borrow it."; 
+		move the tin to the player;
+	otherwise:
+		say "You don't find anything that Pete wasn't born with."
+		
+Before taking the tin:
+	if Pete carries the tin:
+		say "You borrow Pete's tin of chewing tobacco. It don't look like he'll mind seeing as how he's unconscious and all.";
+		move the tin to the player;
+		stop the action.
 
+The description of the tin is "A rectangular tin of [quotation mark]Spitting Image[quotation mark] chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is [if the tin is open]opened[otherwise]closed[end if][if the tin is open] revealing some [tobacco-appearance][end if]."
 
+The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "some". Tobacco can be commented. Tobacco is not commented.
+	
+After eating tobacco:
+	if the tobacco is ingested:
+		say "Nope. Once was enough.";
+		move the tobacco to the player;
+	otherwise:
+		now the tobacco is ingested;
+		say "[swallowed chaw dialogue]";
+		move the tobacco to the tin.
+		
+Before inserting the tobacco into the mouth:
+	if the tobacco is in tin and player carries the tin:
+		say "(first taking a pinch of tobacco)[command clarification break]";
+		move the tobacco to the player;
+		continue the action.
 
 Section Flash
+[dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
 
 Flash is a male animal in Limbo.
 
@@ -504,7 +625,9 @@ To say second pamphlet dialogue:
 
 To say pamphlet sermon:
 	say "'The Prairie Gospel Church of Uncanny Righteousness'[paragraph break]'For lo, the impetuous and retributive spirit of FINAL JUDGEMENT is stirring in the heart of the unfaithful, and a FIERY thunderhead of retribution is gathering across the plains of the undeserving, the bereft of propriety, and promulgators of heresy, and the scalding hot sparks of TRUTH are spraying forth, catching light the arid and HIGHLY FLAMMABLE and veritably kerosene-soaked sawdust of the weak-willed. And into this fray, the unwholesome BEAST shall arise and the earth shall tremble. Its body shall tower above like a mountain, and upon the body shall be nineteen heads, each like unto a serpent. Upon each head, twelve horns, like that of the ram, the bull, and the elephant, say four of each. And upon each horn, sixteen stalks, not unlike celery in some respects, yet more flexible, more like the arms of an octopus, except being twice as numerous. And upon each stalk, eighty eyes, or forty pairs of eyes, if you prefer!'".
-
+	
+To say swallowed chaw dialogue:
+	say "[quotation mark]Glmph.[quotation mark][paragraph break][quotation mark]You didn't just swallow that chaw, did you?[quotation mark] asks Muddy incredulously.[paragraph break][quotation mark]I reckon I done just that -- and it didn't go down pretty.[quotation mark][paragraph break]You galoot. You're supposed to chew it. Hain't I learned you nothing?[quotation mark][paragraph break]".
 
 Chapter Menus
 
@@ -581,92 +704,92 @@ To say aintNothing:
 
 Table of custom library messages (continued)
 Message Id				Message Text
-LibMsg <confirm Quit>			"For real? Give up now just when things is getting hopping?"
-LibMsg <you have died>			"You done cashed it in."
-LibMsg <you have won>			"You has won."
-LibMsg <unimportant object>		"That/they ain't something what you gotta pay heed to round these parts."
-LibMsg <empty line>			"Sorry citizen, I didn't hear you rightly. What?"  
-LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure?"  
-LibMsg <yes or no prompt>		"Ain't you got no manners? Answer yes or no."  
-LibMsg <restrict answer>			"Enough of your blatheration. Give one of them answers from above."  
+LibMsg <confirm Quit>			"For real? Give up now just when things is getting hopping?[paragraph break]"
+LibMsg <you have died>			"You done cashed it in.[paragraph break]"
+LibMsg <you have won>			"You has won.[paragraph break]"
+LibMsg <unimportant object>		"That/they ain't something what you gotta pay heed to round these parts.[paragraph break]"
+LibMsg <empty line>			"Sorry citizen, I didn't hear you rightly. What?[paragraph break]"  
+LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure?[paragraph break]"  
+LibMsg <yes or no prompt>		"Ain't you got no manners? Answer yes or no.[paragraph break]"  
+LibMsg <restrict answer>			"Enough of your blatheration. Give one of them answers from above.[paragraph break]"  
 LibMsg <page prompt>			"[bracket]Press SPACE if'n you want to go on a pace.[close bracket]"  
 LibMsg <undo succeeded>		"[bracket]You done backtracked[dot][close bracket]"  
 LibMsg <undo failed>			"[apostrophe]Undo[apostrophe] failed real miserable-like. [bracket]Not all interpreters got the cajones to get undid[dot][close bracket]"
 LibMsg <undo not provided>		"[bracket]Your 'terp don't provide [apostrophe]undo[apostrophe]. [apologies].[ExMark][close bracket]"  
 LibMsg <cannot undo nothing>		"[bracket]You can't [apostrophe]undo[apostrophe] what ain't been did none[ExMark][close bracket]"   
-LibMsg <oops failed>			"That were so balled up, ain't nothing can fix it."
-LibMsg <oops no arguments>		"[aintNothing]." 
-LibMsg <cannot do again>		"You can't hardly repeat that."   
-LibMsg <command not understood>	"Is you talking plain English? I ain't following the words coming out of your lips. Mayhaps it's your accent."  
+LibMsg <oops failed>			"That were so balled up, ain't nothing can fix it.[paragraph break]"
+LibMsg <oops no arguments>		"[aintNothing].[paragraph break]" 
+LibMsg <cannot do again>		"You can't hardly repeat that.[paragraph break]"   
+LibMsg <command not understood>	"Is you talking plain English? I ain't following the words coming out of your lips. Mayhaps it's your accent.[paragraph break]"  
 LibMsg <command partly understood>	"I only twigged your meaning as far as hankering to "    
-LibMsg <command incomplete>		"You seem to have said too little! Normally, I find that right pleasant."   
-LibMsg <cannot begin at comma>		"Commas ain't for beginning sentences with. Land sakes, ain't you got no grammar?"  
-LibMsg <unknown object>		"[youAint]able to see no such thing."  
-LibMsg <object not held>			"[youAint]holdin' that!"  
-LibMsg <unknown verb>			"That [aintNo]verb I got no knowledge of."   
-LibMsg <cannot exceed carrying capacity>	"Your carrying too dang-blasted many things already."    
-LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more room in [the main object]."  
-LibMsg <cannot put if this exceeds carrying capacity>		"There [aintNo]more room on [the main object]."  
+LibMsg <command incomplete>		"You seem to have said too little! Normally, I find that right pleasant.[paragraph break]"   
+LibMsg <cannot begin at comma>		"Commas ain't for beginning sentences with. Land sakes, ain't you got no grammar?[paragraph break]"  
+LibMsg <unknown object>		"[youAint]able to see no such thing.[line break]"  
+LibMsg <object not held>			"[youAint]holdin' that![paragraph break]"  
+LibMsg <unknown verb>			"That [aintNo]verb I got no knowledge of.[paragraph break]"   
+LibMsg <cannot exceed carrying capacity>	"Your carrying too dang-blasted many things already.[paragraph break]"    
+LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more room in [the main object].[paragraph break]"  
+LibMsg <cannot put if this exceeds carrying capacity>		"There [aintNo]more room on [the main object].[paragraph break]"  
 LibMsg <who disambiguation>		"That warn't clear. Who all do you mean, "  
 LibMsg <which disambiguation>		"Which all do you mean, "  
-LibMsg <whom disambiguation>		"Who all do you want to {command}?"  
-LibMsg <what disambiguation>		"What in tarnation do you want to {command}?"  
-LibMsg <pronoun not set>		"I don't rightly twig what '{pronoun}' refers to."  
-LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash."  
-LibMsg <cannot talk to absent person>	"Your cake hole is jabbering, but I can't rightly say to who you is talking."  
+LibMsg <whom disambiguation>		"Who all do you want to {command}?[paragraph break]"  
+LibMsg <what disambiguation>		"What in tarnation do you want to {command}?[paragraph break]"  
+LibMsg <pronoun not set>		"I don't rightly twig what '{pronoun}' refers to.[paragraph break]"  
+LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash.[paragraph break]"  
+LibMsg <cannot talk to absent person>	"Your cake hole is jabbering, but I can't rightly say to who you is talking.[paragraph break]"  
 LibMsg <confirm Restart>			"You sure you want to turn tail and restart? "     
 LibMsg <Inventory initial text>		"You're hauling"  
-LibMsg <Inventory no possessions> 	"[youAint]hauling nothing." 
-LibMsg <entering darkness>		"It's darker than midnight in a coal mine!"
-LibMsg <dark description>		"It's darker than the shine on your granddaddy's boots. You ain't able to see your own self here."  
-LibMsg <examine while dark>		"Ain't no seeing to be had on account of it's so dark here."  
-LibMsg <report player taking>		"Fetched."  
-LibMsg <cannot take other people>	"I don't reckon [the main object] would much care for that."  
-LibMsg <cannot take something you are within>		"You[apostrophe]d have to get off/out of [the main object] first."  
-LibMsg <cannot take something already taken>		"Sakes alive. You already done got that/those."    
-LibMsg <cannot reach within closed containers>		"[The main object] ain't open."  
-LibMsg <cannot take scenery>		"That/they ain't hardly what a body would aim to carry about."  
-LibMsg <cannot take something fixed>	"That's/they're planted real good and not going anywhere, I do reckon."
-LibMsg <report player removing>		"Snatched."  
-LibMsg <cannot remove something not within>		"But it/they ain't there now."  
-LibMsg <report player dropping>		"Ditched."  
-LibMsg <cannot drop not holding>		"[youAint]got that/those."  
-LibMsg <cannot give what you have not got>		"[youAint]holding [the main object]."
-LibMsg <block giving>			"[The main object] don't seem interested."  
-LibMsg <cannot show what you have not got>		"[youAint]holding [the main object]."  
-LibMsg <cannot enter something not enterable>		"That/they ain't something you can enter/stand on/sit down on/lie down on."  
-LibMsg <cannot exit when not within anything>		"[youAint]in anything at the moment."
-LibMsg <cannot get off things>		"[youAint]on [the main object] at the moment."  
-LibMsg <cannot go up through closed doors>		"[youAint]able to climb [the main object]."  
-LibMsg <brief look mode>			"{Story name} is now 'brief' printing mode, what gives long descriptions of places you ain't visited before and short descriptions otherwise."  
-LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before)."  
-LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty)."  
-LibMsg <cannot search unless container or supporter>	"You don't find nothing at all."  
-LibMsg <cannot search closed opaque containers>		"[youAint] able to peek inside, seeing as how [the main object] is/are closed."  
-LibMsg <nothing found on top of>	"There [aintNothing]on [the main object]."  
-LibMsg <cannot open unless openable>	"That/They ain't something you can open."  
-LibMsg <cannot switch on unless switchable>		"That/They ain't something you can switch."  
-LibMsg <cannot take off something not worn>		"[youAint]wearing that/them."  
-LibMsg <report player eating>		"You choke down [the main object]. Not bad."  
-LibMsg <cannot eat unless edible>		"Any tom fool could see that/they ain't for eating."  
-LibMsg <block drinking>			"There's [aintNothing]proper fit for drinking here."  
-LibMsg <report player touching self>	"If you reckon that'll help."  
-LibMsg <report player touching other people>		"Keep your filthy sheep shearing, pig wallowing, cow poking hands to your lonesome!"  
-LibMsg <block saying sorry>		"Oh, shove your boot-lickin'."  
-LibMsg <block swearing obscenely>	"Ain't no need to air your lungs so. We keep a civil tongue in these parts. Mostly."  
-LibMsg <block swearing mildly>		"Ain't it, though."  
-LibMsg <block climbing>			"I don't think much is to be achieved by that."  
-LibMsg <block jumping>			"You dance about like a niner soaked full of nose paint."
-LibMsg <block swinging>			"There [aintNothing]sensible to swing here."  
-LibMsg <block waving hands>		"You send a wave."  
-LibMsg <block attacking>			"You reckon violence usually is the answer, but maybe not just now."  
-LibMsg <block rubbing>			"That don't seem to serve no purpose."  
-LibMsg <report player waving things>	"You look stranger than a preacher in a vaulting house waving [the main object]."  
-LibMsg <cannot wave something not held>		"Nope. [youAint]holding that/those."  
-LibMsg <squeezing people>		"Keep your paws to yerself."  
-LibMsg <report player squeezing>		"That don't get nothing done."  
-LibMsg <not pushed in a direction>	"That [aintNo]direction."  
-LibMsg <pushed in illegal direction>  	"Not that way you can't."  
+LibMsg <Inventory no possessions> 	"[youAint]hauling nothing.[paragraph break]" 
+LibMsg <entering darkness>		"It's darker than midnight in a coal mine![paragraph break]"
+LibMsg <dark description>		"It's darker than the shine on your granddaddy's boots. You ain't able to see your own self here.[paragraph break]"  
+LibMsg <examine while dark>		"Ain't no seeing to be had on account of it's so dark here.[paragraph break]"  
+LibMsg <report player taking>		"Fetched.[paragraph break]"  
+LibMsg <cannot take other people>	"I don't reckon [the main object] would much care for that.[paragraph break]"  
+LibMsg <cannot take something you are within>		"You[apostrophe]d have to get off/out of [the main object] first.[paragraph break]"  
+LibMsg <cannot take something already taken>		"Sakes alive. You already done got that.[paragraph break]"    
+LibMsg <cannot reach within closed containers>		"[The main object] ain't open.[paragraph break]"  
+LibMsg <cannot take scenery>		"That/they ain't hardly what a body would aim to carry about.[paragraph break]"  
+LibMsg <cannot take something fixed>	"That's/they're planted real good and not going anywhere, I do reckon.[paragraph break]"
+LibMsg <report player removing>		"Snatched.[paragraph break]"  
+LibMsg <cannot remove something not within>		"But it ain't there now.[paragraph break]"  
+LibMsg <report player dropping>		"Ditched.[paragraph break]"  
+LibMsg <cannot drop not holding>		"[youAint]got that.[paragraph break]"  
+LibMsg <cannot give what you have not got>		"[youAint]holding [the main object].[paragraph break]"
+LibMsg <block giving>			"[The main object] don't seem interested.[paragraph break]"  
+LibMsg <cannot show what you have not got>		"[youAint]holding [the main object].[paragraph break]"  
+LibMsg <cannot enter something not enterable>		"That/they ain't something you can enter/stand on/sit down on/lie down on.[paragraph break]"  
+LibMsg <cannot exit when not within anything>		"[youAint]in anything at the moment.[paragraph break]"
+LibMsg <cannot get off things>		"[youAint]on [the main object] at the moment.[paragraph break]"  
+LibMsg <cannot go up through closed doors>		"[youAint]able to climb [the main object].[paragraph break]"  
+LibMsg <brief look mode>			"{Story name} is now 'brief' printing mode, what gives long descriptions of places you ain't visited before and short descriptions otherwise.[paragraph break]"  
+LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before).[paragraph break]"  
+LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty).[paragraph break]"  
+LibMsg <cannot search unless container or supporter>	"You don't find nothing at all.[paragraph break]"  
+LibMsg <cannot search closed opaque containers>		"[youAint] able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
+LibMsg <nothing found on top of>	"There [aintNothing]on [the main object].[paragraph break]"  
+LibMsg <cannot open unless openable>	"They ain't something you can open.[paragraph break]"  
+LibMsg <cannot switch on unless switchable>		"They ain't something you can switch.[paragraph break]"  
+LibMsg <cannot take off something not worn>		"[youAint]wearing that.[paragraph break]"  
+LibMsg <report player eating>		"You choke down [the main object]. Not bad.[paragraph break]"  
+LibMsg <cannot eat unless edible>		"Any tom fool could see that/they ain't for eating.[paragraph break]"  
+LibMsg <block drinking>			"There's [aintNothing]proper fit for drinking here.[paragraph break]"  
+LibMsg <report player touching self>	"If you reckon that'll help.[paragraph break]"  
+LibMsg <report player touching other people>		"Keep your filthy sheep shearing, pig wallowing, cow poking hands to your lonesome![paragraph break]"  
+LibMsg <block saying sorry>		"Oh, shove your boot-lickin'.[paragraph break]"  
+LibMsg <block swearing obscenely>	"Ain't no need to air your lungs so. We keep a civil tongue in these parts. Mostly.[paragraph break]"  
+LibMsg <block swearing mildly>		"Ain't it, though.[paragraph break]"  
+LibMsg <block climbing>			"I don't think much is to be achieved by that.[paragraph break]"  
+LibMsg <block jumping>			"You dance about like a niner soaked full of nose paint.[paragraph break]"
+LibMsg <block swinging>			"There [aintNothing]sensible to swing here.[paragraph break]"  
+LibMsg <block waving hands>		"You send a wave.[paragraph break]"  
+LibMsg <block attacking>			"You reckon violence usually is the answer, but maybe not just now.[paragraph break]"  
+LibMsg <block rubbing>			"That don't seem to serve no purpose.[paragraph break]"  
+LibMsg <report player waving things>	"You look stranger than a preacher in a vaulting house waving [the main object].[paragraph break]"  
+LibMsg <cannot wave something not held>		"Nope. [youAint]holding that.[paragraph break]"  
+LibMsg <squeezing people>		"Keep your paws to yerself.[paragraph break]"  
+LibMsg <report player squeezing>		"That don't get nothing done.[paragraph break]"  
+LibMsg <not pushed in a direction>	"That [aintNo]direction.[paragraph break]"  
+LibMsg <pushed in illegal direction>  	"Not that way you can't.[paragraph break]"  
 LibMsg <cannot push something fixed in place>		"[fixedObject]"  
 LibMsg <cannot pull something fixed in place>		"[fixedObject]"  
 LibMsg <cannot turn something fixed in place>		"[fixedObject]"  
@@ -676,12 +799,12 @@ LibMsg <cannot turn scenery>		"[notAbleTo]"
 LibMsg <cannot push people>		"[notNeighborly]"  
 LibMsg <cannot pull people>		"[notNeighborly]"  
 LibMsg <cannot turn people>		"[notNeighborly]"  
-LibMsg <block answering>		"There [aintNo]reply."  
-LibMsg <block asking>			"There [aintNo]reply."  
-LibMsg <block singing>			"You got a right fine voice. [apostrophe]Just not for singing."  
-LibMsg <block thinking>			"What a plumb good idea."  
-LibMsg <block sleeping>			"[youAint]feeling especially drowsy."  
-LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream."  
+LibMsg <block answering>		"There [aintNo]reply.[paragraph break]"  
+LibMsg <block asking>			"There [aintNo]reply.[paragraph break]"  
+LibMsg <block singing>			"You got a right fine voice. Just not for singing.[paragraph break]"  
+LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"  
+LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
+LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
 
 
 Chapter Every Turn
