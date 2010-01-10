@@ -4,7 +4,8 @@ The story headline is "A Wild West Wreck".
 The release number is 1.
 The story creation year is 2010.
 The story genre is "Western".
-The story description is "Muddy's plan done landed you and yer partner in the hoosegow. Now you're fixing to rectificate the matter before the Marshall introduces you to the business end of a hanging rope at dawn.".
+
+The story description is "Muddy's plan done landed you and your partner in the hoosegow. Now you're fixing to rectificate the matter before the marshall introduces you to the business end of a hangin' rope at dawn."
 
 The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, the sheriff angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and the pile of silver dollars, which until recently had been the property of the Missouri, Kansas & Texas line.[paragraph break]Muddy furtively whispers, 'Hang tight, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the [paragraph break]".
 
@@ -16,8 +17,6 @@ Use full-length room descriptions, american dialect and the serial comma.
 Use memory economy.
 
 Release along with cover art.
-
-
 
 Book 1 Mechanics
 
@@ -169,14 +168,112 @@ After printing the banner text:
 	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less fiesty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshall will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door.".
 	
 
+Chapter Limbo
+[A place for offstage stuff]
+
+Limbo is a room.
+
+
 Chapter Office
 
-The office is a room.  "An efficiently trimmed office, ready for all manner of bureaucracy."  The office contains a desk.  The desk is a supporter and fixed in place.  On the desk is a pen.
+The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, a door leads back to town."
 
+Section Bell
+
+The bell is a prop in the office. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the door way on a small hook[end if]."
+
+The hook is a furniture in the office. The description of the hook is "A small metal hook screwed into the door jam[if the bell is on the hook] A bell hangs from the hook[end if]."
+
+Section Boiler
+
+Position is a kind of value. The positions are whistleward, neutral, and coffeeward.
+
+The boiler is a furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]." Understand "combustion" or "chamber" as the boiler.
+
+The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler."
+
+The ball is part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball.
+
+The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.
+
+The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction just above the pressure gauge. The arm can swing towards either the door or the back of the office. Right now, it is nearer [lever position]." The lever has position. The lever is neutral.
+
+To say lever position:
+	say "Right now, it is nearer to ";
+	if the position of the lever is:
+		-- whistleward: 
+			say "the office door";
+		-- neutral: 	
+			say "neither position";
+		-- coffeeward:
+			say "the rear of the office";
+	if Flash is in the office:
+		say ". Flash the brave guard dog is tied by a leash to the lever";
+	say "."
+
+Section Cabinet
+
+The cabinet is a closed openable container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]."
+
+Does the player mean doing something with the cabinet:
+	It is very likely.
+	
+[###CONSIDER: suppress disambiguation message]
+
+Section Chair
+
+The chair is furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
+
+Section Desk
+
+The desk is furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]."
+
+The description of the drawer is "A small drawer". The small lock is part of the drawer. The drawer can be mentioned. The drawer is not mentioned. 
+
+Section Outdooors
+
+The outdoors is a transparent scenery container in the office.
+
+The range is a supporter in the outdoors. The description of the range is "The deer and the antelope are playing."
+
+The fields are a plural-named supporter in the outdoors. The description of the fields is "Corn, mostly."
+
+The deer is a male animal on the range. 
+
+The antelope is a female animal on the range. 
+
+After examining an animal on the range:
+	say "The deer stares back to you momentarily and then runs off with the antelope. Ungulates are very private, you know.";
+	move the deer to Limbo;
+	move the antelope to Limbo.	
+
+Section Portrait
+
+The portrait is a prop in the office. The portrait can be hung up. The portrait is not hung up.
+
+Section Protocappuccinomatic
+
+The protocappuccinomatic is a furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "strange machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic.
+
+The iron pipe is part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe.
+
+The cup is part of the protocappuccinomatic. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee, which has been laced with the juice of the Peruvian Snoozeberry[end if]."
+
+Some coffee is in Limbo. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of".
+
+The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle.
+
+The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute.
+
+Section Swinging Doors
+
+The swinging doors are a plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields."
+
+Section Whiskey
+
+The whiskey is prop on the top of the cabinet. The printed name of the whiskey is "bottle of whiskey". 
 
 Chapter Jail Cell
-
-
 
 The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with [if the gate is locked]a tightly locked[otherwise]an unlocked[end if] gate.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
 
@@ -330,8 +427,12 @@ Pete carries a tin.  The tin is a portable openable container.  The carrying cap
 
 Section Flash
 
+Flash is a male animal in Limbo.
 
 Section Deputy
+
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key.
+
 
 
 
