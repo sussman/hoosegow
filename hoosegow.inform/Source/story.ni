@@ -178,20 +178,23 @@ Chapter Jail Cell
 
 
 
-The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with a [if the jail door is locked]tightly locked[otherwise]unlocked[end if] metal door.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
+The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with [if the gate is locked]a tightly locked[otherwise]an unlocked[end if] gate.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
 
 The jail cell contains the player.  
 
 
-Section Jail Door
+Section Gate
 
-The jail door is a door.  The jail door is scenery.  Jail door is west of the Office and east of the Jail Cell.  The door is locked.
+The gate is a door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  Understand "door" as the gate.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
+
+The lock is part of the gate.
+
 
 Section Stool & Bench
 
 The stool is a portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
 
-The bench is a furniture in the jail cell.  The description of the bench is "blah".
+The bench is a furniture in the jail cell.  The description of the bench is "blah". [TODO]
 
 
 Section Harmonica
@@ -232,6 +235,16 @@ Instead of going when the player is in the jail cell:
 		move the harmonica to the jail cell;
 		say "As you leave to go, the harmonica is yanked away from you by the wall-chain.[paragraph break]";
 	continue the action.
+
+
+Section Bars
+
+The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. All except one, which is sort of gray in color. They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black, except for one which is slightly lighter in color -- a grey one.[stopping]".
+
+Instead of attacking the bars:
+	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
+
+The grey bar is part of the bars.  The grey bar is portable scenery.
 
 
 Section Window and Street
