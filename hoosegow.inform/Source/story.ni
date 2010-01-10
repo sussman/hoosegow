@@ -284,7 +284,7 @@ Section Gate
 
 The gate is a door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  Understand "door" as the gate.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
 
-The lock is part of the gate.
+The gate lock is part of the gate.
 
 
 Section Stool & Bench
@@ -341,7 +341,9 @@ The bars are scenery in the jail cell.   Understand "bar" as the bars. The descr
 Instead of attacking the bars:
 	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
 
-The grey bar is part of the bars.  The grey bar is portable scenery.
+The grey bar is part of the bars.  The grey bar is portable scenery.  [TODO:  much more here, like being able to fetch the bar by playing harmonica.  When it falls, it's no longer part of the bars, I guess.]
+
+[TODO:  pulling, pushing, or attacking the bars (or anything escape-ish) should enhance some sort of "deputy anger" scale, allowing him to react and eventually shoot the player.]
 
 
 Section Window and Street
