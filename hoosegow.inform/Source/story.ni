@@ -1,3 +1,4 @@
+
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
 
 The story headline is "A Wild West Wreck".
@@ -10,6 +11,7 @@ The story description is "Muddy's plan done landed you and your partner in the h
 The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, the sheriff angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and the pile of silver dollars, which until recently had been the property of the Missouri, Kansas & Texas line.[paragraph break]Muddy furtively whispers, 'Hang tight, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the [paragraph break]".
 
 Include Menus by Emily Short.
+Include Adaptive Hints by Eric Eve.
 Include Plurality by Emily Short.
 Include Default Messages by David Fisher.
 
@@ -1040,6 +1042,45 @@ Rule for printing the player's obituary:
 	[###TODO add obituary]
 			
 Rule for amusing a victorious player:
-	do nothing.
-	[###TODO add amusement]
+say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
+say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How 'bout old Flash?[paragraph break]";
+say "* There are three ways of driving the deputy out of the jail, how many did you find?[paragraph break]";
+say "Some other random trivia:[paragraph break]";
+say "* The game is set in the Indian Territory, which would later become the Oklahoma territory and subsequently the state. How many references can you find to the musical [quotation mark]Oklahoma![quotation mark]?";
+say "* In the real West, it wouldn't have made any sense to put beans in a can. They were a cheap staple, transported dry, likely in sacks.[paragraph break]";
+say "* Boot spurs were referred to as [quotation mark]can openers[quotation mark] in the Old West. Really.[paragraph break]";
+say "* The transcontinental railroad was completed in 1869, but it crossed two states above Oklahoma. The first railroads in Oklahoma were built in 1870, and the state wasn't crossed until 1871.[paragraph break]";
+say "* The espresso machine was invented in XXXXXX in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
+say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]Easter Egg[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
+	
+Section Hints
+
+Table of Active Hints (continued)
+title		subtable			description			toggle
+text		table-name		text					a rule
+
+Table of Potential Hints (continued)
+title													subtable
+"How can I open the can?"						Table of Can Opening
+
+A hint activation rule:
+	if the can is in the jail cell and the can is closed then activate the Table of Can Opening.
+	
+A hint deactivation rule:
+	if the can is open then deactivate the Table of Can Opening.
+
+Table of Can Opening
+hint													used
+"What do you need to open a can?"				a number
+"Is there anything that resembles a can opener in the cell?"
+"Did you examine everything in the cell?"
+"Is there something on your person that might help?"
+"Are you wearing anything that might serve the purpose?"
+"Have you examined your boots?"
+"Have you tried touching the spurs on your right boot?"
+"Can you open the can with the spurs?"
+"You need to remove the spurs from the boot to use them as a can opener."
+"You can pull the spurs of the right boot."
+"Open the can with the spurs."
+
 	
