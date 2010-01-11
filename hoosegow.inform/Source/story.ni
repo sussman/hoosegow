@@ -166,6 +166,49 @@ Carry out chewing:
 Does the player mean chewing the tobacco:
 	it is very likely.[to prevent the player from chewing the cabinet by default ?!]
 
+Section Digging
+
+Digging is an action applying to one thing. Understand "dig [a thing]" or "dig with [a thing]" as digging.
+
+Carry out digging:
+	if the noun is:
+		-- floor: 
+		say "Dig with what?";
+		-- spoon: 
+		say "[one of]That sounds like one of Muddy's plans. [or][stopping]The floor is concrete.";
+		-- otherwise:
+		say "That's crazy talk.";
+		stop the action.
+		
+Does the player mean digging the floor:
+	it is very likely.
+	
+Opening it with is an action applying to two things. Understand "open [a thing] with/using [other things]" as opening it with.
+
+Check opening it with:
+	if the noun is locked:
+		try unlocking the noun with the second noun instead;
+	if the noun is the can:
+		if the second noun is not the spur:
+			say "You don't seem to be able to open [the noun] with [the second noun]." instead;
+		otherwise:
+			if the spur is part of the right boot:
+				if the player wears the right boot:
+					say "You twist and contort, trying to bring your right boot to the can, but it's futile." instead;
+				otherwise:
+					say "It's very awkward trying to open the can with the heel of your right boot. The boot part keeps getting in the way." instead.
+		
+Carry out opening it with:
+	now the noun is open;
+	say "You open [the noun] with [the second noun][if the noun contains something] revealing [the contents of the noun][end if].";
+	if the noun is the can:
+		award one point.
+	
+
+Section Looking Under
+
+Instead of looking under the noun:
+	try searching the noun instead.
 
 Section Playing
 
@@ -301,6 +344,8 @@ Carry out directedSpitting at:
 			say "The bell would be more fun." instead;
 		-- the grate:
 			say "There is a sizzling sound.";
+		-- the lever:
+			say "The tobacco sails right past the thin lever, hits the boiler pipe and slides down and out of sight.";
 		-- the cup:
 			say "Plop!";
 		-- the coffee:
@@ -340,6 +385,46 @@ Chapter Limbo
 [A place for offstage stuff]
 
 Limbo is a room.
+
+Section Can
+
+The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". 
+
+Instead of opening the can:
+	say "What do you want to open it with?"
+	
+Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood."
+
+Does the player mean doing something with the beans:
+	it is likely.
+
+The bean counter [:-)] is a number that varies. The bean counter is zero.
+
+Before eating beans:
+	try silently switching score notification off;
+	if the bean counter is:
+		-- 0: 
+		say "When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don't even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.[paragraph break][bracket]You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points[close bracket][paragraph break]";
+		increase the score by two;
+		-- 1: 
+		say "The beans disgust you even more than the rancid meat.[paragraph  break][bracket]The thought is enough to make you lose a point.[close bracket][paragraph break]";
+		decrease the score by one;
+		-- 2: 
+		say "No. It's a matter of principle now.[paragraph break][bracket]Your score just went back up by a point for being so principled.[close bracket][paragraph break]";
+		increase the score by one;
+		-- 3: say "Give Muddy the damn beans. He likes them, but they you can't stand to even look at them.";
+		-- otherwise: say "No way. No how. But Muddy likes them well enough.";
+	increase the bean counter by one;
+	try silently switching score notification on;
+	stop the action.
+
+Section Meat
+
+The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]".
+
+Section Spoon
+
+The spoon is a prop in Limbo. Understand "bent" or "old" as the spoon. The description of the spoon is "A bent old spoon."
 
 Section Stain
 
@@ -493,8 +578,18 @@ Section Stool & Bench
 
 The stool is a large portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
 
-The bench is a large furniture in the jail cell.  The description of the bench is "blah". [TODO]
+The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated.
 
+Instead of searching the bench:
+	if the bench is not investigated:
+		say "[bench sekrits]."
+	
+To say bench sekrits:
+	say "Under the bench, you notice the remnants of a meal";
+	move the meat to the jail cell;
+	move the spoon to the jail cell;
+	move the can to the jail cell;
+	now the bench is investigated.
 
 Section Harmonica
 
@@ -599,34 +694,41 @@ Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans agains
 
 The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit."
 
+Instead of searching muddy:
+	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
+
 Section Pete
 
-Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete carries the pamphlet]. A pamphlet is sticking out of his pocket[end if]."
+Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete carries the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if]."
 
-Pete carries a pamphlet.  The pamphlet is a prop.  [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
+The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into Pete's suit."
+[TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
 
-Instead of taking the pamphlet when Pete carries the pamphlet:
+Instead of taking the pamphlet when the pamphlet is in the pocket:
 	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
 	move the pamphlet to the player.
 
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture."
+The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture."
 
 The sermon is part of the pamphlet. The description of the sermon is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
 
-Pete carries a tin.  The tin is a closed portable openable container.  The carrying capacity of the tin is 1. 
+The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. 
 
 Instead of searching Pete:
-	if Pete carries the tin:
+	try searching the pocket.
+	
+Instead of searching the pocket:
+	if the tin is in the pocket:
 		say "You find a tin of chewing tobacco. It looks interesting, so you borrow it."; 
 		move the tin to the player;
 	otherwise:
 		say "You don't find anything that Pete wasn't born with."
 		
 Before taking the tin:
-	if Pete carries the tin:
+	if the tin is in the pocket:
 		say "You borrow Pete's tin of chewing tobacco. It don't look like he'll mind seeing as how he's unconscious and all.";
 		move the tin to the player;
 		stop the action.
@@ -686,14 +788,19 @@ Instead of searching the overcoat:
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 
-Rick wears boots.  The description of the boots is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]."
+The footwear is privately-named backdrop in the jail cell. Understand "boots" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]."
 
-The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off." The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur."
+Instead of doing something other than examining with the footwear:
+	say "You need to say the left one or the right one."
+
+Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off." 
+
+Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur."
 
 Instead of touching the spur:
 	say "Sakes alive, that's sharp! You whip your hand back."
 
-Instead of taking or pulling or attacking the spur when the spur is part of the right boot:
+Instead of taking or pulling or attacking or taking off the spur when the spur is part of the right boot:
 	now the player carries the spur;
 	say "You yank the spur off your right boot, being careful not to cut yourself in the process.";
 	award 1 point.
@@ -747,6 +854,7 @@ title				subtable			description	toggle
 "Gettin[apostrophe] stuff done"		--	"If you ain[apostrophe]t a greenhorn, chances are you already know a bunch of the ever day commands used in this game. If not, take a gander:[paragraph break]
 [fixed letter spacing]   look         - [variable letter spacing]look around[line break]
 [fixed letter spacing]   examine      - [variable letter spacing]look at something real hard[line break]
+[fixed letter spacing]   search       - [variable letter spacing]frisk or inspect thoroughly[line break]
 [fixed letter spacing]   go           - [variable letter spacing]followed by a direction[line break]
 [fixed letter spacing]   take/drop    - [variable letter spacing]pick up or drop something[variable letter spacing]"	--
 "Stuff you do a lot"		--	"We made it easy to do some stuff without typing a whole lot. You can use the letter in [fixed letter spacing]<brackets>[variable letter spacing] instead having to spell out the whole word, which is good on account some folk don[apostrophe]t spell so good:[paragraph break]
