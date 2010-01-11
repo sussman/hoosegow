@@ -383,6 +383,141 @@ After printing the banner text:
 	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door.".
 	
 
+Chapter Every Turn
+
+Every turn:
+	[avoid penalizing time for non-actions, a nuance]
+	if the current action is taking inventory or the current action is looking:
+		change the time of day to 1 minute before the time of day;
+	[stage business]
+	Consider the stage business rules;
+	[unblock stage business for next turn]
+	Change the block stage business flag to false;	
+	[###TODO Add other every-turn items]
+	
+Section Phrase Picker
+[To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least to entries.]
+
+To pick a phrase from (source - a table-name):
+	let R be a number;
+	sort the source in times-used order;
+	repeat with N running from 2 to the number of rows in the source:
+		change R to N;
+		if times-used in row N of the source is greater than times-used in row 1 of the source, break;
+	let T be a random number between 1 and (R minus one);
+	choose row T in the source;
+	increase the times-used entry by one;
+	say "[verbage entry]".
+
+Section Stage Business
+
+[Set the block stage business flag to suppress stage business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions. To make something not come up until at least one cycle through, change the times-used to "1" in the table]
+
+The block stage business flag is a truth state that varies. The block stage business flag is false.
+
+The stage business rules is a rulebook.
+
+The block all stage business rule is listed first in the stage business rules. 
+
+This is the block all stage business rule:
+	if the block stage business flag is true:
+		the rule succeeds.
+	
+The Muddy's stage business rule is listed after the block all stage business rule in the stage business rules.
+
+This is the Muddy's stage business rule:
+	if a random chance of 1 in 10 succeeds:
+		pick a phrase from the Table of Muddy Actions;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Muddy Actions
+times-used		verbage
+0					"muddy action 1"
+0					"muddy action 2"	
+0					"muddy action 3"
+		
+The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
+		
+This is the Flash's stage business rule:
+	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
+		if a random chance of 8 in 10 succeeds:
+			pick a phrase from the Table of Common Flash Actions;
+		otherwise:
+			pick a phrase from the table of Rare Flash Actions;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Common Flash Actions
+times-used		verbage
+0					"flash action 1"
+0					"flash action 2"	
+0					"flash action 3"			
+	
+Table of Rare Flash Actions
+times-used		verbage
+0					"rare flash action 1"
+0					"rare flash action 2"	
+0					"rare flash action 3"
+
+The Pete's stage business rule is listed after Flash's stage business rule in the stage business rules.
+
+This is the Pete's stage business rule:
+	[can direct Pete's actions to hint context-specifically (e.g., on a scene-happening basis) by selecting appropriate table]
+	if Pete is not in Limbo and a random chance of 1 in 20 succeeds:
+		if a random chance of 8 in 10 succeeds:
+			pick a phrase from the Table of Pete's Rants;
+		otherwise:
+			pick a phrase from the table of Pete's Strange Behavior;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Pete's Rants
+times-used		verbage
+0					"rant 1"
+0					"rant 2"	
+0					"rant 3"
+
+Table of Pete's Strange Behavior
+times-used		verbage
+0					"strange pete 1"
+0					"strange pete 2"	
+0					"strange pete 3"
+
+Table of Pete's Vulture Clues
+times-used		verbage
+0					"vulture clue 1"
+0					"vulture clue 2"	
+0					"vulture clue 3"
+		
+The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
+	
+This is the Deputy's stage business rule:
+	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
+		pick a phrase from the Table of Deputy's Doings;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Deputy's Doings
+times-used		verbage
+0					"deputy action 1"
+0					"deputy action 2"
+0					"deputy action 3"
+	
+The Environmental stage business rule is listed last in the stage business rules.
+
+This is the Environmental stage business rule:
+	if a random chance of 1 in 10 succeeds:
+		pick a phrase from the Table of Environmental Stage Business;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Environmental Stage Business
+times-used		verbage
+0			"A fly buzzes past your ear and lands on the ceiling."
+0			"Through the window, you hear the strums of a neary banjo"
+0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure."
+
 Chapter Limbo
 [A place for offstage stuff]
 
@@ -814,6 +949,8 @@ Section Sheriff
 The sheriff is a man in Limbo. The sheriff carries the warrant.
 
 
+
+
 Chapter Scripted Conversations
 
 [Here are some canned discussions for humor, depth, etc.]
@@ -1037,93 +1174,6 @@ LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
 
-
-Chapter Every Turn
-
-Every turn:
-	[avoid penalizing time for non-actions, a nuance]
-	if the current action is taking inventory or the current action is looking:
-		change the time of day to 1 minute before the time of day;
-	[stage business]
-	Consider the stage business rules;
-	[unblock stage business for next turn]
-	Change the block stage business flag to false;	
-	[###TODO Add other every-turn items]
-	
-Section Stage Business
-
-[Set the block stage business flag to suppress stage business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions]
-
-The block stage business flag is a truth state that varies. The block stage business flag is false.
-
-The stage business rules is a rulebook.
-
-The block all stage business rule is listed first in the stage business rules. 
-
-This is the block all stage business rule:
-	if the block stage business flag is true:
-		the rule succeeds.
-	
-The Muddy's stage business rule is listed after the block all stage business rule in the stage business rules.
-
-This is the Muddy's stage business rule:
-	if a random chance of 1 in 10 succeeds:
-		say "Muddy's stage business.";
-		the rule succeeds.
-		
-The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
-		
-This is the Flash's stage business rule:
-	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
-		say "Flash's stage business.";
-		the rule succeeds.
-
-The Pete's stage business rule is listed after Flash's stage business rule in the stage business rules.
-
-This is the Pete's stage business rule:
-	if Pete is not in Limbo and a random chance of 1 in 10 succeeds:
-		say "Pete's stage business.";
-		the rule succeeds.
-		
-The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
-	
-This is the Deputy's stage business rule:
-	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
-		say "Deputy Jimbo's stage business.";
-		the rule succeeds.
-	
-The Environmental stage business rule is listed last in the stage business rules.
-
-This is the Environmental stage business rule:
-	if a random chance of 1 in 10 succeeds:
-		say "Environmental stage business.";
-		the rule succeeds.
-
-		
-Book 2  Scenes
-
-Section The Beginning 
-
-Section The Middle
-
-Section The End
-
-Rule for printing the player's obituary:
-	do nothing.
-	[###TODO add obituary]
-			
-Rule for amusing a victorious player:
-say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
-say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How 'bout old Flash?[paragraph break]";
-say "* There are three ways of driving the deputy out of the jail, how many did you find?[paragraph break]";
-say "Some other random trivia:[paragraph break]";
-say "* The game is set in the Indian Territory, which would later become the Oklahoma territory and subsequently the state. How many references can you find to the musical [quotation mark]Oklahoma![quotation mark]?";
-say "* In the real West, it wouldn't have made any sense to put beans in a can. They were a cheap staple, transported dry, likely in sacks.[paragraph break]";
-say "* Boot spurs were referred to as [quotation mark]can openers[quotation mark] in the Old West. Really.[paragraph break]";
-say "* The transcontinental railroad was completed in 1869, but it crossed two states above Oklahoma. The first railroads in Oklahoma were built in 1870, and the state wasn't crossed until 1871.[paragraph break]";
-say "* The espresso machine was invented in XXXXXX in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
-say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]Easter Egg[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
-	
 Section Hints
 
 Table of Active Hints (continued)
@@ -1153,5 +1203,28 @@ hint													used
 "You need to remove the spurs from the boot to use them as a can opener."
 "You can pull the spurs of the right boot."
 "Open the can with the spurs."
+		
+Book 2  Scenes
 
+Section The Beginning 
+
+Section The Middle
+
+Section The End
+
+Rule for printing the player's obituary:
+	do nothing.
+	[###TODO add obituary]
+			
+Rule for amusing a victorious player:
+say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
+say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How 'bout old Flash?[paragraph break]";
+say "* There are three ways of driving the deputy out of the jail, how many did you find?[paragraph break]";
+say "Some other random trivia:[paragraph break]";
+say "* The game is set in the Indian Territory, which would later become the Oklahoma territory and subsequently the state. How many references can you find to the musical [quotation mark]Oklahoma![quotation mark]?";
+say "* In the real West, it wouldn't have made any sense to put beans in a can. They were a cheap staple, transported dry, likely in sacks.[paragraph break]";
+say "* Boot spurs were referred to as [quotation mark]can openers[quotation mark] in the Old West. Really.[paragraph break]";
+say "* The transcontinental railroad was completed in 1869, but it crossed two states above Oklahoma. The first railroads in Oklahoma were built in 1870, and the state wasn't crossed until 1871.[paragraph break]";
+say "* The espresso machine was invented in XXXXXX in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
+say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]Easter Egg[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
 	
