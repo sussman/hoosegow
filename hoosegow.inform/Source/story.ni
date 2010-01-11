@@ -839,6 +839,8 @@ To say swallowed chaw dialogue:
 
 Chapter Menus
 
+Section Help Menu
+
 Understand "help" or "about" or "info" as asking for help.
 
 Asking for help is an action out of world.
@@ -892,6 +894,21 @@ Chapter Credits
 To say list of testers:
 	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]";
 
+Section Help Menu
+
+Easter egging is an action out of world. Understand "easter egg" as Easter egging.
+
+Carry out Easter egging:
+	change the current menu to the Table of Eggs;
+	carry out the displaying activity;
+	clear the screen;
+	try looking.
+
+Table of Eggs
+title				subtable			description	toggle
+"Alternate Ending #1"	--	"Rise of the Lizard People"	--
+"Alternate Ending #2"	--	"End of Simulation at MARSpace"	--
+"Alternate Ending #3"	--	"Revenge of the GSWA"	--
 
 Chapter Default Messages
 
