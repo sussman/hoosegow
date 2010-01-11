@@ -96,6 +96,8 @@ Chapter Declare Global Variables
 
 The last mentioned thing is a thing that varies.
 
+Muted is a truth state that varies. Muted is false.
+
 Chapter Class Definitions
 
 A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
@@ -366,6 +368,18 @@ Chapter Not Ready For Prime Time - Not for release
 
 [When play begins:
 	change library message debug to on.]
+
+Section Muting
+
+[To reduce the clutter during debuggin; suppreses stage business]
+Muting is an action out of world. Understand "mute" as muting.
+
+Carry out muting:
+	say "[bracket]Mute[if muted is true]Off[otherwise]On[end if][close bracket][line break]";
+	if muted is true:
+		change muted to false;
+	otherwise:
+		change muted to true;
 	
 Chapter Initialize
 
@@ -390,7 +404,8 @@ Every turn:
 	if the current action is taking inventory or the current action is looking:
 		change the time of day to 1 minute before the time of day;
 	[stage business]
-	Consider the stage business rules;
+	if muted is false:
+		Consider the stage business rules;
 	[unblock stage business for next turn]
 	Change the block stage business flag to false;	
 	[###TODO Add other every-turn items]
