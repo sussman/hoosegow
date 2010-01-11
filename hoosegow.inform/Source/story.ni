@@ -98,7 +98,9 @@ Chapter Class Definitions
 
 A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
 
-A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.]
+A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.] 
+
+A thing can be large. Usually a thing is not large.
 
 
 Chapter General Routines
@@ -185,6 +187,17 @@ Check reloading:
 Carry out reloading:
 	say "You don't have any bullets."
 	
+Section Ringing
+
+Ringing is an action applying to one thing. Understand "ring [a thing]" as ringing.
+
+Check ringing:
+	if noun is not the bell:
+		say "You can't really ring [a noun]." instead.
+		
+Carry out ringing:
+	say "You shake the bell and it jingles merrily."
+	
 Section Shooting
 
 Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting.
@@ -202,13 +215,13 @@ Understand "tobacco" or "chaw" or "chewing tobacco" or "wad" as "[wad]".
 
 This is the tobacco sequence rule:
 	if the tobacco is in the mouth and the chew count is greater than one:
-		the rule succeeds;
+		continue the action;
 	otherwise:
 		if the tobacco is in the mouth and the chew count is less than one:
 			if the chew count has been greater than one:
 				say "(first chewing some tobacco)[command clarification break]";
 				increase the chew count by one;
-				the rule succeeds;
+				continue the action;
 			otherwise:
 				say "You ain't chawn your tobacco enough yet.";
 				the rule fails;
@@ -221,6 +234,7 @@ This is the tobacco sequence rule:
 						say "opening the tin and ";
 					say "chewing some tobacco)[command clarification break]";
 					increase the chew count by one;
+					continue the action;
 					the rule succeeds;
 				otherwise:
 					say "There ain't no tobacco in your mouth. Spitting ain't hardly for nothing, what you ain't got no tobacco to spit with!";
@@ -234,18 +248,70 @@ Check simpleSpitting:
 Carry out simpleSpitting:
 	say "[one of]Straight up? It would hit you in the eye on the return trip. [or][stopping]You have to say what you want to spit it at."
 
-DirectedSpitting at is an action applying to one thing. Understand "spit [wad] at/on/onto/towards [something]" or "spit at/on/onto/towards [something]" as directedSpitting at.
+DirectedSpitting at is an action applying to one visible thing. Understand "spit [wad] at/on/onto/towards [something]" or "spit at/on/onto/towards [something]" as directedSpitting at.
 
 Check directedSpitting at:
 	Abide by the tobacco sequence rule.
 		
 Carry out directedSpitting at:
+	if the outdoors encloses the noun:
+		say "The [noun] is too far away." instead;
+	if the office encloses the noun and the deputy is in the office and the noun is not a man:
+		say "The deputy gives you a frightful stern look, so you decide not to spit at anything in the office while he's around." instead;	
+	if the jail cell encloses the noun and the noun is not the floor and the noun is not Muddy and the noun is not the window:
+		say "You're not keen to spit at anything in the jail cell with you. A man don't spit where he lives, you reckon." instead;
+	if the noun is large: 
+		say "[big target]" instead;
 	if the noun is:
-		-- Muddy: say "Muddy grins and dodges the tobacco. The wad flies out the window.";
-		-- otherwise: say "The tobacco hits [the noun]."; [should not get here.]
+		-- Muddy: 
+			say "Muddy grins and dodges the tobacco. The wad flies out the window.";
+		-- Pete: 
+			say "You aren't particularly God-fearing, but it doesn't sit right with you to steal a man's tobacco and then spit it at him. Stealing it is okay, though." instead;
+		-- Flash: 
+			if Flash is not spat upon:
+				say "The stomach-churning mass of glistening tobacco pulp splashes on the floor, just in front of Flash. His nose twitches, as his finely honed bloodhound sense of smell detects tobacco ball. Your stomach churns as he stretches lazily forward and laps it up, swallowing it in one gulp before falling asleep again.";
+				now flash is spat upon;
+			otherwise:
+				say "The vision of what happened last time is seared into your brain like a brand on the rear of a prize cattle. You do not want to see that again." instead;
+		-- deputy: 
+			say "He's dumb, but he ain't mean. You don't want to ruin his day." instead;
+		-- sheriff: 
+			say "That would only get him angry." instead;
+		-- marshal: 
+			say "You don't think that will win any points with him." instead;
+		-- army: 
+			say "They have guns with bullets. You have tobacco." instead;
+		-- floor:
+			say "[one of]The tobacco juice splays outward from the point of impact and slowly soaks into the bone-dry concrete, leaving a lasting stain that you can be proud of.[or]You spew another work of art on the jail floor.[or]Splotch![stopping]";
+			move the stain to the jail cell;
+		-- window:
+			say "The wad shoots out the window and into the street.";
+		-- bell:
+			if Flash is in the office:
+				if the bell is not rung:
+					say "Ding! The wad hits the bell so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his edentulous jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine at the rear of the office.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
+					now the bell is rung;
+					make coffee;
+				otherwise: [bell has already been rung, Flash is still around]
+					say "The wad ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
+					make coffee;
+			otherwise:[still the bell, but nothing to do with Flash]
+				say "The bell rings hollowly.";
+		-- the hook:
+			say "The bell would be more fun." instead;
+		-- the grate:
+			say "There is a sizzling sound.";
+		-- the cup:
+			say "Plop!";
+		-- the coffee:
+			say "It submerges, without spilling a drop. Yech.";
+		-- otherwise: 
+			say "The tobacco hits [the noun], but drops off."; [covers anything else.]
 	now the chew count is zero;
 	move the tobacco to the tin.
-	[###TODO add other cases]
+	
+To say big target:
+	say "[one of]Where's the challenge in that?[or]Hardly a test of your tobacco spitting prowess.[or]Child's play. Your grandmother could spit tobacco at [a noun].[at random]".
 
 Chapter General Insteads
 
@@ -275,6 +341,10 @@ Chapter Limbo
 
 Limbo is a room.
 
+Section Stain
+
+The stain is scenery in Limbo. The description of the stain is "A dark brown stain."
+
 Section Warrant
 
 The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited.
@@ -288,7 +358,7 @@ The office is a room. The description of the office is "[one of]A one room jailh
 
 Section Bell
 
-The bell is a prop in the office. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the door way on a small hook[end if]."
+The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the door way on a small hook[end if]." The bell can be rung. The bell is not rung.
 
 The hook is a furniture in the office. The description of the hook is "A small metal hook screwed into the door jam[if the bell is on the hook] A bell hangs from the hook[end if]."
 
@@ -296,11 +366,11 @@ Section Boiler
 
 Position is a kind of value. The positions are whistleward, neutral, and coffeeward.
 
-The boiler is a furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]." Understand "combustion" or "chamber" as the boiler.
+The boiler is a large furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]." Understand "combustion" or "chamber" as the boiler.
 
 The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler."
 
-The ball is part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball.
+The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball.
 
 The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.
 
@@ -321,7 +391,7 @@ To say lever position:
 
 Section Cabinet
 
-The cabinet is a closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]."
+The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]."
 
 Does the player mean doing something with the cabinet:
 	It is very likely.
@@ -342,11 +412,11 @@ After taking the gunbelt:
 
 Section Chair
 
-The chair is furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
+The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
 
 Section Desk
 
-The desk is furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]."
+The desk is a large furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]."
 
 The description of the drawer is "A small drawer". The drawer can be mentioned. The drawer is not mentioned. The drawer is lockable and locked. The matching key of the drawer is the small brass key.
 
@@ -369,32 +439,36 @@ The deer is a male animal on the range.
 
 The antelope is a female animal on the range. 
 
-After examining an animal on the range:
+Instead of examining an animal on the range:
 	say "The deer stares back to you momentarily and then runs off with the antelope. Ungulates are very private, you know.";
 	move the deer to Limbo;
 	move the antelope to Limbo.	
 
 Section Portrait
 
-The portrait is a scenery prop in the office. The portrait can be hung up. The portrait is not hung up. The description of the portrait is "A bombastic portrait of the sheriff who is dressed in a Napoleanic uniform save for the ten gallon hat. In the background, dogs play poker."
+The portrait is a large scenery prop in the office. The portrait can be hung up. The portrait is not hung up. The description of the portrait is "A bombastic portrait of the sheriff who is dressed in a Napoleanic uniform save for the ten gallon hat. In the background, dogs play poker."
 
 Section Protocappuccinomatic
 
-The protocappuccinomatic is a furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "strange machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic.
+The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "strange machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic.
 
-The iron pipe is part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe.
+The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe.
 
-The cup is part of the protocappuccinomatic. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee, which has been laced with the juice of the Peruvian Snoozeberry[end if]."
+The cup is in Limbo. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]."
 
-Some coffee is in Limbo. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of".
+Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted.
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle.
 
 The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute.
 
+To make coffee:
+	now the coffee is in the cup;
+	move the cup to the protocappuccinomatic.
+
 Section Swinging Doors
 
-The swinging doors are a plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields."
+The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields."
 
 Section Whiskey
 
@@ -411,19 +485,23 @@ Instead of inserting something inedible into the mouth:
 	
 After inserting something into the mouth:
 	say "You pop [the noun] into your gaping maw."
+	
+Section Floor
+
+The floor is a backdrop in the jail cell. The description of the floor is "Rough, dirty[if the stain is on the floor], and stained[end if] concrete".
 
 Section Gate
 
-The gate is a door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  Understand "door" as the gate.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  Understand "door" as the gate.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
 
 The gate lock is part of the gate.
 
 
 Section Stool & Bench
 
-The stool is a portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
+The stool is a large portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
 
-The bench is a furniture in the jail cell.  The description of the bench is "blah". [TODO]
+The bench is a large furniture in the jail cell.  The description of the bench is "blah". [TODO]
 
 
 Section Harmonica
@@ -506,38 +584,28 @@ After deciding the scope of the player while in the jail cell:
 
 Chapter Characters
 
+Section Army
+
+The army is a person in Limbo.
+
+Section Deputy
+
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors."
+
+Section Flash
+[dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
+
+Flash is a male animal in Limbo. Flash can be spat upon. Flash is not spat upon.
+
+Section Marshal
+
+The marshal is a person in Limbo.
+
 Section Muddy
 
 Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against the wall tapping a harmonica on his arm.".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". 
 
 The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit."
-
-Section Rick
-
-Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Not so different from the uniform you once wore, just more lived-in.".
-
-The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
-
-The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun."
-
-Instead of searching the hat:
-	say "[if the hat contains something]In the hat you see [contents of hat][otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon[end if]."   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
-
-The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles: 'DEER RICK, 1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
-
-The player wears an overcoat.
-
-The player wears boots.  The description of the boots is "Black boots that have seen better days.  The left boot is missing a heel spur.".
-
-The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off.".  The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount.[if the spur is part of the right boot]The spur is loosely attached to the heel of the right boot.[end if]".  The mount is part of the spur.  The description of the mount is "The mount is part of the spur.".
-
-Instead of taking the spur when the spur is part of the right boot:
-	now the player carries the spur;
-	say "You yank the spur off your right boot, being careful not to cut yourself in the process.";
-	award 1 point.
-
-[TODO: removing boots, smell, etc.]
-
 
 Section Pete
 
@@ -589,24 +657,39 @@ Before inserting the tobacco into the mouth:
 		say "(first taking a pinch of tobacco)[command clarification break]";
 		move the tobacco to the player;
 		continue the action.
+		
+Section Rick
 
-Section Flash
-[dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
+Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Not so different from the uniform you once wore, just more lived-in.".
 
-Flash is a male animal in Limbo.
+The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
 
-Section Deputy
+The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun."
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors."
+Instead of searching the hat:
+	say "[if the hat contains something]In the hat you see [contents of hat][otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon[end if]."   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
+
+The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles: 'DEER RICK, 1. GET DYNAMICMITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
+
+The player wears an overcoat.
+
+The player wears boots.  The description of the boots is "Black boots that have seen better days.  The left boot is missing a heel spur.".
+
+The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off.".  The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount.[if the spur is part of the right boot]The spur is loosely attached to the heel of the right boot.[end if]".  The mount is part of the spur.  The description of the mount is "The mount is part of the spur.".
+
+Instead of taking the spur when the spur is part of the right boot:
+	now the player carries the spur;
+	say "You yank the spur off your right boot, being careful not to cut yourself in the process.";
+	award 1 point.
+
+[TODO: removing boots, smell, etc.]
 
 Section Sheriff
 
 The sheriff is a man in Limbo. The sheriff carries the warrant.
 
 
-
-
-Section Scripted Conversations
+Chapter Scripted Conversations
 
 [Here are some canned discussions for humor, depth, etc.]
 
@@ -707,7 +790,7 @@ Message Id				Message Text
 LibMsg <confirm Quit>			"For real? Give up now just when things is getting hopping?[paragraph break]"
 LibMsg <you have died>			"You done cashed it in.[paragraph break]"
 LibMsg <you have won>			"You has won.[paragraph break]"
-LibMsg <unimportant object>		"That/they ain't something what you gotta pay heed to round these parts.[paragraph break]"
+LibMsg <unimportant object>		"That ain't something what you gotta pay heed to round these parts.[paragraph break]"
 LibMsg <empty line>			"Sorry citizen, I didn't hear you rightly. What?[paragraph break]"  
 LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure?[paragraph break]"  
 LibMsg <yes or no prompt>		"Ain't you got no manners? Answer yes or no.[paragraph break]"  
@@ -748,7 +831,7 @@ LibMsg <cannot take other people>	"I don't reckon [the main object] would much c
 LibMsg <cannot take something you are within>		"You[apostrophe]d have to get off/out of [the main object] first.[paragraph break]"  
 LibMsg <cannot take something already taken>		"Sakes alive. You already done got that.[paragraph break]"    
 LibMsg <cannot reach within closed containers>		"[The main object] ain't open.[paragraph break]"  
-LibMsg <cannot take scenery>		"That/they ain't hardly what a body would aim to carry about.[paragraph break]"  
+LibMsg <cannot take scenery>		"That ain't hardly what a body would aim to carry about.[paragraph break]"  
 LibMsg <cannot take something fixed>	"That's/they're planted real good and not going anywhere, I do reckon.[paragraph break]"
 LibMsg <report player removing>		"Snatched.[paragraph break]"  
 LibMsg <cannot remove something not within>		"But it ain't there now.[paragraph break]"  
@@ -757,7 +840,7 @@ LibMsg <cannot drop not holding>		"[youAint]got that.[paragraph break]"
 LibMsg <cannot give what you have not got>		"[youAint]holding [the main object].[paragraph break]"
 LibMsg <block giving>			"[The main object] don't seem interested.[paragraph break]"  
 LibMsg <cannot show what you have not got>		"[youAint]holding [the main object].[paragraph break]"  
-LibMsg <cannot enter something not enterable>		"That/they ain't something you can enter/stand on/sit down on/lie down on.[paragraph break]"  
+LibMsg <cannot enter something not enterable>		"That ain't something you can enter/stand on/sit down on/lie down on.[paragraph break]"  
 LibMsg <cannot exit when not within anything>		"[youAint]in anything at the moment.[paragraph break]"
 LibMsg <cannot get off things>		"[youAint]on [the main object] at the moment.[paragraph break]"  
 LibMsg <cannot go up through closed doors>		"[youAint]able to climb [the main object].[paragraph break]"  
@@ -771,7 +854,7 @@ LibMsg <cannot open unless openable>	"They ain't something you can open.[paragra
 LibMsg <cannot switch on unless switchable>		"They ain't something you can switch.[paragraph break]"  
 LibMsg <cannot take off something not worn>		"[youAint]wearing that.[paragraph break]"  
 LibMsg <report player eating>		"You choke down [the main object]. Not bad.[paragraph break]"  
-LibMsg <cannot eat unless edible>		"Any tom fool could see that/they ain't for eating.[paragraph break]"  
+LibMsg <cannot eat unless edible>		"Any tom fool could see that ain't for eating.[paragraph break]"  
 LibMsg <block drinking>			"There's [aintNothing]proper fit for drinking here.[paragraph break]"  
 LibMsg <report player touching self>	"If you reckon that'll help.[paragraph break]"  
 LibMsg <report player touching other people>		"Keep your filthy sheep shearing, pig wallowing, cow poking hands to your lonesome![paragraph break]"  
