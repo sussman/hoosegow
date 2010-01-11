@@ -1043,8 +1043,62 @@ Chapter Every Turn
 Every turn:
 	[avoid penalizing time for non-actions, a nuance]
 	if the current action is taking inventory or the current action is looking:
-		change the time of day to 1 minute before the time of day.
+		change the time of day to 1 minute before the time of day;
+	[stage business]
+	Consider the stage business rules;
+	[unblock stage business for next turn]
+	Change the block stage business flag to false;	
 	[###TODO Add other every-turn items]
+	
+Section Stage Business
+
+[Set the block stage business flag to suppress stage business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions]
+
+The block stage business flag is a truth state that varies. The block stage business flag is false.
+
+The stage business rules is a rulebook.
+
+The block all stage business rule is listed first in the stage business rules. 
+
+This is the block all stage business rule:
+	if the block stage business flag is true:
+		the rule succeeds.
+	
+The Muddy's stage business rule is listed after the block all stage business rule in the stage business rules.
+
+This is the Muddy's stage business rule:
+	if a random chance of 1 in 10 succeeds:
+		say "Muddy's stage business.";
+		the rule succeeds.
+		
+The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
+		
+This is the Flash's stage business rule:
+	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
+		say "Flash's stage business.";
+		the rule succeeds.
+
+The Pete's stage business rule is listed after Flash's stage business rule in the stage business rules.
+
+This is the Pete's stage business rule:
+	if Pete is not in Limbo and a random chance of 1 in 10 succeeds:
+		say "Pete's stage business.";
+		the rule succeeds.
+		
+The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
+	
+This is the Deputy's stage business rule:
+	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
+		say "Deputy Jimbo's stage business.";
+		the rule succeeds.
+	
+The Environmental stage business rule is listed last in the stage business rules.
+
+This is the Environmental stage business rule:
+	if a random chance of 1 in 10 succeeds:
+		say "Environmental stage business.";
+		the rule succeeds.
+
 		
 Book 2  Scenes
 
