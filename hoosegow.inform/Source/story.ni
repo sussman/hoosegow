@@ -882,8 +882,13 @@ title				subtable			description	toggle
 
 Table of Thanks
 title	subtable		description	toggle
-"The Posse"	--	"We got us a powerful fine posse, and ah reckon it would do some fine justice to tip our hats to them that waded through the cow patties to pretty up this here game. They is: list_of_names."		--
+"The Posse"	--	"We got us a powerful fine posse, and ah reckon it would do some fine justice to tip our hats to them that waded through the cow patties to pretty up this here game. They is:[paragraph break][list of testers]"		--
 "Legends of the West"		--	"We aint the first people to explore this territory, and it seems right be me to mention some of the pioneers that mapped out this land when it was savage. Names like Graham Nelson and Emily Short, who done wrote the IF language Inform 7, and other members of their posse like David Kinder who wrote one of the extensions that we use."	--
+
+Chapter Credits
+
+To say list of testers:
+	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]";
 
 
 Chapter Default Messages
