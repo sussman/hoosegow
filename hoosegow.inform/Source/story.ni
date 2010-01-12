@@ -638,7 +638,7 @@ Section Bell
 
 The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the doorway on a small hook[end if]." The bell can be rung. The bell is not rung.
 
-The hook is a furniture in the office. The description of the hook is "A small metal hook screwed into the door jam[if the bell is on the hook] A bell hangs from the hook[end if]."
+The hook is part of the swinging doors.  The hook is a supporter.  The description of the hook is "A small metal hook screwed into the door jam.[if the bell is on the hook] A bell hangs from the hook[end if]."
 
 Section Boiler
 
@@ -748,7 +748,7 @@ To make coffee:
 
 Section Swinging Doors
 
-The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields."
+The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]."
 
 
 Section Whiskey
