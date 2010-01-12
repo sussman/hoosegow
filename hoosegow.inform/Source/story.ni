@@ -829,7 +829,7 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors."
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated.
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1221,11 +1221,27 @@ hint													used
 		
 Book 2  Scenes
 
-Section The Beginning 
+Chapter Introduction
 
-Section The Middle
+Introduction is a scene. Introduction begins when play begins. Introduction ends when the Deputy is not in the office.
 
-Section The End
+Chapter Unwatched
+
+Unwatched is a recurring scene. Unwatched begins when the deputy is not in the office. Unwatched ends when the deputy is in the office. 
+
+Chapter Forgery
+
+Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
+
+Chapter Drugged
+
+Drugged is a scene. Drugged begins when the deputy is sedated. 
+
+Chapter Denouement
+
+Denouement is a scene. Denouement begins when Rick is not in the jail cell.
+
+Chapter The End
 
 Rule for printing the player's obituary:
 	do nothing.
