@@ -1,3 +1,4 @@
+
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
 
 The story headline is "A Wild West Wreck".
@@ -10,6 +11,7 @@ The story description is "Muddy's plan done landed you and your partner in the h
 The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, the sheriff angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and the pile of silver dollars, which until recently had been the property of the Missouri, Kansas & Texas line.[paragraph break]Muddy furtively whispers, 'Hang tight, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the [paragraph break]".
 
 Include Menus by Emily Short.
+Include Adaptive Hints by Eric Eve.
 Include Plurality by Emily Short.
 Include Default Messages by David Fisher.
 
@@ -94,6 +96,8 @@ Chapter Declare Global Variables
 
 The last mentioned thing is a thing that varies.
 
+Muted is a truth state that varies. Muted is false.
+
 Chapter Class Definitions
 
 A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
@@ -166,6 +170,49 @@ Carry out chewing:
 Does the player mean chewing the tobacco:
 	it is very likely.[to prevent the player from chewing the cabinet by default ?!]
 
+Section Digging
+
+Digging is an action applying to one thing. Understand "dig [a thing]" or "dig with [a thing]" as digging.
+
+Carry out digging:
+	if the noun is:
+		-- floor: 
+		say "Dig with what?";
+		-- spoon: 
+		say "[one of]That sounds like one of Muddy's plans. [or][stopping]The floor is concrete.";
+		-- otherwise:
+		say "That's crazy talk.";
+		stop the action.
+		
+Does the player mean digging the floor:
+	it is very likely.
+	
+Opening it with is an action applying to two things. Understand "open [a thing] with/using [other things]" as opening it with.
+
+Check opening it with:
+	if the noun is locked:
+		try unlocking the noun with the second noun instead;
+	if the noun is the can:
+		if the second noun is not the spur:
+			say "You don't seem to be able to open [the noun] with [the second noun]." instead;
+		otherwise:
+			if the spur is part of the right boot:
+				if the player wears the right boot:
+					say "You twist and contort, trying to bring your right boot to the can, but it's futile." instead;
+				otherwise:
+					say "It's very awkward trying to open the can with the heel of your right boot. The boot part keeps getting in the way." instead.
+		
+Carry out opening it with:
+	now the noun is open;
+	say "You open [the noun] with [the second noun][if the noun contains something] revealing [the contents of the noun][end if].";
+	if the noun is the can:
+		award one point.
+	
+
+Section Looking Under
+
+Instead of looking under the noun:
+	try searching the noun instead.
 
 Section Playing
 
@@ -302,6 +349,8 @@ Carry out directedSpitting at:
 			say "The bell would be more fun." instead;
 		-- the grate:
 			say "There is a sizzling sound.";
+		-- the lever:
+			say "The tobacco sails right past the thin lever, hits the boiler pipe and slides down and out of sight.";
 		-- the cup:
 			say "Plop!";
 		-- the coffee:
@@ -320,6 +369,18 @@ Chapter Not Ready For Prime Time - Not for release
 
 [When play begins:
 	change library message debug to on.]
+
+Section Muting
+
+[To reduce the clutter during debuggin; suppreses stage business]
+Muting is an action out of world. Understand "mute" as muting.
+
+Carry out muting:
+	say "[bracket]Mute[if muted is true]Off[otherwise]On[end if][close bracket][line break]";
+	if muted is true:
+		change muted to false;
+	otherwise:
+		change muted to true;
 	
 Chapter Initialize
 
@@ -337,10 +398,186 @@ After printing the banner text:
 	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door.".
 	
 
+Chapter Every Turn
+
+Every turn:
+	[avoid penalizing time for non-actions, a nuance]
+	if the current action is taking inventory or the current action is looking:
+		change the time of day to 1 minute before the time of day;
+	[stage business]
+	if muted is false:
+		Consider the stage business rules;
+	[unblock stage business for next turn]
+	Change the block stage business flag to false;	
+	[###TODO Add other every-turn items]
+	
+Section Phrase Picker
+[To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least to entries.]
+
+To pick a phrase from (source - a table-name):
+	let R be a number;
+	sort the source in times-used order;
+	repeat with N running from 2 to the number of rows in the source:
+		change R to N;
+		if times-used in row N of the source is greater than times-used in row 1 of the source, break;
+	let T be a random number between 1 and (R minus one);
+	choose row T in the source;
+	increase the times-used entry by one;
+	say "[verbage entry]".
+
+Section Stage Business
+
+[Set the block stage business flag to suppress stage business at the end of that turn sequence -- helpful for scenes with long dialogue and descriptions. To make something not come up until at least one cycle through, change the times-used to "1" in the table]
+
+The block stage business flag is a truth state that varies. The block stage business flag is false.
+
+The stage business rules is a rulebook.
+
+The block all stage business rule is listed first in the stage business rules. 
+
+This is the block all stage business rule:
+	if the block stage business flag is true:
+		the rule succeeds.
+	
+The Muddy's stage business rule is listed after the block all stage business rule in the stage business rules.
+
+This is the Muddy's stage business rule:
+	if a random chance of 1 in 10 succeeds:
+		pick a phrase from the Table of Muddy Actions;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Muddy Actions
+times-used		verbage
+0					"muddy action 1"
+0					"muddy action 2"	
+0					"muddy action 3"
+		
+The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
+		
+This is the Flash's stage business rule:
+	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
+		if a random chance of 8 in 10 succeeds:
+			pick a phrase from the Table of Common Flash Actions;
+		otherwise:
+			pick a phrase from the table of Rare Flash Actions;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Common Flash Actions
+times-used		verbage
+0					"flash action 1"
+0					"flash action 2"	
+0					"flash action 3"			
+	
+Table of Rare Flash Actions
+times-used		verbage
+0					"rare flash action 1"
+0					"rare flash action 2"	
+0					"rare flash action 3"
+
+The Pete's stage business rule is listed after Flash's stage business rule in the stage business rules.
+
+This is the Pete's stage business rule:
+	[can direct Pete's actions to hint context-specifically (e.g., on a scene-happening basis) by selecting appropriate table]
+	if Pete is not in Limbo and a random chance of 1 in 20 succeeds:
+		if a random chance of 8 in 10 succeeds:
+			pick a phrase from the Table of Pete's Rants;
+		otherwise:
+			pick a phrase from the table of Pete's Strange Behavior;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Pete's Rants
+times-used		verbage
+0					"rant 1"
+0					"rant 2"	
+0					"rant 3"
+
+Table of Pete's Strange Behavior
+times-used		verbage
+0					"strange pete 1"
+0					"strange pete 2"	
+0					"strange pete 3"
+
+Table of Pete's Vulture Clues
+times-used		verbage
+0					"vulture clue 1"
+0					"vulture clue 2"	
+0					"vulture clue 3"
+		
+The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
+	
+This is the Deputy's stage business rule:
+	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
+		pick a phrase from the Table of Deputy's Doings;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Deputy's Doings
+times-used		verbage
+0					"deputy action 1"
+0					"deputy action 2"
+0					"deputy action 3"
+	
+The Environmental stage business rule is listed last in the stage business rules.
+
+This is the Environmental stage business rule:
+	if a random chance of 1 in 10 succeeds:
+		pick a phrase from the Table of Environmental Stage Business;
+		say paragraph break;
+		the rule succeeds.
+		
+Table of Environmental Stage Business
+times-used		verbage
+0			"A fly buzzes past your ear and lands on the ceiling."
+0			"Through the window, you hear the strums of a neary banjo"
+0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure."
+
 Chapter Limbo
 [A place for offstage stuff]
 
 Limbo is a room.
+
+Section Can
+
+The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". 
+
+Instead of opening the can:
+	say "What do you want to open it with?"
+	
+Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood."
+
+Does the player mean doing something with the beans:
+	it is likely.
+
+The bean counter [:-)] is a number that varies. The bean counter is zero.
+
+Before eating beans:
+	try silently switching score notification off;
+	if the bean counter is:
+		-- 0: 
+		say "When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don't even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.[paragraph break][bracket]You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points[close bracket][paragraph break]";
+		increase the score by two;
+		-- 1: 
+		say "The beans disgust you even more than the rancid meat.[paragraph  break][bracket]The thought is enough to make you lose a point.[close bracket][paragraph break]";
+		decrease the score by one;
+		-- 2: 
+		say "No. It's a matter of principle now.[paragraph break][bracket]Your score just went back up by a point for being so principled.[close bracket][paragraph break]";
+		increase the score by one;
+		-- 3: say "Give Muddy the damn beans. He likes them, but they you can't stand to even look at them.";
+		-- otherwise: say "No way. No how. But Muddy likes them well enough.";
+	increase the bean counter by one;
+	try silently switching score notification on;
+	stop the action.
+
+Section Meat
+
+The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]".
+
+Section Spoon
+
+The spoon is a prop in Limbo. Understand "bent" or "old" as the spoon. The description of the spoon is "A bent old spoon."
 
 Section Stain
 
@@ -487,17 +724,18 @@ Section Whiskey
 
 The whiskey is prop on the top of the cabinet. The printed name of the whiskey is "bottle of whiskey". 
 
-Chapter Jail Cel
+Chapter Jail Cell
 
-The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with [if the gate is locked]a tightly locked[otherwise]an unlocked[end if] gate.  A small window is set into the brickwork above your head.  The bars and a small gate separate you from the sheriff's office.".
+The Jail Cell is west of the jail door.   The jail cell is connected with office.   "[if unvisited]Why are you not surprised to have landed right back in the hoosegow after another one of Muddy's dubious plans? Will you ever learn? You weren't brought up for this sort of life -- how did it come to this? [paragraph break][end if]The small jail cell is brick on three sides, metal bars on the other, with [if the gate is locked]a tightly locked[otherwise]an unlocked[end if] gate.  A small window is set into the brickwork above your head.  Through the jail bars you can see the sheriff's office.".
 
-The jail cell contains the player. The mouth is part of the player. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth.
+The jail cell contains the player.
 
 Instead of inserting something inedible into the mouth:
 	say "That ain't hardly something to go putting into your mouth."
 	
 After inserting something into the mouth:
 	say "You pop [the noun] into your gaping maw."
+
 	
 Section Floor
 
@@ -514,8 +752,18 @@ Section Stool & Bench
 
 The stool is a large portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
 
-The bench is a large furniture in the jail cell.  The description of the bench is "blah". [TODO]
+The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated.
 
+Instead of searching the bench:
+	if the bench is not investigated:
+		say "[bench sekrits]."
+	
+To say bench sekrits:
+	say "Under the bench, you notice the remnants of a meal";
+	move the meat to the jail cell;
+	move the spoon to the jail cell;
+	move the can to the jail cell;
+	now the bench is investigated.
 
 Section Harmonica
 
@@ -606,7 +854,7 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors."
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated.
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -623,34 +871,42 @@ Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans agains
 
 The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit."
 
+Instead of searching muddy:
+	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
+
 Section Pete
 
-Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete carries the pamphlet]. A pamphlet is sticking out of his pocket.  You don't consider yourself a common pickpocket, but you have to wonder if there might be anything else interesting in there as well. [end if]."
+Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete carries the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if]."
 
-Pete carries a pamphlet.  The pamphlet is a prop.  [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
 
-Instead of taking the pamphlet when Pete carries the pamphlet:
+The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into Pete's suit."
+[TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
+
+Instead of taking the pamphlet when the pamphlet is in the pocket:
 	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
 	move the pamphlet to the player.
 
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture."
+The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture."
 
 The sermon is part of the pamphlet. The description of the sermon is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
 
-Pete carries a tin.  The tin is a closed portable openable container.  The carrying capacity of the tin is 1. 
+The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. 
 
 Instead of searching Pete:
-	if Pete carries the tin:
+	try searching the pocket.
+	
+Instead of searching the pocket:
+	if the tin is in the pocket:
 		say "You find a tin of chewing tobacco. It looks interesting, so you borrow it."; 
 		move the tin to the player;
 	otherwise:
 		say "You don't find anything that Pete wasn't born with."
 		
 Before taking the tin:
-	if Pete carries the tin:
+	if the tin is in the pocket:
 		say "You borrow Pete's tin of chewing tobacco. It don't look like he'll mind seeing as how he's unconscious and all.";
 		move the tin to the player;
 		stop the action.
@@ -676,24 +932,53 @@ Before inserting the tobacco into the mouth:
 		
 Section Rick
 
-Instead of examining the player, say "Big boots, pants, plains hat and a tattered overcoat.  Not so different from the uniform you once wore, just more lived-in.".
+The player is Rick. Rick is a man in the jail cell. 
 
-The player carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute]."  [TODO:  add "only X minutes till hangin' time!"]
+The mouth is part of Rick. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth.
 
-The player wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun."
+Instead of inserting something inedible into the mouth:
+	say "That ain't hardly something to go putting into your mouth."
+	
+After inserting something into the mouth:
+	say "You pop [the noun] into your gaping maw."
+
+Instead of examining the Rick, say "Big boots, pants, plains hat and a tattered overcoat.  Not so different from the uniform you once wore, just more lived-in."
+
+The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute]." The indefinite article of the pocketwatch is "your".  [TODO:  add "only X minutes till hangin' time!"]
+
+Rick wears a hat.  The hat is a player's holdall.  The description of the hat is "A wide-brimmed hat to protect you from the sun." The indefinite article of the hat is "your".
 
 Instead of searching the hat:
 	say "[if the hat contains something]In the hat you see [contents of hat][otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon[end if]."   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
 
-The player carries a scrap of paper.   The scrap of is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
+Rick carries a scrap of paper.   The scrap of paper is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'". 
 
-The player wears an overcoat.
+Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction gone awry, the hole on the the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Ah, good times[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The overcoat can be investigated. The overcoat is not investigated.
 
-The player wears boots.  The description of the boots is "Black boots that have seen better days.  The left boot is missing a heel spur.".
+Instead of searching the overcoat:
+	if the overcoat is not investigated:
+		say "You pat down the overcoat and whatever was living in it scurries into the shadows.";
+		award 3 points;
+		now the overcoat is investigated;
+	otherwise:
+		say "[one of]Your hands slip into where your pockets used to be. Nothing is left of your pockets, except holes. Not that your overcoat needed more holes[or]You don't find anything[stopping]."
+		
+Instead of taking off the overcoat:
+	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 
-The left boot and right boot are parts of the boots.  The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off.".  The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount.[if the spur is part of the right boot]The spur is loosely attached to the heel of the right boot.[end if]".  The mount is part of the spur.  The description of the mount is "The mount is part of the spur.".
+The footwear is privately-named backdrop in the jail cell. Understand "boots" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]."
 
-Instead of taking the spur when the spur is part of the right boot:
+Instead of doing something other than examining with the footwear:
+	say "You need to say the left one or the right one."
+
+Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off." 
+
+Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur."
+
+Instead of touching the spur:
+	say "Sakes alive, that's sharp! You whip your hand back."
+
+Instead of taking or pulling or attacking or taking off the spur when the spur is part of the right boot:
 	now the player carries the spur;
 	say "You yank the spur off your right boot, being careful not to cut yourself in the process.";
 	award 1 point.
@@ -703,6 +988,8 @@ Instead of taking the spur when the spur is part of the right boot:
 Section Sheriff
 
 The sheriff is a man in Limbo. The sheriff carries the warrant.
+
+
 
 
 Chapter Scripted Conversations
@@ -730,6 +1017,8 @@ To say swallowed chaw dialogue:
 
 Chapter Menus
 
+Section Help Menu
+
 Understand "help" or "about" or "info" as asking for help.
 
 Asking for help is an action out of world.
@@ -742,46 +1031,62 @@ Carry out asking for help:
 
 Table of Options
 title				subtable			description	toggle
-"What the Sam Hill is this?"	--	"Ah don[apostrophe]t set much by book learnin[apostrophe] and I don[apostrophe]t reckon that explainin[apostrophe]s half as good as doin[apostrophe], but let me give yer the skinny on this here piece of fictional work, so as a body can understand what's goin[apostrophe] on hereabouts. This is what them high-falutin[apostrophe] dudes out East call a [quotation mark]interactive fiction[quotation mark], but me and the boys, we like to call it an [quotation mark]adventure game[quotation mark].[paragraph break]In this story, you is the main character, and you get to sez what yer doin[apostrophe]. See, on account of you bein[apostrophe] in charge, it ain[apostrophe]t boring like reading a book or goin[apostrophe] to church. Ever time you see one of these arrow head things [quotation mark]>[quotation mark]  you can write what you[apostrophe]d like to do. Don't use no big sentences or nothin' cause that'll just mix everything up real bad. But you can say things like [quotation mark]drink whiskey[quotation mark], [quotation mark]smoke cigar[quotation mark] and [quotation mark]play cards[quotation mark] -- you know, all the kinds a thing a body might hanker to do. Then, you see what happens. Ah reckon yer goal is to not end up wearing a hemp necktie."		--
-"How do it work?"	--	"Ever turn, you type in yer command, and then something happens. That's how it works. Time is ticking along, alright, but not while yer cogitating about what to type. Take as long as you want.[paragraph break]The game is real simple like, so iff'n it don[apostrophe]t understand what you said, try saying it different. Don[apostrophe]t use no punctuation neither. That[apostrophe]s just asking for a heap of trouble. The one exception is iff[apostrophe]n you is asking or telling somebody something. Fer that, you can say their name followed by a comma (that[apostrophe]s looks like a bullet hole, but then it[apostrophe]s got some little bit that dangles down), and then yer command. It ain[apostrophe]t no good to [apostrophe]jes say that, so ah[apostrophe]m gonna give you an example: You could say [quotation mark][fixed letter spacing]Sheriff, give me the gun[variable letter spacing][quotation mark]. You could say that, mind, but he don[apostrophe]t got to."		--
-"Gettin[apostrophe] stuff done"		--	"If you ain[apostrophe]t a greenhorn, chances are you already know a bunch of the ever day commands used in this game. If not, take a gander:[paragraph break]
+"What the Sam Hill is this?"	--	"I don't set much by book learning and I don't reckon that explaining's half as good as doing, but let me give you the skinny on this here piece of fictional work, so as a body can understand what's going on hereabouts. This is what them high-falutin[apostrophe] dudes out East call an [quotation mark]interactive fiction[quotation mark], but me and the boys, we like to call it an [quotation mark]adventure game[quotation mark]. Heck, fiction is something you see a doctor about, clear as I can tell.[paragraph break]In this story, you is the main character, and you get to says what you're fixing to do. See, on account of you being in charge, it ain't boring like reading a book or going to church. Ever time you see one of these arrowhead things [quotation mark]>[quotation mark] you can write just what you'd like to do. Don't use no big sentences or nothing cause that'll just mix everything up real bad. But you can say things like [quotation mark]drink whiskey[quotation mark], [quotation mark]smoke cigar[quotation mark] and [quotation mark]play cards[quotation mark] -- you know, all the kinds a thing a body might hanker to do. Then, you see what happens.[paragraph break]I reckon your goal is to not end up wearing a hemp necktie, and that do seem real sensible."		--
+"How do it work?"	--	"Ever turn, you type in your command, and then something happens. That's how it works. Time is ticking along, all right, but not while you're cogitating about what to type. Take as long as you want.[paragraph break]The game is real simple like, so if'n it don't understand what you said, try saying it different. Don't use no punctuation neither, oh heck no, for criminy sakes, don't use no punctuation. That's just asking for a heap of trouble. The one exception is if'n you is asking or telling somebody something. For that, you can say their name followed by a comma (that's looks like a bullet hole, but then it's got some little bit that dangles down), and then your command. It ain't no good to just say that, so I'm a-gonna give you an example: You could say [quotation mark][fixed letter spacing]Sheriff, give me the gun[variable letter spacing][quotation mark]. You could say that, mind, but he don't got to."		--
+"Gettin[apostrophe] stuff done"		--	"If you ain't a greenhorn, chances are you already know a bunch of the ever day commands used in this game. If not, take a gander:[paragraph break]
 [fixed letter spacing]   look         - [variable letter spacing]look around[line break]
 [fixed letter spacing]   examine      - [variable letter spacing]look at something real hard[line break]
+[fixed letter spacing]   search       - [variable letter spacing]frisk or inspect thoroughly[line break]
 [fixed letter spacing]   go           - [variable letter spacing]followed by a direction[line break]
 [fixed letter spacing]   take/drop    - [variable letter spacing]pick up or drop something[variable letter spacing]"	--
-"Stuff you do a lot"		--	"We made it easy to do some stuff without typing a whole lot. You can use the letter in [fixed letter spacing]<brackets>[variable letter spacing] instead having to spell out the whole word, which is good on account some folk don[apostrophe]t spell so good:[paragraph break]
+"Stuff you do a lot"		--	"We made it easy to do some stuff without typing a whole lot. You can use the letter in [fixed letter spacing]<brackets>[variable letter spacing] instead having to spell out the whole word, which is good on account some folk don't spell so good (not to mention their grandma and sin tax):[paragraph break]
 [fixed letter spacing]   <i>nventory      - [variable letter spacing]what are you carrying?[line break]
 [fixed letter spacing]   <l>ook           - [variable letter spacing]look around[line break]
 [fixed letter spacing]   e<x>amine        - [variable letter spacing]look real hard at somethingl[line break]
 [fixed letter spacing]   <z>zzzz          - [variable letter spacing]cool yer heels[line break]
 [fixed letter spacing]   a<g>ain          - [variable letter spacing]do what you done, again[line break]
-[fixed letter spacing]   <o>ops           - [variable letter spacing]iff[apostrophe]n you make a spellin[apostrophe] mistake[variable letter spacing]"		--
-"Talkin' with folk"		--		"Here are a ways to talk to people:[paragraph break]
+[fixed letter spacing]   <o>ops           - [variable letter spacing]if'n you make a spellin[apostrophe] mistake[variable letter spacing]"		--
+"Talking with folk"		--		"Here are a ways to talk to people:[paragraph break]
 [fixed letter spacing]   SAY  [variable letter spacing]something[line break]
 [fixed letter spacing]   TELL [variable letter spacing]someone[fixed letter spacing] ABOUT [variable letter spacing]some topic[line break]
 [fixed letter spacing]   ASK  [variable letter spacing]someone[fixed letter spacing] ABOUT [variable letter spacing]some topic[line break]
 [fixed letter spacing]   SHOW [variable letter spacing]someone something[line break]
 [fixed letter spacing]   SHOW [variable letter spacing]something[fixed letter spacing] TO [variable letter spacing]someone[paragraph break]."		--
-"Readin[apostrophe] & Writin[apostrophe]"		--	"Iff[apostrophe]n you got room in yer saddle bag, you can save games and then reload them later. You can make multiple save files. You can also restart a game (but it[apostrophe]ll beef your current game). If yer desperate, you turn tail and cut.[paragraph break]
+"Reading & Writing"		--	"If'n you got room in yer saddle bag, you can save games and then reload them later. You can make multiple save files. You can also restart a game (but it'll beef your current game). If you're desperate, you turn tail and cut.[paragraph break]
 [fixed letter spacing]   SAVE      - [variable letter spacing]save the game at the current point[line break]
 [fixed letter spacing]   RESTORE   - [variable letter spacing]load and then continue the game[line break]
 [fixed letter spacing]   RESTART   - [variable letter spacing]start over again[line break]
-[fixed letter spacing]   QUIT      - [variable letter spacing]a last resort, iff[apostrophe]n yer yeller!"		--
-"Dang. Ah is in a fix."	--		"Here are some rules of thumb:[paragraph break]* Try everything you can think of. If that don[apostrophe]t work, try something else.[line break]* Reread what you read before [apostrophe]jes in case you missed something.[line break]* We don[apostrophe]t reckon you can get stuck. That is to say, you might get hanged, but the game shouldn[apostrophe]t.[line break]* If you are really really stuck deputize yerself a partner.[line break]* If you are really and truly stuck, the upstanding authors of this here work done wrote a walk-through what for showing you how it can be solved. Iff[apostrophe]n you ain[apostrophe]t man enuf to solve it yerself, that is."		--
-"Critters"	--		"We don[apostrophe]t take kindly to the presence of critters what we ain't wrote ourselves, but sometimes they show up anyhow. Iff'n you run across one, we'd be a might obliged if you[apostrophe]d report it to us. Y'all can file a bug report at the open sores web site fer the project, what is: http://code.google.com/p/hoosegow/issue, or you can send us a telegram at hoosegow@red-bean.com. When we hear from you, we[apostrophe]ll round up our posse and see that justice is served."	--
+[fixed letter spacing]   QUIT      - [variable letter spacing]a last resort, if'n yer yeller!"		--
+"Dang. I is in a fix."	--		"In trouble, huh? You didn't listen to Muddy, did you? Well, here are some things to ponder:[paragraph break]* Try everything you can think of. If that don't work, try something else.[line break]* Reread what you read before just in case you missed something.[line break]* We don't reckon you can get stuck. That is to say, you might get hanged, but the game shouldn't.[line break]* If you are really really stuck deputize yerself a partner.[line break]* If you are really and truly stuck, the upstanding authors of this here work done wrote a walk-through what for showing you how it can be solved. If'n you ain't man enough to solve it yourself, that is. Or woman enough, for that matter. Plumbing ain't the issue here."		--
+"Critters"	--		"We don't take kindly to the presence of critters what we ain't wrote ourselves, but sometimes they show up anyhow. If'n you run across one, we'd be a might obliged if you'd report it to us. Y'all can file a bug report at the open sores web site for the project, what is: http://code.google.com/p/hoosegow/issue, or you can send us a telegram at hoosegow@red-bean.com. When we hear from you, we'll round up our posse and see that justice is served."	--
 "Thanks"			Table of Thanks		--		--
-"License"	--	"We done released this here game under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States of America license. On account of that, you are free as a parakeet in a tornado to copy, distribute, display, and use this work and to make derivative works under the following conditions:[paragraph break]Attribution. You must attribute such works mentioning our names [story author] and the title of this work [quotation mark][story title][quotation mark]. We reckon that this can appear in the title, with the Release Information, or in the acknowledgements section of a menu system (iff'n you got one). Attribution don't suggest ourn endorsement of them derivative works or their authors.[paragraph break]Noncommercial. You may not use this work for commercial purposes. We don't set much store by commercial purposes, nohow.[paragraph break]Share Alike. If you alter, transform, or build upon this here work, you may distribute the resulting work only under the same or similar license to this one.[paragraph break]Iff[apostrophe]n you would like a copy of the Inform7 source for this game, it is available via the repository at http://code.google.com/p/hoosegow/source/checkout."		--	
+"License"	--	"We done released this here game under the Creative Commons Attribution-Noncommercial-Share Alike 3.0 United States of America license. On account of that, you are free as a parakeet in a tornado to copy, distribute, display, and use this work and to make derivative works under the following conditions:[paragraph break]Attribution. You must attribute such works mentioning our names [story author] and the title of this work [quotation mark][story title][quotation mark]. We reckon that this can appear in the title, with the Release Information, or in the acknowledgements section of a menu system (if'n you got one). Attribution don't suggest our endorsement of them derivative works or their authors.[paragraph break]Noncommercial. You may not use this work for commercial purposes. We don't set much store by commercial purposes, nohow.[paragraph break]Share Alike. If you alter, transform, or build upon this here work, you may distribute the resulting work only under the same or similar license to this one.[paragraph break]If[apostrophe]n you would like a copy of the Inform7 source for this game, it is available via the repository at http://code.google.com/p/hoosegow/source/checkout."		--	
 
 Table of Thanks
 title	subtable		description	toggle
-"The Posse"	--	"We got us a powerful fine posse, and ah reckon it would do some fine justice to tip our hats to them that waded through the cow patties to pretty up this here game. They is:[paragraph break][list of testers]"		--
-"Legends of the West"		--	"We aint the first people to explore this territory, and it seems right be me to mention some of the pioneers that mapped out this land when it was savage. Names like Graham Nelson and Emily Short, who done wrote the IF language Inform 7, and other members of their posse like David Kinder who wrote one of the extensions that we use."	--
+"The Posse"	--	"We got us a powerful fine posse, and I reckon it would do some fine justice to tip our hats to them that waded through the cow patties to pretty up this here game. They is:[paragraph break][list of testers]"		--
+"Legends of the West"		--	"We ain't the first people to explore this territory, and it seems right be me to mention some of the pioneers that mapped out this land when it was savage. Names like Graham Nelson and Emily Short, who done wrote the IF language Inform 7, and other members of their posse like David Kinder who wrote one of the extensions that we use."	--
 
 Chapter Credits
 
 To say list of testers:
 	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]Jenni Polodna[line break]";
 
+Section Help Menu
+
+Easter egging is an action out of world. Understand "easter egg" as Easter egging.
+
+Carry out Easter egging:
+	change the current menu to the Table of Eggs;
+	carry out the displaying activity;
+	clear the screen;
+	try looking.
+
+Table of Eggs
+title				subtable			description	toggle
+"Alternate Ending #1"	--	"Rise of the Lizard People"	--
+"Alternate Ending #2"	--	"End of Simulation at MARSpace"	--
+"Alternate Ending #3"	--	"Revenge of the GSWA"	--
 
 Chapter Default Messages
 
@@ -910,28 +1215,73 @@ LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
 
+Section Hints
 
-Chapter Every Turn
+Table of Active Hints (continued)
+title		subtable			description			toggle
+text		table-name		text					a rule
 
-Every turn:
-	[avoid penalizing time for non-actions, a nuance]
-	if the current action is taking inventory or the current action is looking:
-		change the time of day to 1 minute before the time of day.
-	[###TODO Add other every-turn items]
+Table of Potential Hints (continued)
+title													subtable
+"How can I open the can?"						Table of Can Opening
+
+A hint activation rule:
+	if the can is in the jail cell and the can is closed then activate the Table of Can Opening.
+	
+A hint deactivation rule:
+	if the can is open then deactivate the Table of Can Opening.
+
+Table of Can Opening
+hint													used
+"What do you need to open a can?"				a number
+"Is there anything that resembles a can opener in the cell?"
+"Did you examine everything in the cell?"
+"Is there something on your person that might help?"
+"Are you wearing anything that might serve the purpose?"
+"Have you examined your boots?"
+"Have you tried touching the spurs on your right boot?"
+"Can you open the can with the spurs?"
+"You need to remove the spurs from the boot to use them as a can opener."
+"You can pull the spurs of the right boot."
+"Open the can with the spurs."
 		
 Book 2  Scenes
 
-Section The Beginning 
+Chapter Introduction
 
-Section The Middle
+Introduction is a scene. Introduction begins when play begins. Introduction ends when the Deputy is not in the office.
 
-Section The End
+Chapter Unwatched
+
+Unwatched is a recurring scene. Unwatched begins when the deputy is not in the office. Unwatched ends when the deputy is in the office. 
+
+Chapter Forgery
+
+Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
+
+Chapter Drugged
+
+Drugged is a scene. Drugged begins when the deputy is sedated. 
+
+Chapter Denouement
+
+Denouement is a scene. Denouement begins when Rick is not in the jail cell.
+
+Chapter The End
 
 Rule for printing the player's obituary:
 	do nothing.
 	[###TODO add obituary]
 			
 Rule for amusing a victorious player:
-	do nothing.
-	[###TODO add amusement]
+say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
+say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How 'bout old Flash?[paragraph break]";
+say "* There are three ways of driving the deputy out of the jail, how many did you find?[paragraph break]";
+say "Some other random trivia:[paragraph break]";
+say "* The game is set in the Indian Territory, which would later become the Oklahoma territory and subsequently the state. How many references can you find to the musical [quotation mark]Oklahoma![quotation mark]?";
+say "* In the real West, it wouldn't have made any sense to put beans in a can. They were a cheap staple, transported dry, likely in sacks.[paragraph break]";
+say "* Boot spurs were referred to as [quotation mark]can openers[quotation mark] in the Old West. Really.[paragraph break]";
+say "* The transcontinental railroad was completed in 1869, but it crossed two states above Oklahoma. The first railroads in Oklahoma were built in 1870, and the state wasn't crossed until 1871.[paragraph break]";
+say "* The espresso machine was invented in XXXXXX in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
+say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]Easter Egg[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
 	
