@@ -49,11 +49,14 @@ expects to find extension modules:
     figure it out.
 
   - create a directory called "David Fisher" in the Extensions
-    directory, then copy 'Default Messages.i7x' into it.
+    directory, then copy 'Default Messages.i7x' file into it.
 
+  - create a directory called "Eric Eve" in the Extensions directory,
+    then copy the 'Adaptive Hints.i7x' file into it.
 
 3. Launch the Inform IDE and load the hoosegow.inform project.  The
 source code should be visible, and it should compile fine.  Make sure
-that Inform's settings are are set to "Glulx" as the target VM.
+that Inform's Settings tab are are set to "z8" as the target VM.
+
 
 
