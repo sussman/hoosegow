@@ -608,7 +608,7 @@ The office is a room. The description of the office is "[one of]A one room jailh
 
 Section Bell
 
-The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the door way on a small hook[end if]." The bell can be rung. The bell is not rung.
+The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the doorway on a small hook[end if]." The bell can be rung. The bell is not rung.
 
 The hook is a furniture in the office. The description of the hook is "A small metal hook screwed into the door jam[if the bell is on the hook] A bell hangs from the hook[end if]."
 
@@ -624,7 +624,7 @@ The ball is a large part of the boiler. The description of the ball is "A thick,
 
 The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.
 
-The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction just above the pressure gauge. The arm can swing towards either the door or the back of the office. Right now, it is nearer [lever position]." The lever has position. The lever is neutral.
+The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction just above the pressure gauge. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral.
 
 To say lever position:
 	say "Right now, it is nearer to ";
