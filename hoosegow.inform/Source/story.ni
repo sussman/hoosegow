@@ -832,11 +832,13 @@ Carry out playing the harmonica:
 			-- 0:
 			say "Tentatively, you blow a few notes. The bars in the jail cell rattle sympathetically.[paragraph break]'Look at that, boy', Muddy laughs, 'I swear that screw up there holding that bar is wiggling loose!'";
 			-- 1:
-			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the grey bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
+			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
 			-- 2:
-			say "A spark flies as a screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell roles under the deputy's desk.   A grey bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.'[paragraph break]";
+			say "A spark flies as a screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell roles under the deputy's desk.   A gray bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.'[paragraph break]";
 			move the screw to limbo;
-			move the grey bar to the jail cell;
+			move the gray bar to the jail cell;
+			move the gap to the jail cell;
+			now the gap is part of the bars;
 			-- otherwise:
 			say "You blow a few more notes, but you're not getting any better.";
 		increase the play-counter by one.
@@ -865,24 +867,25 @@ Instead of going when the player is in the jail cell:
 		say "As you leave to go, the harmonica is yanked away from you by the wall-chain.[paragraph break]";
 	continue the action.
 
-
 Section Bars
 
-The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the grey bar is part of the bars]All except one, which is sort of grey in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the grey bar is part of the bars], except for one which is slightly lighter in color -- a grey one[end if].[stopping]".
+The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]".
 
 Instead of attacking the bars:
 	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
 
-The grey bar is part of the bars.  The grey bar is a prop.  The description of the grey bar is "The grey bar is just a shade lighter than other cell bars.  [if the grey bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the grey bar]It doesn't weigh much at all, and it's hollow.[end if]". 
+The gray bar is part of the bars.  The gray bar is a prop.  The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar]It doesn't weigh much at all, and it's hollow.[end if]". 
 
-Instead of taking or pulling the grey bar:
-	if the grey bar is part of the bars:
-		say "The grey bar is loose, but still held in place by a large screw that connects it to the ceiling.";
+The gap is scenery in limbo.  The description of the gap is "Ain't big enough to even get your arm through."
+
+Instead of taking or pulling the gray bar:
+	if the gray bar is part of the bars:
+		say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
 	otherwise:
-		move the grey bar to the player;
+		move the gray bar to the player;
 		say "You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you.  'Don't that just beat all,' ponders Muddy.".
 		
-The screw is part of the grey bar.  The description of the screw is "A large, rusty screw.  It's holding a grey bar in place.".
+The screw is part of the gray bar.  The description of the screw is "A large, rusty screw.  It's holding a gray bar in place.".
 
 Instead of taking the screw:
 	if the player is on the stool:
