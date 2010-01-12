@@ -217,13 +217,12 @@ Instead of looking under the noun:
 Section Playing
 
 Understand the command "play" as something new.  Playing is an action applying to one thing.  Understand "play [a thing]" as playing.
-Report playing:
-	if the noun is the harmonica:
-		say "Tentatively, you blow a few notes. The bars in the jail cell rattle sympathetically. ";
-		[TODO:   needs negative reaction from deputy, if he's present]
-	otherwise:
-		say "You don[apostrophe] rightly know how to play such a thing."
-		
+
+Check playing:
+	if the noun is not the harmonica:
+		say "You don't rightly know how to play such a thing.";
+		stop the action.
+
 Section Reading
 
 [###TODO Untangle reading from examine.]
@@ -380,6 +379,17 @@ Chapter Not Ready For Prime Time - Not for release
 
 [When play begins:
 	change library message debug to on.]
+
+[cf. _Enchanter_:  "blorb : safely protect an object as though in a strong box"]
+Blorbing is an action applying to nothing.  Understand "blorb" as blorbing.
+Carry out blorbing:
+	if the deputy is in the office:
+		move the deputy to limbo;
+		say "Poof!  In a cloud of smoke, the deputy disappears for testing purposes.";
+	otherwise:
+		move the deputy to the office;
+		say "Poof!  The deputy magically reappears, oblivious to your testing.".
+
 
 Section Muting
 
@@ -549,7 +559,7 @@ This is the Environmental stage business rule:
 Table of Environmental Stage Business
 times-used		verbage
 0			"A fly buzzes past your ear and lands on the ceiling."
-0			"Through the window, you hear the strums of a neary banjo"
+0			"Through the window, you hear the strums of a neary banjo."
 0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure."
 
 Chapter Limbo
@@ -611,7 +621,7 @@ To say warrant-text:
 
 Chapter Jailhouse Region
 
-The jailhouse is a region.  Office and Jail Cell are part of the jailhouse.
+The jailhouse is a region.  The Office and Jail Cell are part of the jailhouse.
 
 The ceiling is a backdrop in the jailhouse.  The description of the ceiling is "The jailhouse ceiling is stucco and too high to touch. "
 
@@ -622,11 +632,11 @@ The sky is a backdrop in the jailhouse.  The description of the sky is "Outside 
 
 Chapter Office
 
-The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, a door leads back to town."
+The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town."
 
 Section Bell
 
-The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the door way on a small hook[end if]." The bell can be rung. The bell is not rung.
+The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the doorway on a small hook[end if]." The bell can be rung. The bell is not rung.
 
 The hook is a furniture in the office. The description of the hook is "A small metal hook screwed into the door jam[if the bell is on the hook] A bell hangs from the hook[end if]."
 
@@ -642,7 +652,7 @@ The ball is a large part of the boiler. The description of the ball is "A thick,
 
 The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.
 
-The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction just above the pressure gauge. The arm can swing towards either the door or the back of the office. Right now, it is nearer [lever position]." The lever has position. The lever is neutral.
+The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction just above the pressure gauge. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral.
 
 To say lever position:
 	say "Right now, it is nearer to ";
@@ -667,6 +677,8 @@ Does the player mean doing something with the cabinet:
 [###CONSIDER: suppress disambiguation message]
 
 The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana[or]A bright yellow banana[stopping]."
+
+[TODO:  what happens when we point the banana at someone?  Put it in our ear?]
 
 The gunbelt is a wearable prop. The description of the gunbelt is "A leather gun belt with holster."
 
@@ -738,6 +750,7 @@ Section Swinging Doors
 
 The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields."
 
+
 Section Whiskey
 
 The whiskey is prop on the top of the cabinet. The printed name of the whiskey is "bottle of whiskey". 
@@ -761,7 +774,7 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  Understand "door" as the gate.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
 
 The gate lock is part of the gate.
 
@@ -785,7 +798,9 @@ To say bench sekrits:
 
 Section Harmonica
 
-The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "The harmonica is attached to the wall by a silvery chain.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.
+The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "The harmonica is attached to the wall by a silvery chain.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy.
+
+The play-counter is a number that varies.  The play-counter is zero. [Number of times harmonica is played AFTER deputy has left.]
 
 Instead of examining the harmonica for the first time:
 	if the harmonica is not discussed:
@@ -798,11 +813,36 @@ Instead of taking the harmonica for the first time:
 		say "[initial harmonica dialogue]";
 	now the harmonica is discussed.
 
-Instead of playing the harmonica for the first time:
-	if the harmonica is not discussed:
-		say "[initial harmonica dialogue]";
-	now the harmonica is discussed;
-	try playing the harmonica.
+Check playing the harmonica:
+	if the player does not carry the harmonica:
+		say "You got to be holding it first.";
+		stop the action.
+
+Carry out playing the harmonica:
+	if the deputy is in the office:
+		if the harmonica is not first-heard-by-deputy:
+			say "You tentatively blow on it a bit, but you're not rightly sure what you're doing.[paragraph break]The deputy grimaces, 'Knock off that racket, you two. A noise like that, a man can't get to thinking straight. Settle down now, you hear? I got me some reading to do.' The deputy unfolds the warrant, furrows his brow and begins reading. You can tell because his lips are moving. Slowly.";
+			now the harmonica is first-heard-by-deputy;
+		otherwise:
+			say "You play the harmonica again;  the deputy storms out in disgust.[paragraph break]"; [TODO:  invoke common routine for his leaving, involving explanation of Flash and such]
+			move the deputy to limbo;
+			say "Muddy says, 'Nice one.  Hey -- I reckon I saw that screw up there wiggle a bit when you played the harmonica. I didn't say nothing on account what the deputy was here.'  He points to a screw holding in one of the cell bars.";
+	otherwise:  [no deputy present]
+		if the play-counter is:
+			-- 0:
+			say "Tentatively, you blow a few notes. The bars in the jail cell rattle sympathetically.[paragraph break]'Look at that, boy', Muddy laughs, 'I swear that screw up there holding that bar is wiggling loose!'";
+			-- 1:
+			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the grey bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
+			-- 2:
+			say "A spark flies as a screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell roles under the deputy's desk.   A grey bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.'[paragraph break]";
+			move the screw to limbo;
+			move the grey bar to the jail cell;
+			-- otherwise:
+			say "You blow a few more notes, but you're not getting any better.";
+		increase the play-counter by one.
+
+
+
 
 The inscription is part of the harmonica.  The description of the inscription is "'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One'". 
 
@@ -828,12 +868,31 @@ Instead of going when the player is in the jail cell:
 
 Section Bars
 
-The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. All except one, which is sort of gray in color. They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black, except for one which is slightly lighter in color -- a grey one.[stopping]".
+The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the grey bar is part of the bars]All except one, which is sort of grey in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the grey bar is part of the bars], except for one which is slightly lighter in color -- a grey one[end if].[stopping]".
 
 Instead of attacking the bars:
 	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
 
-The grey bar is part of the bars.  The grey bar is portable scenery.  [TODO:  much more here, like being able to fetch the bar by playing harmonica.  When it falls, it's no longer part of the bars, I guess.]
+The grey bar is part of the bars.  The grey bar is a prop.  The description of the grey bar is "The grey bar is just a shade lighter than other cell bars.  [if the grey bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the grey bar]It doesn't weigh much at all, and it's hollow.[end if]". 
+
+Instead of taking or pulling the grey bar:
+	if the grey bar is part of the bars:
+		say "The grey bar is loose, but still held in place by a large screw that connects it to the ceiling.";
+	otherwise:
+		move the grey bar to the player;
+		say "You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you.  'Don't that just beat all,' ponders Muddy.".
+		
+The screw is part of the grey bar.  The description of the screw is "A large, rusty screw.  It's holding a grey bar in place.".
+
+Instead of taking the screw:
+	if the player is on the stool:
+		say "You try to grab it, but it won't budge.";
+	otherwise:
+		say "The screw is too high for you to reach.".
+		
+
+
+
 
 [TODO:  pulling, pushing, or attacking the bars (or anything escape-ish) should enhance some sort of "deputy anger" scale, allowing him to react and eventually shoot the player.]
 
