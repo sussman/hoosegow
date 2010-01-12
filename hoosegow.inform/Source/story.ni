@@ -1065,7 +1065,7 @@ title				subtable			description	toggle
 Table of Thanks
 title	subtable		description	toggle
 "The Posse"	--	"We got us a powerful fine posse, and I reckon it would do some fine justice to tip our hats to them that waded through the cow patties to pretty up this here game. They is:[paragraph break][list of testers]"		--
-"Legends of the West"		--	"We ain't the first people to explore this territory, and it seems right be me to mention some of the pioneers that mapped out this land when it was savage. Names like Graham Nelson and Emily Short, who done wrote the IF language Inform 7, and other members of their posse like David Kinder who wrote one of the extensions that we use."	--
+"Legends of the West"		--	"We ain't the first people to explore this territory, and it seems right be me to mention some of the pioneers that mapped out this land when it was savage. Names like Graham Nelson and Emily Short, who done wrote the IF language Inform 7, and other members of their posse like David Kinder and Eric Eve, who wrote the extensions that we use."	--
 
 Chapter Credits
 
