@@ -89,9 +89,6 @@ After looking when the location is an inter-visible room:
 	repeat with other place running through rooms which are connected with the location:
 		if the other place is not the location, describe locale for other place.
 
-
-
-
 Chapter Declare Global Variables
 
 The last mentioned thing is a thing that varies.
@@ -106,6 +103,9 @@ A furniture is a kind of supporter. It is usually scenery and fixed in place. [I
 
 A thing can be large. Usually a thing is not large.
 
+Everything has some text called texture. The texture of something is usually "".
+Everything has some text called scent. The scent of something is usually "". 
+
 
 Chapter General Routines
 		
@@ -117,9 +117,17 @@ To say is-are:
     if the last mentioned thing is plural-named, say "are"; 
     otherwise say "is".
 
-To say it-they: 
-    if the last mentioned thing is plural-named, say "they"; 
-    otherwise say "it".
+To say it-they:
+	if the last mentioned thing is plural-named:
+		say "they"; 
+	otherwise:
+		if the last mentioned thing is a person:
+			if the last mentioned thing is male:
+				say "he";
+			otherwise:
+				say "she";
+		otherwise:
+			say "it".
 
 To say (regular verb - some text) in correct agreement:
 	say "[regular verb][if the last mentioned thing is not plural-named]s".
@@ -209,6 +217,36 @@ Carry out opening it with:
 		award one point.
 	
 
+Section Listening
+[Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
+
+Instead of listening:
+	pick a phrase from the Table of Ambient Noise;
+	say ".";
+	[to avoid conflicting with some other sound-generating random event]
+	change the block stage business flag to true.
+	
+Table of Ambient Noise
+times-used		verbage
+0			"All the sounds of the Earth are like music"
+0			"You seldomly hear a discouraging word"
+0			"You hear the sounds of the men working on the chain gang"
+0			"From the boiler, you hear the occassional hiss of steam"
+0			"In the distance, a train blows its whistle"
+0			"You hear the creaking of Muddy's two-cent boots"
+0			"From outside, you hear the raspy call of the turkey vulture"
+0			"The shrill peeping of the black vulture cuts through the night"
+0			"You enjoy the trilling eloquence of the yellow-breasted gulch runner"
+0			"The weepy, melodramatic whine of the exotic prairie emu saddens you"
+0			"If you are not mistaken, you hear the pentatonic song of the hook-beaked plains vulture"
+0			"From across the street, you hear a player piano grinding out a song"
+0			"Over in the saloon, you hear a brawl break out"
+0			"Something in here is going [quotation mark]Lub dub, lub dub[quotation mark] over and over and over again"
+0			"You can barely hear the crackle of the fire in the boiler"
+0			"Concentrating, you can hear the paint drying on the walls"
+0			"You hear [if Flash is in the office]Flash's slow, easy[otherwise]Muddy's wheezy[end if] breathing"
+0			"From somewhere off in the hills, you hear a coyote howling at the moon"
+
 Section Looking Under
 
 Instead of looking under the noun:
@@ -262,6 +300,58 @@ Shooting is an action applying to one thing. Understand "shoot [a thing]" as sho
 
 Carry out shooting:
 	say "Bang!" [### a placeholder]
+	
+Section Smelling
+	
+[Like listening, smelling is performed through instead rules. The generic smell rule tracks bad smells, which decay over time.]
+
+[A procedural rule while smelling:
+	ignore the can't reach inside rooms rule.]
+	
+The ambient odor is a number that varies. The ambient odor is 10.
+
+
+Instead of smelling:  
+	let the regverb be "smell";
+	if the noun is the location:
+		let R be 1;
+		repeat with N running from 1 to the number of rows in Table of Relative Smells:
+			change R to N;
+			if the intensity in row N of the the Table of Relative Smells is greater than the ambient odor, break;
+		if R is not the number of rows in the Table of Relative Smells:
+			decrease R by one;
+		choose row R in the Table of Relative Smells;
+		say "[verbage entry].";
+		the rule succeeds;
+	otherwise if the noun is a backdrop:				
+		do nothing;[backdrops are not in the location; the default rule serves adequately.]
+	otherwise:
+		if the scent of the noun is "":
+			[note that this presumes that people all have a defined scent]
+			say "The [noun] [the regverb in correct agreement] [one of]unremarkable[or]ordinary[or]not particularly interesting[in random order].";
+			the rule succeeds;
+		if the noun is the player:
+			 say "You smell";
+		otherwise if noun is a person:
+			if the noun is male:
+				say "He";
+			otherwise:
+				say "She";
+			say " smells";
+		otherwise if the noun is part of the player:
+			say "Your [noun] [the regverb in correct agreement]";
+		otherwise:
+			say "[The noun] [the regverb in correct agreement]";
+		say " [scent of the noun]."
+
+
+Table of Relative Smells [###TODO Buff generic smells, add variety]
+intensity		verbage
+10				"The waving wheat sure smells sweet"
+20				"It smells mostly nice"
+30				"You notice some odor in the air"
+50				"There is an unpleasant odor"
+100				"It stinks to high heaven"
 	
 Section Spitting
 
@@ -372,6 +462,25 @@ Carry out directedSpitting at:
 	
 To say big target:
 	say "[one of]Where's the challenge in that?[or]Hardly a test of your tobacco spitting prowess.[or]Child's play. Your grandmother could spit tobacco at [a noun].[at random]".
+	
+Section Touch
+[Touching is implemented through an after rule, which is nice in terms of making use of existing relationships about whether something is touchable or not. If an item has a texture attribute, this rule makes use of it.]
+
+After touching something (called the item):
+	if the item is the player:
+		say "You feel normal. Nothing out of the ordinary, really.";
+	otherwise:
+		let the regverb be "feel";
+		if the texture of the item is "":
+			let the T be "[one of]unremarkable[or]as you'd expect[or]like [it-they] should[or]normal[in random order]";
+		otherwise:
+			let T be the texture of the item;
+		if the item is part of the player:
+			say "Your";
+		otherwise:
+			if the item is not proper-named:
+				say "The";
+		say " [item] [the regverb in correct agreement] [T]."
 
 Chapter General Insteads
 
@@ -428,6 +537,9 @@ Every turn:
 	[avoid penalizing time for non-actions, a nuance]
 	if the current action is taking inventory or the current action is looking:
 		change the time of day to 1 minute before the time of day;
+	[adjust the odor]		
+	if the ambient odor is greater than ten:
+		decrease the ambient odor by ten;
 	[stage business]
 	if muted is false:
 		Consider the stage business rules;
@@ -444,7 +556,9 @@ To pick a phrase from (source - a table-name):
 	repeat with N running from 2 to the number of rows in the source:
 		change R to N;
 		if times-used in row N of the source is greater than times-used in row 1 of the source, break;
-	let T be a random number between 1 and (R minus one);
+	if R is not the number of rows in the source:
+		decrease R by one;
+	let T be a random number between 1 and R;
 	choose row T in the source;
 	increase the times-used entry by one;
 	say "[verbage entry]".
@@ -569,12 +683,12 @@ Limbo is a room.
 
 Section Can
 
-The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". 
+The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can is "[if the can is open]like beans. No surprise there[otherwise]like the piece of rancid meat it was next to[end if]"
 
 Instead of opening the can:
 	say "What do you want to open it with?"
 	
-Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood."
+Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood." The scent of the beans is "delicious and yet somehow disgusting".
 
 Does the player mean doing something with the beans:
 	it is likely.
@@ -601,7 +715,7 @@ Before eating beans:
 
 Section Meat
 
-The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]".
+The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried".
 
 Section Spoon
 
@@ -939,7 +1053,7 @@ The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. Th
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
 
-Flash is a male animal in Limbo. Flash can be spat upon. Flash is not spat upon.
+Flash is a male animal in Limbo. Flash is proper-named. Flash can be spat upon. Flash is not spat upon.
 
 Section Marshal
 
@@ -947,7 +1061,7 @@ The marshal is a person in Limbo.
 
 Section Muddy
 
-Muddy is a man in the jail cell.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be investigated. Muddy is not investigated. 
+Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be investigated. Muddy is not investigated. 
 
 After examining Muddy:
 	now Muddy is investigated.
@@ -967,7 +1081,7 @@ Instead of searching muddy:
 
 Section Pete
 
-Pete is a man in the jail cell.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized.
+Pete is a man in the jail cell. Pete is proper-named.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]".
 
 The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into Pete's suit."
 [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
@@ -1022,7 +1136,7 @@ Before inserting the tobacco into the mouth:
 		
 Section Rick
 
-The player is Rick. Rick is a man in the jail cell. 
+The player is Rick. Rick is a man in the jail cell. Rick is proper-named.
 
 The mouth is part of Rick. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth.
 
