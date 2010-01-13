@@ -347,7 +347,7 @@ Instead of smelling:
 
 Table of Relative Smells [###TODO Buff generic smells, add variety]
 intensity		verbage
-10				"The waving wheat sure smells sweet"
+10				"[if the location of the coffee is not Limbo]Freshly brewed coffee[otherwise]The waving wheat sure smells sweet[end if]"
 20				"It smells mostly nice"
 30				"You notice some odor in the air"
 50				"There is an unpleasant odor"
@@ -683,12 +683,12 @@ Limbo is a room.
 
 Section Can
 
-The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can is "[if the can is open]like beans. No surprise there[otherwise]like the piece of rancid meat it was next to[end if]"
+The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can is "[if the can is open]like beans. No surprise there[otherwise]like the piece of rancid meat it was next to[end if]". The texture of the can is "smooth and metallic".
 
 Instead of opening the can:
 	say "What do you want to open it with?"
 	
-Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood." The scent of the beans is "delicious and yet somehow disgusting".
+Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood." The scent of the beans is "delicious and yet somehow disgusting". The texture of the beans is "slimy and gelatinous".
 
 Does the player mean doing something with the beans:
 	it is likely.
@@ -715,19 +715,19 @@ Before eating beans:
 
 Section Meat
 
-The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried".
+The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others".
 
 Section Spoon
 
-The spoon is a prop in Limbo. Understand "bent" or "old" as the spoon. The description of the spoon is "A bent old spoon."
+The spoon is a prop in Limbo. Understand "bent" or "old" as the spoon. The description of the spoon is "A bent old spoon." The texture of the spoon is "cool".
 
 Section Stain
 
-The stain is scenery in Limbo. The description of the stain is "A dark brown stain."
+The stain is scenery in Limbo. The description of the stain is "A dark brown stain." The texture of the stain is "rough". The scent of the stain is "like dirt".
 
 Section Warrant
 
-The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited.
+The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper".
 
 To say warrant-text:
 	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]."
@@ -750,7 +750,7 @@ The office is a room. The description of the office is "[one of]A one room jailh
 
 Section Bell
 
-The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the doorway on a small hook[end if]." The bell can be rung. The bell is not rung.
+The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging by the doorway on a small hook[end if]." The bell can be rung. The bell is not rung. The texture of the bell is "surprisingly heavy".
 
 The hook is part of the swinging doors.  The hook is a supporter.  The description of the hook is "A small metal hook screwed into the door jam.[if the bell is on the hook] A bell hangs from the hook[end if]."
 
@@ -758,15 +758,15 @@ Section Boiler
 
 Position is a kind of value. The positions are whistleward, neutral, and coffeeward.
 
-The boiler is a large furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]." Understand "combustion" or "chamber" as the boiler.
+The boiler is a large furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]." Understand "combustion" or "chamber" as the boiler. The texture of the boiler is "painfully hot". The scent of the boiler is "of soot and burning coal".
 
-The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler."
+The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler." The texture of the grate is "hot enough to burn someone".
 
-The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball.
+The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball. The texture of the ball is "hot to the touch".
 
-The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.
+[The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.]
 
-The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction just above the pressure gauge. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral.
+The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral. The texture of the lever is "smooth and warm".
 
 To say lever position:
 	say "Right now, it is nearer to ";
@@ -783,22 +783,25 @@ To say lever position:
 
 Section Cabinet
 
-The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]."
+The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]." The texture of the cabinet is "fine-grained".
 
 Does the player mean doing something with the cabinet:
 	It is very likely.
 	
 [###CONSIDER: suppress disambiguation message]
 
-The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana[or]A bright yellow banana[stopping]."
+The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity".
 
 [TODO:  what happens when we point the banana at someone?  Put it in our ear?]
 
-The gunbelt is a wearable prop. The description of the gunbelt is "A leather gun belt with holster."
+To say rawhide:
+	say "like old rawhide";
 
-The holster is an open container that is part of the gunbelt. The description of the holster is "A leather pouch that holds your gun."
+The gunbelt is a wearable prop. The description of the gunbelt is "A leather gun belt with holster." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]".
 
-The gun is a prop in the holster. The description of the gun is "[one of]You quickly inspect your gun and are alarmed to discover that it's unloaded[or]A simple six-shooter pistol[stopping]." The indefinite article of the gun is "your". Understand "pistol" as the gun.
+The holster is an open container that is part of the gunbelt. The description of the holster is "A leather pouch that holds your gun." The scent of the holster is "[rawhide]".
+
+The gun is a prop in the holster. The description of the gun is "[one of]You quickly inspect your gun and are alarmed to discover that it's unloaded[or]A simple six-shooter pistol[stopping]." The indefinite article of the gun is "your". Understand "pistol" as the gun. The scent of the gun is "like machine oil and gunpowder". The texture of the gun is "solid and heavy".
 
 After taking the gunbelt:
 	say "You strap on your gun belt.";
@@ -808,18 +811,20 @@ Section Chair
 
 The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
 
+The scent of the chair is "like an amalgam of the butts that have sat on it over the years. Not pleasant". The texture of the chair is "like an expensive piece of furniture".
+
 Section Desk
 
-The desk is a large furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]."
+The desk is a large furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]." The texture of the desk is "old and battered".
 
-The description of the drawer is "A small drawer". The drawer can be mentioned. The drawer is not mentioned. The drawer is lockable and locked. The matching key of the drawer is the small brass key.
+The description of the drawer is "A small drawer". The drawer can be mentioned. The drawer is not mentioned. The drawer is lockable and locked. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?"
 
 After opening the drawer:
 	say "[one of]The lock clicks and you slide the drawer open revealing a yellow telegram and sheaf of papers titled [quotation mark]Patent[quotation mark][or]You open the drawer[if the drawer contains something]revealing [a list of things in the drawer][end if][stopping]." 
 	
-The telegram is in the drawer. The description of the telegram is "A yellow paper on the stationary of the Western Union telegraph company. The message on the telegram is addressed to the sheriff and reads: [quotation mark]AGREE TO YOUR OFFER [bracket]STOP[close bracket] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [bracket]STOP[close bracket] CONGRATULATIONS ON WINNING LOTTERY [bracket]STOP[close bracket] SIGNED JEFFRIES & BRAND STEAMWORKS CO LTD [bracket]STOP[close bracket][bracket]END[close bracket][quotation mark]." Understand "paper", "yellow", and "message" as the telegram. 
+The telegram is in the drawer. The description of the telegram is "A yellow paper on the stationary of the Western Union telegraph company. The message on the telegram is addressed to the sheriff and reads: [quotation mark]AGREE TO YOUR OFFER [bracket]STOP[close bracket] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [bracket]STOP[close bracket] CONGRATULATIONS ON WINNING LOTTERY [bracket]STOP[close bracket] SIGNED JEFFRIES & BRAND STEAMWORKS CO LTD [bracket]STOP[close bracket][bracket]END[close bracket][quotation mark]." Understand "paper", "yellow", and "message" as the telegram. The texture of the telegram is "like cheap, almost tissue-thin paper".
 
-The patent is in the drawer. The description of the patent is "A thick technical document describing the coffee machine invented by the sheriff[one of]. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages[or][stopping]." 
+The patent is in the drawer. The description of the patent is "A thick technical document describing the coffee machine invented by the sheriff[one of]. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages[or][stopping]." The texture of the paper is "like a crisp, freshly printed document".
 
 Section Outdoors
 
@@ -833,28 +838,28 @@ The deer is a male animal on the range.
 
 The antelope is a female animal on the range. 
 
-Instead of examining an animal on the range:
-	say "The deer stares back to you momentarily and then runs off with the antelope. Ungulates are very private, you know.";
+Instead of examining an animal (called trophy) on the range:
+	say "The [trophy] stares back at you momentarily and then runs off with the antelope. Ungulates are very private, you know.";
 	move the deer to Limbo;
 	move the antelope to Limbo.	
 
 Section Portrait
 
-The portrait is a large scenery prop in the office. The portrait can be hung up. The portrait is not hung up. The description of the portrait is "A bombastic portrait of the sheriff who is dressed in a Napoleanic uniform save for the ten gallon hat. In the background, dogs play poker."
+The portrait is a large scenery prop in the office. The portrait can be hung up. The portrait is not hung up. The description of the portrait is "A bombastic portrait of the sheriff who is dressed in a Napoleanic uniform save for the ten gallon hat. In the background, dogs play poker." The scent of the portrait is "like oil paints".
 
 Section Protocappuccinomatic
 
-The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "strange machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic.
+The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "strange machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic. The scent of the device is "like coffee beans". The texture of the protocappuccinomatic is "warm and smooth".
 
-The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe.
+The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe. The texture of the iron pipe is "hot".
 
-The cup is in Limbo. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]."
+The cup is in Limbo. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
-Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted.
+Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".
 
-The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle.
+The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
-The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute.
+The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute. The texture of the shoot is "smooth".
 
 To make coffee:
 	now the coffee is in the cup;
@@ -862,12 +867,12 @@ To make coffee:
 
 Section Swinging Doors
 
-The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]."
+The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]." The texture of the swinging doors is "dry and splintery".
 
 
 Section Whiskey
 
-The whiskey is prop on the top of the cabinet. The printed name of the whiskey is "bottle of whiskey". 
+The whiskey is prop on the top of the cabinet. The printed name of the whiskey is "bottle of whiskey". The scent of the whiskey bottle is "like the cheapest whiskey you could imagine, and then a dollar cheaper still." The texture of the whiskey bottle is "cool and smooth".
 
 Chapter Jail Cell
 
@@ -888,16 +893,16 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell.".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell." The texture of the gate is "cold and unyielding".
 
 The gate lock is part of the gate.
 
 
 Section Stool & Bench
 
-The stool is a large portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo".
+The stool is a large portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo". The texture of the stool is "like it has been worn smooth over the years".
 
-The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated.
+The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated. The texture of the bench is "like rough wood".
 
 Instead of searching the bench:
 	if the bench is not investigated:
@@ -912,7 +917,7 @@ To say bench sekrits:
 
 Section Harmonica
 
-The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "The harmonica is attached to the wall by a silvery chain.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy.
+The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "The harmonica is attached to the wall by a silvery chain.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy. The scent of the harmonica is "like last week's saliva". 
 
 The play-counter is a number that varies.  The play-counter is zero. [Number of times harmonica is played AFTER deputy has left.]
 
@@ -957,18 +962,15 @@ Carry out playing the harmonica:
 			say "You blow a few more notes, but you're not getting any better.";
 		increase the play-counter by one.
 
-
-
-
-The inscription is part of the harmonica.  The description of the inscription is "'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One'". 
+The inscription is part of the harmonica.  The description of the inscription is "'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One'". The texture of the inscription is "lightly engraved".
 
 Instead of examining the inscription for the first time:
 	say "[initial harmonica inscription dialogue]".
 	
-The chain is part of the harmonica.  The description of the chain is "You pause to inspect the chain that tethers the harmonica to the wall. The links are fine as cream gravy, and there isn't a spot of rust. From your professional experience in the jewelry industry, primarily on the selling side, you recognize that this well-crafted chain is probably silver and would fetch a good penny.".
+The chain is part of the harmonica.  The description of the chain is "You pause to inspect the chain that tethers the harmonica to the wall. The links are fine as cream gravy, and there isn't a spot of rust. From your professional experience in the jewelry industry, primarily on the selling side, you recognize that this well-crafted chain is probably silver and would fetch a good penny."
 
 Instead of pulling the harmonica:
-	say "You give the harmonica a little tug, and then you pull harder, putting your back into it. The fine silver chain pulls taut, but is well crafted and doesn't give at all.".
+	say "You give the harmonica a little tug, and then you pull harder, putting your back into it. The fine silver chain pulls taut, but is well crafted and doesn't give at all."
 
 Instead of pulling the chain:
 	say "The chain won't break, it's powerful strong.".
@@ -983,14 +985,14 @@ Instead of going when the player is in the jail cell:
 
 Section Bars
 
-The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]".
+The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "smooth and cool".
 
-Instead of attacking the bars:
+Instead of attacking the bars:[###TODO: one should only sound hollow until the gray bar drops out]
 	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
 
-The gray bar is part of the bars.  The gray bar is a prop.  The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar]It doesn't weigh much at all, and it's hollow.[end if]". 
+The gray bar is part of the bars.  The gray bar is a prop.  The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar]It doesn't weigh much at all, and it's hollow.[end if]". The texture of the gray bar is "lighter than it looks".
 
-The gap is scenery in limbo.  The description of the gap is "Ain't big enough to even get your arm through."
+The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
 
 Instead of taking or pulling the gray bar:
 	if the gray bar is part of the bars:
@@ -1007,10 +1009,6 @@ Instead of taking the screw:
 	otherwise:
 		say "The screw is too high for you to reach.".
 		
-
-
-
-
 [TODO:  pulling, pushing, or attacking the bars (or anything escape-ish) should enhance some sort of "deputy anger" scale, allowing him to react and eventually shoot the player.]
 
 
@@ -1048,7 +1046,7 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated.
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1057,11 +1055,13 @@ Flash is a male animal in Limbo. Flash is proper-named. Flash can be spat upon. 
 
 Section Marshal
 
-The marshal is a person in Limbo.
+The marshal is a person in Limbo. The scent of the marshall is "of authority".
 
 Section Muddy
 
-Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be investigated. Muddy is not investigated. 
+Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be investigated. Muddy is not investigated.
+
+The scent of Muddy is "[one of]unwashed[or]in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
 After examining Muddy:
 	now Muddy is investigated.
@@ -1074,14 +1074,16 @@ Instead of asking Muddy about "his plan/plan":
 			now the first plan counter is 10.
 [need to generalize this to always get his most current plan.]			
 
-The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit."
+The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit." The scent of the frock coat is "faintly of moth balls". The texture of the frock coat is "soft".
 
 Instead of searching muddy:
 	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
 
 Section Pete
 
-Pete is a man in the jail cell. Pete is proper-named.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]".
+Pete is a man in the jail cell. Pete is proper-named.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]". 
+
+[TODO: touching Pete should provoke an outburst]
 
 The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into Pete's suit."
 [TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
@@ -1093,11 +1095,11 @@ Instead of taking the pamphlet when the pamphlet is in the pocket:
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture."
+The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint".
 
 The sermon is part of the pamphlet. The description of the sermon is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
 
-The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. 
+The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. The texture of the tin is "smooth and metallic". The scent of the tin is "like tobacco".
 
 Instead of searching Pete:
 	try searching the pocket.
@@ -1117,7 +1119,7 @@ Before taking the tin:
 
 The description of the tin is "A rectangular tin of [quotation mark]Spitting Image[quotation mark] chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is [if the tin is open]opened[otherwise]closed[end if][if the tin is open] revealing some [tobacco-appearance][end if]."
 
-The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "some". Tobacco can be commented. Tobacco is not commented.
+The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "some". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky".
 	
 After eating tobacco:
 	if the tobacco is ingested:
@@ -1136,9 +1138,9 @@ Before inserting the tobacco into the mouth:
 		
 Section Rick
 
-The player is Rick. Rick is a man in the jail cell. Rick is proper-named.
+The player is Rick. Rick is a man in the jail cell. Rick is proper-named. The scent of Rick is "familiar".
 
-The mouth is part of Rick. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth.
+The mouth is part of Rick. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth. The texture of the mouth is "parched". The scent of your mouth is "neither minty nor mediciny".
 
 Instead of inserting something inedible into the mouth:
 	say "That ain't hardly something to go putting into your mouth."
@@ -1148,9 +1150,9 @@ After inserting something into the mouth:
 
 Instead of examining the Rick, say "[if the player wears the left boot or the player wears the right boot]Big boots,[otherwise]Denim[end if] pants[if the player wears the hat or the player carries the hat], a plains hat[end if], a tattered overcoat, and some attitude.  Not so different from the uniform you once wore, just more lived-in."
 
-The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute in words]." The indefinite article of the pocketwatch is "your".  [TODO:  add "only X minutes till hangin' time!"]
+The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure[or][stopping]. It currently reads [time of day + 1 minute in words]." The indefinite article of the pocketwatch is "your".  [TODO:  add "only X minutes till hangin' time!"]. The texture of the pocketwatch is "smooth and metallic".
 
-Rick wears a hat.  The hat is a player's holdall.  The description of the hat is "An unusually capacious, wide-brimmed hat to protect you from the sun." The indefinite article of the hat is "your".
+Rick wears a hat.  The hat is a player's holdall.  The description of the hat is "An unusually capacious, wide-brimmed hat to protect you from the sun." The indefinite article of the hat is "your". The texture of the hat is "like coarse fabric". The scent of the hat is "like your head".
 
 To say doffhat:
 	say "[bracket]First taking off the hat[close bracket][command clarification break]".
@@ -1170,14 +1172,14 @@ Instead of searching the hat:
 		now the player carries the hat;
 	say "[if the hat contains something]In the hat you can see [contents of hat][otherwise]Ten gallons of nothing.  You sure could shove a lot of loot in there you reckon[end if]."   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
 	
-Rick wears some pants. The description of the pants is "Rugged, blue denim." The indefinite article of the pants is "your".
+Rick wears some pants. The description of the pants is "Rugged, blue denim." The indefinite article of the pants is "your". The scent of the pants is "grubby". The texture of the pants is "abrasive".
 
 Instead of taking off pants:
 	say "Etiquette, if not just plain old common sense, suggests that you keep them on in a jail cell."
 
 Rick carries a scrap of paper.   The scrap of paper is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the paper is "Muddy's instructions for holding up the train, which you faithfully carried out before the Sheriff showed up.  In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNEL, 4. WAIT FOR ME'[one of].[paragraph break]That was Muddy's cunning plan, and unlike most of his plans, it went off without a hitch: you got the silver, nobody got hurt. Yup, not a single hitch -- except for getting caught[or][stopping]." 
 
-Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction gone awry, the hole on the the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Ah, good times[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]."
+Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction gone awry, the hole on the the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Ah, good times[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten".
 
 Instead of searching the overcoat:
 	say "[one of]Your hands slip into where your pockets used to be. Nothing is left of your pockets, except holes. Not that your overcoat needed more holes[or]You don't find anything[stopping]."
@@ -1190,9 +1192,9 @@ The footwear is privately-named backdrop in the jail cell. Understand "boots" as
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
 
-Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off." 
+Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed smooth. The heel is worn down, and the spurs have broken clear off." The texture of the left boot is "smooth". The scent of the boots is "better on the outside". [TODO### By rights, the boots should be a kind]
 
-Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur."
+Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The texture of the right boot is "smooth". The scent of the boots is "better on the outside".
 
 Instead of touching the spur:
 	say "Sakes alive, that's sharp! You whip your hand back."
@@ -1206,7 +1208,7 @@ Instead of taking or pulling or attacking or taking off the spur when the spur i
 
 Section Sheriff
 
-The sheriff is a man in Limbo. The sheriff carries the warrant.
+The sheriff is a man in Limbo. The sheriff carries the warrant. The scent of the sheriff is "like trouble".
 
 Chapter Scripted Conversations
 
