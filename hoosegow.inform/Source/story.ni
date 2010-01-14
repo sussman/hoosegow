@@ -572,7 +572,7 @@ The maximum score is 10. [change this later]
 When play begins:
 	say the intro-text;
 	change the time of day to 7:15 PM;
-        	change the left hand status line to "[the player's surroundings]";
+        	change the left hand status line to "[capped room name of the location]";
         	change right hand status line to "Score: [score]/[maximum score]";
 	move the harmonica to Muddy.
 	
