@@ -696,7 +696,10 @@ times-used		verbage
 0					"has died. Wait. Sorry. He's just really immobile"
 0					"starts to rub a flea but then decides it to too much work"
 0					"basks in the glow of the boiler"
-0					"nuzzles up to the boiler"			
+0					"nuzzles up to the boiler"		
+0					"drools"
+0					"sluggishly licks his nose"
+0					"raises an ear halfway and then lets it flap back down"	
 	
 Table of Rare Flash Actions
 times-used		verbage
@@ -705,6 +708,8 @@ times-used		verbage
 0					"rolls over and takes a few minutes afterwards to catch his breath"
 0					"stands up, turns around once, and lays back down again"
 0					"lazily sniffs the [random furniture in the office]"
+0					"has a nightmare and growls quietly before returning to a deep slumber"
+
 
 
 The Pete's stage business rule is listed after Flash's stage business rule in the stage business rules.
@@ -718,24 +723,32 @@ This is the Pete's stage business rule:
 	if Pete is not in Limbo and a random chance of 1 in 20 succeeds:
 		if a random chance of 8 in 10 succeeds:
 			say "Pastor Pete [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
-			say "He [one of]rants[or]screams[or]yells[or]
+			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]howl[or]bellow[or]holler[at random]s, [quotation mark]";
 			pick a phrase from the Table of Pete's Rants;
+			say "![paragraph break]Pete [one of]collapses[or]dives[or]crumples[or]faints[or]falls[at random] onto the bench and [one of]falls back to sleep immediately[or]is soon lost in dreams again[or]resumes snoring without missing a beat[or]resumes his previous position as if nothing had happened[at random].";
 		otherwise:
 			pick a phrase from the table of Pete's Strange Behavior;
-		say paragraph break;
 		the rule succeeds.
 		
 Table of Pete's Rants
 times-used		verbage
-0					"rant 1"
-0					"rant 2"	
-0					"rant 3"
+0					"BLESSED is the snail who crawls its time across the face of the earth yet, safe in its routine but for the SALT sprinkled up him, the salt of the earth, well not so much earth per se, earth being dirt, but the ocean, which covers it, and would not cover him so lightly were he not, like a SLUG, so counterintuitively susceptible to its powers. How too we, like the SNAIL, curled in our houses made of our own SUBSTANCE, that being what differentiates the two, after all, amongst other minutiae, which are neither here nor there, nor relevant to the topic at hand, except in such as way as all things are relevant being made by HIS HAND, that by the end of such an analysis one must conclude not based on the FACTS, yet with the INARGUABLE voice of FAITH, which rails against the shackles of REASON itself, having lost track of the original THESIS. Which, were it important, chances are, we would remember. That is why you see so few slugs these days, at any rate"
+0					"The KING of the RETRIBUTION pales in the actinic flame of REVENGE as the knife cuts through a length of string: not unlike the string which wraps a package, severing the string not into many pieces, but presuming it is simply wrapped once around the package, into a single, long piece (likely with a knot, the knot being required to secure the package and BIND it to its purpose). And yet, consider, gentlefolk, that the package may be wrapped many, many times with twine. Ah, yes, you hadn't considered that, had you? Thick, difficult to cut twine, or even worse, tape or glue. FOR MANY ARE THE STATIONARY ITEMS OF THE LORD! AND DEEP ARE THE DRAWERS OF HIS WRITING DESK! AND NOT LACKING IN THE LEAST SUPPLY IS HE. Thus, sayeth the worker who labors at the post: cut once, measure many. Enlightenment only comes to those to whom it is addressed and properly stamped"	
+0					"What a wok is SPAM! Hot, nubile raisins, how if it is not feckless tea? INFORM and mooing hot espresso at a mere apple? INACTION cowlick angles? Incomprehension, how'd you like a cod? The bow tie unfurled, the parabola ova nibbles; and yacht to my wad isthmus queen tennis off dost? MY CANDLE LIGHTS ME NOT, Norway man knees air; throw by your Somali lint use, eat meat, seize Sue"
+
+To say herring:
+	say "Kippered herring, please!"
 
 Table of Pete's Strange Behavior
 times-used		verbage
-0					"strange pete 1"
-0					"strange pete 2"	
-0					"strange pete 3"
+0					"shakes and twists spasmodically"
+0					"murmurs repeatedly, [quotation mark][herring] [herring] [herring][quotation mark]"
+0					"peddles the air with his feet, while making bell ringing sounds"
+0					"rolls back and forth on the bench"
+0					"curls up into a ball, muttering to himself"
+0					"froths at the mouth"
+0					"stared wide-eyed at the ceiling for a moment and the falls back asleep"
+0					"sits bolt upright, howls at the moon, and flips back over, fast asleep"
 
 Table of Pete's Vulture Clues
 times-used		verbage
@@ -747,7 +760,7 @@ The Deputy's stage business rule is listed after Pete's stage business rule in t
 	
 This is the Deputy's stage business rule:
 	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
-		say "The deputy ";
+		say "[if the player is in the jail cell][one of]Over in[or]Back in[or]In[or]On the other side of the jail bars[at random] office, the[otherwise]The[end if] deputy ";
 		pick a phrase from the Table of Deputy's Doings;
 		say paragraph break;
 		the rule succeeds.
@@ -1030,13 +1043,13 @@ The play-counter is a number that varies.  The play-counter is zero. [Number of 
 
 Instead of examining the harmonica for the first time:
 	if the harmonica is not discussed:
-		say "[initial harmonica dialogue]";
+		say "[initial harmonica]" as dialogue;
 	now the harmonica is discussed;
 	try examining the harmonica.
 	
 Instead of taking the harmonica for the first time:
 	if the harmonica is not discussed:
-		say "[initial harmonica dialogue]";
+		say "[initial harmonica]" as dialogue;
 	now the harmonica is discussed.
 
 Check playing the harmonica:
@@ -1072,7 +1085,7 @@ Carry out playing the harmonica:
 The inscription of the harmonica is "'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One'". The texture of the harmonica-textbox is "lightly engraved".
 
 Instead of reading harmonica for the first time:
-	say "[initial harmonica inscription dialogue]".
+	say "[initial harmonica inscription] as dialogue".
 	
 The chain is part of the harmonica.  The description of the chain is "You pause to inspect the chain that tethers the harmonica to the wall. The links are fine as cream gravy, and there isn't a spot of rust. From your professional experience in the jewelry industry, primarily on the selling side, you recognize that this well-crafted chain is probably silver and would fetch a good penny."
 
@@ -1197,15 +1210,15 @@ Check examining the pamphlet:
 Check reading the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]". The pamphlet can be recognized. The pamphlet is not recognized.
+The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet[or][second pamphlet][or][pamphlet sermon][stopping]". 
 
 Instead of giving the pamphlet to muddy:
 	try showing the pamphlet to muddy.
 
 Instead of showing the pamphlet to muddy:
-	if the pamphlet is not recognized:
-		say "[Hot diggity dog dialogue]";
-		now the pamphlet is recognized;
+	if Pete is not recognized:
+		say "[Hot diggity dog]" as dialogue;
+		now Pete is recognized;
 	otherwise:
 		say "[quotation mark]Yeah, I seen. It's Pastor Pete, sure as a sawbuck,[quotation mark] remarks Muddy."
 
@@ -1243,7 +1256,7 @@ After eating tobacco:
 		move the tobacco to the player;
 	otherwise:
 		now the tobacco is ingested;
-		say "[swallowed chaw dialogue]";
+		say "[swallowed chaw]" as dialogue;
 		move the tobacco to the tin.
 		
 Before inserting the tobacco into the mouth:
@@ -1345,29 +1358,31 @@ The sheriff is a man in Limbo. The sheriff carries the warrant. The scent of the
 
 Chapter Scripted Conversations
 
-[Here are some canned discussions for humor, depth, etc.]
+To say (verbage - some text) as dialogue:
+	say "[verbage]";
+	change the block stage business flag to true.
 
-To say initial harmonica dialogue:
+To say initial harmonica:
 	now the player holds the harmonica;
 	say "'I ain't never seen you play the mouth organ, Muddy.'[paragraph break]Your partner turns the harmonica back and forth, and a chain rattles. 'That's [apostrophe]cuz I ain't never learned how', he replies.[paragraph break]Muddy hands the harmonica to you.".
 
-To say initial harmonica inscription dialogue:
+To say initial harmonica inscription:
 	say "'Lookie here, Mud. There's some fancy engraving on the harmonica.'[paragraph break]'Don't that beat all. What do it say?'[paragraph break]'Let's see. Ah could do with more light. You got a lantern?'[paragraph break]'Nope.'[paragraph break]'Torch?'[paragraph break]'Unh-uh.'[paragraph break]'Matches?'[paragraph break]'Nary one.'[paragraph break]'Dang. Didn't we say that next adventure we'd bring [apostrophe]em?'[paragraph break]'I reckon we did, at that.'[paragraph break]'Well, the moon's up, I can see a little. It says, --Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.--'[paragraph break]'These is some Ace-high acco-mo-dations we got us, I'll say.'".
 
-To say initial pamphlet dialogue:
+To say initial pamphlet:
 	say "Muddy, who had been staring intently at his boot tips looks up, eye brows knit in concentration. 'Ah don't get it. Why would anything need two hundred ninety-one thousand, eight hundred and forty eyes?'[paragraph break]'What?' you remark, looking up from the pamphlet. 'Are you kidding me? How could you figure that out?'[paragraph break]'Don't rightly know. Just something I do. Same way as I know there's 69,105 railroad ties between here and Muskogee. Ma said I was some kind of idiot savage.'[paragraph break]Dumbfounded, you stop reading halfway through the pamphlet to stare incredulously at Muddy, who picks his nose. 'Yeah, go on. What else's it say?'".
 
-To say second pamphlet dialogue:
+To say second pamphlet:
 	say "You straighten out the pamphlet and skim it, paraphrasing for Muddy.[paragraph break]'Well let's see. It keeps going on like that for a ways without really saying much. By and by there's this part about a revival meeting. Some kind of doxology works, but out in the open, like under a circus tent. It says they'll be some preaching, some healing and even some dancing. I'd allow it sounds like a right pleasant shindig, it do.'[paragraph break]Muddy pauses.'Can I see that pamphlet a minute?'".
 
 To say pamphlet sermon:
 	say "'The Prairie Gospel Church of Uncanny Righteousness'[paragraph break]'For lo, the impetuous and retributive spirit of FINAL JUDGEMENT is stirring in the heart of the unfaithful, and a FIERY thunderhead of retribution is gathering across the plains of the undeserving, the bereft of propriety, and promulgators of heresy, and the scalding hot sparks of TRUTH are spraying forth, catching light the arid and HIGHLY FLAMMABLE and veritably kerosene-soaked sawdust of the weak-willed. And into this fray, the unwholesome BEAST shall arise and the earth shall tremble. Its body shall tower above like a mountain, and upon the body shall be nineteen heads, each like unto a serpent. Upon each head, twelve horns, like that of the ram, the bull, and the elephant, say four of each. And upon each horn, sixteen stalks, not unlike celery in some respects, yet more flexible, more like the arms of an octopus, except being twice as numerous. And upon each stalk, eighty eyes, or forty pairs of eyes, if you prefer!'".
 	
-To say swallowed chaw dialogue:
+To say swallowed chaw:
 	say "[quotation mark]Glmph.[quotation mark][paragraph break][quotation mark]You didn't just swallow that chaw, did you?[quotation mark] asks Muddy incredulously.[paragraph break][quotation mark]I reckon I done just that -- and it didn't go down pretty.[quotation mark][paragraph break]You galoot. You're supposed to chew it. Hain't I learned you nothing?[quotation mark][paragraph break]".
 	
-To say hot diggity dog dialogue:
-	say "Muddy grabs it from you, squinting and sounding out words silently with his mouth. His eyes open wide in amazement.[paragraph break][quotation mark]Pete? Wait a gosh darn... PASTOR Pete? That really him? Hot diggity![quotation mark][paragraph break]Muddy jumps to his feet, runs to the bench and shakes Pete wildly; Pete screams and throws his hands into the air, gesticulating to heaven as he's awoken from his dream --[paragraph break][quotation mark]BEGONE, devils! God shall SMITE thee! He who brushes the Lord's horses shall not clean the stables of HEAVEN![quotation mark]The grubby preacher collapses back on the bench, eyes closed and snoring before either of you can take a step."
+To say hot diggity dog:
+	say "Muddy grabs it from you, squinting and sounding out words silently with his mouth. His eyes open wide in amazement.[paragraph break][quotation mark]Pete? Wait a gosh darn... PASTOR Pete? That really him? Hot diggity![quotation mark][paragraph break]Muddy jumps to his feet, runs to the bench and shakes Pete wildly; Pete screams and throws his hands into the air, gesticulating to heaven as he's awoken from his dream --[paragraph break][quotation mark]BEGONE, devils! God shall SMITE thee! He who brushes the Lord's horses shall not clean the stables of HEAVEN![quotation mark][paragraph break]The grubby preacher collapses back on the bench, eyes closed and snoring before either of you can take a step."
 	
 Chapter Muddy's Cunning Plans
 
