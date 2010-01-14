@@ -848,7 +848,7 @@ Section Outdoors
 
 The outdoors is a transparent scenery container in the office.
 
-The range is a supporter in the outdoors. The description of the range is "The deer and the antelope are playing."
+The range is a supporter in the outdoors. The description of the range is "[if the deer is on the range and the antelope is on the range]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]"
 
 The fields are a plural-named supporter in the outdoors. The description of the fields is "Corn, mostly."
 
