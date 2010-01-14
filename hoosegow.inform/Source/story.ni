@@ -280,6 +280,8 @@ times-used		verbage
 0			"Concentrating, you can hear the paint drying on the walls"
 0			"You hear [if Flash is in the office]Flash's slow, easy[otherwise]Muddy's wheezy[end if] breathing"
 0			"From somewhere off in the hills, you hear a coyote howling at the moon"
+0			"Through the window, you hear the strums of a neary banjo."
+0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure."
 
 Section Looking Under
 
@@ -635,38 +637,75 @@ The Muddy's stage business rule is listed after the block all stage business rul
 
 This is the Muddy's stage business rule:
 	if a random chance of 1 in 10 succeeds:
+		say "Muddy ";
 		pick a phrase from the Table of Muddy Actions;
 		say paragraph break;
 		the rule succeeds.
 		
 Table of Muddy Actions
 times-used		verbage
-0					"muddy action 1"
-0					"muddy action 2"	
-0					"muddy action 3"
+0					"stares out the window. "
+0					"picks some food from between his teeth. "	
+0					"cracks his knuckles loudly. "
+0					"hums [quotation mark]Camptown Races[quotation mark], singing the [quotation mark]Doo-Dars[quotation mark] off key. The effect is annoying. "
+0					"scrapes some dust off his boots. "
+0					"tugs down on his vest, which had ridden up a bit. "
+0					"pats down his wild hair but only makes it worse. "
+0					"strokes his whiskers. "
+0					"scratches his [one of]arm[or]back[or]leg[or]neck[or]chin[at random]. "
+0					"leans against the wall and sighs. "
+0					"closes his eyes and rubs his temples. "
+0					"rocks back and forth on the bals of his feet. "
+0					"paces back and forth impatiently. "
+0					"puts his hands in his pockets and seems to be daydreaming. "
+0					"looks like he's about to have a great idea, but then goes back to staring at the floor. "
+0					"looks around the sheriff's office. "
+0					"spends some time looking at the [one of]machine[or]desk[or]door[or]boiler[at random] in the office. "
+0					"murmurs to himself about not being able to recall a limerick he once heard that had something to do with cowboys and farmers. "
+0					"counts the number of stars he can see out the window, divides by the number of bars in the jail cell, and takes the natural logarithm. [quotation mark]Yup,[quotation mark] he says, [quotation mark]that's what I thought.[quotation mark]"
+0					"rubs up and down against the brick wall, scratching an itch"
+0					"burps loudly and remarks,[quotation mark]Oh, that's much better.[quotation mark]"
+0					"rubs his belly and says, [quotation mark]I reckon I could do with a snack right about now.[quotation mark]"
+0					"rubs his eyes, [quotation mark]I didn't get a good night's sleep last night either. I'm bushed.[quotation mark]"
+0					"glances over at you, and seems about to speak, but then walks away again. "
+0					"seems lost in thought. "
 		
 The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
 		
 This is the Flash's stage business rule:
 	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
+		say "Flash";
 		if a random chance of 8 in 10 succeeds:
 			pick a phrase from the Table of Common Flash Actions;
 		otherwise:
 			pick a phrase from the table of Rare Flash Actions;
-		say paragraph break;
+		say ".";
 		the rule succeeds.
 		
 Table of Common Flash Actions
 times-used		verbage
-0					"flash action 1"
-0					"flash action 2"	
-0					"flash action 3"			
+0					"is as still as a statue"
+0					"snores loudly, his jowls fluttering with each breath"	
+0					"almost moves, but then doesn't"
+0					"rolls almost imperceptibly to the [one of]left[or]right[at random]"
+0					"moves his [one of]front[or]rear[at random] leg slightly"
+0					"shifts his tail by an inch"
+0					"swallows loudly"
+0					"sneezes, but somehow me manages to do it slowy"
+0					"half opens one eye and looks at you and Muddy"
+0					"has died. Wait. Sorry. He's just really immobile"
+0					"starts to rub a flea but then decides it to too much work"
+0					"basks in the glow of the boiler"
+0					"nuzzles up to the boiler"			
 	
 Table of Rare Flash Actions
 times-used		verbage
-0					"rare flash action 1"
-0					"rare flash action 2"	
-0					"rare flash action 3"
+0					"streches slowly and then settles back down"
+0					"prepares to bark at something he sees outside, but gets winded and breathes heavily for a few minutes"	
+0					"rolls over and takes a few minutes afterwards to catch his breath"
+0					"stands up, turns around once, and lays back down again"
+0					"lazily sniffs the [random furniture in the office]"
+
 
 The Pete's stage business rule is listed after Flash's stage business rule in the stage business rules.
 
@@ -678,6 +717,8 @@ This is the Pete's stage business rule:
 		be either by Muddy getting the pamphlet, or a certain amount of time after Pete is examined (as a failsafe)]
 	if Pete is not in Limbo and a random chance of 1 in 20 succeeds:
 		if a random chance of 8 in 10 succeeds:
+			say "Pastor Pete [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
+			say "He [one of]rants[or]screams[or]yells[or]
 			pick a phrase from the Table of Pete's Rants;
 		otherwise:
 			pick a phrase from the table of Pete's Strange Behavior;
@@ -698,7 +739,7 @@ times-used		verbage
 
 Table of Pete's Vulture Clues
 times-used		verbage
-0					"vulture clue 1"
+0					""
 0					"vulture clue 2"	
 0					"vulture clue 3"
 		
@@ -706,29 +747,42 @@ The Deputy's stage business rule is listed after Pete's stage business rule in t
 	
 This is the Deputy's stage business rule:
 	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
+		say "The deputy ";
 		pick a phrase from the Table of Deputy's Doings;
 		say paragraph break;
 		the rule succeeds.
 		
 Table of Deputy's Doings
 times-used		verbage
-0					"deputy action 1"
-0					"deputy action 2"
-0					"deputy action 3"
+0					"watches you with a bored expression. "
+0					"warms his hands near the boiler. "
+0					"sniffles loudly and wipes his nose on his sleeve. "
+0					"looks tired. "
+0					"pokes his head out of the office and yells at some passersby. "
+0					"inspects his LeMat revolver lovingly. "
+0					"stares at Muddy. "
+0					"repeatedly counts his fingers, but is unable to get a firm answer. "
+0					"reaches into his pocket, produces a strip of beef jerk and chews on it for a while. "
+0					"peeks through the jail cell window at the saloon across the street. It's clear he'd rather be there. "
+0					"runs his hand through his sparse hair. "
+0					"makes you nervous as he waves his gun back and forth, jerking the barrel up and shaping the words [quotation mark]Pow! Pow![quotation mark] with his lips. "
 	
 The Environmental stage business rule is listed last in the stage business rules.
 
 This is the Environmental stage business rule:
 	if a random chance of 1 in 10 succeeds:
 		pick a phrase from the Table of Environmental Stage Business;
-		say paragraph break;
+		say ".";
 		the rule succeeds.
 		
 Table of Environmental Stage Business
 times-used		verbage
-0			"A fly buzzes past your ear and lands on the ceiling."
-0			"Through the window, you hear the strums of a neary banjo."
-0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure."
+0			"A fly buzzes past your ear and lands on the ceiling"
+0			"A faint breeze wafts by"
+0			"There is a brief cloudburst. The wind comes right behind the rain"
+0			"A yellow-fringed surrey trots past the sheriff's office"
+0			"A cockroach scrambles by, making a detour around Muddy. Cockroaches have noses, you figure"
+0			"It feels cooler than it did last night"
 
 Chapter Limbo
 [A place for offstage stuff]
