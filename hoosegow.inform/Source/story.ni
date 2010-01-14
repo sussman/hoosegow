@@ -571,9 +571,6 @@ The maximum score is 10. [change this later]
 
 When play begins:
 	say the intro-text;
-	say "[bracket]Press Space To Continue[close bracket]";
-	wait for any key;
-	clear screen;
 	change the time of day to 7:15 PM;
         	change the left hand status line to "[the player's surroundings]";
         	change right hand status line to "Score: [score]/[maximum score]";
@@ -581,8 +578,10 @@ When play begins:
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
-	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to about my invention, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door."
-	
+	say "[bracket]Press Space To Continue[close bracket]";
+	wait for any key;
+	clear screen;
+	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door."
 
 Chapter Every Turn
 
@@ -884,7 +883,7 @@ Section Outdoors
 
 The outdoors is a transparent scenery container in the office.
 
-The range is a supporter in the outdoors. The description of the range is "The deer and the antelope are playing."
+The range is a supporter in the outdoors. The description of the range is "[if the deer is on the range and the antelope is on the range]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]"
 
 The fields are a plural-named supporter in the outdoors. The description of the fields is "Corn, mostly."
 
