@@ -89,6 +89,39 @@ After looking when the location is an inter-visible room:
 	repeat with other place running through rooms which are connected with the location:
 		if the other place is not the location, describe locale for other place.
 
+Section Fixing Room Capitalization
+[This particular bit of Inform voodoo came from a timely usenet post by Erik Temple dated Wed, Jan 13, 2010]
+
+A room has some text called the capped room name. The capped room name property translates into I6 as "cap_short_name". 
+
+The capped room name of the jail cell is "Jail Cell". The capped room name of the office is "Office".
+
+The new room description heading rule is listed instead of the room description heading rule in the carry out looking rules. 
+
+Carry out looking (this is the new room description heading rule): 
+	say bold type; 
+	if the visibility level count is 0: 
+		begin the printing the name of a dark room activity; 
+		if handling the printing the name of a dark room activity, 
+			issue miscellaneous library message number 71; 
+		end the printing the name of a dark room activity; 
+	otherwise if the visibility ceiling is the location: 
+		say "[capped room name of the visibility ceiling]"; 
+	otherwise: 
+		if the visibility ceiling is a room: 
+			say "[The capped room name of the visibility ceiling]"; 
+		otherwise: 
+			say "[The visibility ceiling]"; 
+	say roman type; 
+	let intermediate level be the visibility-holder of the actor; 
+	repeat with intermediate level count running from 2 to the visibility   
+level count: 
+		issue library message looking action number 8 for the intermediate level; 
+		let the intermediate level be the visibility-holder of the intermediate   
+level; 
+	say line break; 
+	say run paragraph on with special look spacing. 
+
 Chapter Declare Global Variables
 
 The last mentioned thing is a thing that varies.
@@ -548,7 +581,7 @@ When play begins:
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
-	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door."
+	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to about my invention, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door."
 	
 
 Chapter Every Turn
@@ -560,6 +593,8 @@ Every turn:
 	[adjust the odor]		
 	if the ambient odor is greater than ten:
 		decrease the ambient odor by ten;
+	[muddy's plans]
+	 Consider the Muddy's Plan rule;
 	[stage business]
 	if muted is false:
 		Consider the stage business rules;
@@ -755,18 +790,17 @@ To say warrant-text:
 
 Chapter Jailhouse Region
 
-The jailhouse is a region.  The Office and Jail Cell are part of the jailhouse.
+The jailhouse is a region.  The office and jail cell are part of the jailhouse.
 
 The ceiling is a backdrop in the jailhouse.  The description of the ceiling is "The jailhouse ceiling is stucco and too high to touch. "
 
-The sky is a backdrop in the jailhouse.  The description of the sky is "Outside the window, the moon rises on a cloudless night. In the distance, a wake of vultures saws the air, circling their prey.".
+The sky is a backdrop in the jailhouse.  The description of the sky is "Outside the window, the moon rises on a cloudless night. In the distance, a wake of vultures saws the air, circling their prey."
 
 [TODO:  ceiling and sky should not be reachable]
 
-
 Chapter Office
 
-The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town."
+The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town." 
 
 Section Bell
 
@@ -1079,21 +1113,13 @@ The marshal is a person in Limbo. The scent of the marshall is "of authority".
 
 Section Muddy
 
-Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be investigated. Muddy is not investigated.
+Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". 
 
 The scent of Muddy is "[one of]unwashed[or]in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
 After examining Muddy:
-	now Muddy is investigated.
+	change the current plan to one.
 	
-Instead of asking Muddy about "his plan/plan":
-	if first plan is happening:
-		if the first plan counter is 99:
-			say "I already done told you -- we got to bust out!";
-		otherwise:
-			now the first plan counter is 10.
-[need to generalize this to always get his most current plan.]			
-
 The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit." The scent of the frock coat is "faintly of moth balls". The texture of the frock coat is "soft".
 
 Instead of searching muddy:
@@ -1270,8 +1296,74 @@ To say pamphlet sermon:
 To say swallowed chaw dialogue:
 	say "[quotation mark]Glmph.[quotation mark][paragraph break][quotation mark]You didn't just swallow that chaw, did you?[quotation mark] asks Muddy incredulously.[paragraph break][quotation mark]I reckon I done just that -- and it didn't go down pretty.[quotation mark][paragraph break]You galoot. You're supposed to chew it. Hain't I learned you nothing?[quotation mark][paragraph break]".
 	
+Chapter Muddy's Cunning Plans
+
+[The current plan is the plan that Muddy has in mind, whether he's said it or not.]
+The current plan is a number that varies. The current plan is zero. 
+
+[The ask-me counter tracks the number of times that Muddy has prompted Rick to ask him about his plan. If it is zero, he hasn't prompted at all. He will prompt 4 times and then blurt the idea (i.e, when askme reaches 5. Askme is set to 6 when the idea has been expressed.]
+The ask-me counter is a number that varies. The ask-me counter is zero.
+
+At 7:30 PM:[insurance in case Muddy is not examined early in the game.]
+	if the current plan is zero:
+		change the current plan to one.
+
+This is the Muddy's plan rule:
+	[prompt for plan if prompts have not been exhausted]
+	if the current plan is not zero:
+		if the ask-me counter is less than six:
+			increase the ask-me counter by one;
+		if the ask-me counter is less than 5:
+			say "[the plan-askme corresponding to the plan-number of the current plan in the Table of Plans][paragraph break]";
+		otherwise if the ask-me counter is 5:
+			say "[the plan-blurt corresponding to the plan-number of the current plan in the Table of Plans][paragraph break][the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
+			change the block stage business flag to true.
+		[no statement is needed for a ask-me value of six.]
+			
+
+Understand "plan" or "his plan" or "the plan" or "his idea" or "the idea" or "idea" as "[muddyplan]".
+
+Before asking Muddy about "[muddyplan]":
+	if the current plan is zero:
+		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark]";
+	otherwise:
+		if ask-me counter is 6:
+			say "I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
+		otherwise:
+			say "[the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
+			change the block stage business flag to true.
+
+[
+plan-number: which plan in sequence
+plan-askme: four 'one of' phrases in which Muddy cajoles Rick to ask him about his plan
+plan-text: the text of the plan, duh.
+plan-blurt: the failsafe in case the player doesn't ask Muddy his plan, Muddy blurts it out, unable
+            to control himself.
+plan-reminder: if Muddy is asked his most recent plan, a quick summary
+]
+
+Table of Plans
+plan-number		plan-askme			plan-text			plan-blurt			plan-reminder
+1					"[plan1-askme]"		"[plan1]"		"[plan1-blurt]"		"we got to bust out"
+2					"[plan2-askme]"		"[plan2]"		"[plan2-blurt]"		"we got to forge that warrant"
+
 To say plan1:
-	say "[quotation mark]Shushhhh[quotation mark], he whispers, apparently noticing the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy points at the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner."
+	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers, apparently noticing the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
+
+To say plan1-askme:	
+	say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] Muddy whispers. [or]This time mah plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes. [or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts Muddy. [or]Truthful, Rick,[quotation mark] states Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark] [or]I hope you ain't still angry about my last plan. It worked fine except for the last part.[quotation mark]Muddy's eyes gleam. [quotation mark]This new plan's even more slicker![quotation mark] [stopping]".
+	
+To say plan1-blurt:
+	say "Muddy vibrates with excitement and gushes, [quotation mark]I got to tell you, Rick, or this new plan of mine is going to drive me plumb crazy![quotation mark] "
+	
+To say plan2:
+	say "Muddy says excitedly, [quotation mark]Here's my idea: I reckon I could take that warrant and forge a different ending. Maybe trick them into releasing us.[quotation mark][paragraph break][quotation mark]That's a great idea, Muddy, let me get my pen and some ink. Oh, wait a minute. I don't have either![quotation mark] You glare at Muddy.[paragraph break][quotation mark]Oh, yeah. I suppose. I didn't think of that.[quotation mark] Muddy considers the matter. [quotation mark]Maybe we could make one. If you can find something that I can use as a pen, I reckon that one of them red berries would make a right proper kind of ink for it.[quotation mark][paragraph break]". 
+	
+To say plan2-askme:
+	say "[one of]Muddy gives you that familiar old look that always leads to trouble. [quotation mark]I got me another cunning plan. C'mon, ask your old buddy Muddy...[quotation mark] Muddy leans forward, clearly impatient for you to ask him about his latest stroke of (in his opinion) genius.[quotation mark] [or][quotation mark]No, really. This plan is a winner. I'm dying for you to ask me about it. You'll see. This one will work.[quotation mark] Muddy looks desperate to prove himself to you. [or][quotation mark]I know some of my plans haven't panned out entirely, but I see a way clear out of this jail. Go on, ask me.[quotation mark] It's like the years have caught up to Muddy, and he wants this one more chance to do right by you. [or][quotation mark]Rick, will you trust me on this one? Ask me my plan.[quotation mark] Muddy looks at the ground, despondent that you are ignoring him. [stopping]".
+	
+To say plan2-blurt:
+	say "Muddy fidgets. No longer unable to contain himself, he blurts out, [quotation mark]Oh for the sake of criminy, I got to tell you![quotation mark] "
 
 Chapter Menus
 
@@ -1509,20 +1601,6 @@ Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. Introduction ends when the Deputy is not in the office.
 
-Chapter First Plan
-
-First Plan is a scene. First Plan begins when Muddy is investigated. First plan ends when the first plan counter is 99.
-
-First plan counter is a number that varies. First plan counter is zero.
-
-Every turn when First Plan is happening:
-	if first plan counter is less than 5:
-		say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] he whispers[or]This time mah plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes[or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts Muddy[or]Truthful, Rick,[quotation mark] states Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark][or]I hope you ain't still angry about my last plan. It worked fine except for the last part. This new plan's even more slicker[quotation mark][stopping].";
-		increase first plan counter by one;
-	otherwise:
-		now the first plan counter is 99;
-		say "[plan1]".
-
 Chapter Unwatched
 
 Unwatched is a recurring scene. Unwatched begins when the deputy is not in the office. Unwatched ends when the deputy is in the office. 
@@ -1530,6 +1608,9 @@ Unwatched is a recurring scene. Unwatched begins when the deputy is not in the o
 Chapter Forgery
 
 Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
+
+When Forgery begins:
+	change the current plan to 2.
 
 Chapter Drugged
 
