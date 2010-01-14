@@ -942,7 +942,7 @@ After inserting something into the mouth:
 	
 Section Floor
 
-The floor is a backdrop in the jail cell. The description of the floor is "Rough, dirty[if the stain is on the floor], and stained[end if] concrete".
+The floor is a backdrop in the jail cell. The description of the floor is "Rough, dirty[if the stain is on the floor], and stained[end if] concrete."
 
 Section Gate
 
@@ -1140,9 +1140,20 @@ Instead of taking the pamphlet when the pamphlet is in the pocket:
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint".
+Check reading the pamphlet:
+	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
+	
+The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]". The pamphlet can be recognized. The pamphlet is not recognized.
 
-The sermon is part of the pamphlet. The description of the sermon is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet dialogue][or][second pamphlet dialogue][or][pamphlet sermon][stopping]".
+Instead of giving the pamphlet to muddy:
+	try showing the pamphlet to muddy.
+
+Instead of showing the pamphlet to muddy:
+	if the pamphlet is not recognized:
+		say "[Hot diggity dog dialogue]";
+		now the pamphlet is recognized;
+	otherwise:
+		say "[quotation mark]Yeah, I seen. It's Pastor Pete, sure as a sawbuck,[quotation mark] remarks Muddy."
 
 The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. The texture of the tin is "[metallic]". The scent of the tin is "like tobacco".
 
@@ -1164,8 +1175,14 @@ Before taking the tin:
 
 The description of the tin is "A rectangular tin of [quotation mark]Spitting Image[quotation mark] chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is [if the tin is open]opened[otherwise]closed[end if][if the tin is open] revealing some [tobacco-appearance][end if]."
 
-The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "some". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky".
+Instead of searching the tin:
+	say "It's full of chewing tobacco."
+
+The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "a wad of". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky". Understand "wad", "leaf", and "chaw" as tobacco.
 	
+After taking tobacco:
+	say "You take a pinch of tobacco."
+
 After eating tobacco:
 	if the tobacco is ingested:
 		say "Nope. Once was enough.";
@@ -1209,7 +1226,7 @@ To say remaining time:
 		otherwise:
 			let D be eight minus H;
 		say "[if M is zero]about[otherwise]less than[end if] [D in words] hours";
-	say " until you and Muddy are [one of]hanged[or]pushing up daisies[or]six feet under[or]wearing hemp collars[or]on permanent disability[or]dead as a door nail[at random]".[###TODO more dead euphemisms]
+	say " until you and Muddy are [one of]hanged[or]pushing up daisies[or]six feet under[or]wearing hemp collars[or]to be put on permanent disability[or]dead as a door nail[at random]".[###TODO more dead euphemisms]
 
 Rick wears a hat. The hat is a player's holdall.  The description of the hat is "An unusually capacious, wide-brimmed hat to protect you from the sun." The indefinite article of the hat is "your". The texture of the hat is "like coarse fabric". The scent of the hat is "like your head".
 
@@ -1295,6 +1312,9 @@ To say pamphlet sermon:
 To say swallowed chaw dialogue:
 	say "[quotation mark]Glmph.[quotation mark][paragraph break][quotation mark]You didn't just swallow that chaw, did you?[quotation mark] asks Muddy incredulously.[paragraph break][quotation mark]I reckon I done just that -- and it didn't go down pretty.[quotation mark][paragraph break]You galoot. You're supposed to chew it. Hain't I learned you nothing?[quotation mark][paragraph break]".
 	
+To say hot diggity dog dialogue:
+	say "Muddy grabs it from you, squinting and sounding out words silently with his mouth. His eyes open wide in amazement.[paragraph break][quotation mark]Pete? Wait a gosh darn... PASTOR Pete? That really him? Hot diggity![quotation mark][paragraph break]Muddy jumps to his feet, runs to the bench and shakes Pete wildly; Pete screams and throws his hands into the air, gesticulating to heaven as he's awoken from his dream --[paragraph break][quotation mark]BEGONE, devils! God shall SMITE thee! He who brushes the Lord's horses shall not clean the stables of HEAVEN![quotation mark]The grubby preacher collapses back on the bench, eyes closed and snoring before either of you can take a step."
+	
 Chapter Muddy's Cunning Plans
 
 [The current plan is the plan that Muddy has in mind, whether he's said it or not.]
@@ -1324,13 +1344,15 @@ Understand "plan" or "his plan" or "the plan" or "his idea" or "the idea" or "id
 
 Before asking Muddy about "[muddyplan]":
 	if the current plan is zero:
-		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark]";
+		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark][paragraph break]";
 	otherwise:
-		if ask-me counter is 6:
+		if ask-me counter is six:
 			say "I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
 		otherwise:
 			say "[the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
-			change the block stage business flag to true.
+			change the ask-me counter to six;
+			change the block stage business flag to true;
+	stop the action.
 
 [
 plan-number: which plan in sequence
