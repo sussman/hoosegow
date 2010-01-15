@@ -1,6 +1,4 @@
-
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
-
 The story headline is "A Wild West Wreck".
 The release number is 1.
 The story creation year is 2010.
@@ -140,6 +138,8 @@ Everything has some text called texture. The texture of something is usually "".
 Everything has some text called scent. The scent of something is usually "". 
 
 A thing has some text called the inscription. The inscription of something is usually "".
+
+Definition: A thing (called the item) is bootlike if the item is the left boot or the item is the right boot.
 
 Chapter General Routines
 		
@@ -359,7 +359,10 @@ Section Smelling
 The ambient odor is a number that varies. The ambient odor is 10.
 
 
-Instead of smelling:  
+Instead of smelling: 
+	if the cigar is in the jailhouse:
+		say "The whole place reeks of cheap cigar smoke.";
+		the rule succeeds; 
 	let the regverb be "smell";
 	if the noun is the location:
 		let R be 1;
@@ -592,8 +595,14 @@ Every turn:
 	if the current action is taking inventory or the current action is looking:
 		change the time of day to 1 minute before the time of day;
 	[adjust the odor]		
-	if the ambient odor is greater than ten:
-		decrease the ambient odor by ten;
+	if the number of bootlike things that are worn is:
+		-- 0: 
+			change the ambient odor to 100;
+		-- 1: 
+			change the ambient odor to 50;
+		-- 2: 
+			if the ambient odor is greater than ten:
+				decrease the ambient odor by ten;
 	[muddy's plans]
 	 Consider the Muddy's Plan rule;
 	[stage business]
@@ -802,6 +811,8 @@ Chapter Limbo
 [A place for offstage stuff]
 
 Limbo is a room.
+
+The cigar is a prop in Limbo. The description of the cigar is "A stogie."
 
 Section Can
 
@@ -1167,7 +1178,7 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive". 
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1182,7 +1193,7 @@ Section Muddy
 
 Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". 
 
-The scent of Muddy is "[one of]unwashed[or]in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
+The scent of Muddy is "[one of]unwashed[or]like he's in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
 After examining Muddy:
 	change the current plan to one.
@@ -1333,16 +1344,38 @@ Instead of searching the overcoat:
 		
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
-
+	
 The footwear is privately-named backdrop in the jail cell. Understand "boots" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." 
 
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
 
-Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn down, and the spurs have broken clear off." The texture of the left boot is "smooth". The scent of the boots is "better on the outside".  The indefinite article of the left boot is "your".[TODO### By rights, the boots should be a kind]
+Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn down, and the spurs have broken clear off." The scent of a the left boot is "better on the outside". The indefinite article of the left boot is "your". The texture of the left boot is "[smooth]".
 
-Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth]. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The texture of the right boot is "smooth". The scent of the boots is "better on the outside". The indefinite article of the right boot is "your".
+Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth]. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "better on the outside". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]".
 
+[Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
+
+To say smelly feet warning:
+	say "[one of]Oh, you really don't want to do that. Not indoors at least[or]In some states that's a felony[or]There are people within a thousand yards[or]It's been quite a while[at random]. Are you sure?[paragraph break](yes or no) >>";
+		
+Before dropping a bootlike thing that is worn:
+	say "You can't drop it -- you are wearing it.";
+	the rule succeeds.
+
+After taking off a bootlike thing (called the slipper):
+	say "[smelly feet warning]";
+	if the player consents:
+		say "[deshoed]";
+		move the slipper to the location;
+		change boot activity to true;
+	otherwise:		
+		say "Muddy [one of]murmurs a prayer of thanks to whatever he sometimes prays to when he's running away from something bigger or badder than he is[or]breathes a sigh of relief[or]stops holding his breath[at random]."
+		
+After wearing a bootlike thing:
+	change boot activity to true;
+	continue the action.
+	
 Instead of touching the spur:
 	say "Sakes alive, that's sharp! You whip your hand back."
 
@@ -1385,12 +1418,31 @@ To say swallowed chaw:
 To say hot diggity dog:
 	say "Muddy grabs it from you, squinting and sounding out words silently with his mouth. His eyes open wide in amazement.[paragraph break][quotation mark]Pete? Wait a gosh darn... PASTOR Pete? That really him? Hot diggity![quotation mark][paragraph break]Muddy jumps to his feet, runs to the bench and shakes Pete wildly; Pete screams and throws his hands into the air, gesticulating to heaven as he's awoken from his dream --[paragraph break][quotation mark]BEGONE, devils! God shall SMITE thee! He who brushes the Lord's horses shall not clean the stables of HEAVEN![quotation mark][paragraph break]The grubby preacher collapses back on the bench, eyes closed and snoring before either of you can take a step."
 	
+To say debootage:
+	say "You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards."
+	
+To say deshoed:
+	say "Muddy's eyes water as he complains, [quotation mark][one of]Ain't you got no sense of smell in that head of yours?[quotation mark][paragraph break]To which you reply, [quotation mark]Not after I been downwind of you around feeding time, nope. This ain't nothing next to what you can do with a can of beans[or]Not again! My poor nose[or]Man, them feets of yours stinks powerful bad[stopping]![quotation mark][paragraph break]".
+	
+To say reshoed:
+	say "Muddy smiles and says,[quotation mark][one of]That's much better[or]What a world of difference[or]Phew[at random].[quotation mark][paragraph break]".
+
+To say hello cigar:
+	say "[one of]The deputy wrinkles his nose in distaste and produces a fat cigar from his pocket. He reaches over to the office's steam boiler, lights the cigar, walks right up to the jail bars and blows the smoke directly into your face. The stench of the cigar is evenly matched against the reek of your feet[or]The deputy withdraws the cigar from his pocket and waves it in front of you. [quotation mark]Two can play at that game,[quotation mark] he says. He lights the cigar again and blows it in your face. Muddy coughs[or][quotation mark]Oh, you want more of [apostrophe]ol Stogie, do you?[quotation mark] sneers the deputy. [quotation mark]Well fine.[quotation mark] He again lights his cigar[stopping].";
+	
+To say goodbye cigar:
+	say "The deputy snorts and says, [quotation mark][one of]That's better[or]Learned you that lesson, I reckon[or]At least I'm getting my exercise[or]I ain't smoked so many cigars in years[or]This is getting old[stopping].[quotation mark] He stuffs the half-smoked cigar into his pocket sits down at the desk and [one of]tilts the chair backwards as he reclines[or]and loosens his collar[or]rests his feet on its scratched surface[or]and watches you with an annoyed expression[at random]."
+	
+To say doubledeshoed:
+	say "The Deputy's cigar seems to shrivel and hang limply in his mouth, as its prodigious odor is astronomically outclassed by the combined stench of your two feet. The deputy spastically reaches over his desk, grabs the whiskey bottle, and half drains it on his way out of the office.[paragraph break]After he leaves, you give in to Muddy's desperate pleas to put your boots back on."
+	
+	
 Chapter Muddy's Cunning Plans
 
 [The current plan is the plan that Muddy has in mind, whether he's said it or not.]
 The current plan is a number that varies. The current plan is zero. 
 
-[The ask-me counter tracks the number of times that Muddy has prompted Rick to ask him about his plan. If it is zero, he hasn't prompted at all. He will prompt 4 times and then blurt the idea (i.e, when askme reaches 5. Askme is set to 6 when the idea has been expressed.]
+[The ask-me counter tracks the number of times that Muddy has prompted Rick to ask him about his plan. If it is zero, he hasn't prompted at all. He will prompt 4 times and then blurt the idea (i.e, when ask-me reaches 5. Ask-me is set to 6 when the idea has been expressed.]
 The ask-me counter is a number that varies. The ask-me counter is zero.
 
 At 7:30 PM:[insurance in case Muddy is not examined early in the game.]
@@ -1442,7 +1494,7 @@ To say plan1:
 	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers, apparently noticing the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
 
 To say plan1-askme:	
-	say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] Muddy whispers. [or]This time mah plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes. [or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts Muddy. [or]Truthful, Rick,[quotation mark] states Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark] [or]I hope you ain't still angry about my last plan. It worked fine except for the last part.[quotation mark]Muddy's eyes gleam. [quotation mark]This new plan's even more slicker![quotation mark] [stopping]".
+	say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] Muddy whispers. [or]This time mah plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes quietly. [or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts under his breath Muddy. [or]Truthful, Rick,[quotation mark] whispers Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark] [or]I hope you ain't still angry about my last plan. It worked fine except for the last part.[quotation mark]Muddy's eyes gleam. [quotation mark]This new plan's even more slicker![quotation mark] [stopping]".
 	
 To say plan1-blurt:
 	say "Muddy vibrates with excitement and gushes, [quotation mark]I got to tell you, Rick, or this new plan of mine is going to drive me plumb crazy![quotation mark] "
@@ -1687,11 +1739,32 @@ hint													used
 "Open the can with the spurs."
 		
 Book 2  Scenes
-
+ 
 Chapter Introduction
 
 Introduction is a scene. Introduction begins when play begins. Introduction ends when the Deputy is not in the office.
 
+Boot activity is a truth state that varies. Boot activity is false.
+
+Every turn during introduction:
+	if boot activity is true:
+		change boot activity to false;
+		[I'm darn impressed that the next line works in terms of grammar]
+		if the number of bootlike things that are worn is:
+			-- 0:[when returning to the state of both shoes worn...]
+				say "[doubledeshoed]" as dialogue;
+				now Rick wears the left boot; 
+				now Rick wears the right boot;
+				move the deputy to limbo;
+				move the whiskey to limbo;
+				move the cigar to limbo;
+			-- 1:[deputy lights his cigar whenever only one shoe is worn]
+				say "[hello cigar]" as dialogue;
+				now the deputy carries the cigar;
+			-- 2:[Rick puts on both shoes, at end of this scene]
+				say "[goodbye cigar]" as dialogue;
+				move the cigar to Limbo.
+				
 Chapter Unwatched
 
 Unwatched is a recurring scene. Unwatched begins when the deputy is not in the office. Unwatched ends when the deputy is in the office. 
