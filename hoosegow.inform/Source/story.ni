@@ -771,7 +771,7 @@ The Deputy's stage business rule is listed after Pete's stage business rule in t
 	
 This is the Deputy's stage business rule:
 	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
-		say "[if the player is in the jail cell][one of]Over in[or]Back in[or]In[or]On the other side of the jail bars[at random] office, the[otherwise]The[end if] deputy ";
+		say "[if the player is in the jail cell][one of]Over in[or]Back in[or]In[or]On the other side of the jail bars in[at random] the office, the[otherwise]The[end if] deputy ";
 		pick a phrase from the Table of Deputy's Doings;
 		say paragraph break;
 		the rule succeeds.
