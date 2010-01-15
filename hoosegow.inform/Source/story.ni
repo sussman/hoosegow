@@ -1033,7 +1033,50 @@ The gate lock is part of the gate.
 
 Section Stool & Bench
 
-The stool is a large portable supporter in the jail cell.  "A broken stool lies on the floor." [###TODO:  describe differently (in both descriptions) if broken vs. repaired.]  The description of the stool is "foo". The texture of the stool is "like it has been worn [smooth] over the years". 
+The stool is a large portable enterable supporter in the jail cell.  "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]There's a repaired stool standing here.[end if]".  The description of the stool is "A small stool.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of grey jail-bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with numerous initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
+
+The bronze plate is part of the stool.  Understand "plate" as the bronze plate.  The description of the bronze plate is "You read aloud the engraving on the bronze plate: 'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.'".
+
+After examining the plate for the first time:
+	say "Muddy shakes his head, 'They sure are an upstanding organization.'".
+
+The seat is part of the stool.  The description of the seat is "The top of the wooden stool's seat is covered by initials, some old, some new. [if the socket is not occupied]When you flip it over, it is immediately apparent that the stool is missing a leg. In its place, there is just an empty socket.[end if]".
+
+The socket is part of the seat.  The socket is a container. The socket can be occupied.  The socket is not occupied.  The description of the socket is "[if the socket is not occupied]Once upon a time, a three-quarter inch stool leg must have occupied the now empty hole in the stool seat. Without that leg, the stool isn't much good.[otherwise]A nice piece of gray jail bar is wedged into it, acting as a third leg.[end if]".
+
+Instead of inserting something (called the filler) into the socket:
+	if the filler is the gray bar:
+		say "You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.";
+		now the socket is occupied;
+	otherwise:
+		say "Putting [the filler] into the socket don't make a lick of sense.  Not likely to fit well anyway.".
+
+The broken-stool-sit-count is a number that varies.  The broken-stool-sit-count is zero.
+
+Does the player mean climbing the stool:  it is very likely.
+
+Instead of climbing the stool:
+	try entering the stool.
+
+Instead of entering the stool:
+	if the socket is not occupied: [stool is broken]
+		if the broken-stool-sit-count is:
+			-- 0:
+			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You sit down on the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off.[if the deputy is not in limbo] [paragraph break]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich.  Maybe he'll try again.'[end if]";
+			-- 1:
+			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now.[if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.''[paragraph break][end if]";
+			-- otherwise:
+			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna sit on the stool unless it stands solidly on three good legs.";
+		increase the broken-stool-sit-count by one;
+	otherwise: [stool is repaired]
+		say "You climb up onto the stool real careful.  You're much taller now.";
+		move the player to the stool;
+		now the player is tall.
+
+Instead of getting off the stool:
+	say "You jump down to the ground again.";
+	move the player to the location of the stool;
+	now the player is not tall.
 
 The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated. The texture of the bench is "like rough wood".
 
@@ -1137,7 +1180,7 @@ Instead of taking or pulling the gray bar:
 The screw is part of the gray bar.  The description of the screw is "A large, rusty screw.  It's holding a gray bar in place.".
 
 Instead of taking the screw:
-	if the player is on the stool:
+	if the player is tall:
 		say "You try to grab it, but it won't budge.";
 	otherwise:
 		say "The screw is too high for you to reach.".
@@ -1281,6 +1324,8 @@ Before inserting the tobacco into the mouth:
 Section Rick
 
 The player is Rick. Rick is a man in the jail cell. Rick is proper-named. The scent of Rick is "familiar".
+
+Rick can be tall.  Rick is not tall.  [unless he's on a stool or on Muddy's shoulders]
 
 The mouth is part of Rick. The indefinite article of the mouth is "your". The mouth is a container. The carrying capacity of the mouth is one. Understand "maw", "pie hole", "kisser" as the mouth. The texture of the mouth is "parched". The scent of your mouth is "neither minty nor mediciny".
 
