@@ -1,4 +1,5 @@
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
+
 The story headline is "A Wild West Wreck".
 The release number is 1.
 The story creation year is 2010.
@@ -582,7 +583,7 @@ When play begins:
 	move the harmonica to Muddy.
 	
 After printing the banner text:
-	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns ablazin[apostrophe].[paragraph break]";
+	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns [apostrophe].[paragraph break]";
 	say "[bracket]Press Space To Continue[close bracket]";
 	wait for any key;
 	clear screen;
