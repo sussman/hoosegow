@@ -752,14 +752,14 @@ To say herring:
 
 Table of Pete's Strange Behavior
 times-used		verbage
-0					"shakes and twists spasmodically"
-0					"murmurs repeatedly, [quotation mark][herring] [herring] [herring][quotation mark]"
-0					"peddles the air with his feet, while making bell ringing sounds"
-0					"rolls back and forth on the bench"
-0					"curls up into a ball, muttering to himself"
-0					"froths at the mouth"
-0					"stared wide-eyed at the ceiling for a moment and the falls back asleep"
-0					"sits bolt upright, howls at the moon, and flips back over, fast asleep"
+0					"shakes and twists spasmodically."
+0					"murmurs repeatedly, [quotation mark][herring] [herring] [herring][quotation mark]."
+0					"peddles the air with his feet, while making bell ringing sounds."
+0					"rolls back and forth on the bench."
+0					"curls up into a ball, muttering to himself."
+0					"froths at the mouth."
+0					"stared wide-eyed at the ceiling for a moment and the falls back asleep."
+0					"sits bolt upright, howls at the moon, and flips back over, fast asleep."
 
 Table of Pete's Vulture Clues
 times-used		verbage
@@ -1470,7 +1470,7 @@ Before asking Muddy about "[muddyplan]":
 		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark][paragraph break]";
 	otherwise:
 		if ask-me counter is six:
-			say "I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
+			say "MuddyI already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
 		otherwise:
 			say "[the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
 			change the ask-me counter to six;
@@ -1492,7 +1492,7 @@ plan-number		plan-askme			plan-text			plan-blurt			plan-reminder
 2					"[plan2-askme]"		"[plan2]"		"[plan2-blurt]"		"we got to forge that warrant"
 
 To say plan1:
-	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers, apparently noticing the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
+	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers.[if Pete in not recognized] He notices the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][end if][paragraph break]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
 
 To say plan1-askme:	
 	say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] Muddy whispers. [or]This time mah plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes quietly. [or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts under his breath Muddy. [or]Truthful, Rick,[quotation mark] whispers Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark] [or]I hope you ain't still angry about my last plan. It worked fine except for the last part.[quotation mark]Muddy's eyes gleam. [quotation mark]This new plan's even more slicker![quotation mark] [stopping]".
