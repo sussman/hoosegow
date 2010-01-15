@@ -1069,7 +1069,7 @@ Instead of entering the stool:
 			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna sit on the stool unless it stands solidly on three good legs.";
 		increase the broken-stool-sit-count by one;
 	otherwise: [stool is repaired]
-		say "You climb up onto the stool real careful.  You're much taller now.";
+		say "You push the stool over towards the wall and Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
 		move the player to the stool;
 		now the player is tall.
 
@@ -1119,7 +1119,7 @@ Carry out playing the harmonica:
 			say "You tentatively blow on it a bit, but you're not rightly sure what you're doing.[paragraph break]The deputy grimaces, 'Knock off that racket, you two. A noise like that, a man can't get to thinking straight. Settle down now, you hear? I got me some reading to do.' The deputy unfolds the warrant, furrows his brow and begins reading. You can tell because his lips are moving. Slowly.";
 			now the harmonica is first-heard-by-deputy;
 		otherwise:
-			say "You play the harmonica again;  the deputy storms out in disgust.[paragraph break]"; [TODO:  invoke common routine for his leaving, involving explanation of Flash and such]
+			say "The deputy cringes, as you blow not only the notes that are built into the harmonica, but every note in between as well. He stands up, shoves the warrant into his pocket, and grabs a bottle of whiskey off the cabinet.[paragraph break]'I declare: that's just the worst thing I ever heard in my life. It's enough to drive a man to drink.' To prove it, he takes a mighty swig from the whiskey bottle and wipes his mouth with the back of his sleeve. The deputy puts his fingers in his ears and tries to ignore you.[paragraph break]The deputy balls his hands into fists and trembles with annoyance, 'I'm going to the saloon to listen to some real music, from some real talented lady folk of the female persuasion.' The deputy walks out the front door in a huff.[paragraph break]'You should hear me play piano, ' you remark, but he's already out of earshot.[paragraph break]"; [TODO:  invoke common routine for his leaving, involving explanation of Flash and such]
 			move the deputy to limbo;
 			say "Muddy says, 'Nice one.  Hey -- I reckon I saw that screw up there wiggle a bit when you played the harmonica. I didn't say nothing on account what the deputy was here.'  He points to a screw holding in one of the cell bars.";
 	otherwise:  [no deputy present]
@@ -1161,12 +1161,12 @@ Instead of going when the player is in the jail cell:
 
 Section Bars
 
-The bars are scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
+The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
 
-Instead of attacking the bars:[###TODO: one should only sound hollow until the gray bar drops out]
-	say "Muddy stands back as you let loose with your full fury and pound on the metal bars. As you beat them senseless, you notice that one of them sounds hollow. But which was it?".
+Instead of attacking the bars:
+	say "Muddy stands back as you let loose with your full fury and pound on the metal bars.[if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it?[end if]".
 
-The gray bar is part of the bars.  The gray bar is a prop.  The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar]It doesn't weigh much at all, and it's hollow.[end if]". The texture of the gray bar is "lighter than it looks".
+The gray bar is part of the bars.  The gray bar is a prop.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar]It doesn't weigh much at all, and it's hollow.[end if]". The texture of the gray bar is "lighter than it looks".
 
 The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
 
@@ -1190,28 +1190,52 @@ Instead of taking the screw:
 
 Section Window and Street
 
-The street is a room.  "A dusty road with a few buildings lining it."  The street contains a plant and a barrel.
+The street is a room.  "This is a dusty road with a few buildings lining it, including the sheriff's office."
 
 [Taken from example 20]
-The cell window is a door.  The cell window is scenery.  The description of the cell window is "A barred window about a foot square."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
+The cell window is a door.  The cell window is scenery.  The description of the cell window is "About seven feet up, as wide as your shoulders, and secured by four vertical iron rods as thick as your thumb. And you have thick thumbs. The green tip of a vine pokes in from outside."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
+
+The rods are plural-named part of the cell window. The description of the rods are "The rods are firmly embedded in the solid brick walls."
 
 Understand "look out [something]" as searching.
 Instead of searching the window:
-	if the player is in the jail cell and the player is on the stool:
-		say "(standing on tiptoes) Through the window, you make out [a list of things in the Street].";
+	if the player is tall:
+		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street which have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. Just to the left of the window, a berry-covered vine has grown up the side of the building.";
 	otherwise:
-		say "The window is too high above you.".
+		say "From down here, all you can see is the evening sky and the dark window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. You'd have to climb up to the window to get a better view of the street.";
+	
+Understand "climb through [something]" as climbing. Understand "jump through [something]" as climbing.
 Instead of climbing the window: 
 	try entering the window.
-Understand "climb through [something]" as climbing. Understand "jump through [something]" as climbing.
+	
 Instead of going through the window:
-	say "Those bars aren't going anywhere;  at most, you can maybe reach your hand through them."
+	say "Those rods aren't going anywhere;  at most, you can maybe reach your hand through them."
 Instead of opening the window:
-	say "The window isn't openable."
+	say "There is no glass in the window; it is already open."
+Instead of closing the window:
+	say "You feel around for shutters, but you don't find none.  Just rods."
 
-After deciding the scope of the player while in the jail cell:
-	if the player is on the stool:
-		place the street in scope.
+After deciding the scope of the player:
+	if the player is tall:
+		place the vine in scope.
+
+The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "foo".  [TODO]
+
+The vine is scenery in the street.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall]It's covered with small red berries.[end if]".
+
+The berries are a plural-named part of the vine.  The description of the berries is "The berries are plump and red. You don't recognize them as something edible, though.".
+
+The berry is a prop.  The description of the berry is "It's plump and red, and it's got no short of mystery about it."  The berry is in limbo.
+
+Instead of taking the berries:
+	if the player carries the berry:
+		say "You already got a mighty nice one.";
+	otherwise:
+		move the berry to the player;
+		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.". 
+
+
+
 
 
 Chapter Characters
