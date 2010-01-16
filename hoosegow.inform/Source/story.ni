@@ -235,6 +235,8 @@ Opening it with is an action applying to two things. Understand "open [a thing] 
 Check opening it with:
 	if the noun is locked:
 		try unlocking the noun with the second noun instead;
+	if the noun is open:
+		say "It's already open." instead;
 	if the noun is the can:
 		if the second noun is not the spur:
 			say "You don't seem to be able to open [the noun] with [the second noun]." instead;
@@ -599,13 +601,16 @@ Every turn:
 	if the number of bootlike things that are worn is:
 		-- 0: 
 			change the ambient odor to 100;
-		-- 1: 
-			change the ambient odor to 50;
+		-- 1:
+			if the ambient odor is less than 50: 
+				change the ambient odor to 50;
 		-- 2: 
 			if the ambient odor is greater than ten:
 				decrease the ambient odor by ten;
+	[Arts and farts and blueberry tarts.]			
+	Consider the Farting Rule;				
 	[muddy's plans]
-	 Consider the Muddy's Plan rule;
+	Consider the Muddy's Plan rule;
 	[stage business]
 	if muted is false:
 		Consider the stage business rules;
@@ -670,7 +675,7 @@ times-used		verbage
 0					"puts his hands in his pockets and seems to be daydreaming. "
 0					"looks like he's about to have a great idea, but then goes back to staring at the floor. "
 0					"looks around the sheriff's office. "
-0					"spends some time looking at the [one of]machine[or]desk[or]door[or]boiler[at random] in the office. "
+0					"spends some time looking over at the [one of]machine[or]desk[or]door[or]boiler[at random] in the office. "
 0					"murmurs to himself about not being able to recall a limerick he once heard that had something to do with cowboys and farmers. "
 0					"counts the number of stars he can see out the window, divides by the number of bars in the jail cell, and takes the natural logarithm. [quotation mark]Yup,[quotation mark] he says, [quotation mark]that's what I thought.[quotation mark]"
 0					"rubs up and down against the brick wall, scratching an itch"
@@ -817,17 +822,36 @@ The cigar is a prop in Limbo. The description of the cigar is "A stogie."
 
 Section Can
 
-The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can is "[if the can is open]like beans. No surprise there[otherwise]like the piece of rancid meat it was next to[end if]". The texture of the can is "[metallic]".
+The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can is "[if the can is open]like beans. No surprise there[otherwise]like the piece of rancid meat it was next to[end if]". The texture of the can is "[metallic]".
 
 Instead of opening the can:
 	say "What do you want to open it with?"
 	
-Some beans are in the can. Understand "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood." The scent of the beans is "delicious and yet somehow disgusting". The texture of the beans is "slimy and gelatinous".
+Some beans are in the can. Beans are edible. Understand "bean", "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood." The scent of the beans is "delicious and yet somehow disgusting". The texture of the beans is "slimy and gelatinous".
 
 Does the player mean doing something with the beans:
 	it is likely.
 
 The bean counter [:-)] is a number that varies. The bean counter is zero.
+
+The flatulometer is a number that varies. The flatulometer is zero.
+
+This is the farting rule:
+	if the flatulometer is greater than zero:
+		if the flatulometer is:
+			-- 5: 
+				say "Muddy has an aura of well-fed contentment.";
+			-- 4: 
+				say "Muddy holds his belly and comments, [quotation mark]Got a bit of indigestion, I does.[quotation mark][paragraph break]";
+			-- 3: 
+				say "Muddy wraps his arms around his belly, and moans softly, [quotation mark]I might have overdone it with them beans.[quotation mark][paragraph break]The deputy looks up from his reading, curious."; 
+			-- 2: 
+				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow! Deputy, if'n I was you, I would put some distance between Muddy and your nose.[quotation mark][paragraph break]The Deputy looks concerned, but confused.";
+			-- 1: 
+				say "You hear nothing. The smell nearly knocks you out. Vision fades, the room spins.[paragraph break]Muddy whispers in that understated manner of his, [quotation mark]That were a silent but deadly.[quotation mark][paragraph break]";
+				change the ambient odor to 100;
+		change the block stage business flag to true;
+		decrease the flatulometer by one.
 
 Before eating beans:
 	try silently switching score notification off;
@@ -835,7 +859,7 @@ Before eating beans:
 		-- 0: 
 		say "When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don't even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.[paragraph break]Nonetheless, your stomach is growling and you could do with a meal.[paragraph break][bracket]You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points[close bracket][paragraph break]";
 		increase the score by two;
-		-- 1: 
+		-- 1:
 		say "The beans disgust you even more than the rancid meat.[paragraph  break][bracket]The thought is enough to make you lose a point.[close bracket][paragraph break]";
 		decrease the score by one;
 		-- 2: 
@@ -846,6 +870,43 @@ Before eating beans:
 	increase the bean counter by one;
 	try silently switching score notification on;
 	stop the action.
+	
+Instead of taking the beans:
+	say "The thought of ever coming into physical contact with beans of any variety [one of]gives you vertigo[or]makes the room seem to waver and spin[or]gives you palpatations[or]gives you a sense of foreboding doom[at random]."
+	
+Before giving the can to someone (called the receiver):
+	if the player does not carry the can:
+		try silently taking the can;
+		say "(first fetching the can)[command clarification break]";
+	if the receiver is Muddy:
+		if the can is open:		
+			say "Muddy takes the can and stares hungrily at the beans.[paragraph break]Even in the most dire situation, Muddy's appetite remains intact. He looks expectantly at you and says, [quotation mark]Rick, got a spoon?[quotation mark][paragraph break]";
+			move the can to muddy;
+		otherwise:
+			say "[quotation mark]I may be long in the teeth, but I can't use them to open cans -- hungry though I reckon I sorely am.[quotation mark]  Muddy grumbles, as he often does when he's hungry and growing ornery.";
+	otherwise:
+		say "[The receiver] [one of]looks at the can curiously and pushes it away. [quotation mark]I don't want your ten year-old can of prison beans.[quotation mark][or]waves away the can of beans. [quotation mark]Nope. On a diet.[quotation mark][or]says, [quotation mark]No thanks[quotation mark][stopping][paragraph break]";
+	stop the action.
+	
+Before giving the spoon to someone (called the receiver):
+	if the player does not carry the spoon:
+		try silently taking the spoon;
+		say "(first fetching the spoon)[command clarification break]";
+	if the receiver is Muddy:
+		if Muddy carries the can:
+			say "Muddy cracks a gap-toothed smile and says, [quotation mark]Much obliged,[quotation mark] before digging into the can of beans like a miner hot on a fresh gold vein. A couple moments later, he finishes circling the inside of the can with the spoon, trying to get every last drop of bean juice into his mouth. Afterwards, he places the can and spoon on the floor and rubs his stomach with satisfaction.";
+			now the beans are in limbo;
+			now the spoon is in the can;
+			now the can is in the location;
+			change the flatulometer to 5;
+		otherwise:
+			say "Muddy politely refuses your offer. [quotation mark]Thanks, Rick, but one spoon don't help. Now, if'n we had two, then we could make us some serious music[if the deputy is in the jailhouse]![quotation mark][paragraph break]Hearing this, the deputy becomes strangely conversant. He offers, [quotation mark]Yeah, I reckon you two could play the harmonica and the spoons, I could play the jug some, and there ain't nothing in the whole wide world the sheriff likes more than a good waterboarding[end if]!";
+	otherwise:
+		say "[The receiver] is puzzled by your offer and says that he already has a spoon of his own.";
+	stop the action.
+	
+To say driven out by smell:
+	say "Suddenly, the deputy lurches forward in his seat, suppressing urge to throw up. With years of exposure, you have developed some degree of resistance, intestinal fortitude you might say, but the expanding cloud of invisible unpleasantness washes over the deputy and sweeps him out of his chair. He throws his arm back, grabs the whiskey bottle, and half drains it on his way out the door.[paragraph break]The fragrance gradually improves as the universe cools."
 
 Section Meat
 
@@ -1082,7 +1143,9 @@ The bench is a large furniture in the jail cell.  The description of the bench i
 
 Instead of searching the bench:
 	if the bench is not investigated:
-		say "[bench sekrits]."
+		say "[bench sekrits].";
+	otherwise:
+		say "You peek under the bench but don't find anything new."
 	
 To say bench sekrits:
 	say "Under the bench, you notice the remnants of a meal";
@@ -1422,7 +1485,7 @@ Instead of doing something other than examining with the footwear:
 
 Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn down, and the spurs have broken clear off." The scent of a the left boot is "better on the outside". The indefinite article of the left boot is "your". The texture of the left boot is "[smooth]".
 
-Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth]. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "better on the outside". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]".
+Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth]. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "better on the outside". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" as the spur.
 
 [Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
 
@@ -1648,8 +1711,11 @@ Carry out Easter egging:
 Table of Eggs
 title				subtable			description	toggle
 "Planned Parenthood"	--	"The sheriff enters the office, shotgun in hand. You and Muddy freeze in your tracks and raise your hands in the air. The sheriff kicks the prone deputy, who stirs slowly at first, but then jumps to his feet.[paragraph break][quotation mark]You.[quotation mark] The sheriff points at you. [quotation mark]Your name Muddy?[quotation mark][paragraph break][quotation mark]No. I ain't Muddy,[quotation mark] you reply. [quotation mark]That there is Muddy. I is Rick.[quotation mark][paragraph break][quotation mark]Damn. What were she thinking?[quotation mark] growls the sheriff. [quotation mark]Mary Sue, you come on in here now, you hear?[quotation mark][paragraph break]A young woman -- you hesistate to guess her actual age on account of propriety -- edges nervously into the office, her eyes cast to the ground. By the way she walks, you guess she is in a family way, and after she turns towards Muddy, there's no question. Judging by the size of her belly, you'd have to say five, maybe six months. She raises her eyes to Muddy and her face brightens.[paragraph break][quotation mark]Oh, Lordie,[quotation mark] mutters Muddy, closing his eyes and running his hand over his face. [quotation mark]The one thing I don't plan -- and look what happens.[quotation mark][paragraph break]Lowering the shotgun, the sheriff walks over and puts his arm around Muddy's shoulders. Distributing cigars to you and the deputy, he smiles, [quotation mark]Deputy Jimbo, Rick -- I'd like you to meet my new son-in-law, Muddy. Ain't that right, Muddy?[quotation mark][paragraph break][quotation mark]I do reckon it's better than a-hanging.[quotation mark][paragraph break]Muddy never sees it coming. Mary Sue's roundhouse punch lands square on his jaw, launching him towards the jail bars like a sack of potatoes.[paragraph break][quotation mark]Well,[quotation mark] you observe, [quotation mark]maybe this marriage just might work out.[quotation mark]"	--
-"Alternate Ending #2"	--	"End of Simulation at MARSpace"	--
-"Alternate Ending #3"	--	"Revenge of the GSWA"	--
+"PC"	--	"The sheriff's wheelchair rolls up the front ramp, and he enters the office with his multicultural posse, who represent the diverse members of the community of Endangered Arthropod Valley. Two of the named women in his posse discuss a subject other than men. The sheriff draws a nonlethal weapon that has not been tested on animals, and waves it in a non-threatening manner at you and your partner.[paragraph break]The deputy finishes his yoga stretches and stands up, draining his bottle of health water and setting the recyclable bottle on the renewable hardwood desk. [quotation mark]Sheriff, we had a right pleasant evening, and I reckon these gentlemen is sincerely regretful of their wrongs.[quotation mark][paragraph break]The sheriff agrees, [quotation mark]I do reckon, but they still got to repay their crime, even if the blame for that crime ultimately rests on society itself, and is the result of a poor educational system and the lack of adequate social welfare and state institutions.[quotation mark][paragraph break]The deputy nods sagely, [quotation mark]How about some community service? The Gunslinger's Significant Other Association runs a camp for autistic spectrum disorder orphan Native Americans on the outskirts of town. I reckon they could use a hand running their cruelty-free all-vegetarian farm.[quotation mark][paragraph break]There is a murmur of agreement from the posse, and the sheriff claps the deputy on his back. [quotation mark]That's mighty forward thinking of you, James.[quotation mark][paragraph break]Muddy gives you a distressed look and asks the sheriff, [quotation mark]I reckon I'd prefer the hanging. Is that still an option?[quotation mark]"	--
+"A Flare For Design"	--	"The sheriff strolls into the office and immediately notices the portrait. Arms on his hips, he admires the painting. [quotation mark]I declare, that *do* make the office. It breaks up that entire space. That wall were so stark and empty before you done hung it. I owe you two a debt of sincere gratitude.[quotation mark][paragraph break]Muddy considers the painting as well and then looks around the room. [quotation mark]That seemed the right place to hang it, considering you got all them wood tones in the desk and the cabinet, and yonder doorway gives that area a bright, natural light most of the day.[quotation mark][paragraph break]The deputy stirs. [quotation mark]Yeah,[quotation mark] he adds. [quotation mark]It's a shame we don't got no windows in the office, excepting in the jail cell. I reckon we could knock out that front wall and put in a bay window, maybe add a window treatment that would soften the a room jot. Also, how about a stencil? Something rustic, running as a trim, just below the ceiling.[quotation mark][paragraph break]You brew four cups of dark, whole-bodied espresso, sprinkling the top with nutmeg. The steam curls upward and fills the room with rich aroma. You settle down on the plush wraparound couch that has appeared in the office and join the sheriff, the deputy and Muddy in browsing through a book of fabric swatches."		--	
+"Range Rover"	--	"The waving fields of wheat are incinerated in the actinic flame of fusion rocket exhaust as a quarter-mile long football-shaped metal ship extends its landing pylons and sets down across the street from the sheriff's office.[paragraph break]The sheriff is transfixed by the sight, and the marshal faints outright.[paragraph break]A gangplank extends and a massive cargo door rolls open. A woman in a blue flight suit is followed down the ramp by an energetic white dog with black spots. She walks to the office and stares at Muddy.[paragraph break][quotation mark]Janet?[quotation mark] croaks Muddy dryly. [quotation mark]I didn't expect to see you around these parts.[quotation mark][paragraph break][quotation mark]I bet you didn't,[quotation mark] she replies matter-of-factly. [quotation mark]We have a situation in The Belt, grab your saddle bag.[quotation mark][paragraph break][quotation mark]I got a buddy, Janet. He's real good with a gun and plays a mean harmonica.[quotation mark] Muddy turns to you, [quotation mark]Janet, this here is Rick.[quotation mark][paragraph break]Janet nods and is already walking back to the ship before you can so much as say [quotation mark]howdy[quotation mark].[paragraph break][quotation mark]What's with her?[quotation mark] you ask.[paragraph break]Muddy sighs. [quotation mark]It's complicated, I reckon.[quotation mark] "	--
+"Just Visiting"	--	"The sheriff walks into the office, followed closely by the marshal. The marshal trains his pistol on you while the sheriff examines the deputy, who is stretched out on the floor.[paragraph break][quotation mark]He ain't dead,[quotation mark] the sheriff observes. [quotation mark]But he like as hit his head on the bars. Wait a minute.[quotation mark] The sheriff leans closer to the prone body. [quotation mark]This ain't right. Where he lost some skin, I see scales. Like he were a lizard, or something.[quotation mark][paragraph break]The marshal hisses and swings his gun to cover the sheriff. The hissing is echoed by the cadre of soldiers behind the marshal.[paragraph break]The marshal replies, [quotation mark]A regrettable observation, earthman.[quotation mark] He beckons some guards forwards. [quotation mark]Glulx, take the sheriff and lock him up. Glk and Zil, you go out back and take charge of those iridium discs in the stage coach.[quotation mark] Swinging the gun back to you and Muddy, he drawls, [quotation mark]Now, as for you two...[quotation mark][paragraph break]Muddy laughs lightly and pushes the gun aside, [quotation mark]Heck, Zilch, it's me, Ifmud, and this here's Rixyzzy. We was sent after that iridium our own selves, but we got captured by the earthmen. Good thing I had a back up plan![quotation mark] "	--
+
 
 Chapter Default Messages
 
@@ -1833,11 +1899,16 @@ Every turn during introduction:
 				now the deputy carries the cigar;
 			-- 2:[Rick puts on both shoes, at end of this scene]
 				say "[goodbye cigar]" as dialogue;
-				move the cigar to Limbo.
-				
-Chapter Unwatched
+				move the cigar to Limbo;
+	if the ambient odor is 100:
+		move the whiskey to the deputy;
+		move the deputy to limbo;
+		say driven out by smell.
 
-Unwatched is a recurring scene. Unwatched begins when the deputy is not in the office. Unwatched ends when the deputy is in the office. 
+				
+Chapter Flash
+
+Flashing is a scene. Flashing begins when the deputy is not in the office. Flashing ends when Flash is not in the office.
 
 Chapter Forgery
 
