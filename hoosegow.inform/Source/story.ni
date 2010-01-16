@@ -670,7 +670,7 @@ times-used		verbage
 0					"scratches his [one of]arm[or]back[or]leg[or]neck[or]chin[at random]. "
 0					"leans against the wall and sighs. "
 0					"closes his eyes and rubs his temples. "
-0					"rocks back and forth on the bals of his feet. "
+0					"rocks back and forth on the balls of his feet. "
 0					"paces back and forth impatiently. "
 0					"puts his hands in his pockets and seems to be daydreaming. "
 0					"looks like he's about to have a great idea, but then goes back to staring at the floor. "
@@ -689,7 +689,7 @@ The Flash's stage business rule is listed after the Muddy's stage business rule 
 		
 This is the Flash's stage business rule:
 	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
-		say "Flash";
+		say "Flash ";
 		if a random chance of 8 in 10 succeeds:
 			pick a phrase from the Table of Common Flash Actions;
 		otherwise:
@@ -907,6 +907,9 @@ Before giving the spoon to someone (called the receiver):
 	
 To say driven out by smell:
 	say "Suddenly, the deputy lurches forward in his seat, suppressing urge to throw up. With years of exposure, you have developed some degree of resistance, intestinal fortitude you might say, but the expanding cloud of invisible unpleasantness washes over the deputy and sweeps him out of his chair. He throws his arm back, grabs the whiskey bottle, and half drains it on his way out the door.[paragraph break]The fragrance gradually improves as the universe cools."
+	
+Instead of entering the stool when the flatulometer is 2:
+	say "Muddy warns, [quotation mark]That ain't high enough to matter![quotation mark][paragraph break]".
 
 Section Meat
 
@@ -1182,7 +1185,8 @@ Carry out playing the harmonica:
 			say "You tentatively blow on it a bit, but you're not rightly sure what you're doing.[paragraph break]The deputy grimaces, 'Knock off that racket, you two. A noise like that, a man can't get to thinking straight. Settle down now, you hear? I got me some reading to do.' The deputy unfolds the warrant, furrows his brow and begins reading. You can tell because his lips are moving. Slowly.";
 			now the harmonica is first-heard-by-deputy;
 		otherwise:
-			say "The deputy cringes, as you blow not only the notes that are built into the harmonica, but every note in between as well. He stands up, shoves the warrant into his pocket, and grabs a bottle of whiskey off the cabinet.[paragraph break]'I declare: that's just the worst thing I ever heard in my life. It's enough to drive a man to drink.' To prove it, he takes a mighty swig from the whiskey bottle and wipes his mouth with the back of his sleeve. The deputy puts his fingers in his ears and tries to ignore you.[paragraph break]The deputy balls his hands into fists and trembles with annoyance, 'I'm going to the saloon to listen to some real music, from some real talented lady folk of the female persuasion.' The deputy walks out the front door in a huff.[paragraph break]'You should hear me play piano, ' you remark, but he's already out of earshot.[paragraph break]"; [TODO:  invoke common routine for his leaving, involving explanation of Flash and such]
+			say "The deputy cringes, as you blow not only the notes that are built into the harmonica, but every note in between as well. He stands up, shoves the warrant into his pocket, and grabs a bottle of whiskey off the cabinet.[paragraph break]'I declare: that's just the worst thing I ever heard in my life. It's enough to drive a man to drink.' To prove it, he takes a mighty swig from the whiskey bottle and wipes his mouth with the back of his sleeve. The deputy puts his fingers in his ears and tries to ignore you.[paragraph break]The deputy balls his hands into fists and trembles with annoyance, 'I'm going to the saloon to listen to some real music, from some real talented lady folk of the female persuasion.' The deputy walks out the front door in a huff.[paragraph break]'You should hear me play piano, ' you remark, but he's already out of earshot.[paragraph break]"; 
+			now the deputy is harmonicated;
 			move the deputy to limbo;
 			say "Muddy says, 'Nice one.  Hey -- I reckon I saw that screw up there wiggle a bit when you played the harmonica. I didn't say nothing on account what the deputy was here.'  He points to a screw holding in one of the cell bars.";
 	otherwise:  [no deputy present]
@@ -1309,7 +1313,7 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive". 
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated.
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1561,7 +1565,7 @@ To say reshoed:
 	say "Muddy smiles and says,[quotation mark][one of]That's much better[or]What a world of difference[or]Phew[at random].[quotation mark][paragraph break]".
 
 To say hello cigar:
-	say "[one of]The deputy wrinkles his nose in distaste and produces a fat cigar from his pocket. He reaches over to the office's steam boiler, lights the cigar, walks right up to the jail bars and blows the smoke directly into your face. The stench of the cigar is evenly matched against the reek of your feet[or]The deputy withdraws the cigar from his pocket and waves it in front of you. [quotation mark]Two can play at that game,[quotation mark] he says. He lights the cigar again and blows it in your face. Muddy coughs[or][quotation mark]Oh, you want more of [apostrophe]ol Stogie, do you?[quotation mark] sneers the deputy. [quotation mark]Well fine.[quotation mark] He again lights his cigar[stopping].";
+	say "[one of]The deputy wrinkles his nose in distaste and produces a fat cigar from his pocket. He reaches over to the office's steam boiler, lights the cigar, walks right up to the jail bars and blows the smoke directly into your face. The stench of the cigar is an even match for the reek of your feet[or]The deputy withdraws the cigar from his pocket and waves it in front of you. [quotation mark]Two can play at that game,[quotation mark] he says. He lights the cigar again and blows it in your face. Muddy coughs[or][quotation mark]Oh, you want more of [apostrophe]ol Stogie, do you?[quotation mark] sneers the deputy. [quotation mark]Well fine.[quotation mark] He again lights his cigar[stopping].";
 	
 To say goodbye cigar:
 	say "The deputy snorts and says, [quotation mark][one of]That's better[or]Learned you that lesson, I reckon[or]At least I'm getting my exercise[or]I ain't smoked so many cigars in years[or]This is getting old[stopping].[quotation mark] He stuffs the half-smoked cigar into his pocket sits down at the desk and [one of]tilts the chair backwards as he reclines[or]and loosens his collar[or]rests his feet on its scratched surface[or]and watches you with an annoyed expression[at random]."
@@ -1624,7 +1628,7 @@ plan-number		plan-askme			plan-text			plan-blurt			plan-reminder
 2					"[plan2-askme]"		"[plan2]"		"[plan2-blurt]"		"we got to forge that warrant"
 
 To say plan1:
-	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers.[if Pete in not recognized] He notices the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][end if][paragraph break]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
+	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers.[paragraph break][if Pete in not recognized]He notices the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break][end if]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts between the deputy and your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
 
 To say plan1-askme:	
 	say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] Muddy whispers. [or]This time mah plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes quietly. [or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts under his breath Muddy. [or]Truthful, Rick,[quotation mark] whispers Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark] [or]I hope you ain't still angry about my last plan. It worked fine except for the last part.[quotation mark]Muddy's eyes gleam. [quotation mark]This new plan's even more slicker![quotation mark] [stopping]".
@@ -1906,9 +1910,27 @@ Every turn during introduction:
 		say driven out by smell.
 
 				
-Chapter Flash
+Chapter Flashing
 
 Flashing is a scene. Flashing begins when the deputy is not in the office. Flashing ends when Flash is not in the office.
+
+When flashing begins:
+	The deputy returns in one turn from now;
+	Muddy comments about departure in two turns from now.
+	
+At the time when the deputy returns:
+	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy pinches his nose and grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and Flash gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash. [quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth. [quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, 'ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
+	now Flash is in the office.
+	
+At the time when Muddy comments about departure:
+	say "[quotation mark]That worked out well,[quotation mark] says Muddy proudly.[paragraph break]";
+	if the deputy is not harmonicated:
+		if the beans are not in the can:
+			say "[quotation mark]For you maybe,[quotation mark] you reply. [quotation mark]But I near as lost my lunch what with that stench.[quotation mark][paragraph break]To which Muddy counters, [quotation mark]Ain't much worse than your feet, I reckon.[quotation mark][paragraph break]";
+		otherwise:
+			say "[quotation mark]And that was just my feet -- imagine how fast he would have run if you got into them beans.";
+	otherwise:
+		say "[quotation mark]Yeah,[quotation mark] you agree, [quotation mark]but my ears are still buzzing from that sound.[quotation mark][paragraph break]".			
 
 Chapter Forgery
 
