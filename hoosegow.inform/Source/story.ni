@@ -184,6 +184,11 @@ Report using:
 		-- xxx		
 ]
 
+Section Asking
+
+Rule for reaching inside a room when the current action is asking:
+	allow access.
+
 Section Chewing
 
 Chewing is an action applying to one thing. Understand "chew [a thing]" as chewing.
@@ -352,6 +357,34 @@ Shooting is an action applying to one thing. Understand "shoot [a thing]" as sho
 Carry out shooting:
 	say "Bang!" [### a placeholder]
 	
+Section Showing
+
+Rule for reaching inside a room when the current action is showing:
+	allow access.
+
+Instead of showing something (called the thingie) to a person (called the observer):
+	if the observer is:
+		-- Rick:
+			do nothing;
+		-- Muddy:
+			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
+				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell][quotation mark].[paragraph break]";
+		-- the deputy:
+			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
+				say "The deputy looks annoyed, but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark][deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";				
+		-- The sheriff:
+			do nothing;
+		-- The marshal:
+			do nothing;
+		-- Flash:
+			do nothing;
+		-- the vulture:
+			do nothing.
+			
+Table of Muddy and Deputy Show and Tell
+item					muddy-text			deputy-text
+pocketwatch			"foo"					"bar"
+	
 Section Smelling
 	
 [Like listening, smelling is performed through instead rules. The generic smell rule tracks bad smells, which decay over time.]
@@ -517,6 +550,20 @@ Carry out directedSpitting at:
 To say big target:
 	say "[one of]Where's the challenge in that?[or]Hardly a test of your tobacco spitting prowess.[or]Child's play. Your grandmother could spit tobacco at [a noun].[at random]".
 	
+Section Talking
+
+Talking is an action applying to one thing. Understand "talk to [something]" as talking.
+
+Rule for reaching inside a room when the current action is talking:
+	allow access.
+
+Check talking:
+	if the noun is not a person:
+		say "People will say you're odd if you make of habit of talking to [the noun]." instead.
+		
+Carry out talking:
+	say "You can ASK someone ABOUT something or SHOW something TO someone."
+	
 Section Touch
 [Touching is implemented through an after rule, which is nice in terms of making use of existing relationships about whether something is touchable or not. If an item has a texture attribute, this rule makes use of it.]
 
@@ -589,7 +636,7 @@ After printing the banner text:
 	say "[bracket]Press Space To Continue[close bracket]";
 	wait for any key;
 	clear screen;
-	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to impound that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got some personal business to see to, so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door."
+	say "In the twilight, you sight the sheriff's sturdy brick office near the edge of town. 'That's mighty fine construction,' notes Muddy, sounding less feisty now. 'Mighty fine indeed.' The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, 'Bring the coach on around, we got to [italic type]impound[roman type] that evidence.' You are manhandled into the sheriff's office and shoved into a small holding cell.[paragraph break]The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, 'Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o'clock tomorrow morning. There's going to be a hanging!'. The deputy nods slowly. The sheriff continues, 'Please take care of our [apostrophe]guests[apostrophe]. I got to head down to Wichita Falls to discuss my invention with some [italic type]investors[roman type], so you is in charge.' The deputy smiles until the sheriff adds, 'Jimbo, don't screw up,' as he heads out the door."
 
 Chapter Every Turn
 
@@ -715,6 +762,10 @@ times-used		verbage
 0					"drools"
 0					"sluggishly licks his nose"
 0					"raises an ear halfway and then lets it flap back down"	
+0					"sniffs his food bowl"
+0					"gazes at the dinner bell"
+0					"keeps an eye on his food bowl"
+0					"looks admiringly at the dinner bell"
 	
 Table of Rare Flash Actions
 times-used		verbage
@@ -1412,6 +1463,9 @@ Before inserting the tobacco into the mouth:
 		move the tobacco to the player;
 		continue the action.
 		
+After inserting the tobacco into the mouth:
+	say "You stick the tobacco in your mouth and get ready to chew it some."
+			
 Section Rick
 
 The player is Rick. Rick is a man in the jail cell. Rick is proper-named. The scent of Rick is "familiar".
@@ -1572,6 +1626,17 @@ To say goodbye cigar:
 	
 To say doubledeshoed:
 	say "The Deputy's cigar seems to shrivel and hang limply in his mouth, as its prodigious odor is astronomically outclassed by the combined stench of your two feet. The deputy spastically reaches over his desk, grabs the whiskey bottle, and half drains it on his way out of the office.[paragraph break]After he leaves, you give in to Muddy's desperate pleas to put your boots back on."
+	
+Section Vulture
+
+The vulture is a male animal in limbo. The description of the vulture is "A scrawny black bird, with a bald head, sharp yellow beak and white-tipped tail feathers[if the meat is on the barrel]. Its head is plunged into the putrifying piece of meat on the barrel, and tail waves provocativly in your face, just below the window[end if].";
+
+Instead of taking the meat when the meat is on the barrel:
+	say "The vulture won't let you. You almost lose a hand."
+
+The tail is part of the vulture. "The vulture's tail plumage consists of several long, black feathers with white stripes." Understand "plumage" as the tail.
+
+The feather is part of the tail. "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."
 	
 	
 Chapter Muddy's Cunning Plans
