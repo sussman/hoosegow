@@ -142,6 +142,8 @@ A thing has some text called the inscription. The inscription of something is us
 
 Definition: A thing (called the item) is bootlike if the item is the left boot or the item is the right boot.
 
+An ungulate is a kind of backdrop.
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -258,6 +260,12 @@ Carry out opening it with:
 	if the noun is the can:
 		award one point.
 	
+Section FunnyLooking
+
+FunnyLooking is an action applying to nothing. Understand "look funny" or "look at flash funny" or "look funny at Flash" as FunnyLooking when Flash is in the jailhouse.
+
+Carry out FunnyLooking:
+	say "Flash remains inert[if a random chance of one in ten succeeds], but secretly, he's laughing to himself[end if]."
 
 Section Listening
 [Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
@@ -994,7 +1002,7 @@ The sky is a backdrop in the jailhouse.  The description of the sky is "Outside 
 
 Chapter Office
 
-The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town." 
+The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if the deputy is sitting], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town. [if Introduction is happening]Inexplicably, a metal[otherwise]Flash's empty dog food[end if] bowl is nailed to the floor just in front of your jail cell."
 
 Section Bell
 
@@ -1006,7 +1014,7 @@ Section Boiler
 
 Position is a kind of value. The positions are whistleward, neutral, and coffeeward.
 
-The boiler is a large furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]." Understand "combustion" or "chamber" as the boiler. The texture of the boiler is "painfully hot". The scent of the boiler is "of soot and burning coal".
+The boiler is a large furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]". Understand "combustion" or "chamber" as the boiler. The texture of the boiler is "painfully hot". The scent of the boiler is "of soot and burning coal".
 
 The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler." The texture of the grate is "hot enough to burn someone".
 
@@ -1057,7 +1065,7 @@ After taking the gunbelt:
 
 Section Chair
 
-The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
+The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is in the office and the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
 
 The scent of the chair is "like an amalgam of the butts that have sat on it over the years. Not pleasant". The texture of the chair is "like an expensive piece of furniture".
 
@@ -1076,20 +1084,22 @@ The patent is in the drawer. The description of the patent is "A thick technical
 
 Section Outdoors
 
-The outdoors is a transparent scenery container in the office.
+The outdoors is a backdrop. The outdoors is everywhere. The description of the outdoors is "Oh, what a beautiful [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]. Lush farm fields, the endless cattle range -- except that you're going to be hanged at 8 a.m. That puts a damper on things." Understand "outside" as the outdoors.
 
-The range is a supporter in the outdoors. The description of the range is "[if the deer is on the range and the antelope is on the range]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]"
+The range is a backdrop. The description of the range is "[if the deer is on the range and the antelope is on the range]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]". The range is everywhere. Understand "cattle" as the range.
 
-The fields are a plural-named supporter in the outdoors. The description of the fields is "Corn, mostly."
+The fields are a plural-named backdrop. The description of the fields is "Corn, mostly." The fields are everywhere. Understand "lush" or "farm" or "field" as the fields.
 
-The deer is a male animal on the range. 
+The deer is an ungulate. The deer is everywhere.
 
-The antelope is a female animal on the range. 
+The antelope is an ungulate. The deer is everywhere.
 
-Instead of examining an animal (called trophy) on the range:
-	say "The [trophy] stares back at you momentarily and then runs off with the antelope. Ungulates are very private, you know.";
-	move the deer to Limbo;
-	move the antelope to Limbo.	
+Instead of examining an ungulate:
+	say "The [noun] stares back at you momentarily and then runs off with the [if the noun is the deer]antelope[otherwise]deer[end if]. Ungulates are very private, you know.";
+	remove the deer from play;
+	remove the antelope from play;
+		
+The corn is a backdrop. The corn is everywhere. The description of the corn is "Tall enough that elephants who value their eyesight do not walk through it."	
 
 Section Portrait
 
@@ -1352,8 +1362,8 @@ Instead of taking the berries:
 		move the berry to the player;
 		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.". 
 
-
-
+The saloon is a backdrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
+[#### dynamic description of saloon]
 
 
 Chapter Characters
@@ -1370,6 +1380,10 @@ Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
 
 Flash is a male animal in Limbo. Flash is proper-named. Flash can be spat upon. Flash is not spat upon.
+
+The collar is part of Flash. The description of the colar is a "A simple leather collar of the sort that you once wore briefly during an embarrassing episode of poor judgement in New Orleans. But, as they say, what happens in New Orleans, stays in New Orleans." Understand "leather" as the collar.
+
+The leash is part of the collar. The description of the leash is "A simple bit of hemp rope, more than strong enough to keep old Flash at bay. The leash runs from Flash's collar up to the metal lever on the steam boiler. The rope is an unpleasant reminder of what awaits you and Muddy if you don't manage to bust out of jail by eight in the morning."
 
 Section Marshal
 
