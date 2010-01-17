@@ -263,6 +263,14 @@ Carry out chewing:
 				  
 Does the player mean chewing the tobacco:
 	it is very likely.
+	
+Instead of dropping the tobacco:
+	if the player carries the tobacco or the tobacco is in the mouth:
+		say "Tobacco is too valuable to put down just anywhere, so you put it back in the tin.";
+		now the tobacco is in the tin;
+		now the tin is closed;
+	otherwise:
+		say "You don't have any."
 
 Section Digging
 
@@ -303,6 +311,36 @@ Carry out opening it with:
 	say "You open [the noun] with [the second noun][if the noun contains something] revealing [the contents of the noun][end if].";
 	if the noun is the can:
 		award one point.
+		
+Section WarrantForging
+
+To say need-pen:
+	say "something to serve as a pen";
+	
+To say need-ink:
+	say "something to serve as ink".
+
+WarrantForging is an action applying to nothing.
+
+Check WarrantForging:
+	if Muddy carries the warrant and Muddy carries the feather and Muddy is inked:		
+		continue the action;
+	otherwise:
+		say "He continues, [quotation mark]To finish this business with the warrant, I'll need ";
+		if Muddy does not carry the feather and Muddy is not inked:
+			say "both [need-pen] and another [need-ink]";
+		otherwise if Muddy carries the feather and Muddy is not inked:
+			say "[need-ink]";	
+		otherwise if Muddy does not carry the feather and Muddy is inked:
+			say "[need-pen]";
+		otherwise:
+			say "the warrant itself";
+		say ".[quotation mark][paragraph break]" instead.
+				
+Carry out WarrantForging:
+	say "Muddy applies his quill to the paper and with a few flourishes, scrawls an additional sentence on the warrant. He blows gently on it to dry the [quotation mark]ink[quotation mark] and hands the warrant back to you for your inspection.";
+	now Rick carries the warrant;
+	now the warrant is edited.
 	
 Section FunnyLooking
 
@@ -863,7 +901,7 @@ times-used		verbage
 0					"What a wok is SPAM! Hot, nubile raisins, how if it is not feckless tea? INFORM and mooing hot espresso at a mere apple? INACTION cowlick angles? Incomprehension, how'd you like a cod? The bow tie unfurled, the parabola ova nibbles; and yacht to my wad isthmus queen tennis off dost? MY CANDLE LIGHTS ME NOT, Norway man knees air; throw by your Somali lint use, eat meat, seize Sue"
 
 To say herring:
-	say "Kippered herring, please!"
+	say "Kippered herring, please![no line break]".
 
 Table of Pete's Strange Behavior
 times-used		verbage
@@ -1051,13 +1089,61 @@ The stain is scenery in Limbo. The description of the stain is "A dark brown sta
 
 Section Warrant
 
-The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper".
+The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper". The warrant can be recognized. The warrant is not recognized.
 
 To say warrant-text:
 	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
 	
 Instead of reading the warrant:
-	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][paragraph break][or]It says: [warrant-text].[stopping]"
+	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][paragraph break][or]It says: [warrant-text].[stopping]";
+	change the block stage business flag to true;
+	if the warrant is not recognized:
+		change the current plan to two;
+		change the ask-me counter to zero;
+		now the warrant is recognized.
+
+Instead of giving the warrant to Muddy:
+	if Muddy carries the warrant:
+		say "Muddy already has it.";
+		the rule fails;
+	if the warrant is edited:
+		say "[quotation mark]I already done fixed it up, Rick.[quotation mark][paragraph break]";
+		the rule fails;
+	if the warrant is not recognized:
+		say "Muddy asks, [quotation mark][one of]What's that paper you is waving in my face, Rick[or]What is it[stopping]?[quotation mark][paragraph break]";
+		the rule fails;
+	if the ask-me counter is not 6:
+		say "Muddy brushes it aside and says, [quotation mark][one of]Wait a minute. I ain't told you my plan yet. Don't go all a-jumping in front of my wagon. Why don't you ask me about the plan[or]Could you ask my my plan first[stopping]?[quotation mark][paragraph break]";
+		the rule fails;
+	now Muddy carries the warrant;
+	say "Muddy accepts the document and stares at it for a while, turning it this way and that.";
+	try WarrantForging. 
+
+Instead of giving the berry to Muddy during forgery:		
+	if the ask-me counter is 6: [i.e., the idea about forging has been expressed]
+		if Muddy is inked:
+			say "Thanks, Rick, but I already got some fine ink. Don't need a heap of ink, you know.";
+		otherwise:
+			now Muddy is inked;
+			now the berry is part of the vine;
+			say "[quotation mark]Thank you kindly. I reckon that will make a right fine ink.[quotation mark][if Muddy carries the feather] Muddy dabs the feather in the berry, soaking up the berry juice. [end if][paragraph break]";
+			try WarrantForging.
+		
+Instead of giving the feather to Muddy:
+	say "[quotation mark]Thanks, partner. That'll make a right proper pen.[quotation mark][paragraph break]";
+	now Muddy carries the feather;
+	try WarrantForging.  
+	
+Instead of giving the tobacco to Muddy during forgery:
+	if the ask-me counter is 6:
+		if Muddy is inked:
+			say "Thanks, Rick. But I already got me some ink.";
+		otherwise:
+			now Muddy is inked;
+			now the tobacco is in the tin;
+			say "Muddy reluctantly accepts the tobacco, saying, [quotation mark]Well, I suppose I could use the tobacco juice.[quotation mark][if Muddy carries the feather] Muddy chews the tobacco some more, fills his makeshift pen with the juice, and throws the wad out the window. [end if][paragraph break]";
+		try WarrantForging.
+
 
 Chapter Jailhouse Region
 
@@ -1219,17 +1305,15 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell." The texture of the gate is "cold and unyielding".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell." The texture of the gate is "cold and unyielding".
 
-The gate lock is part of the gate.
+The gate lock is part of the gate. The description of the gate lock is "A cast iron mechanical device of diabolical ingenuity. It is like no lock you've ever seen."
 
 Instead of opening the gate lock:
 	try opening the gate.
 	
 Instead of opening the gate with the brass key:
 	say "The key is way too small to fit the medieval lock which imprisons you."
-
-
 
 Section Stool & Bench
 
@@ -1474,18 +1558,44 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[if the deputy is conscious]Big and strong, but lacking numerically in ancestors[otherwise][one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gunbelt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping][end if]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy can be conscious. The deputy is conscious.
+Consciousness is a kind of value. The consciousnesses are awake, drugged, and asleep.
 
-Rule for reaching inside a room when searching the deputy:
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.
+
+To say deputy-description:
+	if the consciousness of the deputy is:
+		-- awake:
+			say "Big and strong, but lacking numerically in ancestors";
+		-- drugged:
+			say "The deputy is only barely awake. His face is blanker than usual, and his eyelids are heavy";
+		-- asleep:
+			say "[one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gunbelt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping]"
+
+Rule for reaching inside a room when doing something with the deputy and introduction is not happening:
 	allow access.
 
-Instead of searching the deputy when the deputy is not conscious:
+Instead of searching the deputy when the deputy is not awake:
 	if the deputy carries the warrant:
 		say "You rifle through his pants pockets and find a federal warrant. You also find a small brass key. Naturally, you take both.";
 		now the player carries the brass key;
 		now the player carries the warrant;
 	otherwise:
-		say "You don't find anything but pocket lint."
+		say "You don't find anything else but pocket lint."
+		
+Instead of doing something with the deputy when the deputy is asleep or the deputy is drugged:
+	if the current action is searching or examining:
+		continue the action;
+	otherwise:
+		change the consciousness of the deputy to drugged;
+		the deputy zonks out in two turns from now;
+		say "The deputy stirs slowly, his eyes half-shut."
+		[###TODO add any other drugged deputy behaviors here.]
+		
+At the time when the deputy zonks out:
+	say "The deputy[one of] slides back down to the floor and passes out again[or]'s eyes slowly close and he drifts back to sleep[or] yawns and snuggles up to the jail bars, already asleep[at random].";
+	change the consciousness of the deputy to asleep.
+	
+
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1502,7 +1612,7 @@ The marshal is a person in Limbo. The scent of the marshall is "of authority".
 
 Section Muddy
 
-Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". 
+Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be inked. Muddy is not inked.
 
 The scent of Muddy is "[one of]unwashed[or]like he's in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
@@ -1513,7 +1623,11 @@ The frock coat and suit are worn by muddy. The description of the frock coat is 
 
 Instead of searching muddy:
 	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
-
+	
+[This is meant to be over-ridden by more specific insteads]
+Instead of giving something (called the item) to Muddy:
+	say "Muddy glances at [the item] and says, [quotation mark]I ain't got no idea what I'd do with [an item]. No thanks.[quotation mark][paragraph break]".
+	
 Section Pete
 
 Pete is a man in the jail cell. Pete is proper-named.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]". 
@@ -1574,6 +1688,9 @@ Before taking the tin:
 The description of the tin is "A rectangular tin of [quotation mark]Spitting Image[quotation mark] chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is [if the tin is open]opened[otherwise]closed[end if][if the tin is open] revealing some [tobacco-appearance][end if]."
 
 Instead of searching the tin:
+	if the tin is closed:
+		say "(first opening the tin)[command clarification break]";
+		now the tin is open;
 	say "It's full of chewing tobacco."
 
 The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "a wad of". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky". Understand "wad", "leaf", and "chaw" as tobacco.
@@ -1784,6 +1901,9 @@ To say deputy responds to whistle:
 	
 To say deputy drinks some coffee:	
 	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]Almost immediately, the deputy spins on his heel and drops to the floor just in front of your jail cell."
+	
+To say get out of jail free:
+	say "The deputy groans deeply and curls up into a ball. You keep poking him with your finger, and finally he rolls towards you, blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office."
 		
 Section Vulture
 
@@ -1794,8 +1914,9 @@ Instead of taking the meat when the meat is on the barrel:
 
 The tail is part of the vulture. "The vulture's tail plumage consists of several long, black feathers with white stripes." Understand "plumage" as the tail.
 
-The feather is part of the tail. "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."
-	
+[The feather is part of the tail. "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."    ###JACK TESTING]
+
+The feather is a prop in the jail cell. "A test feather."
 	
 Chapter Muddy's Cunning Plans
 
@@ -1831,7 +1952,7 @@ Before asking Muddy about "[muddyplan]":
 		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark][paragraph break]";
 	otherwise:
 		if ask-me counter is six:
-			say "MuddyI already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
+			say "I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
 		otherwise:
 			say "[the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
 			change the ask-me counter to six;
@@ -2144,7 +2265,7 @@ When introduction ends:
 				
 Chapter Flashing
 
-Flashing is a scene. Flashing begins when introduction ends. Flashing ends when the deputy is not conscious.
+Flashing is a scene. Flashing begins when introduction ends. Flashing ends when the deputy is not awake.
 
 When flashing begins:
 	The deputy returns in one turn from now;
@@ -2198,18 +2319,27 @@ Every turn during flashing:
 			move the deputy to the office;
 			now the deputy carries the warrant;
 			now the deputy carries the brass key;
-			now the deputy is not conscious.
+			now the deputy is asleep.
 				
 Chapter Forgery
 
 Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
 
-When Forgery begins:
-	Muddy has another idea in three turns from now.
+When forgery begins:
+	Muddy gets curious in ten turns from now.
 	
-At the time when Muddy has another idea:
-	change the current plan to 2;
-	change the ask-me counter to zero.
+At the time when Muddy gets curious:
+	if the warrant is not recognized:
+		say "Muddy asks, [quotation mark]Hey Rick, what were that paper you picked off the deputy? It looked real official-like.[quotation mark][paragraph break]";
+		change the block stage business flag to true.
+		
+Instead of showing the warrant to the deputy when the warrant is edited:
+	if denouement is happening:
+		say "The deputy acknowledges the official-looking document with a yawn.";
+	otherwise:
+		say "[get out of jail free]";
+		now the gate is unlocked;
+		now the gate is open.	
 
 Chapter Denouement
 
