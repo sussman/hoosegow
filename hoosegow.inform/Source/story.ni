@@ -839,7 +839,7 @@ times-used		verbage
 The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
 	
 This is the Deputy's stage business rule:
-	if the Deputy is not in Limbo and a random chance of 1 in 10 succeeds:
+	if the Deputy is not in Limbo and the Introduction is happening:
 		say "[if the player is in the jail cell][one of]Over in[or]Back in[or]In[or]On the other side of the jail bars in[at random] the office, the[otherwise]The[end if] deputy ";
 		pick a phrase from the Table of Deputy's Doings;
 		say paragraph break;
@@ -976,6 +976,25 @@ Section Meat
 
 The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal", "hunk of" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others". The indefinite article of the meat is "a hunk of".
 
+Instead of taking the meat:
+	if the player does not carry the meat:
+		say "Yuck. You are holding the rancid meat.";
+		continue the action;
+	otherwise:
+		say "You already have the hunk of meat."
+	
+Instead of dropping the meat:
+	say "You'd rather not put it down anywhere you'll be spending time. It'd attract vermin."
+	
+Instead of putting the meat on anything that is enclosed by the jail cell:
+	say "You'd rather not put it on anything that you might sit on."
+	
+Instead of throwing the meat at anything that is enclosed by the office:
+	say "You'd rather put the meat somewhere you don't have to look at it."
+	
+Instead of inserting the meat into the hat:
+	say "There ain't no way that rotting chunk of meat is coming anywhere near your fine hat." 
+
 Section Spoon
 
 The spoon is a prop in Limbo. Understand "bent" or "old" as the spoon. The description of the spoon is "A bent old spoon." The texture of the spoon is "cool".
@@ -989,8 +1008,10 @@ Section Warrant
 The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper".
 
 To say warrant-text:
-	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]."
-
+	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
+	
+Instead of reading the warrant:
+	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][paragraph break][or]It says: [warrant-text].[stopping]"
 
 Chapter Jailhouse Region
 
@@ -1156,6 +1177,13 @@ Section Gate
 The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell." The texture of the gate is "cold and unyielding".
 
 The gate lock is part of the gate.
+
+Instead of opening the gate lock:
+	try opening the gate.
+	
+Instead of opening the gate with the brass key:
+	say "The key is way too small to fit the medieval lock which imprisons you."
+
 
 
 Section Stool & Bench
@@ -1376,7 +1404,18 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy can be conscious. The deputy is conscious.
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[if the deputy is conscious]Big and strong, but lacking numerically in ancestors[otherwise][one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gunbelt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping][end if]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy can be conscious. The deputy is conscious.
+
+Rule for reaching inside a room when searching the deputy:
+	allow access.
+
+Instead of searching the deputy when the deputy is not conscious:
+	if the deputy carries the warrant:
+		say "You rifle through his pants pockets and find a federal warrant. You also find a small brass key. Naturally, you take both.";
+		now the player carries the brass key;
+		now the player carries the warrant;
+	otherwise:
+		say "You don't find anything but pocket lint."
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1598,7 +1637,7 @@ Instead of taking or pulling or attacking or taking off the spur when the spur i
 
 Section Sheriff
 
-The sheriff is a man in Limbo. The sheriff carries the warrant. The scent of the sheriff is "like trouble".
+The sheriff is a man in Limbo. The scent of the sheriff is "like trouble".
 
 Chapter Scripted Conversations
 
@@ -1663,6 +1702,9 @@ To say happy doggie:
 	
 To say deputy resets the whistle:
 	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if office encloses the coffee]. Flash is so scared that he snaps his leash[end if].[paragraph break]The deputy thunders, [quotation mark]What the hoot-hollering blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break]Satisfied that you haven't escaped, he pushes the lever back to the middle position. [quotation mark]Dumb dog. I was doing important business.[quotation mark][if office encloses the coffee] He looks around for Flash, but the dog has already slid out of the office. [otherwise] The deputy gives you and Flash a long look, and the marches back out of the office. [end if][paragraph break]".
+	
+To say deputy responds to whistle:
+	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash. [quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth. [quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
 	
 To say deputy drinks some coffee:	
 	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]Almost immediately, the deputy spins on his heel and drops to the floor just in front of your jail cell."
@@ -2031,7 +2073,7 @@ When flashing begins:
 	Muddy comments about departure in two turns from now.
 	
 At the time when the deputy returns:
-	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash. [quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth. [quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
+	say deputy responds to whistle;
 	now Flash is in the office.
 	
 At the time when Muddy comments about departure:
@@ -2075,21 +2117,21 @@ Every turn during flashing:
 			say deputy drinks some coffee;
 			now the cup is in limbo;
 			now flash is in limbo;
+			move the deputy to the office;
+			now the deputy carries the warrant;
+			now the deputy carries the brass key;
 			now the deputy is not conscious.
-			
-When flashing ends:
-	say "END OF FLASHING".
-	
+				
 Chapter Forgery
 
 Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
 
 When Forgery begins:
-	change the current plan to 2.
-
-Chapter Drugged
-
-Drugged is a scene. Drugged begins when the deputy is sedated. 
+	Muddy has another idea in three turns from now.
+	
+At the time when Muddy has another idea:
+	change the current plan to 2;
+	change the ask-me counter to zero.
 
 Chapter Denouement
 
