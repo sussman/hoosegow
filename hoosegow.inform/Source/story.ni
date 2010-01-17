@@ -191,6 +191,44 @@ Section Asking
 Rule for reaching inside a room when the current action is asking:
 	allow access.
 
+
+Section Blowing
+
+Understand "berry" or "bar" or "gray bar" as "[weapon]".
+
+Blowing at is an action applying to one visible thing. Understand "blow [weapon] at/on/onto/towards [something]" as blowing at.
+
+This is the blowing rule:
+	if the player carries the gray bar and the gray bar contains the berry:
+		continue the action;
+	otherwise:
+		if the player does not carry the gray bar:
+			say "You ain't got nothing to blow.";
+			the rule fails;
+		if the gray bar does not contain the berry:
+			say "You might use your bar as a blow-gun, but it's got an emptiness to it right now.";
+			the rule fails.
+
+Check blowing at:
+	Abide by the blowing rule.
+	
+Carry out blowing at:
+	if the outdoors encloses the noun:
+		say "The [noun] is too far away." instead;
+	if the office encloses the noun and the deputy is in the office and the noun is not a man:
+		say "The deputy may think you've got a weapon.  You decide to wait until he's not around." instead;
+	if the noun is large:
+		say "[big target]" instead;
+	if the noun is:
+		-- window:
+			say "The berry shoots out the window and into the street.";	
+		-- the cup:
+			say "Plop!";
+		-- otherwise:
+			say "The berry hits [the noun], then bounces away out of sight.";
+	now the berry is part of the vine.
+
+
 Section Chewing
 
 Chewing is an action applying to one thing. Understand "chew [a thing]" as chewing.
@@ -312,6 +350,7 @@ Check playing:
 	if the noun is not the harmonica:
 		say "You don't rightly know how to play such a thing.";
 		stop the action.
+
 
 Section Reading
 		
@@ -556,8 +595,9 @@ Carry out directedSpitting at:
 	move the tobacco to the tin.
 	
 To say big target:
-	say "[one of]Where's the challenge in that?[or]Hardly a test of your tobacco spitting prowess.[or]Child's play. Your grandmother could spit tobacco at [a noun].[at random]".
+	say "[one of]Where's the challenge in that?[or]Hardly a test of your aimin[apostrophe] abilities.[or]Child's play. Your grandmother could hit [a noun].[at random]".
 	
+
 Section Talking
 
 Talking is an action applying to one thing. Understand "talk to [something]" as talking.
@@ -1043,7 +1083,7 @@ Section Cabinet
 
 The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]." The texture of the cabinet is "fine-grained".
 
-Does the player mean doing something with the cabinet:
+Does the player mean opening the cabinet:
 	It is very likely.
 	
 [###CONSIDER: suppress disambiguation message]
@@ -1377,11 +1417,9 @@ Visibility rule when in the jail cell:
 	if examining the barrel and the player is tall:
 		there is sufficient light.
 
-The berries are a plural-named part of the vine.  The description of the berries is "The berries are plump and red. You don't recognize them as something edible, though.".
+The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no short of mystery about it.  Don't look so edible." The scent of the berry is "sweet, but onerous".
 
-The berry is a prop.  The description of the berry is "It's plump and red, and it's got no short of mystery about it."  The berry is in limbo.  The scent of the berry is "sweet, but onerous".
-
-Instead of taking the berries:
+Instead of taking the berry:
 	if the player carries the berry:
 		say "You already got a mighty nice one.";
 	otherwise:
