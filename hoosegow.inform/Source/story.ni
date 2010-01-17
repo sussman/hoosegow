@@ -188,7 +188,7 @@ Report using:
 
 Section Asking
 
-Rule for reaching inside a room when the current action is asking:
+Rule for reaching inside a room when asking someone about something:
 	allow access.
 
 Section Chewing
@@ -402,7 +402,6 @@ Section Smelling
 	
 The ambient odor is a number that varies. The ambient odor is 10.
 
-
 Instead of smelling: 
 	if the cigar is in the jailhouse:
 		say "The whole place reeks of cheap cigar smoke.";
@@ -532,7 +531,7 @@ Carry out directedSpitting at:
 		-- bell:
 			if Flash is in the office:
 				if the bell is not rung:
-					say "Ding! The wad hits the bell so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his edentulous jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine at the rear of the office.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
+					say "Ding! The wad hits the bell so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
 					now the bell is rung;
 					make coffee;
 				otherwise: [bell has already been rung, Flash is still around]
@@ -659,11 +658,13 @@ Every turn:
 		-- 1:
 			if the ambient odor is less than 50: 
 				change the ambient odor to 50;
-		-- 2: 
-			if the ambient odor is greater than ten:
-				decrease the ambient odor by ten;
-	[Arts and farts and blueberry tarts.]			
-	Consider the Farting Rule;				
+	[Reaction to smells]
+	Consider the nasal reaction rules;	
+	if the number of bootlike things that are worn is two:
+		if the ambient odor is greater than ten:
+			decrease the ambient odor by ten;
+	[Arts and farts and blueberry tarts. Considered after nasal reaction to make reactions to farts delay by one turn]			
+	Consider the Farting Rule;		
 	[muddy's plans]
 	Consider the Muddy's Plan rule;
 	[stage business]
@@ -672,6 +673,10 @@ Every turn:
 	[unblock stage business for next turn]
 	Change the block stage business flag to false;	
 	[###TODO Add other every-turn items]
+	
+Section Nasal Reactions
+
+The nasal reaction rules is a rulebook.
 	
 Section Phrase Picker
 [To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least to entries.]
@@ -903,9 +908,9 @@ This is the farting rule:
 			-- 4: 
 				say "Muddy holds his belly and comments, [quotation mark]Got a bit of indigestion, I does.[quotation mark][paragraph break]";
 			-- 3: 
-				say "Muddy wraps his arms around his belly, and moans softly, [quotation mark]I might have overdone it with them beans.[quotation mark][paragraph break]The deputy looks up from his reading, curious."; 
+				say "Muddy wraps his arms around his belly, and moans softly, [quotation mark]I might have overdone it with them beans.[quotation mark][if the deputy is in the office][paragraph break]The deputy looks up from his reading, curious. [end if][paragraph break]"; 
 			-- 2: 
-				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow! Deputy, if'n I was you, I would put some distance between Muddy and your nose.[quotation mark][paragraph break]The Deputy looks concerned, but confused.";
+				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow![no line break][if the deputy is in the office] Deputy, if'n I was you, I would put some distance between Muddy and your nose.[end if][quotation mark][if the deputy is in the office][paragraph break]The Deputy looks concerned, but confused. [end if][paragraph break]";
 			-- 1: 
 				say "You hear nothing. The smell nearly knocks you out. Vision fades, the room spins.[paragraph break]Muddy whispers in that understated manner of his, [quotation mark]That were a silent but deadly.[quotation mark][paragraph break]";
 				change the ambient odor to 100;
@@ -963,16 +968,13 @@ Before giving the spoon to someone (called the receiver):
 	otherwise:
 		say "[The receiver] is puzzled by your offer and says that he already has a spoon of his own.";
 	stop the action.
-	
-To say driven out by smell:
-	say "Suddenly, the deputy lurches forward in his seat, suppressing urge to throw up. With years of exposure, you have developed some degree of resistance, intestinal fortitude you might say, but the expanding cloud of invisible unpleasantness washes over the deputy and sweeps him out of his chair. He throws his arm back, grabs the whiskey bottle, and half drains it on his way out the door.[paragraph break]The fragrance gradually improves as the universe cools."
-	
+		
 Instead of entering the stool when the flatulometer is 2:
 	say "Muddy warns, [quotation mark]That ain't high enough to matter![quotation mark][paragraph break]".
 
 Section Meat
 
-The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others".
+The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal", "hunk of" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others". The indefinite article of the meat is "a hunk of".
 
 Section Spoon
 
@@ -1022,7 +1024,7 @@ The ball is a large part of the boiler. The description of the ball is "A thick,
 
 [The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.]
 
-The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral. The texture of the lever is "[smooth] and warm".
+The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral. The texture of the lever is "[smooth] and warm". The lever can be whistling. The lever is not whistling.
 
 To say lever position:
 	say "Right now, it is nearer to ";
@@ -1086,7 +1088,7 @@ Section Outdoors
 
 The outdoors is a backdrop. The outdoors is everywhere. The description of the outdoors is "Oh, what a beautiful [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]. Lush farm fields, the endless cattle range -- except that you're going to be hanged at 8 a.m. That puts a damper on things." Understand "outside" as the outdoors.
 
-The range is a backdrop. The description of the range is "[if the deer is on the range and the antelope is on the range]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]". The range is everywhere. Understand "cattle" as the range.
+The range is a backdrop. The description of the range is "[if the deer is in a room]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]". The range is everywhere. Understand "cattle" as the range.
 
 The fields are a plural-named backdrop. The description of the fields is "Corn, mostly." The fields are everywhere. Understand "lush" or "farm" or "field" as the fields.
 
@@ -1374,7 +1376,7 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated.
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "Big and strong, but lacking numerically in ancestors." The deputy can be drunk. The deputy is not drunk. The deputy can be sedated. The deputy is not sedated. The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy can be conscious. The deputy is conscious.
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1562,16 +1564,19 @@ Rick wears the right boot. The description of the right boot is "A cowhide boot 
 [Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
 
 To say smelly feet warning:
-	say "[one of]Oh, you really don't want to do that. Not indoors at least[or]In some states that's a felony[or]There are people within a thousand yards[or]It's been quite a while[at random]. Are you sure?[paragraph break](yes or no) >>";
+	say "[one of]Oh, you really don't want to do that. Not indoors at least[or]In some states that's a felony[or]There are people within a thousand yards[at random]. Are you sure?[paragraph break](yes or no) >>";
 		
 Before dropping a bootlike thing that is worn:
 	say "You can't drop it -- you are wearing it.";
 	the rule succeeds.
 
-After taking off a bootlike thing (called the slipper):
+Instead of taking off a bootlike thing (called the slipper):
+	if the slipper is not worn:
+		say "You're not wearing [a slipper].";
+		the rule fails;
 	say "[smelly feet warning]";
 	if the player consents:
-		say "[deshoed]";
+		say "[debootage][deshoed]";
 		move the slipper to the location;
 		change boot activity to true;
 	otherwise:		
@@ -1624,7 +1629,7 @@ To say hot diggity dog:
 	say "Muddy grabs it from you, squinting and sounding out words silently with his mouth. His eyes open wide in amazement.[paragraph break][quotation mark]Pete? Wait a gosh darn... PASTOR Pete? That really him? Hot diggity![quotation mark][paragraph break]Muddy jumps to his feet, runs to the bench and shakes Pete wildly; Pete screams and throws his hands into the air, gesticulating to heaven as he's awoken from his dream --[paragraph break][quotation mark]BEGONE, devils! God shall SMITE thee! He who brushes the Lord's horses shall not clean the stables of HEAVEN![quotation mark][paragraph break]The grubby preacher collapses back on the bench, eyes closed and snoring before either of you can take a step."
 	
 To say debootage:
-	say "You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards."
+	say "You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.[paragraph break]".
 	
 To say deshoed:
 	say "Muddy's eyes water as he complains, [quotation mark][one of]Ain't you got no sense of smell in that head of yours?[quotation mark][paragraph break]To which you reply, [quotation mark]Not after I been downwind of you around feeding time, nope. This ain't nothing next to what you can do with a can of beans[or]Not again! My poor nose[or]Man, them feets of yours stinks powerful bad[stopping]![quotation mark][paragraph break]".
@@ -1639,8 +1644,29 @@ To say goodbye cigar:
 	say "The deputy snorts and says, [quotation mark][one of]That's better[or]Learned you that lesson, I reckon[or]At least I'm getting my exercise[or]I ain't smoked so many cigars in years[or]This is getting old[stopping].[quotation mark] He stuffs the half-smoked cigar into his pocket sits down at the desk and [one of]tilts the chair backwards as he reclines[or]and loosens his collar[or]rests his feet on its scratched surface[or]and watches you with an annoyed expression[at random]."
 	
 To say doubledeshoed:
-	say "The Deputy's cigar seems to shrivel and hang limply in his mouth, as its prodigious odor is astronomically outclassed by the combined stench of your two feet. The deputy spastically reaches over his desk, grabs the whiskey bottle, and half drains it on his way out of the office.[paragraph break]After he leaves, you give in to Muddy's desperate pleas to put your boots back on."
+	say "The Deputy's cigar seems to shrivel and hang limply in his mouth, as its prodigious odor is astronomically outclassed by the combined stench of your two feet. [run paragraph on]"
 	
+To say driven out by smell:
+	say "Suppressing the urge to throw up from the smell, the deputy reaches over to the whiskey bottle and half drains it on his way out the door.[paragraph break]"
+	
+To say semistinky:
+	say "Flash wakes with a start and sneezes loudly. The fur on his back bristles and he opens his eyes to stare in horror at your feet. He backs away, towards the front door. The leash pulls taut. He seems caught in the balance between an urge to run away from your stinky foot and his own laziness which holds him to the spot.";
+	
+To say two foot dog:
+	say "One foot was bad enough, but two is more than the old dog can handle. [run paragraph on]";
+	
+To say repel the dog:
+	say "Trying not to sniff the air, flash turns tail and breaks for the door, straining against his leash which is tied to the steam pipe lever. The lever swings towards the door, and from the roof you hear the ear-splitting drone of a railway steam whistle.[paragraph break]";
+	
+To say happy doggie:
+	say "Flash breathes a sign of relief, walks back towards his warm spot and lies down.";
+	
+To say deputy resets the whistle:
+	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if office encloses the coffee]. Flash is so scared that he snaps his leash[end if].[paragraph break]The deputy thunders, [quotation mark]What the hoot-hollering blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break]Satisfied that you haven't escaped, he pushes the lever back to the middle position. [quotation mark]Dumb dog. I was doing important business.[quotation mark][if office encloses the coffee] He looks around for Flash, but the dog has already slid out of the office. [otherwise] The deputy gives you and Flash a long look, and the marches back out of the office. [end if][paragraph break]".
+	
+To say deputy drinks some coffee:	
+	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]Almost immediately, the deputy spins on his heel and drops to the floor just in front of your jail cell."
+		
 Section Vulture
 
 The vulture is a male animal in limbo. The description of the vulture is "A scrawny black bird, with a bald head, sharp yellow beak and white-tipped tail feathers[if the meat is on the barrel]. Its head is plunged into the putrifying piece of meat on the barrel, and tail waves provocativly in your face, just below the window[end if].";
@@ -1965,40 +1991,47 @@ Introduction is a scene. Introduction begins when play begins. Introduction ends
 
 Boot activity is a truth state that varies. Boot activity is false.
 
-Every turn during introduction:
-	if boot activity is true:
-		change boot activity to false;
-		[I'm darn impressed that the next line works in terms of grammar]
-		if the number of bootlike things that are worn is:
-			-- 0:[when returning to the state of both shoes worn...]
-				say "[doubledeshoed]" as dialogue;
-				now Rick wears the left boot; 
-				now Rick wears the right boot;
-				move the deputy to limbo;
-				move the whiskey to limbo;
-				move the cigar to limbo;
-			-- 1:[deputy lights his cigar whenever only one shoe is worn]
-				say "[hello cigar]" as dialogue;
-				now the deputy carries the cigar;
-			-- 2:[Rick puts on both shoes, at end of this scene]
-				say "[goodbye cigar]" as dialogue;
-				move the cigar to Limbo;
-	if the ambient odor is 100:
-		move the whiskey to the deputy;
-		move the deputy to limbo;
-		say driven out by smell.
+The introduction stink rule is listed in the nasal reaction rules.
+
+This is the introduction stink rule:
+	if introduction is happening:
+		if boot activity is true:
+			change boot activity to false;
+			[I'm darn impressed that the next line works in terms of grammar]
+			if the number of bootlike things that are worn is:
+				-- 0:[when returning to the state of both shoes worn...]
+					say "[doubledeshoed]" as dialogue;
+				-- 1:[deputy lights his cigar whenever only one shoe is worn]
+					say "[hello cigar]" as dialogue;
+					now the deputy carries the cigar;
+				-- 2:[Rick puts on both shoes, de-escalating]
+					say "[goodbye cigar]" as dialogue;
+					move the cigar to Limbo;
+		if the ambient odor is 100:[for any reason]
+			decrease the ambient odor by ten;
+			say driven out by smell;
+			if the number of bootlike things that are worn is zero:
+				say "After he leaves, you give in to Muddy's desperate pleas to put your boots back on.[paragraph break]";
+				now rick wears the left boot;
+				now rick wears the right boot;
+			say "The fragrance gradually improves as the universe cools.";
+			move the deputy to limbo.
+		
+When introduction ends:
+	move the cigar to limbo;
+	move the whiskey to the deputy.
 
 				
 Chapter Flashing
 
-Flashing is a scene. Flashing begins when the deputy is not in the office. Flashing ends when Flash is not in the office.
+Flashing is a scene. Flashing begins when introduction ends. Flashing ends when the deputy is not conscious.
 
 When flashing begins:
 	The deputy returns in one turn from now;
 	Muddy comments about departure in two turns from now.
 	
 At the time when the deputy returns:
-	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy pinches his nose and grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and Flash gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash. [quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth. [quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, 'ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
+	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash. [quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth. [quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
 	now Flash is in the office.
 	
 At the time when Muddy comments about departure:
@@ -2009,8 +2042,44 @@ At the time when Muddy comments about departure:
 		otherwise:
 			say "[quotation mark]And that was just my feet -- imagine how fast he would have run if you got into them beans.";
 	otherwise:
-		say "[quotation mark]Yeah,[quotation mark] you agree, [quotation mark]but my ears are still buzzing from that sound.[quotation mark][paragraph break]".			
+		say "[quotation mark]Yeah,[quotation mark] you agree, [quotation mark]but my ears are still buzzing from that sound.[quotation mark][paragraph break]".		
+		
+The flashing stink rule is listed in the nasal reaction rules.
 
+This is the flashing stink rule:
+	if flashing is happening:
+		if boot activity is true:
+			change boot activity to false;
+			if the number of bootlike things that are worn is:
+				-- 0:[when returning to the state of both shoes worn...]
+					say "[two foot dog]" as dialogue;
+				-- 1:[deputy lights his cigar whenever only one shoe is worn]
+					say "[semistinky]" as dialogue;
+					now the deputy carries the cigar;
+				-- 2:[Rick puts on both shoes, de-escalating]
+					say "[happy doggie]" as dialogue;
+					move the cigar to Limbo;
+		if the ambient odor is 100:[for any reason]
+			say repel the dog;
+			if the number of bootlike things that are worn is zero:
+				say "You agree with with Muddy that the deputy is not likely to be in a good mood when he arrives, so you put your boots back on.";
+				now rick wears the left boot;
+				now rick wears the right boot;
+			change the position of the lever to whistleward.
+			
+Every turn during flashing:
+	if the position of the lever is whistleward:
+		change the position of the lever to neutral;
+		say deputy resets the whistle;
+		if the office encloses the coffee:
+			say deputy drinks some coffee;
+			now the cup is in limbo;
+			now flash is in limbo;
+			now the deputy is not conscious.
+			
+When flashing ends:
+	say "END OF FLASHING".
+	
 Chapter Forgery
 
 Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
