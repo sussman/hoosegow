@@ -49,7 +49,6 @@ Chapter Rules Modifications
 The block kissing rule is not listed in any rulebook.
 The kissing yourself rule is not listed in any rulebook.
 
-
 Chapter Time
 
 Time-checking is an action applying to nothing.  Understand "time" as time-checking.
@@ -62,7 +61,6 @@ Carry out time-checking:
 		say "You have no way of checking the time.";
 	end if.
 	
-
 Section Intervisibility
 [Taken from example 346 "Rock Garden"]
 
@@ -144,6 +142,10 @@ Definition: A thing (called the item) is bootlike if the item is the left boot o
 
 An ungulate is a kind of backdrop.
 
+Conclusion is a kind of value. The conclusions are hanged, shot, escaped and alive.  
+
+Endgame is a conclusion that varies. The endgame is usually alive.
+
 Chapter General Routines
 		
 [borrowed from example I7 documentation, example 424 Odins:]
@@ -172,25 +174,6 @@ To say (regular verb - some text) in correct agreement:
 
 Chapter Verbs
 
-Section Using
-
-Understand the command "use" as something new.  Using is an action applying to one thing. Understand "use [a thing]" as using.
-
-Check using:[this is where all the overriding happens for specific cases]
-	if the noun is:
-		-- harmonica: 
-			try playing the harmonica instead;
-		-- stool:
-			try climbing the stool instead;
-		-- Muddy:
-			say "He's the one that usually manipulates you!" instead;
-		-- Pete:
-			say "You ain't got no use for a preacher." instead;
-		-- can:
-			say "You can take care of business later." instead.
-
-Carry out using:
-	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
 
 Section Asking
 
@@ -680,6 +663,27 @@ To say smooth:
 	
 To say metallic:
 	say "[smooth] and metallic". 
+	
+Section Using
+
+Understand the command "use" as something new.  Using is an action applying to one thing. Understand "use [a thing]" as using.
+
+Check using:[this is where all the overriding happens for specific cases]
+	if the noun is:
+		-- harmonica: 
+			try playing the harmonica instead;
+		-- stool:
+			try climbing the stool instead;
+		-- Muddy:
+			say "He's the one that usually manipulates you!" instead;
+		-- Pete:
+			say "You ain't got no use for a preacher." instead;
+		-- can:
+			say "You can take care of business later." instead.
+
+Carry out using:
+	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
+
 
 Chapter General Insteads
 
@@ -1194,29 +1198,54 @@ To say lever position:
 
 Section Cabinet
 
-The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]." The texture of the cabinet is "fine-grained".
+The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. Its [cabinet-door-details]." The texture of the cabinet is "fine-grained".
 
 Does the player mean opening the cabinet:
 	It is very likely.
 	
+To say cabinet-door-details:
+	if the cabinet is closed:
+		say "door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass";
+		if the cabinet contains something:
+			say ". Despite the distortion, you see [if the cabinet contains the gunbelt]what looks like a gunbelt [end if][if the cabinet contains the gun and the cabinet contains the banana]and [end if][if the cabinet contains the banana]some kind of shiny yellow object. Maybe gold, you think, hopefully[end if]";
+	otherwise:
+		say "wood and glass door is open and inside you see [a list of things in the cabinet]".
+	
+The description of the cabinet door is "The cabinet's [cabinet-door-details]."
+
+Instead of opening the cabinet door:
+	try opening the cabinet.
+	
+Instead of closing the cabinet door:
+	try closing the cabinet.
+	
+After opening the cabinet:
+	say "[one of][loot in the cabinet][or]You open the cabinet[if the cabinet contains something] revealing [a list of things in the cabinet][otherwise], but it is empty[end if][stopping]."
+	
 [###CONSIDER: suppress disambiguation message]
 
-The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity".
+The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana. This is one of those times[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity".
 
 [TODO:  what happens when we point the banana at someone?  Put it in our ear?]
 
 To say rawhide:
 	say "like old rawhide. Rollin', rollin', rollin'.";
 
-The gunbelt is a wearable prop. The description of the gunbelt is "A leather gun belt with holster." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]".
+The gunbelt is a wearable prop. The gunbelt is in the cabinet. The description of the gunbelt is "A leather gun belt with holster[if the gun is in the holster], which contains your trusty six-shooter[end if]." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]".
 
-The holster is an open container that is part of the gunbelt. The description of the holster is "A leather pouch that holds your gun." The scent of the holster is "[rawhide]".
+The holster is an open container that is part of the gunbelt. The description of the holster is "The leather pocket in which your trusty six-shooter [if the gun is in the holster]now sits[otherwise]would normally sit, but which is empty at the moment[end if]." The scent of the holster is "[rawhide]". The carrying capacity of the holster is one.
 
 The gun is a prop in the holster. The description of the gun is "[one of]You quickly inspect your gun and are alarmed to discover that it's unloaded[or]A simple six-shooter pistol[stopping]." The indefinite article of the gun is "your". Understand "pistol" as the gun. The scent of the gun is "like machine oil and gunpowder". The texture of the gun is "solid and heavy".
 
 After taking the gunbelt:
 	say "You strap on your gun belt.";
 	now the player wears the gunbelt.
+	
+After eating the banana:
+	say "You eat the banana, peel and all. Because cowboys are made of stern stuff and need the fiber."
+	
+After taking the gun:
+	say "It feels good in your hand."
 
 Section Chair
 
@@ -1280,7 +1309,7 @@ To make coffee:
 
 Section Swinging Doors
 
-The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]." The texture of the swinging doors is "dry and splintery".
+The swinging doors are a large plural-named scenery door in the office. The swinging doors are east of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]." The texture of the swinging doors is "dry and splintery".
 
 Section Whiskey
 
@@ -1904,6 +1933,13 @@ To say deputy drinks some coffee:
 	
 To say get out of jail free:
 	say "The deputy groans deeply and curls up into a ball. You keep poking him with your finger, and finally he rolls towards you, blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office."
+	
+To say rather not hang around:
+	say "[quotation mark]I reckon,[quotation mark] agrees Muddy. [quotation mark]I ain't keen to hang around here no more neither.[quotation mark] You walk out into the pitch dark night, poor but free.[paragraph break]From somewhere ahead of you, Muddy offers, [quotation mark]You know, Rick. While we were in there I did some thinking, and this time I reckon I got a plan that can't fail...[quotation mark][paragraph break]".
+	
+To say loot in the cabinet:
+	say "The cabinet opens to reveal two gun belts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gun belt and straps it on" 
+
 		
 Section Vulture
 
@@ -2345,11 +2381,47 @@ Chapter Denouement
 
 Denouement is a scene. Denouement begins when Rick is not in the jail cell.
 
+Instead of exiting during Denouement:
+	say "Which way? West to the jail cell, or east towards the open range?"
+			
+Instead of going a direction (called the way) during the denouement:
+	if the way is east:
+		if the player is in the office:
+			say "[quotation mark][one of]Hold them horses one minute, Rick.[quotation mark] Muddy puts his hand on your shoulder. [quotation mark]We come all this way, and you reckon we ought to leave here empty handed[or]You sure, Rick[stopping]?[quotation mark][paragraph break](yes or no) >>"; 
+			if the player consents:
+				say "[rather not hang around]" as dialogue;
+				change the endgame to escaped;
+				award three points;
+				end the game in victory;
+			otherwise:
+				say "That's more like it, partner. Let's look for some silver linings.";
+			the rule succeeds;
+		otherwise:
+			continue the action;
+	if the way is west:
+		if the player is in the office:
+			continue the action;
+		otherwise:
+			say "You can't go any further west than the jail cell.";
+			the rule succeeds;
+	otherwise:
+		say "You can [if the player is in the office]either go west back into the cell, or exit through the swinging doors to the east[otherwise]only go east, into the office[end if]."
+	
+[Make sure Rick and Muddy end up in the same places.]
+After going a direction:
+	move Muddy to the location;
+	continue the action.
+
 Chapter The End
 
 Rule for printing the player's obituary:
-	do nothing.
-	[###TODO add obituary]
+	if the endgame is:
+		-- escaped:
+			say "*** ESCAPED ***";
+		-- hanged:
+			say "*** HANGED ***";
+		-- shot:
+			say "*** SHOT ***".
 			
 Rule for amusing a victorious player:
 say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
