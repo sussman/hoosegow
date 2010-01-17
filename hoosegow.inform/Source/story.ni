@@ -1296,7 +1296,7 @@ The bars are plural-named scenery in the jail cell.   Understand "bar" as the ba
 Instead of attacking the bars:
 	say "Muddy stands back as you let loose with your full fury and pound on the metal bars.[if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it?[end if]".
 
-The gray bar is part of the bars.  The gray bar is a prop.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar]It doesn't weigh much at all, and it's hollow.[end if]". The texture of the gray bar is "lighter than it looks".
+The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all.[end if][if the gray bar contains something] Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.
 
 The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
 
@@ -1307,6 +1307,16 @@ Instead of taking or pulling the gray bar:
 		move the gray bar to the player;
 		say "You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you.  'Don't that just beat all,' ponders Muddy.".
 		
+Instead of inserting something (called the ammo) into the gray bar:
+	if the ammo is the berry:
+		say "You drop the berry into the gray bar.";
+		move the berry to the gray bar;
+		if the gray bar is not blowgun-discussed:
+			say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
+			now the gray bar is blowgun-discussed;
+	otherwise:
+		say "You don't reckon there's much point in that."
+
 The screw is part of the gray bar.  The description of the screw is "A large, rusty screw.  It's holding a gray bar in place.".
 
 Instead of taking the screw:
@@ -1369,7 +1379,7 @@ Visibility rule when in the jail cell:
 
 The berries are a plural-named part of the vine.  The description of the berries is "The berries are plump and red. You don't recognize them as something edible, though.".
 
-The berry is a prop.  The description of the berry is "It's plump and red, and it's got no short of mystery about it."  The berry is in limbo.
+The berry is a prop.  The description of the berry is "It's plump and red, and it's got no short of mystery about it."  The berry is in limbo.  The scent of the berry is "sweet, but onerous".
 
 Instead of taking the berries:
 	if the player carries the berry:
@@ -1377,6 +1387,9 @@ Instead of taking the berries:
 	otherwise:
 		move the berry to the player;
 		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.". 
+
+Instead of eating the berry:
+	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".
 
 The saloon is a backdrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
 [#### dynamic description of saloon;  specifically, if tall, there should be a much more detailed description]
