@@ -171,20 +171,26 @@ To say (regular verb - some text) in correct agreement:
 
 
 Chapter Verbs
-	
-[
-###TOCONSIDER: Since "use" is so general, if beta-esting shows that players are using "use" constructions frequently, we can re-route them appropriately here.
 
 Section Using
 
-Understand the command "use" as something new.  Using is an action applying to one thing.
+Understand the command "use" as something new.  Using is an action applying to one thing. Understand "use [a thing]" as using.
 
-Understand "use [a thing]" as using.
-
-Report using:
+Check using:[this is where all the overriding happens for specific cases]
 	if the noun is:
-		-- xxx		
-]
+		-- harmonica: 
+			try playing the harmonica instead;
+		-- stool:
+			try climbing the stool instead;
+		-- Muddy:
+			say "He's the one that usually manipulates you!" instead;
+		-- Pete:
+			say "You ain't got no use for a preacher." instead;
+		-- can:
+			say "You can take care of business later." instead.
+
+Carry out using:
+	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
 
 Section Asking
 
@@ -256,7 +262,7 @@ Carry out chewing:
 		-- otherwise: say "### debug problem. overchewed tobacco".
 				  
 Does the player mean chewing the tobacco:
-	it is very likely.[to prevent the player from chewing the cabinet by default ?!]
+	it is very likely.
 
 Section Digging
 
@@ -399,7 +405,7 @@ Carry out ringing:
 	
 Section Shooting
 
-Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting.
+Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting when the player encloses the gun.
 
 Carry out shooting:
 	say "Bang!" [### a placeholder]
@@ -412,7 +418,7 @@ Rule for reaching inside a room when the current action is showing:
 Instead of showing something (called the thingie) to a person (called the observer):
 	if the observer is:
 		-- Rick:
-			do nothing;
+			do nothing; [####TODO reactions are stubs]
 		-- Muddy:
 			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
 				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell][quotation mark].[paragraph break]";
@@ -657,7 +663,7 @@ Carry out blorbing:
 
 Section Muting
 
-[To reduce the clutter during debuggin; suppreses stage business]
+[To reduce the clutter during debugging; suppreses stage business]
 Muting is an action out of world. Understand "mute" as muting.
 
 Carry out muting:
@@ -716,10 +722,10 @@ Every turn:
 	
 Section Nasal Reactions
 
-The nasal reaction rules is a rulebook.
+The nasal reaction rules is a rulebook. [see individual rules in the scene descriptions]
 	
 Section Phrase Picker
-[To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least to entries.]
+[To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least two entries.]
 
 To pick a phrase from (source - a table-name):
 	let R be a number;
@@ -1085,8 +1091,6 @@ The grate is part of the boiler. The description of the grate is "Through the gr
 
 The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball. The texture of the ball is "hot to the touch".
 
-[The gauge is part of the boiler. The description of the gauge is "A high-tech gauge, with a needle that moves back and forth as the black ball bubbles and hisses. The print behind the need reads [quotation mark]low,[quotation mark] [quotation mark]safe,[quotation mark] and [quotation mark]danger[quotation mark]. Right now, the needle is in the [quotation mark]safe[quotation mark] zone." Understand "needle" or "pressure" as the gauge.]
-
 The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral. The texture of the lever is "[smooth] and warm". The lever can be whistling. The lever is not whistling.
 
 To say lever position:
@@ -1116,7 +1120,7 @@ The banana is an edible prop in the cabinet. The description of the banana is "[
 [TODO:  what happens when we point the banana at someone?  Put it in our ear?]
 
 To say rawhide:
-	say "like old rawhide";
+	say "like old rawhide. Rollin', rollin', rollin'.";
 
 The gunbelt is a wearable prop. The description of the gunbelt is "A leather gun belt with holster." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]".
 
@@ -1191,7 +1195,6 @@ To make coffee:
 Section Swinging Doors
 
 The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]." The texture of the swinging doors is "dry and splintery".
-
 
 Section Whiskey
 
@@ -1329,7 +1332,7 @@ Carry out playing the harmonica:
 			-- 1:
 			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
 			-- 2:
-			say "A spark flies as a screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell roles under the deputy's desk.   A gray bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.'[paragraph break]";
+			say "The screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell rolls under the deputy's desk.   A gray bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.'[paragraph break]";
 			move the screw to limbo;
 			move the gray bar to the jail cell;
 			move the gap to the jail cell;
@@ -1350,8 +1353,6 @@ Instead of pulling the harmonica:
 
 Instead of pulling the chain:
 	say "The chain won't break, it's powerful strong.".
-
-[TODO:  After we define 'use' verb:  Instead of using the harmonica:  try playing it.]
 
 Instead of going when the player is in the jail cell:
 	if player is carrying the harmonica:
@@ -1395,7 +1396,7 @@ Instead of taking the screw:
 	otherwise:
 		say "The screw is too high for you to reach.".
 		
-[TODO:  pulling, pushing, or attacking the bars (or anything escape-ish) should enhance some sort of "deputy anger" scale, allowing him to react and eventually shoot the player.]
+[###TODO:  pulling, pushing, or attacking the bars (or anything escape-ish) should enhance some sort of "deputy anger" scale, allowing him to react and eventually shoot the player.]
 
 
 Section Window and Street
@@ -1425,7 +1426,7 @@ Instead of opening the window:
 Instead of closing the window:
 	say "You feel around for shutters, but you don't find none.  Just rods."
 
-The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "foo".  [TODO]
+The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "foo".  [###TODO]
 
 The vine is scenery in the street.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall] It's covered with small red berries.[end if]".
 
@@ -1439,7 +1440,9 @@ Rule for reaching inside the street:
 After deciding the scope of the player when the location is the jail cell:
 	place the vine in scope; [so it can be examined]
 	if the player is tall:
-		place the barrel in scope.
+		place the barrel in scope;
+		if the vulture is on the barrel:
+			place the vulture in scope.
 
 Visibility rule when in the jail cell:
 	if examining the vine:
@@ -1457,10 +1460,10 @@ Instead of taking the berry:
 		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.". 
 
 Instead of eating the berry:
-	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".
+	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".[###TODO Track number of attempts to eat berry. On subsequent attempt, the player can ingest it and die. End the game in death, yada yada]
 
 The saloon is a backdrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
-[#### dynamic description of saloon;  specifically, if tall, there should be a much more detailed description]
+[####TODO dynamic description of saloon;  specifically, if tall, there should be a much more detailed description]
 
 
 Chapter Characters
@@ -1515,10 +1518,18 @@ Section Pete
 
 Pete is a man in the jail cell. Pete is proper-named.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]". 
 
-[TODO: touching Pete should provoke an outburst]
+Instead of doing something with pete:
+	if the current action is examining or searching:
+		continue the action;
+	otherwise:
+		if Pete is recognized:
+			follow the Pete's stage business rule;
+		otherwise:
+			say "Suddenly the man leaps up and rants, [quotation mark]";
+			pick a phrase from the Table of Pete's Rants;
+			say "[quotation mark]. He then collapses on the bench again and falls fast asleep."	
 
 The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into Pete's suit."
-[TODO:  rules allowing player to take pamphlet, as long as Pete is asleep.  Also need code to allow him to be searched, to discover tin.]
 
 Instead of taking the pamphlet when the pamphlet is in the pocket:
 	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
@@ -1604,7 +1615,7 @@ After inserting something into the mouth:
 
 Instead of examining the Rick, say "[if the player wears the left boot or the player wears the right boot]Big boots,[otherwise]Denim[end if] pants[if the player wears the hat or the player carries the hat], a plains hat[end if], a tattered overcoat, and some attitude.  Not so different from the uniform you once wore, just more lived-in."
 
-The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute in words]  -- [remaining time]." The indefinite article of the pocketwatch is "your".  [TODO:  add "only X minutes till hangin' time!"]. The texture of the pocketwatch is "[metallic]".
+The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute in words]  -- [remaining time]." The indefinite article of the pocketwatch is "your". The texture of the pocketwatch is "[metallic]".
 
 To say remaining time:
 	let H be the hours part of the time of day;
@@ -1623,7 +1634,7 @@ To say remaining time:
 Rick wears a hat. The hat is a player's holdall.  The description of the hat is "An unusually capacious, wide-brimmed hat to protect you from the sun." The indefinite article of the hat is "your". The texture of the hat is "like coarse fabric". The scent of the hat is "like your head".
 
 To say doffhat:
-	say "[bracket]First taking off the hat[close bracket][command clarification break]".
+	say "(First taking off the hat)[command clarification break]".
 
 Instead of inserting something (called the item) into the hat:
 	if player wears the hat:
@@ -1699,8 +1710,6 @@ Instead of taking or pulling or attacking or taking off the spur when the spur i
 	now the player carries the spur;
 	say "You yank the spur off your right boot, being careful not to cut yourself in the process.";
 	award 1 point.
-
-[TODO: removing boots, smell, etc.]
 
 Section Sheriff
 
@@ -1789,6 +1798,8 @@ The feather is part of the tail. "[if the feather is part of the vulture]The vul
 	
 	
 Chapter Muddy's Cunning Plans
+
+[with due deference to Black Adder]
 
 [The current plan is the plan that Muddy has in mind, whether he's said it or not.]
 The current plan is a number that varies. The current plan is zero. 
@@ -2219,6 +2230,6 @@ say "* The game is set in the Indian Territory, which would later become the Okl
 say "* In the real West, it wouldn't have made any sense to put beans in a can. They were a cheap staple, transported dry, likely in sacks.[paragraph break]";
 say "* Boot spurs were referred to as [quotation mark]can openers[quotation mark] in the Old West. Really.[paragraph break]";
 say "* The transcontinental railroad was completed in 1869, but it crossed two states above Oklahoma. The first railroads in Oklahoma were built in 1870, and the state wasn't crossed until 1871.[paragraph break]";
-say "* The espresso machine was invented in XXXXXX in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
+say "* The espresso machine was invented in 1901 in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
 say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]Easter Egg[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
 	
