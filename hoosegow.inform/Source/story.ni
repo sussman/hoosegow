@@ -426,10 +426,35 @@ Carry out ringing:
 	
 Section Shooting
 
-Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting when the player encloses the gun.
+Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting.
+
+Check shooting:
+	if the player does not carry the gun:
+		if the player encloses the gun:
+			now the player carries the gun;
+			say "(first drawing your gun)[command clarification break]";
+		otherwise:
+			if the player can see the gun:
+				say "(first picking up your gun)[command clarification break]";
+				now the player carries the gun;
+			otherwise:
+				say "You'd need a gun to shoot off anything besides your mouth. And even for that, having a gun near by is recommended." instead.
 
 Carry out shooting:
-	say "Bang!" [### a placeholder]
+	change the block stage business flag to true;
+	say "You squeeze the trigger (click). [one of]Dang, no bullets. [or][stopping][paragraph break]";
+	if the sheriff is in the jailhouse:
+		say "A barrage of pistol discharges cut through the air. You try to imagine that the bullets are just insubstantial phantoms, but that doesn't pan out for you in the end. Riddled with bullets and torn to pieces, your body collapses in a bloody mess.";
+		change the endgame to shot;
+		end the game in death;
+	otherwise:
+		if the noun is:
+			-- Muddy:
+				say "Muddy says, [quotation mark][one of]Cut that out, Rick. A man could get himself dead joking around like that[or]Really Rick, that's annoying[stopping].[quotation mark][paragraph break]";
+			-- Rick:
+				say "You shake off the momentary melancholy.";
+			-- the deputy:
+				say "He's too looped on Peruvian Snoozeberries to notice your attempt."	
 	
 Section Showing
 
@@ -1198,7 +1223,7 @@ To say lever position:
 
 Section Cabinet
 
-The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. Its [cabinet-door-details]." The texture of the cabinet is "fine-grained".
+The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter that is part of the cabinet. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. Its [cabinet-door-details]." The texture of the cabinet is "fine-grained".
 
 Does the player mean opening the cabinet:
 	It is very likely.
@@ -1212,6 +1237,9 @@ To say cabinet-door-details:
 		say "wood and glass door is open and inside you see [a list of things in the cabinet]".
 	
 The description of the cabinet door is "The cabinet's [cabinet-door-details]."
+
+Instead of putting something (called the item) on the cabinet:
+	try putting the item on the top of the cabinet.
 
 Instead of opening the cabinet door:
 	try opening the cabinet.
@@ -1612,7 +1640,7 @@ Instead of searching the deputy when the deputy is not awake:
 		say "You don't find anything else but pocket lint."
 		
 Instead of doing something with the deputy when the deputy is asleep or the deputy is drugged:
-	if the current action is searching or examining:
+	if the current action is searching or examining or shooting:
 		continue the action;
 	otherwise:
 		change the consciousness of the deputy to drugged;
