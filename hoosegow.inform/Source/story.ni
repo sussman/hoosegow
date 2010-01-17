@@ -685,7 +685,7 @@ When play begins:
 	move the harmonica to Muddy.
 	
 After printing the banner text:
-	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns [apostrophe].[paragraph break]";
+	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns a-blazin[apostrophe].[paragraph break]";
 	say "[bracket]Press Space To Continue[close bracket]";
 	wait for any key;
 	clear screen;
@@ -812,7 +812,7 @@ times-used		verbage
 0					"moves his [one of]front[or]rear[at random] leg slightly"
 0					"shifts his tail by an inch"
 0					"swallows loudly"
-0					"sneezes, but somehow me manages to do it slowy"
+0					"sneezes, but somehow he manages to do it slowly"
 0					"half opens one eye and looks at you and Muddy"
 0					"has died. Wait. Sorry. He's just really immobile"
 0					"starts to rub a flea but then decides it to too much work"
@@ -1028,9 +1028,17 @@ Instead of taking the meat:
 		continue the action;
 	otherwise:
 		say "You already have the hunk of meat."
-	
+
 Instead of dropping the meat:
 	say "You'd rather not put it down anywhere you'll be spending time. It'd attract vermin."
+
+Instead of putting the meat on something (called the target):
+	if the target is not the barrel:
+		say "You'd rather not put it down anywhere you'll be spending time. It'd attract vermin.";
+	otherwise:
+		say "The hunk of meat drops on top of the covered barrel that is just beneath the window. Almost immediately, a vulture drops from the sky, lands on the barrel, and begins tearing into the rancid meat.";
+		move the vulture to the barrel;
+		move the meat to the barrel.
 	
 Instead of putting the meat on anything that is enclosed by the jail cell:
 	say "You'd rather not put it on anything that you might sit on."
@@ -1411,7 +1419,7 @@ The rods are plural-named part of the cell window. The description of the rods a
 Understand "look out [something]" as searching.
 Instead of searching the window:
 	if the player is tall:
-		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street which have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. Just to the left of the window, a berry-covered vine has grown up the side of the building.";
+		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street which have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. [if something is on the barrel]On the barrel you see [contents of barrel]. [end if]Just to the left of the window, a berry-covered vine has grown up the side of the building. [if the vulture is not on the barrel][paragraph break]Up in the sky, you notice a couple of hungry, circling vultures.[paragraph break][end if]";
 	otherwise:
 		say "From down here, all you can see is the evening sky and the dark window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. You'd have to climb up to the window to get a better view of the street.";
 	
@@ -1426,7 +1434,10 @@ Instead of opening the window:
 Instead of closing the window:
 	say "You feel around for shutters, but you don't find none.  Just rods."
 
-The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "foo".  [###TODO]
+The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel.  You can't tell what inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
+
+Instead of touching the barrel:
+	say "You can't quite reach it.  You could maybe drop something on it, though.".
 
 The vine is scenery in the street.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall] It's covered with small red berries.[end if]".
 
@@ -1787,16 +1798,24 @@ To say deputy drinks some coffee:
 		
 Section Vulture
 
-The vulture is a male animal in limbo. The description of the vulture is "A scrawny black bird, with a bald head, sharp yellow beak and white-tipped tail feathers[if the meat is on the barrel]. Its head is plunged into the putrifying piece of meat on the barrel, and tail waves provocativly in your face, just below the window[end if].";
+The vulture is a male animal in limbo. Understand "bird" and "buzzard" as the vulture.  The description of the vulture is "A scrawny black bird, with a bald head, sharp yellow beak and white-tipped tail feathers[if the meat is on the barrel]. Its head is plunged into the putrifying piece of meat on the barrel, and tail waves provocatively in your face, just below the window[end if].";
 
 Instead of taking the meat when the meat is on the barrel:
-	say "The vulture won't let you. You almost lose a hand."
+	if the vulture is on the barrel:
+		say "The vulture won't let you. You almost lose a hand.";
+	otherwise:
+		continue the action.
 
-The tail is part of the vulture. "The vulture's tail plumage consists of several long, black feathers with white stripes." Understand "plumage" as the tail.
+The tail is part of the vulture.  The description of the tail is "The vulture's tail plumage consists of several long, black feathers with white stripes." Understand "plumage" as the tail.
 
-The feather is part of the tail. "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."
+The feather is part of the tail. Understand "feathers" as the feather.  The description of the feather is "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."
 	
-	
+Instead of taking the feather:
+	say "You pluck a feather from the vulture's tail, and it twists its head momentarily to glare at you before plunging back to its task of devouring the rotting meat.";
+	increase the score by one;
+	move the feather to the player.
+
+
 Chapter Muddy's Cunning Plans
 
 [with due deference to Black Adder]
