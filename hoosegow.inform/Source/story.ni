@@ -129,6 +129,8 @@ Chapter Class Definitions
 
 A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
 
+A sheet is a kind of prop. [paper]
+
 A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.] 
 
 A thing can be large. Usually a thing is not large.
@@ -936,7 +938,7 @@ Table of Pete's Strange Behavior
 times-used		verbage
 0					"shakes and twists spasmodically."
 0					"murmurs repeatedly, [quotation mark][herring] [herring] [herring][quotation mark]."
-0					"peddles the air with his feet, while making bell ringing sounds."
+0					"peddles the air with his feet, while making sounds like a ringing bell."
 0					"rolls back and forth on the bench."
 0					"curls up into a ball, muttering to himself."
 0					"froths at the mouth."
@@ -1118,7 +1120,7 @@ The stain is scenery in Limbo. The description of the stain is "A dark brown sta
 
 Section Warrant
 
-The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper". The warrant can be recognized. The warrant is not recognized.
+The warrant is a sheet. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper". The warrant can be recognized. The warrant is not recognized.
 
 To say warrant-text:
 	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
@@ -1173,6 +1175,13 @@ Instead of giving the tobacco to Muddy during forgery:
 			say "Muddy reluctantly accepts the tobacco, saying, [quotation mark]Well, I suppose I could use the tobacco juice.[quotation mark][if Muddy carries the feather] Muddy chews the tobacco some more, fills his makeshift pen with the juice, and throws the wad out the window. [end if][paragraph break]";
 		try WarrantForging.
 
+Instead of showing the warrant to the deputy when the warrant is edited:
+	if the gate is not locked:
+		say "The deputy acknowledges the official-looking document with a yawn.";
+	otherwise:
+		say "[get out of jail free]";
+		now the gate is unlocked;
+		now the gate is open.
 
 Chapter Jailhouse Region
 
@@ -1283,16 +1292,76 @@ The scent of the chair is "like an amalgam of the butts that have sat on it over
 
 Section Desk
 
-The desk is a large furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]." The texture of the desk is "old and battered".
+The desk is a large furniture in the office. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface[if the drawer is mentioned]e. The rear of the desk has a small drawer[end if]." The texture of the desk is "old and battered".
 
-The description of the drawer is "A small drawer". The drawer can be mentioned. The drawer is not mentioned. The drawer is lockable and locked. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?"
+The drawer is part of the desk. The drawer is a closed openable lockable locked container. The description of the drawer is "A small, closed drawer built into the back of the desk. The drawer has a small metal lock." The drawer can be recognized. The drawer is not recognized. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?"
+
+The metal lock is part of the drawer. The description of the metal lock is "A simple metal lock." 
+	
+Instead of inserting the brass key into the metal lock:
+	try opening the drawer with the brass key.
+	
+Before doing something other than examining with the metal lock:
+	change the noun to the drawer;
+	continue the action.
 
 After opening the drawer:
-	say "[one of]The lock clicks and you slide the drawer open revealing a yellow telegram and sheaf of papers titled [quotation mark]Patent[quotation mark][or]You open the drawer[if the drawer contains something]revealing [a list of things in the drawer][end if][stopping]." 
+	say "You slide the drawer open revealing [a list of things in the drawer]." 
 	
-The telegram is in the drawer. The description of the telegram is "A yellow paper on the stationary of the Western Union telegraph company. The message on the telegram is addressed to the sheriff and reads: [quotation mark]AGREE TO YOUR OFFER [bracket]STOP[close bracket] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [bracket]STOP[close bracket] CONGRATULATIONS ON WINNING LOTTERY [bracket]STOP[close bracket] SIGNED JEFFRIES & BRAND STEAMWORKS CO LTD [bracket]STOP[close bracket][bracket]END[close bracket][quotation mark]." Understand "paper", "yellow", and "message" as the telegram. The texture of the telegram is "like cheap, almost tissue-thin paper".
+The folder is an openable closed container. The folder is in the drawer. Understand "cardboard" or "manila" as the folder.
 
-The patent is in the drawer. The description of the patent is "A thick technical document describing the coffee machine invented by the sheriff[one of]. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages[or][stopping]." The texture of the paper is "like a crisp, freshly printed document".
+Instead of examining the folder:
+	if the folder is not open or the player does not carry the folder:
+		say "(first ";
+		if the player does not carry the folder:
+			say "taking ";
+		if the player does not carry the folder and the folder is closed:
+			say "and ";
+		if the folder is closed:
+			say "opening ";
+		say "the folder)[command clarification break]";
+	now the folder is open;
+	now the player carries the folder;
+	say "A manila cardboard folder [if the folder contains something]containing [a list of things in the folder][otherwise]that is empty[end if].";
+		
+Instead of inserting something (called the item) into the folder:
+	if the item is not a sheet:
+		say "The folder is only made to hold papers.";
+	otherwise:
+		continue the action.
+		
+Instead of searching the folder:
+	now the folder is open;
+	continue the action.
+	
+The telegram is a sheet in the folder. The description of the telegram is "A yellow paper on the stationary of the Western Union telegraph company. The message on the telegram is addressed to the sheriff and reads:[telegram-text]." Understand "paper", "yellow", and "message" as the telegram. The texture of the telegram is "like cheap, almost tissue-thin paper".
+
+To say telegram-text:
+	say "[quotation mark]AGREE TO YOUR OFFER [bracket]STOP[close bracket] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [bracket]STOP[close bracket] CONGRATULATIONS ON WINNING LOTTERY [bracket]STOP[close bracket] SIGNED JEFFRIES & BRAND STEAMWORKS CO LTD [bracket]STOP[close bracket][bracket]END[close bracket][quotation mark]".
+	
+Instead of reading the telegram:
+	say "It says: [telegram-text]."
+
+The patent is a sheet in the folder. The description of the patent is "A thick technical document describing the coffee machine invented by the sheriff[one of]. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages[or][stopping]." The texture of the paper is "like a crisp, freshly printed document".
+
+Instead of reading the patent:
+	say "It's a long, complicated document, and you don't have the time or inclination to sit down and study it right now. It's obvious that the sheriff has big plans for his coffee invention and that the cost of putting his plan into action is way beyond what any small town sheriff could afford."
+
+The note is a sheet in the folder. The description of the note is "The note is written in a flowing cursive script. It reads:[paragraph break][note-text]."
+
+Instead of reading the note:
+	say "You read the note aloud.[paragraph break][note-text].[paragraph break]Muddy [one of]shakes his head with enjoyment and shouts, [quotation mark]Bully for you Ella[or]nods in agreement. [quotation mark]That's telling him[stopping]![quotation mark][paragraph break]"
+
+To say note-text: 
+	say "[quotation mark]Dear Sam, I can't go on like this. When you were just a plain old sheriff that was one thing, but since you started inventing stuff, I can see what you are made of. A man that kicks my dog isn't cut out for marrying anyone. I thought you were an honest law man, but I can see what you've become. Don't come around no more or my pa might just take a disliking to you. I was going to send you my ring, but I found out it was glass. Why am I not surprised? You are a scoundrel and not fit to wear that uniform.[paragraph break]Explicitly not yours,[paragraph break]Ella[quotation mark]". 
+	
+The receipt is a sheet in the folder. The description of the receipt is "A receipt from Jeffries & Brand Steam Works Co Ltd of Witchita Falls. The receipt is for four hundred dollars worth of pipes and fittings purchased by Sheriff Sam Cheney of Crawdad's Gulch. At the bottom of the note, written in red is the following postscriptum: [postscriptum]."
+
+To say postscriptum:
+	say "[quotation mark]Your account with us is severely in arrears. No further credit will be extended. Remit all payments immediately or we will take legal or [italic type]other actions[roman type] as required.[quotation mark]".
+	
+Instead of reading the receipt:
+	say "[quotation mark]Well, Muddy,[quotation mark] you say, [quotation mark]it's a business receipt of some kind, from J&B Steam Works down in Witchita Falls. Looks like the Sheriff Cheney done gone himself deep into debt on account of his coffee invention.[quotation mark][paragraph break]Muddy looks at the receipt and replies, [quotation mark][one of]I reckon, he's got more debt that we ever had loot[or]I don't twig how a jerk water town two-bit sheriff like Cheney could get that kind of greenery[or]Indeed[stopping].[quotation mark][paragraph break]".
 
 Section Outdoors
 
@@ -1329,7 +1398,7 @@ Some coffee is in the cup. The description of some coffee is "Steaming hot, blac
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
-The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute. The texture of the shoot is "[smooth]".
+The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute. The texture of the chute is "[smooth]".
 
 To make coffee:
 	now the coffee is in the cup;
@@ -1685,6 +1754,11 @@ Instead of searching muddy:
 Instead of giving something (called the item) to Muddy:
 	say "Muddy glances at [the item] and says, [quotation mark]I ain't got no idea what I'd do with [an item]. No thanks.[quotation mark][paragraph break]".
 	
+[Make sure Rick and Muddy end up in the same places.]
+After going a direction:
+	move Muddy to the location;
+	continue the action.
+
 Section Pete
 
 Pete is a man in the jail cell. Pete is proper-named.  "Across the cell from you, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.".  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner appears to be wearing a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]". 
@@ -1712,7 +1786,7 @@ Check examining the pamphlet:
 Check reading the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet][or][second pamphlet][or][pamphlet sermon][stopping]". 
+The pamphlet is a sheet in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet][or][second pamphlet][or][pamphlet sermon][stopping]". 
 
 Instead of giving the pamphlet to muddy:
 	try showing the pamphlet to muddy.
@@ -2184,8 +2258,7 @@ LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more ro
 LibMsg <cannot put if this exceeds carrying capacity>		"There [aintNo]more room on [the main object].[paragraph break]"  
 LibMsg <who disambiguation>		"That warn't clear. Who all do you mean, "  
 LibMsg <which disambiguation>		"Which all do you mean, "  
-LibMsg <whom disambiguation>		"Who all do you want to {command}?[paragraph break]"  
-LibMsg <what disambiguation>		"What in tarnation do you want to {command}?[paragraph break]"  
+LibMsg <whom disambiguation>		"Who all do you want to {command}?[paragraph break]"   
 LibMsg <pronoun not set>		"I don't rightly twig what '{pronoun}' refers to.[paragraph break]"  
 LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash.[paragraph break]"  
 LibMsg <cannot talk to absent person>	"Your cake hole is jabbering, but I can't rightly say to who you is talking.[paragraph break]"  
@@ -2217,7 +2290,7 @@ LibMsg <brief look mode>			"{Story name} is now 'brief' printing mode, what give
 LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before).[paragraph break]"  
 LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty).[paragraph break]"  
 LibMsg <cannot search unless container or supporter>	"You don't find nothing at all.[paragraph break]"  
-LibMsg <cannot search closed opaque containers>		"[youAint] able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
+LibMsg <cannot search closed opaque containers>		"[youAint]able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
 LibMsg <nothing found on top of>	"There [aintNothing]on [the main object].[paragraph break]"  
 LibMsg <cannot open unless openable>	"They ain't something you can open.[paragraph break]"  
 LibMsg <cannot switch on unless switchable>		"They ain't something you can switch.[paragraph break]"  
@@ -2396,20 +2469,15 @@ At the time when Muddy gets curious:
 	if the warrant is not recognized:
 		say "Muddy asks, [quotation mark]Hey Rick, what were that paper you picked off the deputy? It looked real official-like.[quotation mark][paragraph break]";
 		change the block stage business flag to true.
-		
-Instead of showing the warrant to the deputy when the warrant is edited:
-	if denouement is happening:
-		say "The deputy acknowledges the official-looking document with a yawn.";
-	otherwise:
-		say "[get out of jail free]";
-		now the gate is unlocked;
-		now the gate is open.	
 
 Chapter Denouement
 
-Denouement is a scene. Denouement begins when Rick is not in the jail cell.
+Denouement is a scene. Denouement begins when Rick is not in the jail cell. Denouement ends when the drawer is open.
 
-Instead of exiting during Denouement:
+When denouement begins:
+	now the drawer is recognized.
+
+Instead of exiting when (the denouement is happening or the PlusQueDenouement is happening):
 	say "Which way? West to the jail cell, or east towards the open range?"
 			
 Instead of going a direction (called the way) during the denouement:
@@ -2435,10 +2503,28 @@ Instead of going a direction (called the way) during the denouement:
 	otherwise:
 		say "You can [if the player is in the office]either go west back into the cell, or exit through the swinging doors to the east[otherwise]only go east, into the office[end if]."
 	
-[Make sure Rick and Muddy end up in the same places.]
-After going a direction:
-	move Muddy to the location;
-	continue the action.
+Chapter PlusQueDenouement
+
+The PlusQueDenouement is a scene. The PlusQueDenouement begins when the denouement ends.
+
+Instead of going a direction (called the way) during the PlusQueDenouement:
+	if the way is east:
+		if the player is in the office:
+			say "[one of]Muddy relents and says, [quotation mark]All right, Rick. I reckon we done what we can done. Let's make for the hills.[quotation mark][paragraph break]As you head out of the office, two men appear in the door way: Sheriff Cheney and Federal Marshal McLuhan. They are followed by a small detachment of U.S. Army guards[or]The army guards block your exit[stopping].";
+			now the marshal is in the office;
+			now the sheriff is in the office;
+			now the army is in the office;
+			the rule succeeds;
+		otherwise:
+			continue the action;
+	if the way is west:
+		if the player is in the office:
+			continue the action;
+		otherwise:
+			say "You can't go any further west than the jail cell.";
+			the rule succeeds;
+	otherwise:
+		say "You can [if the player is in the office]either go west back into the cell, or try to exit through the swinging doors to the east[otherwise]only go east, into the office[end if]."
 
 Chapter The End
 
