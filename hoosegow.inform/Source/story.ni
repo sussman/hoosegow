@@ -214,10 +214,19 @@ Carry out blowing at:
 		-- window:
 			say "The berry shoots out the window and into the street.";	
 		-- the cup:
-			say "Plop!";
+			say "[spiked coffee dialogue]";
+			now the coffee is spiked;
+		-- the coffee:
+			say "[spiked coffee dialogue]";
+			now the coffee is spiked;
+		-- the bell:
+			hit-bell;
 		-- otherwise:
 			say "The berry hits [the noun], then bounces away out of sight.";
 	now the berry is part of the vine.
+
+To say spiked coffee dialogue:
+	say "The berry splatters against the side of the cup, and its juice drips into the steaming brew.[if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the coffee, 'Now, if we can only get the deputy to come back and drink that coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
 
 
 Section Chewing
@@ -678,16 +687,7 @@ Carry out directedSpitting at:
 		-- window:
 			say "The wad shoots out the window and into the street.";
 		-- bell:
-			if Flash is in the office:
-				if the bell is not rung:
-					say "Ding! The wad hits the bell so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
-					now the bell is rung;
-					make coffee;
-				otherwise: [bell has already been rung, Flash is still around]
-					say "The wad ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
-					make coffee;
-			otherwise:[still the bell, but nothing to do with Flash]
-				say "The bell rings hollowly.";
+			hit-bell;
 		-- the hook:
 			say "The bell would be more fun." instead;
 		-- the grate:
@@ -705,6 +705,18 @@ Carry out directedSpitting at:
 	
 To say big target:
 	say "[one of]Where's the challenge in that?[or]Hardly a test of your aimin[apostrophe] abilities.[or]Child's play. Your grandmother could hit [a noun].[at random]".
+	
+To hit-bell:
+	if Flash is in the office:
+		if the bell is not rung:
+			say "Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
+			now the bell is rung;
+			make coffee;
+		otherwise: [bell has already been rung, Flash is still around]
+			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
+			make coffee;
+	otherwise:[still the bell, but nothing to do with Flash]
+		say "The bell rings hollowly.".
 	
 
 Section Talking
@@ -1070,6 +1082,9 @@ Section Can
 
 The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]".
 
+Instead of reading the can:
+	try examining the can instead.
+
 Instead of opening the can:
 	say "What do you want to open it with?"
 
@@ -1268,6 +1283,14 @@ The ceiling is a backdrop in the jailhouse.  The description of the ceiling is "
 The walls are a plural-named backdrop in the jailhouse.  Understand "wall" as the walls.  The description of the walls is "The jailhouse walls are made of brightly painted white bricks.  The bricks still smell like fresh paint."   The scent of the walls is "fresh paint.".
 
 The sky is a backdrop in the jailhouse.  The description of the sky is "Outside the window, the moon rises on a cloudless night. In the distance, a wake of vultures saws the air, circling their prey."
+
+Instead of touching the sky:
+	say "Don't you wish.".
+
+The vultures are a plural-named backdrop in the jailhouse.  The description of the vultures is "They look hungry.  Why else would they circle like that?".
+
+Instead of smelling or touching the vultures:
+	say "They're too far away."
 
 [TODO:  ceiling and sky should not be reachable]
 
@@ -1473,7 +1496,7 @@ The iron pipe is a large part of the protocappuccinomatic. The description of th
 
 The cup is in Limbo. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
-Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".
+Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".  The coffee can be spiked.  The coffee is not spiked.
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
@@ -1884,6 +1907,9 @@ Instead of showing the pamphlet to muddy:
 
 The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. The texture of the tin is "[metallic]". The scent of the tin is "like tobacco".
 
+Instead of reading the tin:
+	try examining the tin instead.
+
 Instead of searching Pete:
 	try searching the pocket.
 	
@@ -2001,7 +2027,7 @@ Instead of searching the overcoat:
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 	
-The footwear is privately-named backdrop in the jail cell. Understand "boots" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." 
+The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." 
 
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
@@ -2009,6 +2035,7 @@ Instead of doing something other than examining with the footwear:
 Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn down, and the spurs have broken clear off." The scent of a the left boot is "better on the outside". The indefinite article of the left boot is "your". The texture of the left boot is "[smooth]".
 
 Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth]. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "better on the outside". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" as the spur.
+
 
 [Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
 
@@ -2114,9 +2141,12 @@ To say deputy resets the whistle:
 To say deputy responds to whistle:
 	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash.[paragraph break][quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth.[paragraph break][quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
 	
-To say deputy drinks some coffee:	
+To say deputy drinks some spiked coffee:	
 	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]Almost immediately, the deputy spins on his heel and drops to the floor just in front of your jail cell."
-	
+
+To say deputy drinks some normal coffee:	
+	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]The deputy looks at the two of you.  [quotation mark]Enough is enough.  You jokers stay put, I'll be back again in a bit.[quotation mark][paragraph break]The deputy watches Flash slink back into the office before sauntering out again.".
+
 To say get out of jail free:
 	say "The deputy groans deeply and curls up into a ball. You keep poking him with your finger, and finally he rolls towards you, blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office."
 	
@@ -2581,13 +2611,17 @@ Every turn during flashing:
 		change the position of the lever to neutral;
 		say deputy resets the whistle;
 		if the office encloses the coffee:
-			say deputy drinks some coffee;
-			now the cup is in limbo;
-			now flash is in limbo;
-			move the deputy to the office;
-			now the deputy carries the warrant;
-			now the deputy carries the brass key;
-			now the deputy is asleep.
+			if the coffee is spiked:
+				say deputy drinks some spiked coffee;
+				now the cup is in limbo;
+				now flash is in limbo;
+				move the deputy to the office;
+				now the deputy carries the warrant;
+				now the deputy carries the brass key;
+				now the deputy is asleep;
+			otherwise: [deputy drinks coffee then leaves again]
+				say deputy drinks some normal coffee.
+				
 				
 Chapter Forgery
 
