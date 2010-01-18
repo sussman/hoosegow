@@ -363,6 +363,16 @@ Check Hanging it on:
 		-- otherwise:
 			say "You can't hang [a noun] on [a second noun].";
 			the rule fails.
+			
+Instead of putting the portrait on the walls:
+	try hanging the portrait on the walls.
+
+[Instead of putting something (called the pendant) on something (called the soutainer):
+	if the pendant is the portrait and the soutainer is the walls or the pendant is the bell and the soutainer is the hook:
+		try hanging the pendant on the soutainer;
+	otherwise:
+		continue the action.]
+
 
 Section Listening
 [Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
