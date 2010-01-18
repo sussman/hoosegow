@@ -1564,7 +1564,24 @@ The bronze plate is part of the stool.  Understand "plate" as the bronze plate. 
 After examining the plate for the first time:
 	say "Muddy shakes his head, 'They sure are an upstanding organization.'".
 
-The seat is part of the stool.  The description of the seat is "The top of the wooden stool's seat is covered by initials, some old, some new. [if the socket is not occupied]When you flip it over, it is immediately apparent that the stool is missing a leg. In its place, there is just an empty socket.[end if]".
+The seat is part of the stool.  The description of the seat is "The top of the wooden stool's seat is covered by intriguing initials, some old, some new. [if the socket is not occupied]When you flip it over, it is immediately apparent that the stool is missing a leg. In its place, there is just an empty socket.[end if]".
+
+The initials are part of the stool.
+The initial-counter is number that varies.  The initial-counter is zero.
+
+Instead of examining the initials:
+	if the initial-counter is:
+		-- 0:
+		say "[first initials]";
+		-- 1:
+		say "[second initials]";
+		-- 2:
+		say "[third initials]";
+		-- 3:
+		say "The rest of the initials are all blended together and indistinct.";
+		-- otherwise:
+		say "You can't make out any more initials.";
+	increase the initial-counter by one.
 
 The socket is part of the seat.  The socket is a container. The socket can be occupied.  The socket is not occupied.  The description of the socket is "[if the socket is not occupied]Once upon a time, a three-quarter inch stool leg must have occupied the now empty hole in the stool seat. Without that leg, the stool isn't much good.[otherwise]A nice piece of gray jail bar is wedged into it, acting as a third leg.[end if]".
 
@@ -1593,7 +1610,7 @@ Instead of entering the stool:
 			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna sit on the stool unless it stands solidly on three good legs.";
 		increase the broken-stool-sit-count by one;
 	otherwise: [stool is repaired]
-		say "You push the stool over towards the wall and Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
+		say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
 		move the player to the stool;
 		now the player is tall.
 
@@ -1616,6 +1633,16 @@ To say bench sekrits:
 	move the spoon to the jail cell;
 	move the can to the jail cell;
 	now the bench is investigated.
+
+To say first initials:
+	say "You notice a set of initials. 'It says here, 'RH''.[paragraph break]Muddy nods knowingly, 'That'd be Ricochet Howard. Cattle rustling, hog hauling and snake twizzling'.[paragraph break]'Snake twizzling?'[paragraph break]'All right, I made that one up. But the rest is true.'[paragraph break]A couple other other sets of initials catch your eye.".
+
+To say second initials:
+	say "'Here's some more initials, Muddy:  S.X.'[paragraph break]Muddy smiles slyly, 'Oh sure. That's Sixshooter Xavier, the roughest Friar west of the Mississipi. An ornery character with a taste for mead, and he plays a mean five-card stud.'[paragraph break]'What'd he do?'[paragraph break]'Knocked over the Tulsa Casino, but donated it to orphans.'[paragraph break]'That don't sound so bad.'[paragraph break]'They wasn't orphans when he started.'[paragraph break]One other set of initials catches your eye.".
+	
+To say third initials:
+	say "'Hey, how about this one, Muddy: MTO. That's a strange one.'[paragraph break]'That's got to be Tymme O'Malley, or the Leprechaun Kid like they call him in Kansas. Wicked fast with a rifle.'[paragraph break]'Nah, I said MTO, must be someone else.'[paragraph break]'Nope, that's him all right. Dyslexic as all get out. Feds caught him red-handed with a bag of tool.'".
+ 
 
 Section Harmonica
 
