@@ -2787,7 +2787,7 @@ Every turn during crunch time:
 		say "[happy-ending]";
 		change the endgame to won;
 		award five points;
-		end the game in victory.
+		end the game in victory;
 	increase the crunch counter by one;
 	if the crunch counter is:
 		-- 1:
@@ -2864,11 +2864,12 @@ Rule for amusing a victorious player:
 say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
 say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How 'bout old Flash?[paragraph break]";
 say "* There are three ways of driving the deputy out of the jail, how many did you find?[paragraph break]";
+say "* Did you try reading the initials engraved on the stool?  Repeatedly?";
 say "Some other random trivia:[paragraph break]";
-say "* The game is set in the Indian Territory, which would later become the Oklahoma territory and subsequently the state. How many references can you find to the musical [quotation mark]Oklahoma![quotation mark]?";
+say "* The game is set in the Indian Territory, which would later become the Oklahoma territory and subsequently the state. How many references can you find to the musical 'Oklahoma!'?";
 say "* In the real West, it wouldn't have made any sense to put beans in a can. They were a cheap staple, transported dry, likely in sacks.[paragraph break]";
 say "* Boot spurs were referred to as [quotation mark]can openers[quotation mark] in the Old West. Really.[paragraph break]";
 say "* The transcontinental railroad was completed in 1869, but it crossed two states above Oklahoma. The first railroads in Oklahoma were built in 1870, and the state wasn't crossed until 1871.[paragraph break]";
 say "* The espresso machine was invented in 1901 in Italy, but we figured that so many Old West movies came from Italy, that it would look natural enough in our story.[paragraph break]";
-say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]Easter Egg[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
+say "Finally, if you've read this far down the page, you deserve to know about the [quotation mark]EASTER EGG[quotation mark] command, which will reveal several alternate endings to the story. Explore them at your own risk."
 	
