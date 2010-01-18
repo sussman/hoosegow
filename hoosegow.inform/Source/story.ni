@@ -214,12 +214,19 @@ Carry out blowing at:
 		-- window:
 			say "The berry shoots out the window and into the street.";	
 		-- the cup:
-			say "Plop!";
+			say "[spiked coffee dialogue]";
+			now the coffee is spiked;
+		-- the coffee:
+			say "[spiked coffee dialogue]";
+			now the coffee is spiked;
 		-- the bell:
 			hit-bell;
 		-- otherwise:
 			say "The berry hits [the noun], then bounces away out of sight.";
 	now the berry is part of the vine.
+
+To say spiked coffee dialogue:
+	say "The berry splatters against the side of the cup, and its juice drips into the steaming brew.[if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the coffee, 'Now, if we can only get the deputy to come back and drink that coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
 
 
 Section Chewing
@@ -1402,7 +1409,7 @@ The iron pipe is a large part of the protocappuccinomatic. The description of th
 
 The cup is in Limbo. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
-Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".
+Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".  The coffee can be spiked.  The coffee is not spiked.
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
