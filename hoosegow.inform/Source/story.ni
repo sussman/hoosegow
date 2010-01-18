@@ -705,6 +705,11 @@ Check talking:
 Carry out talking:
 	say "You can ASK someone ABOUT something or SHOW something TO someone."
 	
+Section Tasting
+
+Instead of tasting a thing (called the sample):
+	try eating the sample.
+	
 Section Touch
 [Touching is implemented through an after rule, which is nice in terms of making use of existing relationships about whether something is touchable or not. If an item has a texture attribute, this rule makes use of it.]
 
