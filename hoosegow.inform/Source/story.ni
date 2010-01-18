@@ -419,6 +419,13 @@ Section Looking Under
 
 Instead of looking under the noun:
 	try searching the noun instead.
+	
+Section LS
+
+LSing is an action applying to nothing. Understand "ls" as LSing.
+
+Report LSing:
+	say "Ellis? The town barber? He ain't here."
 
 Section Playing
 
@@ -484,6 +491,10 @@ Check ringing:
 		
 Carry out ringing:
 	say "You shake the bell and it jingles merrily."
+	
+Section Searching
+
+Understand "frisk [something]" as searching. Understand "pat down [something]" as searching.
 	
 Section Shooting
 
@@ -1545,7 +1556,7 @@ Instead of opening the gate with the brass key:
 
 Section Stool & Bench
 
-The stool is a large portable enterable supporter in the jail cell.  "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]There's a repaired stool standing here.[end if]".  The description of the stool is "A small stool.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of grey jail-bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with numerous initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
+The stool is a large portable enterable supporter in the jail cell.  "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]There's a repaired stool.[end if]".  The description of the stool is "A small stool.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of grey jail-bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with numerous initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
 
 The bronze plate is part of the stool.  Understand "plate" as the bronze plate.  The description of the bronze plate is "You read aloud the engraving on the bronze plate: 'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.'".
 
@@ -1800,7 +1811,7 @@ To say deputy-description:
 		-- drugged:
 			say "The deputy is only barely awake. His face is blanker than usual, and his eyelids are heavy";
 		-- asleep:
-			say "[one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gunbelt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping]"
+			say "[one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gun belt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping]"
 
 Rule for reaching inside a room when doing something with the deputy and introduction is not happening:
 	allow access.
@@ -2136,7 +2147,7 @@ To say happy doggie:
 	say "Flash breathes a sign of relief, walks back towards his warm spot and lies down.";
 	
 To say deputy resets the whistle:
-	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if office encloses the coffee]. Flash is so scared that he snaps his leash[end if].[paragraph break]The deputy thunders, [quotation mark]What the hoot-hollering blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break]Satisfied that you haven't escaped, he pushes the lever back to the middle position. [quotation mark]Dumb dog. I was doing important business.[quotation mark][if office encloses the coffee] He looks around for Flash, but the dog has already slid out of the office. [otherwise] The deputy gives you and Flash a long look, and the marches back out of the office. [end if][paragraph break]".
+	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if the coffee is spiked]. Flash is so scared that yanks the leash and snaps the lever clear off the machine[end if].[paragraph break]The deputy thunders, [quotation mark]What the hoot-hollering blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break][if the coffee is not spiked]Satisfied that you haven't escaped, he pushes the lever back to the middle position. [end if][quotation mark]Dumb dog. I was doing important business.[quotation mark] [if the coffee is spiked] He looks around for Flash, but the dog has already slid out of the office. [end if][paragraph break]".
 	
 To say deputy responds to whistle:
 	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by, and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash.[paragraph break][quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth.[paragraph break][quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
@@ -2154,7 +2165,7 @@ To say rather not hang around:
 	say "[quotation mark]I reckon,[quotation mark] agrees Muddy. [quotation mark]I ain't keen to hang around here no more neither.[quotation mark] You walk out into the pitch dark night, poor but free.[paragraph break]From somewhere ahead of you, Muddy offers, [quotation mark]You know, Rick. While we were in there I did some thinking, and this time I reckon I got a plan that can't fail...[quotation mark][paragraph break]".
 	
 To say loot in the cabinet:
-	say "The cabinet opens to reveal two gunbelts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gunbelt and straps it on".
+	say "The cabinet opens to reveal two gun belts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gun belt and straps it on".
 
 To say pre-crunch:
 	say "Sheriff Cheney surges forward pointing his finger at you and Muddy, [quotation mark]It were these two what blown up that train tunnel! They's escaping when we walked in! [if the deputy is not awake]Look, they done killed my deputy! [end if]We should drop [apostrophe]em where they stand.[quotation mark][paragraph break]The marshal looks uncertain and waves the army guards forward, training their pistols on you. [if the deputy is not awake][paragraph break]He rests his hand on the sheriff's trigger arm and says, [quotation mark]Sheriff, without any evidence to substantiate your accusation regarding the train robbery, I was reluctant to see these men hanged without a trial. Given the corpse of a lawman in front of us, though, even I have to agree that justice should be swift and definitive in this instance.[quotation mark][end if] [paragraph break]".
@@ -2174,17 +2185,31 @@ To say show-telegram:
 To say forgot-coach:
 	say "Sheriff Cheney wipes his brow nervously, [quotation mark]I forgot that's where we left that coach. I do reckon I'm always forgetting where I park. I was going to mention the silver as evidence any second now.[quotation mark][paragraph break]".
 	
-To say need-more-evidence:
-	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law[if receipt-found is true]. I appreciate that the marshal was in some degree of debt, but I don't see any compelling motivation[end if][if patent-found is true]. It is true that the sheriff had some personal business concerns, but I have seen nothing to make me suspect that he was lacking for funds[end if].[quotation mark][paragraph break]". 
+[can only get to this phrase if lacking either the receipt or the patent]
+To say need-more-evidence-than-telegram:
+	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law[if receipt-found is true]. I appreciate that the marshal was in some degree of debt, but I don't understand why he would need that much money[otherwise]. It is true that the sheriff had some personal business concerns, but I have seen nothing to make me suspect that he was lacking for funds[end if].[quotation mark][paragraph break]". 
 	
+To say show-receipt:
+	say "You show the marshal the receipt and suggest that the sheriff is quite in debt, and might turn to illegal activities to pay it off. [paragraph break]";
+	
+[can only get to this phrase is lacking either the silver or the patent]
+To say need-more-evidence-than-receipt:
+	say "The marshal looks disappointed and says, [quotation mark]Being in debt is no crime, although it does eat away at the soul. Once, I went an entire week owing more then five dollars, and I regret it to this day. However, there is nothing to suggest that the sheriff [if silver-found is true]had any sort of plan that would have required this much money[otherwise]has resorted to any illegal measures to fund his plans[end if].[quotation mark][paragraph break]".
+			
 To say note not enough:
 	say "The marshal reads the note and then looks up. He says evenly, [quotation mark]While this does speak unkindly of the sheriff, his personal life does not interest me. The content of this note is not germane to the matter at hand.[quotation mark][paragraph break]The sheriff wholeheartedly agrees, [quotation mark]Exactly. You is exactly right, marshal.[quotation mark][paragraph break]The marshal looks back at the sheriff with a hint of annoyance." 
 	
+To say show-patent:
+	say "You show the patent to marshal, and intimate that the sheriff had extensive business plans, far beyond his his mandate as a public servant. [paragraph break]"
+	
+To say need-more-evidence-than-patent:
+	say "The marshal flips through the patent for the sheriff's invention and looks at you questioningly.[paragraph break][quotation mark]So?[quotation mark] he asks. [quotation mark]It seems like a clever enough invention, and I presume this work was not done on public time, or using town resources[if silver-found is false]. I also would guess that he will need some big-time investors to put a plan like this into action, but I don't see anything wrong with that. The sheriff's a businessman pure and simple. There isn't anything more American than a man willing to make a profit, when the profit is there for the taking[otherwise]. It isn't like the sheriff is in debt. I am sure a man of his caliber can find some associates to invest in his fine invention[end if].[quotation mark][paragraph break]". 
+	
 To say happy-ending:
-	say "Marshal McLuhan instructs his guards to restrain and disarm the marshal, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark]The newly appointed sheriff grins and shakes his hand. As the marshal pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
+	say "[if sent-for-silver is not true]The marshal dispatches two guards to search behind the office, and when they return with corroboration about the stolen silver, the marshal[otherwise]Marshal McLuhan[end if] instructs his guards to restrain and disarm the sheriff, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark] The newly appointed sheriff grins and shakes his hand. As the marshal pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
 
 To say capital-charges:
-	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that capital charges have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
+	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
 	
 To say death-note:
 	say "The marshal reads the note, shaking his head sadly.[paragraph break]Several hours later, from your high platform, you and Muddy have an excellent view of the area around Fort Sill.[paragraph break]Muddy turns to you, [quotation mark]Well, reckon we'll be seeing each other real soon now. It was an honor and a pleasure, sir.[quotation mark]There is a creaking sound followed by a falling sensation."
@@ -2704,14 +2729,15 @@ Crunch Time is a scene. Crunch Time begins when the sheriff is in the office.[an
 The crunch counter is a number that varies. The crunch counter is zero.
 
 Every turn during crunch time:
-	increase the crunch counter by one;
-	if the crunch counter is one:
-		say "[pre-crunch]" as dialogue;
 	if silver-found is true and receipt-found is true and patent-found is true:
 		say "[happy-ending]";
 		change the endgame to won;
 		award five points;
 		end the game in victory.
+	increase the crunch counter by one;
+	if the crunch counter is:
+		-- 1:
+			say "[pre-crunch]" as dialogue.
 		
 Instead of asking someone (called the auditor) about some topic (called the issue) during the plusquedenouement:
 	if the auditor is:
@@ -2740,15 +2766,22 @@ Instead of showing something (called the evidence) to someone (called the specta
 				-- the note:
 					say "[note not enough]";
 				-- the receipt:
-					do nothing;
+					say "[show-receipt]";
+					if silver-found is false or patent-found is false:
+						say "[need-more-evidence-than-receipt]";
+					change receipt-found to true;
 				-- the telegram:
 					say "[show-telegram]";
 					if receipt-found is false or patent-found is false:
-						say "[need-more-evidence]";
+						say "[need-more-evidence-than-telegram]";
+					change silver-found to true;
 				-- the patent:
-					do nothing;
+					say "[show-patent]";
+					if receipt-found is false or silver-found is false:
+						say "[need-more-evidence-than-patent]";
+					change patent-found to true;
 				-- otherwise:
-					say "bob.";
+					say "The marshal looks at [the evidence] briefly, but does not seem impressed.";
 		-- otherwise:
 			say "The marshal demands, [quotation mark]As the senior law man present, all evidence must be presented to me.[quotation mark][paragraph break]".
 	
