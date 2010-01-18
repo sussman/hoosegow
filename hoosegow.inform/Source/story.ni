@@ -144,9 +144,9 @@ Definition: A thing (called the item) is bootlike if the item is the left boot o
 
 An ungulate is a kind of backdrop.
 
-Conclusion is a kind of value. The conclusions are hanged, shot, escaped and alive.  
+Conclusion is a kind of value. The conclusions are hanged, shot, escaped, and won.  
 
-Endgame is a conclusion that varies. The endgame is usually alive.
+Endgame is a conclusion that varies. The endgame is usually hanged.
 
 Chapter General Routines
 		
@@ -1818,7 +1818,7 @@ The leash is part of the collar. The description of the leash is "A simple bit o
 
 Section Marshal
 
-The marshal is a person in Limbo. The scent of the marshall is "of authority". The description of the marshal is "A no-nonsense man in this late thirties, with an intense face and ramrod straight posture. His uniform is immaculately pressed. He is so by-the-book and lawful that he's almost scary." Understand "marshall" as the marshal.[for people like me who for some reason can't accept that marshal is spelt with one 'ell']
+The marshal is a person in Limbo. The scent of the marshal is "of authority". The description of the marshal is "A no-nonsense man in this late thirties, with an intense face and ramrod straight posture. His uniform is immaculately pressed. He is so by-the-book and lawful that it hurts your eyes just to look at him." Understand "marshall" as the marshal.[for people like me who for some reason can't accept that marshal is spelt with one 'ell']
 
 Section Muddy
 
@@ -2132,14 +2132,23 @@ To say pre-crunch:
 To say wake-deputy:
 	say "Seeing the sheriff, the deputy sobers up immediately and jumps to his feet. [quotation mark]I was just resting my eyes for a moment, sir, and helping these gentlemen hang your portrait up.[quotation mark][paragraph break]The marshal looks confused and asks the deputy, [quotation mark]Hang up his portrait?[quotation mark][paragraph break][quotation mark]Well sure, mister marshal, sir. The sheriff done told me they was our welcome guests and that he wanted his picture hung up.[quotation mark][paragraph break]The marshal raises his eyebrows suspiciously, [quotation mark]You had federal suspects tidying up your office? Sheriff Cheney, I have to say that seems quite sloppy, and not in keeping with the public trust inherent in your position.[quotation mark][paragraph break]". 
 	
+To say talk only to me:
+	say "The marshal interjects, [quotation mark][one of]I am the senior law man present. The prisoners will address their remarks to me[or]Address your remarks to me[stopping].[quotation mark][paragraph break]".
+	
+To say talk is cheap:
+	say "The marshal says, [quotation mark][one of]Talk is cheap. All I'm interested in is evidence of your guilt or innocence[or]If you have something to show me, show me. Otherwise, the prisoners will remain silent, awaiting prosecution[stopping].[quotation mark][paragraph break]";
+	
 To say show-telegram:
 	say "You show the telegram to Marshal McLuhan, telling him that he'll find the sheriff's stage coach full of stolen silver just behind the jail.[paragraph break]Sheriff Cheney wipes his brow nervously, [quotation mark]I forgot that's where we left that coach. I do reckon I'm always forgetting where I park. I was going to mention the silver as evidence any second now.[quotation mark][paragraph break]".
 	
 To say need-more-evidence:
-	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law.[quotation mark]".  
+	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law.[quotation mark]". 
+	
+To say note not enough:
+	say "The marshal reads the note and then looks up. He says evenly, [quotation mark]While this does speak unkindly of the sheriff, his personal life does not interest me. The content of this note is not germane to the matter at hand.[quotation mark][paragraph break]The sheriff wholeheartedly agrees, [quotation mark]Exactly. You is exactly right, marshal.[quotation mark][paragraph break]The marshal looks back at the sheriff with a hint of annoyance." 
 	
 To say happy-ending:
-	say "Marshal McLuhan instructs his guards to restrain and disarm the marshal, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshall rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark]The newly appointed sheriff grins and shakes his hand. As the marshall pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
+	say "Marshal McLuhan instructs his guards to restrain and disarm the marshal, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark]The newly appointed sheriff grins and shakes his hand. As the marshal pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
 
 To say capital-charges:
 	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that capital charges have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
@@ -2647,32 +2656,31 @@ Instead of going a direction (called the way) during the PlusQueDenouement:
 		
 Chapter Crunch Time
 
+Silver-found is a truth state that varies. Silver-found is false.
+Receipt-found is a truth state that varies. Receipt-found is false.
+Patent-found is a truth state that varies. Patent-found is [patently] false.
+Sent-for-silver is a truth state that varies. Sent-for-silver is false.
+Sent-for-telegram is a truth state that varies. Sent-for-telegram is false.
+
 Crunch Time is a scene. Crunch Time begins when the sheriff is in the office.[and runs until the end of game, overlapping with the plus que denouement]
 
 The crunch counter is a number that varies. The crunch counter is zero.
 
 Every turn during crunch time:
 	increase the crunch counter by one;
-	if the crunch counter is two:
-		say "[pre-crunch]" as dialogue.
-		
-Instead of showing something (called the item) to someone (called the auditor) during the plusquedenouement:
-	if the auditor is the marshal or the auditor is Muddy:
-		continue the action;
-	otherwise:
-		try showing the item to the marshal.
-		
-To say talk only to me:
-	say "The marshal interjects, [quotation mark][one of]I am the senior law man present. The prisoners will address their remarks to me[or]Address your remarks to me[stopping].[quotation mark][paragraph break]".
-	
-To say talk is cheap:
-	say "The marshal says, [quotation mark][one of]Talk is cheap. All I'm interested in is evidence of your guilt or innocence[or]If you have something to show me, show me. Otherwise, the prisoners will remain silent, awaiting prosecution[stopping].[quotation mark][paragraph break]";
+	if the crunch counter is one:
+		say "[pre-crunch]" as dialogue;
+	if silver-found is true and receipt-found is true and patent-found is true:
+		say "[happy-ending]";
+		change the endgame to won;
+		award five points;
+		end the game in victory.
 		
 Instead of asking someone (called the auditor) about some topic (called the issue) during the plusquedenouement:
 	if the auditor is:
 		-- Muddy:
 			continue the action;
-		-- the marshall:
+		-- the marshal:
 			say "[talk is cheap]";
 		-- otherwise:
 			say "[talk only to me]".	
@@ -2681,7 +2689,7 @@ Instead of telling someone (called the auditor) about some topic (called the iss
 	if the auditor is:
 		-- Muddy:
 			continue the action;
-		-- the marshall:
+		-- the marshal:
 			say "[talk is cheap]";
 		-- otherwise:
 			say "[talk only to me]".
@@ -2690,10 +2698,21 @@ Instead of showing something (called the evidence) to someone (called the specta
 	if the spectator is:
 		-- Muddy:
 			continue the action;
-		-- the marshall:
-			do nothing; [### TODO respond to various topics here]
+		-- the marshal:
+			if the evidence is:
+				-- the note:
+					say "[note not enough]";
+				-- the receipt:
+					do nothing;
+				-- the telegram:
+					do nothing;
+				-- the patent:
+					do nothing;
+				-- otherwise:
+					say "bob.";
 		-- otherwise:
-			say "The marshall demands, [quotation mark]As the senior law man present, all evidence must be presented to me.[quotation mark][paragraph break]".
+			say "The marshal demands, [quotation mark]As the senior law man present, all evidence must be presented to me.[quotation mark][paragraph break]".
+	
 	
 Chapter Time Out
 
@@ -2711,7 +2730,9 @@ Rule for printing the player's obituary:
 		-- hanged:
 			say "*** HANGED ***";
 		-- shot:
-			say "*** SHOT ***".
+			say "*** SHOT ***";
+		-- won:
+			say "*** YOU WIN ***".
 			
 Rule for amusing a victorious player:
 say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
