@@ -1001,14 +1001,12 @@ The cigar is a prop in Limbo. The description of the cigar is "A stogie."
 
 Section Can
 
-The can is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" as the can. The description of the can is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can is "[if the can is open]like beans. No surprise there[otherwise]like the piece of rancid meat it was next to[end if]". The texture of the can is "[metallic]".
+The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]".
 
 Instead of opening the can:
 	say "What do you want to open it with?"
-	
-Some beans are in the can. Beans are edible. Understand "bean", "beans", "canned" or "precooked" as the beans. The description of the beans is "Beans. The disgusting legume that haunted your childhood." The scent of the beans is "delicious and yet somehow disgusting". The texture of the beans is "slimy and gelatinous".
 
-Does the player mean doing something with the beans:
+Does the player mean doing something with the can of beans:
 	it is likely.
 
 The bean counter [:-)] is a number that varies. The bean counter is zero.
@@ -1049,9 +1047,6 @@ Before eating beans:
 	increase the bean counter by one;
 	try silently switching score notification on;
 	stop the action.
-	
-Instead of taking the beans:
-	say "The thought of ever coming into physical contact with beans of any variety [one of]gives you vertigo[or]makes the room seem to waver and spin[or]gives you palpatations[or]gives you a sense of foreboding doom[at random]."
 	
 Before giving the can to someone (called the receiver):
 	if the player does not carry the can:
