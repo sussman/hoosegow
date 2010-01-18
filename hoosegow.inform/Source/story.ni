@@ -614,7 +614,7 @@ Carry out directedSpitting at:
 			say "That would only get him angry." instead;
 		-- marshal: 
 			say "You don't think that will win any points with him." instead;
-		-- army: 
+		-- army guards: 
 			say "They have guns with bullets. You have tobacco." instead;
 		-- floor:
 			say "[one of]The tobacco juice splays outward from the point of impact and slowly soaks into the bone-dry concrete, leaving a lasting stain that you can be proud of.[or]You spew another work of art on the jail floor.[or]Splotch![stopping]";
@@ -1276,7 +1276,7 @@ The banana is an edible prop in the cabinet. The description of the banana is "[
 To say rawhide:
 	say "like old rawhide. Rollin', rollin', rollin'.";
 
-The gunbelt is a wearable prop. The gunbelt is in the cabinet. The description of the gunbelt is "A leather gun belt with holster[if the gun is in the holster], which contains your trusty six-shooter[end if]." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]". Understand "gun belt" as the gunbelt. [because compiler gets upset if we call it a gun-space-belt]
+The gunbelt is a wearable prop. The gunbelt is in the cabinet. The printed name of gunbelt is "gun belt". The description of the gunbelt is "A leather gun belt with holster[if the gun is in the holster], which contains your trusty six-shooter[end if]." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]". Understand "gun belt" as the gunbelt. [because compiler gets upset if we call it a gun-space-belt]
 
 The holster is an open container that is part of the gunbelt. The description of the holster is "The leather pocket in which your trusty six-shooter [if the gun is in the holster]now sits[otherwise]would normally sit, but which is empty at the moment[end if]." The scent of the holster is "[rawhide]". The carrying capacity of the holster is one.
 
@@ -1694,7 +1694,7 @@ Chapter Characters
 
 Section Army
 
-The army is a person in Limbo.
+The army guards are in Limbo. The army guards are plural-named. The army guards are fixed in place. The description of the army guards is "A number of well-armed young frontier men in regimental uniforms. They look tough."
 
 Section Deputy
 
@@ -1723,6 +1723,9 @@ Instead of searching the deputy when the deputy is not awake:
 		say "You don't find anything else but pocket lint."
 		
 Instead of doing something with the deputy when the deputy is asleep or the deputy is drugged:
+	if the sheriff is in the jailhouse:
+		say "[wake-deputy]" as dialogue;
+		the rule succeeds;
 	if the current action is searching or examining or shooting:
 		continue the action;
 	otherwise:
@@ -1748,7 +1751,7 @@ The leash is part of the collar. The description of the leash is "A simple bit o
 
 Section Marshal
 
-The marshal is a person in Limbo. The scent of the marshall is "of authority".
+The marshal is a person in Limbo. The scent of the marshall is "of authority". The description of the marshal is "A no-nonsense man in this late thirties, with an intense face and ramrod straight posture. His uniform is immaculately pressed. He is so by-the-book and lawful that he's almost scary." Understand "marshall" as the marshal.[for people like me who for some reason can't accept that marshal is spelt with one 'ell']
 
 Section Muddy
 
@@ -1975,7 +1978,7 @@ Instead of taking or pulling or attacking or taking off the spur when the spur i
 
 Section Sheriff
 
-The sheriff is a man in Limbo. The scent of the sheriff is "like trouble".
+The sheriff is a man in Limbo. The scent of the sheriff is "like trouble". The description of the sheriff is "An older, balding man with a perpetual smirk."
 
 Chapter Scripted Conversations
 
@@ -2556,7 +2559,7 @@ Instead of going a direction (called the way) during the PlusQueDenouement:
 			say "[one of]Muddy relents and says, [quotation mark]All right, Rick. I reckon we done what we can done. Let's make for the hills.[quotation mark][paragraph break]As you head out of the office, two men appear in the door way: Sheriff Cheney and Federal Marshal McLuhan. They are followed by a small detachment of U.S. Army guards[or]The army guards block your exit[stopping].";
 			now the marshal is in the office;
 			now the sheriff is in the office;
-			now the army is in the office;
+			now the army guards is in the office;
 			the rule succeeds;
 		otherwise:
 			continue the action;
@@ -2574,6 +2577,12 @@ Chapter Crunch Time
 Crunch Time is a scene. Crunch Time begins when the sheriff is in the office.[and runs until the end of game, overlapping with the plus que denouement]
 
 The crunch counter is a number that varies. The crunch counter is zero.
+
+Every turn during crunch time:
+	increase the crunch counter by one;
+	if the crunch counter is two:
+		say "[pre-crunch][paragraph break]" as dialogue.
+	
 
 
 Chapter The End
