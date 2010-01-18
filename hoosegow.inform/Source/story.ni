@@ -214,10 +214,19 @@ Carry out blowing at:
 		-- window:
 			say "The berry shoots out the window and into the street.";	
 		-- the cup:
-			say "Plop!";
+			say "[spiked coffee dialogue]";
+			now the coffee is spiked;
+		-- the coffee:
+			say "[spiked coffee dialogue]";
+			now the coffee is spiked;
+		-- the bell:
+			hit-bell;
 		-- otherwise:
 			say "The berry hits [the noun], then bounces away out of sight.";
 	now the berry is part of the vine.
+
+To say spiked coffee dialogue:
+	say "The berry splatters against the side of the cup, and its juice drips into the steaming brew.[if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the coffee, 'Now, if we can only get the deputy to come back and drink that coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
 
 
 Section Chewing
@@ -622,16 +631,7 @@ Carry out directedSpitting at:
 		-- window:
 			say "The wad shoots out the window and into the street.";
 		-- bell:
-			if Flash is in the office:
-				if the bell is not rung:
-					say "Ding! The wad hits the bell so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
-					now the bell is rung;
-					make coffee;
-				otherwise: [bell has already been rung, Flash is still around]
-					say "The wad ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
-					make coffee;
-			otherwise:[still the bell, but nothing to do with Flash]
-				say "The bell rings hollowly.";
+			hit-bell;
 		-- the hook:
 			say "The bell would be more fun." instead;
 		-- the grate:
@@ -649,6 +649,18 @@ Carry out directedSpitting at:
 	
 To say big target:
 	say "[one of]Where's the challenge in that?[or]Hardly a test of your aimin[apostrophe] abilities.[or]Child's play. Your grandmother could hit [a noun].[at random]".
+	
+To hit-bell:
+	if Flash is in the office:
+		if the bell is not rung:
+			say "Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
+			now the bell is rung;
+			make coffee;
+		otherwise: [bell has already been rung, Flash is still around]
+			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
+			make coffee;
+	otherwise:[still the bell, but nothing to do with Flash]
+		say "The bell rings hollowly.".
 	
 
 Section Talking
@@ -1400,7 +1412,7 @@ The iron pipe is a large part of the protocappuccinomatic. The description of th
 
 The cup is in Limbo. The description of the cup is "A white porcelein mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
-Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".
+Some coffee is in the cup. The description of some coffee is "Steaming hot, black Joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".  The coffee can be spiked.  The coffee is not spiked.
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
