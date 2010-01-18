@@ -49,7 +49,6 @@ Chapter Rules Modifications
 The block kissing rule is not listed in any rulebook.
 The kissing yourself rule is not listed in any rulebook.
 
-
 Chapter Time
 
 Time-checking is an action applying to nothing.  Understand "time" as time-checking.
@@ -62,7 +61,6 @@ Carry out time-checking:
 		say "You have no way of checking the time.";
 	end if.
 	
-
 Section Intervisibility
 [Taken from example 346 "Rock Garden"]
 
@@ -131,6 +129,8 @@ Chapter Class Definitions
 
 A prop is a kind of thing. It is usually portable. [If props can be carried out of their initial room, they should not be in the room description, but appear in the room contents list.]
 
+A sheet is a kind of prop. [paper]
+
 A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.] 
 
 A thing can be large. Usually a thing is not large.
@@ -143,6 +143,10 @@ A thing has some text called the inscription. The inscription of something is us
 Definition: A thing (called the item) is bootlike if the item is the left boot or the item is the right boot.
 
 An ungulate is a kind of backdrop.
+
+Conclusion is a kind of value. The conclusions are hanged, shot, escaped and alive.  
+
+Endgame is a conclusion that varies. The endgame is usually alive.
 
 Chapter General Routines
 		
@@ -172,25 +176,6 @@ To say (regular verb - some text) in correct agreement:
 
 Chapter Verbs
 
-Section Using
-
-Understand the command "use" as something new.  Using is an action applying to one thing. Understand "use [a thing]" as using.
-
-Check using:[this is where all the overriding happens for specific cases]
-	if the noun is:
-		-- harmonica: 
-			try playing the harmonica instead;
-		-- stool:
-			try climbing the stool instead;
-		-- Muddy:
-			say "He's the one that usually manipulates you!" instead;
-		-- Pete:
-			say "You ain't got no use for a preacher." instead;
-		-- can:
-			say "You can take care of business later." instead.
-
-Carry out using:
-	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
 
 Section Asking
 
@@ -263,6 +248,14 @@ Carry out chewing:
 				  
 Does the player mean chewing the tobacco:
 	it is very likely.
+	
+Instead of dropping the tobacco:
+	if the player carries the tobacco or the tobacco is in the mouth:
+		say "Tobacco is too valuable to put down just anywhere, so you put it back in the tin.";
+		now the tobacco is in the tin;
+		now the tin is closed;
+	otherwise:
+		say "You don't have any."
 
 Section Digging
 
@@ -303,6 +296,36 @@ Carry out opening it with:
 	say "You open [the noun] with [the second noun][if the noun contains something] revealing [the contents of the noun][end if].";
 	if the noun is the can:
 		award one point.
+		
+Section WarrantForging
+
+To say need-pen:
+	say "something to serve as a pen";
+	
+To say need-ink:
+	say "something to serve as ink".
+
+WarrantForging is an action applying to nothing.
+
+Check WarrantForging:
+	if Muddy carries the warrant and Muddy carries the feather and Muddy is inked:		
+		continue the action;
+	otherwise:
+		say "He continues, [quotation mark]To finish this business with the warrant, I'll need ";
+		if Muddy does not carry the feather and Muddy is not inked:
+			say "both [need-pen] and another [need-ink]";
+		otherwise if Muddy carries the feather and Muddy is not inked:
+			say "[need-ink]";	
+		otherwise if Muddy does not carry the feather and Muddy is inked:
+			say "[need-pen]";
+		otherwise:
+			say "the warrant itself";
+		say ".[quotation mark][paragraph break]" instead.
+				
+Carry out WarrantForging:
+	say "Muddy applies his quill to the paper and with a few flourishes, scrawls an additional sentence on the warrant. He blows gently on it to dry the [quotation mark]ink[quotation mark] and hands the warrant back to you for your inspection.";
+	now Rick carries the warrant;
+	now the warrant is edited.
 	
 Section FunnyLooking
 
@@ -405,10 +428,35 @@ Carry out ringing:
 	
 Section Shooting
 
-Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting when the player encloses the gun.
+Shooting is an action applying to one thing. Understand "shoot [a thing]" as shooting.
+
+Check shooting:
+	if the player does not carry the gun:
+		if the player encloses the gun:
+			now the player carries the gun;
+			say "(first drawing your gun)[command clarification break]";
+		otherwise:
+			if the player can see the gun:
+				say "(first picking up your gun)[command clarification break]";
+				now the player carries the gun;
+			otherwise:
+				say "You'd need a gun to shoot off anything besides your mouth. And even for that, having a gun near by is recommended." instead.
 
 Carry out shooting:
-	say "Bang!" [### a placeholder]
+	change the block stage business flag to true;
+	say "You squeeze the trigger (click). [one of]Dang, no bullets. [or][stopping][paragraph break]";
+	if the sheriff is in the jailhouse:
+		say "A barrage of pistol discharges cut through the air. You try to imagine that the bullets are just insubstantial phantoms, but that doesn't pan out for you in the end. Riddled with bullets and torn to pieces, your body collapses in a bloody mess.";
+		change the endgame to shot;
+		end the game in death;
+	otherwise:
+		if the noun is:
+			-- Muddy:
+				say "Muddy says, [quotation mark][one of]Cut that out, Rick. A man could get himself dead joking around like that[or]Really Rick, that's annoying[stopping].[quotation mark][paragraph break]";
+			-- Rick:
+				say "You shake off the momentary melancholy.";
+			-- the deputy:
+				say "He's too looped on Peruvian Snoozeberries to notice your attempt."	
 	
 Section Showing
 
@@ -642,6 +690,27 @@ To say smooth:
 	
 To say metallic:
 	say "[smooth] and metallic". 
+	
+Section Using
+
+Understand the command "use" as something new.  Using is an action applying to one thing. Understand "use [a thing]" as using.
+
+Check using:[this is where all the overriding happens for specific cases]
+	if the noun is:
+		-- harmonica: 
+			try playing the harmonica instead;
+		-- stool:
+			try climbing the stool instead;
+		-- Muddy:
+			say "He's the one that usually manipulates you!" instead;
+		-- Pete:
+			say "You ain't got no use for a preacher." instead;
+		-- can:
+			say "You can take care of business later." instead.
+
+Carry out using:
+	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
+
 
 Chapter General Insteads
 
@@ -863,13 +932,13 @@ times-used		verbage
 0					"What a wok is SPAM! Hot, nubile raisins, how if it is not feckless tea? INFORM and mooing hot espresso at a mere apple? INACTION cowlick angles? Incomprehension, how'd you like a cod? The bow tie unfurled, the parabola ova nibbles; and yacht to my wad isthmus queen tennis off dost? MY CANDLE LIGHTS ME NOT, Norway man knees air; throw by your Somali lint use, eat meat, seize Sue"
 
 To say herring:
-	say "Kippered herring, please!"
+	say "Kippered herring, please![no line break]".
 
 Table of Pete's Strange Behavior
 times-used		verbage
 0					"shakes and twists spasmodically."
 0					"murmurs repeatedly, [quotation mark][herring] [herring] [herring][quotation mark]."
-0					"peddles the air with his feet, while making bell ringing sounds."
+0					"peddles the air with his feet, while making sounds like a ringing bell."
 0					"rolls back and forth on the bench."
 0					"curls up into a ball, muttering to himself."
 0					"froths at the mouth."
@@ -1059,13 +1128,68 @@ The stain is scenery in Limbo. The description of the stain is "A dark brown sta
 
 Section Warrant
 
-The warrant is a prop. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper".
+The warrant is a sheet. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper". The warrant can be recognized. The warrant is not recognized.
 
 To say warrant-text:
 	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
 	
 Instead of reading the warrant:
-	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][paragraph break][or]It says: [warrant-text].[stopping]"
+	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][paragraph break][or]It says: [warrant-text].[stopping]";
+	change the block stage business flag to true;
+	if the warrant is not recognized:
+		change the current plan to two;
+		change the ask-me counter to zero;
+		now the warrant is recognized.
+
+Instead of giving the warrant to Muddy:
+	if Muddy carries the warrant:
+		say "Muddy already has it.";
+		the rule fails;
+	if the warrant is edited:
+		say "[quotation mark]I already done fixed it up, Rick.[quotation mark][paragraph break]";
+		the rule fails;
+	if the warrant is not recognized:
+		say "Muddy asks, [quotation mark][one of]What's that paper you is waving in my face, Rick[or]What is it[stopping]?[quotation mark][paragraph break]";
+		the rule fails;
+	if the ask-me counter is not 6:
+		say "Muddy brushes it aside and says, [quotation mark][one of]Wait a minute. I ain't told you my plan yet. Don't go all a-jumping in front of my wagon. Why don't you ask me about the plan[or]Could you ask my my plan first[stopping]?[quotation mark][paragraph break]";
+		the rule fails;
+	now Muddy carries the warrant;
+	say "Muddy accepts the document and stares at it for a while, turning it this way and that.";
+	try WarrantForging. 
+
+Instead of giving the berry to Muddy during forgery:		
+	if the ask-me counter is 6: [i.e., the idea about forging has been expressed]
+		if Muddy is inked:
+			say "Thanks, Rick, but I already got some fine ink. Don't need a heap of ink, you know.";
+		otherwise:
+			now Muddy is inked;
+			now the berry is part of the vine;
+			say "[quotation mark]Thank you kindly. I reckon that will make a right fine ink.[quotation mark][if Muddy carries the feather] Muddy dabs the feather in the berry, soaking up the berry juice. [end if][paragraph break]";
+			try WarrantForging.
+		
+Instead of giving the feather to Muddy:
+	say "[quotation mark]Thanks, partner. That'll make a right proper pen.[quotation mark][paragraph break]";
+	now Muddy carries the feather;
+	try WarrantForging.  
+	
+Instead of giving the tobacco to Muddy during forgery:
+	if the ask-me counter is 6:
+		if Muddy is inked:
+			say "Thanks, Rick. But I already got me some ink.";
+		otherwise:
+			now Muddy is inked;
+			now the tobacco is in the tin;
+			say "Muddy reluctantly accepts the tobacco, saying, [quotation mark]Well, I suppose I could use the tobacco juice.[quotation mark][if Muddy carries the feather] Muddy chews the tobacco some more, fills his makeshift pen with the juice, and throws the wad out the window. [end if][paragraph break]";
+		try WarrantForging.
+
+Instead of showing the warrant to the deputy when the warrant is edited:
+	if the gate is not locked:
+		say "The deputy acknowledges the official-looking document with a yawn.";
+	otherwise:
+		say "[get out of jail free]";
+		now the gate is unlocked;
+		now the gate is open.
 
 Chapter Jailhouse Region
 
@@ -1116,29 +1240,57 @@ To say lever position:
 
 Section Cabinet
 
-The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. A [if the cabinet door is closed]door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass. Despite the distortion, you see your guns and some kind of shiny yellow object. Maybe gold, you think, hopefully[otherwise]The cabinet door is open and inside you see [a list of things in the cabinet].[end if]." The texture of the cabinet is "fine-grained".
+The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter that is part of the cabinet. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. Its [cabinet-door-details]." The texture of the cabinet is "fine-grained".
 
 Does the player mean opening the cabinet:
 	It is very likely.
 	
+To say cabinet-door-details:
+	if the cabinet is closed:
+		say "door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet's uneven glass";
+		if the cabinet contains something:
+			say ". Despite the distortion, you see [if the cabinet contains the gunbelt]what looks like a gunbelt [end if][if the cabinet contains the gun and the cabinet contains the banana]and [end if][if the cabinet contains the banana]some kind of shiny yellow object. Maybe gold, you think, hopefully[end if]";
+	otherwise:
+		say "wood and glass door is open and inside you see [a list of things in the cabinet]".
+	
+The description of the cabinet door is "The cabinet's [cabinet-door-details]."
+
+Instead of putting something (called the item) on the cabinet:
+	try putting the item on the top of the cabinet.
+
+Instead of opening the cabinet door:
+	try opening the cabinet.
+	
+Instead of closing the cabinet door:
+	try closing the cabinet.
+	
+After opening the cabinet:
+	say "[one of][loot in the cabinet][or]You open the cabinet[if the cabinet contains something] revealing [a list of things in the cabinet][otherwise], but it is empty[end if][stopping]."
+	
 [###CONSIDER: suppress disambiguation message]
 
-The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity".
+The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana. This is one of those times[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity".
 
 [TODO:  what happens when we point the banana at someone?  Put it in our ear?]
 
 To say rawhide:
 	say "like old rawhide. Rollin', rollin', rollin'.";
 
-The gunbelt is a wearable prop. The description of the gunbelt is "A leather gun belt with holster." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]".
+The gunbelt is a wearable prop. The gunbelt is in the cabinet. The description of the gunbelt is "A leather gun belt with holster[if the gun is in the holster], which contains your trusty six-shooter[end if]." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]".
 
-The holster is an open container that is part of the gunbelt. The description of the holster is "A leather pouch that holds your gun." The scent of the holster is "[rawhide]".
+The holster is an open container that is part of the gunbelt. The description of the holster is "The leather pocket in which your trusty six-shooter [if the gun is in the holster]now sits[otherwise]would normally sit, but which is empty at the moment[end if]." The scent of the holster is "[rawhide]". The carrying capacity of the holster is one.
 
 The gun is a prop in the holster. The description of the gun is "[one of]You quickly inspect your gun and are alarmed to discover that it's unloaded[or]A simple six-shooter pistol[stopping]." The indefinite article of the gun is "your". Understand "pistol" as the gun. The scent of the gun is "like machine oil and gunpowder". The texture of the gun is "solid and heavy".
 
 After taking the gunbelt:
 	say "You strap on your gun belt.";
 	now the player wears the gunbelt.
+	
+After eating the banana:
+	say "You eat the banana, peel and all. Because cowboys are made of stern stuff and need the fiber."
+	
+After taking the gun:
+	say "It feels good in your hand."
 
 Section Chair
 
@@ -1148,16 +1300,76 @@ The scent of the chair is "like an amalgam of the butts that have sat on it over
 
 Section Desk
 
-The desk is a large furniture in the office. The drawer is a closed openable container that is part of the desk. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface.[if the drawer is mentioned]drawer description[end if]." The texture of the desk is "old and battered".
+The desk is a large furniture in the office. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface[if the drawer is mentioned]e. The rear of the desk has a small drawer[end if]." The texture of the desk is "old and battered".
 
-The description of the drawer is "A small drawer". The drawer can be mentioned. The drawer is not mentioned. The drawer is lockable and locked. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?"
+The drawer is part of the desk. The drawer is a closed openable lockable locked container. The description of the drawer is "A small, closed drawer built into the back of the desk. The drawer has a small metal lock." The drawer can be recognized. The drawer is not recognized. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?"
+
+The metal lock is part of the drawer. The description of the metal lock is "A simple metal lock." 
+	
+Instead of inserting the brass key into the metal lock:
+	try opening the drawer with the brass key.
+	
+Before doing something other than examining with the metal lock:
+	change the noun to the drawer;
+	continue the action.
 
 After opening the drawer:
-	say "[one of]The lock clicks and you slide the drawer open revealing a yellow telegram and sheaf of papers titled [quotation mark]Patent[quotation mark][or]You open the drawer[if the drawer contains something]revealing [a list of things in the drawer][end if][stopping]." 
+	say "You slide the drawer open revealing [a list of things in the drawer]." 
 	
-The telegram is in the drawer. The description of the telegram is "A yellow paper on the stationary of the Western Union telegraph company. The message on the telegram is addressed to the sheriff and reads: [quotation mark]AGREE TO YOUR OFFER [bracket]STOP[close bracket] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [bracket]STOP[close bracket] CONGRATULATIONS ON WINNING LOTTERY [bracket]STOP[close bracket] SIGNED JEFFRIES & BRAND STEAMWORKS CO LTD [bracket]STOP[close bracket][bracket]END[close bracket][quotation mark]." Understand "paper", "yellow", and "message" as the telegram. The texture of the telegram is "like cheap, almost tissue-thin paper".
+The folder is an openable closed container. The folder is in the drawer. Understand "cardboard" or "manila" as the folder.
 
-The patent is in the drawer. The description of the patent is "A thick technical document describing the coffee machine invented by the sheriff[one of]. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages[or][stopping]." The texture of the paper is "like a crisp, freshly printed document".
+Instead of examining the folder:
+	if the folder is not open or the player does not carry the folder:
+		say "(first ";
+		if the player does not carry the folder:
+			say "taking ";
+		if the player does not carry the folder and the folder is closed:
+			say "and ";
+		if the folder is closed:
+			say "opening ";
+		say "the folder)[command clarification break]";
+	now the folder is open;
+	now the player carries the folder;
+	say "A manila cardboard folder [if the folder contains something]containing [a list of things in the folder][otherwise]that is empty[end if].";
+		
+Instead of inserting something (called the item) into the folder:
+	if the item is not a sheet:
+		say "The folder is only made to hold papers.";
+	otherwise:
+		continue the action.
+		
+Instead of searching the folder:
+	now the folder is open;
+	continue the action.
+	
+The telegram is a sheet in the folder. The description of the telegram is "A yellow paper on the stationary of the Western Union telegraph company. The message on the telegram is addressed to the sheriff and reads:[telegram-text]." Understand "paper", "yellow", and "message" as the telegram. The texture of the telegram is "like cheap, almost tissue-thin paper".
+
+To say telegram-text:
+	say "[quotation mark]AGREE TO YOUR OFFER [bracket]STOP[close bracket] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [bracket]STOP[close bracket] CONGRATULATIONS ON WINNING LOTTERY [bracket]STOP[close bracket] SIGNED JEFFRIES & BRAND STEAMWORKS CO LTD [bracket]STOP[close bracket][bracket]END[close bracket][quotation mark]".
+	
+Instead of reading the telegram:
+	say "It says: [telegram-text]."
+
+The patent is a sheet in the folder. The description of the patent is "A thick technical document describing the coffee machine invented by the sheriff[one of]. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages[or][stopping]." The texture of the paper is "like a crisp, freshly printed document".
+
+Instead of reading the patent:
+	say "It's a long, complicated document, and you don't have the time or inclination to sit down and study it right now. It's obvious that the sheriff has big plans for his coffee invention and that the cost of putting his plan into action is way beyond what any small town sheriff could afford."
+
+The note is a sheet in the folder. The description of the note is "The note is written in a flowing cursive script. It reads:[paragraph break][note-text]."
+
+Instead of reading the note:
+	say "You read the note aloud.[paragraph break][note-text].[paragraph break]Muddy [one of]shakes his head with enjoyment and shouts, [quotation mark]Bully for you Ella[or]nods in agreement. [quotation mark]That's telling him[stopping]![quotation mark][paragraph break]"
+
+To say note-text: 
+	say "[quotation mark]Dear Sam, I can't go on like this. When you were just a plain old sheriff that was one thing, but since you started inventing stuff, I can see what you are made of. A man that kicks my dog isn't cut out for marrying anyone. I thought you were an honest law man, but I can see what you've become. Don't come around no more or my pa might just take a disliking to you. I was going to send you my ring, but I found out it was glass. Why am I not surprised? You are a scoundrel and not fit to wear that uniform.[paragraph break]Explicitly not yours,[paragraph break]Ella[quotation mark]". 
+	
+The receipt is a sheet in the folder. The description of the receipt is "A receipt from Jeffries & Brand Steam Works Co Ltd of Witchita Falls. The receipt is for four hundred dollars worth of pipes and fittings purchased by Sheriff Sam Cheney of Crawdad's Gulch. At the bottom of the note, written in red is the following postscriptum: [postscriptum]."
+
+To say postscriptum:
+	say "[quotation mark]Your account with us is severely in arrears. No further credit will be extended. Remit all payments immediately or we will take legal or [italic type]other actions[roman type] as required.[quotation mark]".
+	
+Instead of reading the receipt:
+	say "[quotation mark]Well, Muddy,[quotation mark] you say, [quotation mark]it's a business receipt of some kind, from J&B Steam Works down in Witchita Falls. Looks like the Sheriff Cheney done gone himself deep into debt on account of his coffee invention.[quotation mark][paragraph break]Muddy looks at the receipt and replies, [quotation mark][one of]I reckon, he's got more debt that we ever had loot[or]I don't twig how a jerk water town two-bit sheriff like Cheney could get that kind of greenery[or]Indeed[stopping].[quotation mark][paragraph break]".
 
 Section Outdoors
 
@@ -1194,7 +1406,7 @@ Some coffee is in the cup. The description of some coffee is "Steaming hot, blac
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
-The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute. The texture of the shoot is "[smooth]".
+The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute. The texture of the chute is "[smooth]".
 
 To make coffee:
 	now the coffee is in the cup;
@@ -1202,7 +1414,7 @@ To make coffee:
 
 Section Swinging Doors
 
-The swinging doors are a large plural-named scenery door in the office. The swinging doors are north of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]." The texture of the swinging doors is "dry and splintery".
+The swinging doors are a large plural-named scenery door in the office. The swinging doors are east of the office. The description of the swinging doors is "Two swinging louvered doors meet in the middle at chest height. You can see out the door, towards the open range and some farm fields.  A hook hangs next to the door[if the bell is on the hook], with a bell hanging on it[end if]." The texture of the swinging doors is "dry and splintery".
 
 Section Whiskey
 
@@ -1227,17 +1439,15 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell." The texture of the gate is "cold and unyielding".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "A metal gate stands between you and freedom. The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock which clicked definitively behind you when you were thrown into the cell." The texture of the gate is "cold and unyielding".
 
-The gate lock is part of the gate.
+The gate lock is part of the gate. The description of the gate lock is "A cast iron mechanical device of diabolical ingenuity. It is like no lock you've ever seen."
 
 Instead of opening the gate lock:
 	try opening the gate.
 	
 Instead of opening the gate with the brass key:
 	say "The key is way too small to fit the medieval lock which imprisons you."
-
-
 
 Section Stool & Bench
 
@@ -1485,18 +1695,44 @@ The army is a person in Limbo.
 
 Section Deputy
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[if the deputy is conscious]Big and strong, but lacking numerically in ancestors[otherwise][one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gunbelt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping][end if]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy can be conscious. The deputy is conscious.
+Consciousness is a kind of value. The consciousnesses are awake, drugged, and asleep.
 
-Rule for reaching inside a room when searching the deputy:
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.
+
+To say deputy-description:
+	if the consciousness of the deputy is:
+		-- awake:
+			say "Big and strong, but lacking numerically in ancestors";
+		-- drugged:
+			say "The deputy is only barely awake. His face is blanker than usual, and his eyelids are heavy";
+		-- asleep:
+			say "[one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gunbelt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping]"
+
+Rule for reaching inside a room when doing something with the deputy and introduction is not happening:
 	allow access.
 
-Instead of searching the deputy when the deputy is not conscious:
+Instead of searching the deputy when the deputy is not awake:
 	if the deputy carries the warrant:
 		say "You rifle through his pants pockets and find a federal warrant. You also find a small brass key. Naturally, you take both.";
 		now the player carries the brass key;
 		now the player carries the warrant;
 	otherwise:
-		say "You don't find anything but pocket lint."
+		say "You don't find anything else but pocket lint."
+		
+Instead of doing something with the deputy when the deputy is asleep or the deputy is drugged:
+	if the current action is searching or examining or shooting:
+		continue the action;
+	otherwise:
+		change the consciousness of the deputy to drugged;
+		the deputy zonks out in two turns from now;
+		say "The deputy stirs slowly, his eyes half-shut."
+		[###TODO add any other drugged deputy behaviors here.]
+		
+At the time when the deputy zonks out:
+	say "The deputy[one of] slides back down to the floor and passes out again[or]'s eyes slowly close and he drifts back to sleep[or] yawns and snuggles up to the jail bars, already asleep[at random].";
+	change the consciousness of the deputy to asleep.
+	
+
 
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
@@ -1513,7 +1749,7 @@ The marshal is a person in Limbo. The scent of the marshall is "of authority".
 
 Section Muddy
 
-Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". 
+Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be inked. Muddy is not inked.
 
 The scent of Muddy is "[one of]unwashed[or]like he's in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
@@ -1524,6 +1760,15 @@ The frock coat and suit are worn by muddy. The description of the frock coat is 
 
 Instead of searching muddy:
 	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
+	
+[This is meant to be over-ridden by more specific insteads]
+Instead of giving something (called the item) to Muddy:
+	say "Muddy glances at [the item] and says, [quotation mark]I ain't got no idea what I'd do with [an item]. No thanks.[quotation mark][paragraph break]".
+	
+[Make sure Rick and Muddy end up in the same places.]
+After going a direction:
+	move Muddy to the location;
+	continue the action.
 
 Section Pete
 
@@ -1552,7 +1797,7 @@ Check examining the pamphlet:
 Check reading the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The pamphlet is a prop in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet][or][second pamphlet][or][pamphlet sermon][stopping]". 
+The pamphlet is a sheet in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet][or][second pamphlet][or][pamphlet sermon][stopping]". 
 
 Instead of giving the pamphlet to muddy:
 	try showing the pamphlet to muddy.
@@ -1585,6 +1830,9 @@ Before taking the tin:
 The description of the tin is "A rectangular tin of [quotation mark]Spitting Image[quotation mark] chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is [if the tin is open]opened[otherwise]closed[end if][if the tin is open] revealing some [tobacco-appearance][end if]."
 
 Instead of searching the tin:
+	if the tin is closed:
+		say "(first opening the tin)[command clarification break]";
+		now the tin is open;
 	say "It's full of chewing tobacco."
 
 The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "a wad of". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky". Understand "wad", "leaf", and "chaw" as tobacco.
@@ -1795,6 +2043,16 @@ To say deputy responds to whistle:
 	
 To say deputy drinks some coffee:	
 	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]Almost immediately, the deputy spins on his heel and drops to the floor just in front of your jail cell."
+	
+To say get out of jail free:
+	say "The deputy groans deeply and curls up into a ball. You keep poking him with your finger, and finally he rolls towards you, blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office."
+	
+To say rather not hang around:
+	say "[quotation mark]I reckon,[quotation mark] agrees Muddy. [quotation mark]I ain't keen to hang around here no more neither.[quotation mark] You walk out into the pitch dark night, poor but free.[paragraph break]From somewhere ahead of you, Muddy offers, [quotation mark]You know, Rick. While we were in there I did some thinking, and this time I reckon I got a plan that can't fail...[quotation mark][paragraph break]".
+	
+To say loot in the cabinet:
+	say "The cabinet opens to reveal two gun belts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gun belt and straps it on" 
+
 		
 Section Vulture
 
@@ -1808,13 +2066,14 @@ Instead of taking the meat when the meat is on the barrel:
 
 The tail is part of the vulture.  The description of the tail is "The vulture's tail plumage consists of several long, black feathers with white stripes." Understand "plumage" as the tail.
 
+
 The feather is part of the tail. Understand "feathers" as the feather.  The description of the feather is "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."
 	
 Instead of taking the feather:
 	say "You pluck a feather from the vulture's tail, and it twists its head momentarily to glare at you before plunging back to its task of devouring the rotting meat.";
 	increase the score by one;
 	move the feather to the player.
-
+	
 
 Chapter Muddy's Cunning Plans
 
@@ -1850,7 +2109,7 @@ Before asking Muddy about "[muddyplan]":
 		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark][paragraph break]";
 	otherwise:
 		if ask-me counter is six:
-			say "MuddyI already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
+			say "I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
 		otherwise:
 			say "[the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
 			change the ask-me counter to six;
@@ -2018,8 +2277,7 @@ LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more ro
 LibMsg <cannot put if this exceeds carrying capacity>		"There [aintNo]more room on [the main object].[paragraph break]"  
 LibMsg <who disambiguation>		"That warn't clear. Who all do you mean, "  
 LibMsg <which disambiguation>		"Which all do you mean, "  
-LibMsg <whom disambiguation>		"Who all do you want to {command}?[paragraph break]"  
-LibMsg <what disambiguation>		"What in tarnation do you want to {command}?[paragraph break]"  
+LibMsg <whom disambiguation>		"Who all do you want to {command}?[paragraph break]"   
 LibMsg <pronoun not set>		"I don't rightly twig what '{pronoun}' refers to.[paragraph break]"  
 LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash.[paragraph break]"  
 LibMsg <cannot talk to absent person>	"Your cake hole is jabbering, but I can't rightly say to who you is talking.[paragraph break]"  
@@ -2051,7 +2309,7 @@ LibMsg <brief look mode>			"{Story name} is now 'brief' printing mode, what give
 LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before).[paragraph break]"  
 LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty).[paragraph break]"  
 LibMsg <cannot search unless container or supporter>	"You don't find nothing at all.[paragraph break]"  
-LibMsg <cannot search closed opaque containers>		"[youAint] able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
+LibMsg <cannot search closed opaque containers>		"[youAint]able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
 LibMsg <nothing found on top of>	"There [aintNothing]on [the main object].[paragraph break]"  
 LibMsg <cannot open unless openable>	"They ain't something you can open.[paragraph break]"  
 LibMsg <cannot switch on unless switchable>		"They ain't something you can switch.[paragraph break]"  
@@ -2163,7 +2421,7 @@ When introduction ends:
 				
 Chapter Flashing
 
-Flashing is a scene. Flashing begins when introduction ends. Flashing ends when the deputy is not conscious.
+Flashing is a scene. Flashing begins when introduction ends. Flashing ends when the deputy is not awake.
 
 When flashing begins:
 	The deputy returns in one turn from now;
@@ -2217,28 +2475,86 @@ Every turn during flashing:
 			move the deputy to the office;
 			now the deputy carries the warrant;
 			now the deputy carries the brass key;
-			now the deputy is not conscious.
+			now the deputy is asleep.
 				
 Chapter Forgery
 
 Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
 
-When Forgery begins:
-	Muddy has another idea in three turns from now.
+When forgery begins:
+	Muddy gets curious in ten turns from now.
 	
-At the time when Muddy has another idea:
-	change the current plan to 2;
-	change the ask-me counter to zero.
+At the time when Muddy gets curious:
+	if the warrant is not recognized:
+		say "Muddy asks, [quotation mark]Hey Rick, what were that paper you picked off the deputy? It looked real official-like.[quotation mark][paragraph break]";
+		change the block stage business flag to true.
 
 Chapter Denouement
 
-Denouement is a scene. Denouement begins when Rick is not in the jail cell.
+Denouement is a scene. Denouement begins when Rick is not in the jail cell. Denouement ends when the drawer is open.
+
+When denouement begins:
+	now the drawer is recognized.
+
+Instead of exiting when (the denouement is happening or the PlusQueDenouement is happening):
+	say "Which way? West to the jail cell, or east towards the open range?"
+			
+Instead of going a direction (called the way) during the denouement:
+	if the way is east:
+		if the player is in the office:
+			say "[quotation mark][one of]Hold them horses one minute, Rick.[quotation mark] Muddy puts his hand on your shoulder. [quotation mark]We come all this way, and you reckon we ought to leave here empty handed[or]You sure, Rick[stopping]?[quotation mark][paragraph break](yes or no) >>"; 
+			if the player consents:
+				say "[rather not hang around]" as dialogue;
+				change the endgame to escaped;
+				award three points;
+				end the game in victory;
+			otherwise:
+				say "That's more like it, partner. Let's look for some silver linings.";
+			the rule succeeds;
+		otherwise:
+			continue the action;
+	if the way is west:
+		if the player is in the office:
+			continue the action;
+		otherwise:
+			say "You can't go any further west than the jail cell.";
+			the rule succeeds;
+	otherwise:
+		say "You can [if the player is in the office]either go west back into the cell, or exit through the swinging doors to the east[otherwise]only go east, into the office[end if]."
+	
+Chapter PlusQueDenouement
+
+The PlusQueDenouement is a scene. The PlusQueDenouement begins when the denouement ends.
+
+Instead of going a direction (called the way) during the PlusQueDenouement:
+	if the way is east:
+		if the player is in the office:
+			say "[one of]Muddy relents and says, [quotation mark]All right, Rick. I reckon we done what we can done. Let's make for the hills.[quotation mark][paragraph break]As you head out of the office, two men appear in the door way: Sheriff Cheney and Federal Marshal McLuhan. They are followed by a small detachment of U.S. Army guards[or]The army guards block your exit[stopping].";
+			now the marshal is in the office;
+			now the sheriff is in the office;
+			now the army is in the office;
+			the rule succeeds;
+		otherwise:
+			continue the action;
+	if the way is west:
+		if the player is in the office:
+			continue the action;
+		otherwise:
+			say "You can't go any further west than the jail cell.";
+			the rule succeeds;
+	otherwise:
+		say "You can [if the player is in the office]either go west back into the cell, or try to exit through the swinging doors to the east[otherwise]only go east, into the office[end if]."
 
 Chapter The End
 
 Rule for printing the player's obituary:
-	do nothing.
-	[###TODO add obituary]
+	if the endgame is:
+		-- escaped:
+			say "*** ESCAPED ***";
+		-- hanged:
+			say "*** HANGED ***";
+		-- shot:
+			say "*** SHOT ***".
 			
 Rule for amusing a victorious player:
 say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
