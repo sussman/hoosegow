@@ -2139,10 +2139,13 @@ To say talk is cheap:
 	say "The marshal says, [quotation mark][one of]Talk is cheap. All I'm interested in is evidence of your guilt or innocence[or]If you have something to show me, show me. Otherwise, the prisoners will remain silent, awaiting prosecution[stopping].[quotation mark][paragraph break]";
 	
 To say show-telegram:
-	say "You show the telegram to Marshal McLuhan, telling him that he'll find the sheriff's stage coach full of stolen silver just behind the jail.[paragraph break]Sheriff Cheney wipes his brow nervously, [quotation mark]I forgot that's where we left that coach. I do reckon I'm always forgetting where I park. I was going to mention the silver as evidence any second now.[quotation mark][paragraph break]".
+	say "You show the telegram to Marshal McLuhan, telling him that [if silver-found is false]he'll find the sheriff's[otherwise]the sheriff had instructed his men to hide the[end if] stage coach full of stolen silver just behind the jail.[paragraph break][if silver-found is false][forgot-coach][end if]".
+	
+To say forgot-coach:
+	say "Sheriff Cheney wipes his brow nervously, [quotation mark]I forgot that's where we left that coach. I do reckon I'm always forgetting where I park. I was going to mention the silver as evidence any second now.[quotation mark][paragraph break]".
 	
 To say need-more-evidence:
-	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law.[quotation mark]". 
+	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law[if receipt-found is true]. I appreciate that the marshal was in some degree of debt, but I don't see any compelling motivation[end if][if patent-found is true]. It is true that the sheriff had some personal business concerns, but I have seen nothing to make me suspect that he was lacking for funds[end if].[quotation mark][paragraph break]". 
 	
 To say note not enough:
 	say "The marshal reads the note and then looks up. He says evenly, [quotation mark]While this does speak unkindly of the sheriff, his personal life does not interest me. The content of this note is not germane to the matter at hand.[quotation mark][paragraph break]The sheriff wholeheartedly agrees, [quotation mark]Exactly. You is exactly right, marshal.[quotation mark][paragraph break]The marshal looks back at the sheriff with a hint of annoyance." 
@@ -2705,7 +2708,9 @@ Instead of showing something (called the evidence) to someone (called the specta
 				-- the receipt:
 					do nothing;
 				-- the telegram:
-					do nothing;
+					say "[show-telegram]";
+					if receipt-found is false or patent-found is false:
+						say "[need-more-evidence]";
 				-- the patent:
 					do nothing;
 				-- otherwise:
