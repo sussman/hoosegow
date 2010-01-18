@@ -215,6 +215,8 @@ Carry out blowing at:
 			say "The berry shoots out the window and into the street.";	
 		-- the cup:
 			say "Plop!";
+		-- the bell:
+			hit-bell;
 		-- otherwise:
 			say "The berry hits [the noun], then bounces away out of sight.";
 	now the berry is part of the vine.
@@ -622,16 +624,7 @@ Carry out directedSpitting at:
 		-- window:
 			say "The wad shoots out the window and into the street.";
 		-- bell:
-			if Flash is in the office:
-				if the bell is not rung:
-					say "Ding! The wad hits the bell so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
-					now the bell is rung;
-					make coffee;
-				otherwise: [bell has already been rung, Flash is still around]
-					say "The wad ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
-					make coffee;
-			otherwise:[still the bell, but nothing to do with Flash]
-				say "The bell rings hollowly.";
+			hit-bell;
 		-- the hook:
 			say "The bell would be more fun." instead;
 		-- the grate:
@@ -649,6 +642,18 @@ Carry out directedSpitting at:
 	
 To say big target:
 	say "[one of]Where's the challenge in that?[or]Hardly a test of your aimin[apostrophe] abilities.[or]Child's play. Your grandmother could hit [a noun].[at random]".
+	
+To hit-bell:
+	if Flash is in the office:
+		if the bell is not rung:
+			say "Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
+			now the bell is rung;
+			make coffee;
+		otherwise: [bell has already been rung, Flash is still around]
+			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
+			make coffee;
+	otherwise:[still the bell, but nothing to do with Flash]
+		say "The bell rings hollowly.".
 	
 
 Section Talking
