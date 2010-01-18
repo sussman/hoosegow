@@ -2052,9 +2052,8 @@ Instead of taking the meat when the meat is on the barrel:
 
 The tail is part of the vulture. "The vulture's tail plumage consists of several long, black feathers with white stripes." Understand "plumage" as the tail.
 
-[The feather is part of the tail. "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes."    ###JACK TESTING]
+The feather is part of the tail. "[if the feather is part of the vulture]The vulture's tail plumage consists of several long, black feathers[otherwise]A long, black feather[end if] with white stripes." 
 
-The feather is a prop in the jail cell. "A test feather."
 	
 Chapter Muddy's Cunning Plans
 
