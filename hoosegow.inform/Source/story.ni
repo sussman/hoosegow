@@ -2209,16 +2209,22 @@ To say happy-ending:
 	say "[if sent-for-silver is not true]The marshal dispatches two guards to search behind the office, and when they return with corroboration about the stolen silver, the marshal[otherwise]Marshal McLuhan[end if] instructs his guards to restrain and disarm the sheriff, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark] The newly appointed sheriff grins and shakes his hand. As the marshal pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
 
 To say capital-charges:
-	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
+	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark][paragraph break]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
+
+To say silver-discovered:
+	say "An excited looking army guard burst into the room and tells the marshal, [quotation mark]We just found a whole wagon of silver around the back of the jail. Looks like it was stolen from that train.[quotation mark][paragraph break]The sheriff winces, but remains quiet.";
 	
 To say death-note:
-	say "The marshal reads the note, shaking his head sadly.[paragraph break]Several hours later, from your high platform, you and Muddy have an excellent view of the area around Fort Sill.[paragraph break]Muddy turns to you, [quotation mark]Well, reckon we'll be seeing each other real soon now. It was an honor and a pleasure, sir.[quotation mark]There is a creaking sound followed by a falling sensation."
+	say "Several hours later, from your high platform, you and Muddy have an excellent view of the area around Fort Sill.[paragraph break]Muddy turns to you, [quotation mark]Well, reckon we'll be seeing each other real soon now. It was an honor and a pleasure, sir.[quotation mark]There is a creaking sound followed by a falling sensation."
 	
 To say 8AM-text:
 	say "Eight in the morning comes faster than you expected, and the sheriff and marshal show up punctually. You, Muddy and Pete are loaded into a wagon and escorted to Fort Sill. The three of you are marched up the gallows, and ropes are tightened around your necks.[paragraph break]From the other side of the preacher, Muddy yells over to you, [quotation mark]Rick...Rick....[quotation mark][paragraph break]You ignore him. You're just not in the mood.[paragraph break]Muddy persists. [quotation mark]Rick... Rick....[quotation mark][paragraph break][quotation mark]What?[quotation mark] you huff. [quotation mark]I hope this ain't another of your plans. It would be a little late.[quotation mark][paragraph break][quotation mark]Nope, no plan Rick. I just wanted to mention that from up here, I can see our house.[quotation mark][paragraph break]The floor falls away, and everything goes dark."
 	
 To say meat-text:
 	say "[one of]When your eyes refocus, you can see Muddy leaning over you, has face an expression of concern.[paragraph break][quotation mark]You done fainted, Rick. Flat out like a board. Didn't say nothing, at all. Just went down like a hog at a rodeo[quotation mark][or]After some time, you pick yourself off the ground, where you have collapsed. Muddy just shakes his head, incredulous of your inability to learn from your mistakes. Like he should talk[or]You wake up with a pain in your [one of]head[or]back[or]leg[or]arm[or]neck[or]feet[at random], having once again passed out[stopping].[paragraph break]". 
+	
+To say muddy-clues:
+	say "Muddy whispers, [quotation mark][one of]Rick, we ain't got long. I reckon that marshal is someone what can be reasoned with[or]We got to show that marshal something. I reckon maybe we could make up some kind of excuse or shift the blame, maybe[or]Rick, we're almost out of time. You got to convince that marshal that we ain't no more crooked than that sheriff[stopping].[quotation mark][paragraph break]"
 
 		
 Section Vulture
@@ -2721,8 +2727,7 @@ Chapter Crunch Time
 Silver-found is a truth state that varies. Silver-found is false.
 Receipt-found is a truth state that varies. Receipt-found is false.
 Patent-found is a truth state that varies. Patent-found is [patently] false.
-Sent-for-silver is a truth state that varies. Sent-for-silver is false.
-Sent-for-telegram is a truth state that varies. Sent-for-telegram is false.
+Sent-for-silver is a truth state that varies. Sent-for-silver is false..
 
 Crunch Time is a scene. Crunch Time begins when the sheriff is in the office.[and runs until the end of game, overlapping with the plus que denouement]
 
@@ -2733,11 +2738,44 @@ Every turn during crunch time:
 		say "[happy-ending]";
 		change the endgame to won;
 		award five points;
-		end the game in victory.
+		end the game in victory;
 	increase the crunch counter by one;
 	if the crunch counter is:
 		-- 1:
-			say "[pre-crunch]" as dialogue.
+			say "[pre-crunch]";
+		-- 2: 
+			say "[muddy-clues]";
+		-- 3:
+			say "[capital-charges]";
+		-- 4:
+			say "[muddy-clues]";
+		-- 5:
+			say "Sheriff Cheney walks behind the office desk[if the drawer is unlocked] and is alarmed to see that the drawer has been unlocked[end if].";
+		-- 6:	
+			say "[muddy-clues]";
+		-- 7:
+			say "[silver-discovered]";
+			change sent-for-silver to true;
+		-- 8:
+			say "The marshal advises the sheriff that he will need the federal warrant to take you and Muddy to the Fort for hanging.";
+		-- 9:
+			say "The sheriff searches the office in vain for the federal warrant for your arrest, and not finding it, sends a guard to fetch a copy from the telegraph office. He continues to search, though, as if looking for some other papers.";
+		-- 10:
+			say "The sheriff looks nervously around the office.";
+		-- 11:
+			say "The sheriff looks in his cabinet and behind the portrait.";
+		-- 12:
+			say "The sheriff looks through everything in the jail cell, still searching.";
+		-- 13:
+			say "An army guard enters the office and hands a yellow telegram form to the federal marshal.";
+		-- 14:
+			say "The marshal telegram, shaking his head sadly.";
+		-- 15:
+			say "The marshal commands his men to take you into custody and escort you out to the waiting coach.";
+		-- 16:
+			say "[death-note]";
+			change the endgame to hanged;
+			end the game in death.
 		
 Instead of asking someone (called the auditor) about some topic (called the issue) during the plusquedenouement:
 	if the auditor is:
@@ -2763,6 +2801,11 @@ Instead of showing something (called the evidence) to someone (called the specta
 			continue the action;
 		-- the marshal:
 			if the evidence is:
+				-- the warrant:
+					say "The marshall examines the warrant briefly and says, [quotation mark]This warrant is real, although that last ludicrous bit is obviously forged. How could you ever hope to find anyone stupid enough to fall for such an obvious trick?[quotation mark][paragraph break]";
+					say "[death-note]";
+					change the endgame to hanged;
+					end the game in death;
 				-- the note:
 					say "[note not enough]";
 				-- the receipt:
