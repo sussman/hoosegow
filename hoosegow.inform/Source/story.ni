@@ -2054,7 +2054,28 @@ To say rather not hang around:
 	say "[quotation mark]I reckon,[quotation mark] agrees Muddy. [quotation mark]I ain't keen to hang around here no more neither.[quotation mark] You walk out into the pitch dark night, poor but free.[paragraph break]From somewhere ahead of you, Muddy offers, [quotation mark]You know, Rick. While we were in there I did some thinking, and this time I reckon I got a plan that can't fail...[quotation mark][paragraph break]".
 	
 To say loot in the cabinet:
-	say "The cabinet opens to reveal two gunbelts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gunbelt and straps it on" 
+	say "The cabinet opens to reveal two gunbelts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gunbelt and straps it on".
+
+To say pre-crunch:
+	say "Sheriff Cheney surges forward pointing his finger at you and Muddy, [quotation mark]It were these two what blown up that train tunnel! They's escaping! Look, they done killed my deputy! We should drop [apostrophe]em where they stand.[quotation mark][paragraph break]The marshal looks uncertain and waves the army guards forward, training their pistols on you. He rests his hand on the sheriff's trigger arm and says, [quotation mark]Sheriff, without any evidence to substantiate your accusation regarding the train robbery, I was reluctant to see these men hanged without a trial. Given the corpse of a lawman in front of us, though, even I have to agree that justice should be swift and definitive in this instance.[quotation mark]".
+	
+To say wake-deputy:
+	say "Seeing the sheriff, the deputy sobers up immediately and jumps to his feet. [quotation mark]I was just resting my eyes for a moment, sir, and helping these gentlemen hang your portrait up.[quotation mark][paragraph break]The marshal looks confused and asks the deputy, [quotation mark]Hang up his portrait?[quotation mark][paragraph break][quotation mark]Well sure, mister marshal, sir. The sheriff done told me they was our welcome guests and that he wanted his picture hung up.[quotation mark][paragraph break]The marshal raises his eyebrows suspiciously, [quotation mark]You had federal suspects tidying up your office? Sheriff Cheney, I have to say that seems quite sloppy, and not in keeping with the public trust inherent in your position.[quotation mark][paragraph break]". 
+	
+To say show-telegram:
+	say "You show the telegram to Marshal McLuhan, telling him that he'll find the sheriff's stage coach full of stolen silver just behind the jail.[paragraph break]Sheriff Cheney wipes his brow nervously, [quotation mark]I forgot that's where we left that coach. I do reckon I'm always forgetting where I park. I was going to mention the silver as evidence any second now.[quotation mark][paragraph break]".
+	
+To say need-more-evidence:
+	say "The marshal strokes his chin. [quotation mark]You're saying that the sheriff intended to abscond with these funds instead of turning them to state's evidence? Can you show me any additional evidence that would corroborate this grave accusation? I'm not inclined to distrust an officer of the law.[quotation mark]".  
+	
+To say happy-ending:
+	say "Marshal McLuhan instructs his guards to restrain and disarm the marshal, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshall rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark]The newly appointed sheriff grins and shakes his hand. As the marshall pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
+
+To say capital-charges:
+	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that capital charges have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
+	
+To say death-note:
+	say "The marshal reads the note, shaking his head sadly.[paragraph break]Several hours later, from your high platform, you and Muddy have an excellent view of the area around Fort Sill.[paragraph break]Muddy turns to you, [quotation mark]Well, reckon we'll be seeing each other real soon now. It was an honor and a pleasure, sir.[quotation mark]There is a creaking sound followed by a falling sensation."
 
 		
 Section Vulture
@@ -2527,7 +2548,7 @@ Instead of going a direction (called the way) during the denouement:
 	
 Chapter PlusQueDenouement
 
-The PlusQueDenouement is a scene. The PlusQueDenouement begins when the denouement ends.
+The PlusQueDenouement is a scene. The PlusQueDenouement begins when the denouement ends.[This scene continues until end of game.]
 
 Instead of going a direction (called the way) during the PlusQueDenouement:
 	if the way is east:
@@ -2547,6 +2568,13 @@ Instead of going a direction (called the way) during the PlusQueDenouement:
 			the rule succeeds;
 	otherwise:
 		say "You can [if the player is in the office]either go west back into the cell, or try to exit through the swinging doors to the east[otherwise]only go east, into the office[end if]."
+		
+Chapter Crunch Time
+
+Crunch Time is a scene. Crunch Time begins when the sheriff is in the office.[and runs until the end of game, overlapping with the plus que denouement]
+
+The crunch counter is a number that varies. The crunch counter is zero.
+
 
 Chapter The End
 
