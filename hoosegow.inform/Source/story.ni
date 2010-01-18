@@ -419,7 +419,17 @@ Check playing:
 	if the noun is not the harmonica:
 		say "You don't rightly know how to play such a thing.";
 		stop the action.
+		
+Section Poking
 
+Poking is an action applying to one thing. Understand "poke [a thing]" as poking.
+
+Check poking:
+	if the noun is the deputy and the deputy is not awake:
+		say "You give him a cowpoke poke.";
+		try waking the deputy;
+	otherwise:
+		try attacking the noun.
 
 Section Reading
 		
@@ -510,17 +520,23 @@ Instead of showing something (called the thingie) to a person (called the observ
 		-- Muddy:
 			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
 				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell][quotation mark].[paragraph break]";
+			otherwise:
+				say "Muddy grunts, unimpressed.";
 		-- the deputy:
-			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
-				say "The deputy looks annoyed, but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark][deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";				
-		-- The sheriff:
-			do nothing;
+			if the deputy is drugged:
+				say "He's in no state of mind to look at [the thingie].";
+			otherwise:
+				if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
+					say "The deputy looks annoyed, but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark][deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";
+				otherwise:
+					say "The deputy isn't impressed.";				
 		-- The marshal:
-			do nothing;
+			do nothing; [####TODO reactions are stubs]
 		-- Flash:
 			do nothing;
 		-- the vulture:
 			do nothing.
+
 			
 Table of Muddy and Deputy Show and Tell
 item					muddy-text			deputy-text
@@ -862,7 +878,13 @@ The block stage business flag is a truth state that varies. The block stage busi
 
 The stage business rules is a rulebook.
 
-The block all stage business rule is listed first in the stage business rules. 
+The endgame block stage business rule is listed first in the stage business rules.
+
+This is the endgame block stage business rule:
+	if the denouement is happening or the plusquedenouement is happening:
+		the rule succeeds.
+
+The block all stage business rule is listed after the endgame block stage business rule in the stage business rules. 
 
 This is the block all stage business rule:
 	if the block stage business flag is true:
@@ -1740,7 +1762,7 @@ Chapter Characters
 
 Section Army
 
-The army guards are in Limbo. The army guards are plural-named. The army guards are fixed in place. The description of the army guards is "A number of well-armed young frontier men in regimental uniforms. They look tough."
+The army guards are a person in Limbo. The army guards are plural-named. The army guards are fixed in place. The description of the army guards is "A number of well-armed young frontier men in regimental uniforms. They look tough." Understand "men" or "young" as the army guards.
 
 Section Deputy
 
@@ -1771,7 +1793,8 @@ Instead of searching the deputy when the deputy is not awake:
 Instead of doing something with the deputy when the deputy is asleep or the deputy is drugged:
 	if the sheriff is in the jailhouse:
 		say "[wake-deputy]" as dialogue;
-		the rule succeeds;
+		now the deputy is awake;
+		the rule fails;
 	if the current action is searching or examining or shooting:
 		continue the action;
 	otherwise:
@@ -1784,8 +1807,6 @@ At the time when the deputy zonks out:
 	say "The deputy[one of] slides back down to the floor and passes out again[or]'s eyes slowly close and he drifts back to sleep[or] yawns and snuggles up to the jail bars, already asleep[at random].";
 	change the consciousness of the deputy to asleep.
 	
-
-
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
 
@@ -2106,7 +2127,7 @@ To say loot in the cabinet:
 	say "The cabinet opens to reveal two gunbelts and a banana.[paragraph break][quotation mark]Come to papa![quotation mark] beams Muddy, as he reaches for his gunbelt and straps it on".
 
 To say pre-crunch:
-	say "Sheriff Cheney surges forward pointing his finger at you and Muddy, [quotation mark]It were these two what blown up that train tunnel! They's escaping! Look, they done killed my deputy! We should drop [apostrophe]em where they stand.[quotation mark][paragraph break]The marshal looks uncertain and waves the army guards forward, training their pistols on you. He rests his hand on the sheriff's trigger arm and says, [quotation mark]Sheriff, without any evidence to substantiate your accusation regarding the train robbery, I was reluctant to see these men hanged without a trial. Given the corpse of a lawman in front of us, though, even I have to agree that justice should be swift and definitive in this instance.[quotation mark]".
+	say "Sheriff Cheney surges forward pointing his finger at you and Muddy, [quotation mark]It were these two what blown up that train tunnel! They's escaping when we walked in! [if the deputy is not awake]Look, they done killed my deputy! [end if]We should drop [apostrophe]em where they stand.[quotation mark][paragraph break]The marshal looks uncertain and waves the army guards forward, training their pistols on you. [if the deputy is not awake][paragraph break]He rests his hand on the sheriff's trigger arm and says, [quotation mark]Sheriff, without any evidence to substantiate your accusation regarding the train robbery, I was reluctant to see these men hanged without a trial. Given the corpse of a lawman in front of us, though, even I have to agree that justice should be swift and definitive in this instance.[quotation mark][end if] [paragraph break]".
 	
 To say wake-deputy:
 	say "Seeing the sheriff, the deputy sobers up immediately and jumps to his feet. [quotation mark]I was just resting my eyes for a moment, sir, and helping these gentlemen hang your portrait up.[quotation mark][paragraph break]The marshal looks confused and asks the deputy, [quotation mark]Hang up his portrait?[quotation mark][paragraph break][quotation mark]Well sure, mister marshal, sir. The sheriff done told me they was our welcome guests and that he wanted his picture hung up.[quotation mark][paragraph break]The marshal raises his eyebrows suspiciously, [quotation mark]You had federal suspects tidying up your office? Sheriff Cheney, I have to say that seems quite sloppy, and not in keeping with the public trust inherent in your position.[quotation mark][paragraph break]". 
@@ -2633,9 +2654,47 @@ The crunch counter is a number that varies. The crunch counter is zero.
 Every turn during crunch time:
 	increase the crunch counter by one;
 	if the crunch counter is two:
-		say "[pre-crunch][paragraph break]" as dialogue.
+		say "[pre-crunch]" as dialogue.
+		
+Instead of showing something (called the item) to someone (called the auditor) during the plusquedenouement:
+	if the auditor is the marshal or the auditor is Muddy:
+		continue the action;
+	otherwise:
+		try showing the item to the marshal.
+		
+To say talk only to me:
+	say "The marshal interjects, [quotation mark][one of]I am the senior law man present. The prisoners will address their remarks to me[or]Address your remarks to me[stopping].[quotation mark][paragraph break]".
 	
+To say talk is cheap:
+	say "The marshal says, [quotation mark][one of]Talk is cheap. All I'm interested in is evidence of your guilt or innocence[or]If you have something to show me, show me. Otherwise, the prisoners will remain silent, awaiting prosecution[stopping].[quotation mark][paragraph break]";
+		
+Instead of asking someone (called the auditor) about some topic (called the issue) during the plusquedenouement:
+	if the auditor is:
+		-- Muddy:
+			continue the action;
+		-- the marshall:
+			say "[talk is cheap]";
+		-- otherwise:
+			say "[talk only to me]".	
 
+Instead of telling someone (called the auditor) about some topic (called the issue) during the plusquedenouement:
+	if the auditor is:
+		-- Muddy:
+			continue the action;
+		-- the marshall:
+			say "[talk is cheap]";
+		-- otherwise:
+			say "[talk only to me]".
+		
+Instead of showing something (called the evidence) to someone (called the spectator) during the plusquedenouement:
+	if the spectator is:
+		-- Muddy:
+			continue the action;
+		-- the marshall:
+			do nothing; [### TODO respond to various topics here]
+		-- otherwise:
+			say "The marshall demands, [quotation mark]As the senior law man present, all evidence must be presented to me.[quotation mark][paragraph break]".
+	
 Chapter Time Out
 
 At 8 AM:
