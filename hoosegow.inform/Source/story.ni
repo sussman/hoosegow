@@ -1124,7 +1124,7 @@ Instead of entering the stool when the flatulometer is 2:
 
 Section Meat
 
-The meat is a prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal", "hunk of" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others". The indefinite article of the meat is "a hunk of".
+The meat is an edible prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal", "hunk of" as the meat. The description of the meat is "[one of]On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.[paragraph break]The deputy has been watching you out of the corner of his eye and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][or]A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips.[stopping]". The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others". The indefinite article of the meat is "a hunk of".
 
 Instead of taking the meat:
 	if the player does not carry the meat:
@@ -1152,6 +1152,12 @@ Instead of throwing the meat at anything that is enclosed by the office:
 	
 Instead of inserting the meat into the hat:
 	say "There ain't no way that rotting chunk of meat is coming anywhere near your fine hat." 
+	
+Instead of eating the meat:
+	say "[meat-text]" as dialogue;
+	increase the time of day by one hour;
+	if the hours part of the time of day is greater than 7 and the hours part of the time of day is less than 9:
+		change the time of day to 8 AM.
 
 Section Spoon
 
@@ -1719,7 +1725,7 @@ Instead of taking the berry:
 		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.". 
 
 Instead of eating the berry:
-	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".[###TODO Track number of attempts to eat berry. On subsequent attempt, the player can ingest it and die. End the game in death, yada yada]
+	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".
 
 The saloon is a backdrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
 [####TODO dynamic description of saloon;  specifically, if tall, there should be a much more detailed description]
@@ -1915,16 +1921,16 @@ After inserting something into the mouth:
 
 Instead of examining the Rick, say "[if the player wears the left boot or the player wears the right boot]Big boots,[otherwise]Denim[end if] pants[if the player wears the hat or the player carries the hat], a plains hat[end if], a tattered overcoat, and some attitude.  Not so different from the uniform you once wore, just more lived-in."
 
-The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute in words]  -- [remaining time]." The indefinite article of the pocketwatch is "your". The texture of the pocketwatch is "[metallic]".
+The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailors were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute in words] in the [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]  -- [remaining time]." The indefinite article of the pocketwatch is "your". The texture of the pocketwatch is "[metallic]".
 
 To say remaining time:
 	let H be the hours part of the time of day;
 	let M be the minutes part of the time of day;
 	if H is 7:
-		let D be 60 minus H;
+		let D be 60 minus M;
 		say "only [if D is one]one single minute[otherwise][D in words] minutes[end if]";
 	otherwise:
-		if H is less than 24:
+		if H is less than 24 and H is greater than 12:
 			let D be 32 minus H;
 		otherwise:
 			let D be eight minus H;
@@ -2114,6 +2120,12 @@ To say capital-charges:
 	
 To say death-note:
 	say "The marshal reads the note, shaking his head sadly.[paragraph break]Several hours later, from your high platform, you and Muddy have an excellent view of the area around Fort Sill.[paragraph break]Muddy turns to you, [quotation mark]Well, reckon we'll be seeing each other real soon now. It was an honor and a pleasure, sir.[quotation mark]There is a creaking sound followed by a falling sensation."
+	
+To say 8AM-text:
+	say "Eight in the morning comes faster than you expected, and the sheriff and marshal show up punctually. You, Muddy and Pete are loaded into a wagon and escorted to Fort Sill. The three of you are marched up the gallows, and ropes are tightened around your necks.[paragraph break]From the other side of the preacher, Muddy yells over to you, [quotation mark]Rick...Rick....[quotation mark][paragraph break]You ignore him. You're just not in the mood.[paragraph break]Muddy persists. [quotation mark]Rick... Rick....[quotation mark][paragraph break][quotation mark]What?[quotation mark] you huff. [quotation mark]I hope this ain't another of your plans. It would be a little late.[quotation mark][paragraph break][quotation mark]Nope, no plan Rick. I just wanted to mention that from up here, I can see our house.[quotation mark][paragraph break]The floor falls away, and everything goes dark."
+	
+To say meat-text:
+	say "[one of]When your eyes refocus, you can see Muddy leaning over you, has face an expression of concern.[paragraph break][quotation mark]You done fainted, Rick. Flat out like a board. Didn't say nothing, at all. Just went down like a hog at a rodeo[quotation mark][or]After some time, you pick yourself off the ground, where you have collapsed. Muddy just shakes his head, incredulous of your inability to learn from your mistakes. Like he should talk[or]You wake up with a pain in your [one of]head[or]back[or]leg[or]arm[or]neck[or]feet[at random], having once again passed out[stopping].[paragraph break]". 
 
 		
 Section Vulture
@@ -2619,6 +2631,12 @@ Every turn during crunch time:
 		say "[pre-crunch][paragraph break]" as dialogue.
 	
 
+Chapter Time Out
+
+At 8 AM:
+	say "[8AM-text]" as dialogue;
+	change the endgame to hanged;
+	end the game in death.
 
 Chapter The End
 
