@@ -1015,6 +1015,9 @@ Section Can
 
 The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]".
 
+Instead of reading the can:
+	try examining the can instead.
+
 Instead of opening the can:
 	say "What do you want to open it with?"
 
@@ -1207,6 +1210,14 @@ The ceiling is a backdrop in the jailhouse.  The description of the ceiling is "
 The walls are a plural-named backdrop in the jailhouse.  Understand "wall" as the walls.  The description of the walls is "The jailhouse walls are made of brightly painted white bricks.  The bricks still smell like fresh paint."   The scent of the walls is "fresh paint.".
 
 The sky is a backdrop in the jailhouse.  The description of the sky is "Outside the window, the moon rises on a cloudless night. In the distance, a wake of vultures saws the air, circling their prey."
+
+Instead of touching the sky:
+	say "Don't you wish.".
+
+The vultures are a plural-named backdrop in the jailhouse.  The description of the vultures is "They look hungry.  Why else would they circle like that?".
+
+Instead of smelling or touching the vultures:
+	say "They're too far away."
 
 [TODO:  ceiling and sky should not be reachable]
 
@@ -1824,6 +1835,9 @@ Instead of showing the pamphlet to muddy:
 
 The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. The texture of the tin is "[metallic]". The scent of the tin is "like tobacco".
 
+Instead of reading the tin:
+	try examining the tin instead.
+
 Instead of searching Pete:
 	try searching the pocket.
 	
@@ -1941,7 +1955,7 @@ Instead of searching the overcoat:
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 	
-The footwear is privately-named backdrop in the jail cell. Understand "boots" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." 
+The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." 
 
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
@@ -1949,6 +1963,7 @@ Instead of doing something other than examining with the footwear:
 Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn down, and the spurs have broken clear off." The scent of a the left boot is "better on the outside". The indefinite article of the left boot is "your". The texture of the left boot is "[smooth]".
 
 Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth]. A metal riding spur is about ready to fall off the worn down heel."  A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "better on the outside". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" as the spur.
+
 
 [Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
 
