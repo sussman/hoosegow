@@ -834,16 +834,16 @@ Carry out using:
 Section Xyzzying
 
 Xyzzying is an action applying to nothing.  Understand "xyzzy" as xyzzying.
-The xyzzy-counter is a value which varies.  The xyzzy-counter is false.
+
+The xyzzy-flag is a truth state that varies. The xyzzy-flag is false.
 
 Carry out xyzzying:
-	if the xyzzy-counter is false:
-		say "You ponder your life.[paragraph break]For a brief moment, you wonder if your situation is but a painting in the mind of an artist;  a meditation on form, an impression of rural life on the verge of industrialization as abstracted in the modern style.[paragraph break]On the other hand, you may just have some indigestion.[paragraph break]";
-		now the xyzzy-counter is true;
+	if the xyzzy-flag is false:
+		say "You ponder your life.[paragraph break]For a brief moment, you wonder if your situation is but a painting in the mind of an artist; a meditation on form, an impression of rural life on the verge of industrialization as abstracted in the modern style.[paragraph break]On the other hand, you may just have some indigestion.[paragraph break]";
+		now the xyzzy-flag is true;
 	otherwise:
 		say "Absolutely nothing happens.".
 		
-
 
 Chapter General Insteads
 
