@@ -125,7 +125,7 @@ Section Award the Escape
 A room can be scored or unscored.
 
 Carry out going to an unvisited scored room:
-	award 5 points.
+	adjust points by 5.
 
 The Office is scored.
 
@@ -315,7 +315,7 @@ Carry out opening it with:
 	now the noun is open;
 	say "You open [the noun] with [the second noun][if the noun contains something] revealing [the contents of the noun][end if].";
 	if the noun is the can:
-		award one point.
+		adjust points by 1.
 		
 Section WarrantForging
 
@@ -1443,7 +1443,7 @@ After opening the drawer:
 	say "You slide the drawer open revealing [a list of things in the drawer].";
 	if the drawer is not rewarded:
 		now the drawer is rewarded;
-		award one point.
+		adjust points by 1.
 	
 The folder is an openable closed container. The folder is in the drawer. Understand "cardboard" or "manila" as the folder.
 
@@ -1521,7 +1521,7 @@ The corn is a backdrop. The corn is everywhere. The description of the corn is "
 
 Section Portrait
 
-The portrait is a large scenery prop in the office. The portrait can be hung up. The portrait is not hung up. The description of the portrait is "[if the portrait is well-hung]Hanging on the wall, there is a[otherwise]A[end if] bombastic portrait of the sheriff, who is dressed in a Napoleanic uniform save for the ten gallon hat. In the background, dogs play poker." The scent of the portrait is "like oil paints". Understand "painting" as the portrait. The portrait can be well-hung. The portrait is not well-hung.
+The portrait is a large scenery prop in the office. The portrait can be hung up. The portrait is not hung up.  Understand "picture" as the portrait.  The description of the portrait is "[if the portrait is well-hung]Hanging on the wall, there is a[otherwise]A[end if] bombastic portrait of the sheriff, who is dressed in a Napoleanic uniform save for the ten gallon hat. In the background, dogs play poker." The scent of the portrait is "like oil paints". Understand "painting" as the portrait. The portrait can be well-hung. The portrait is not well-hung.
 
 Section Protocappuccinomatic
 
@@ -1707,7 +1707,7 @@ Carry out playing the harmonica:
 			-- 1:
 			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
 			-- 2:
-			say "The screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell rolls under the deputy's desk.   A gray bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.'[paragraph break]";
+			say "The screw vibrates out of the ceiling, rebounds in a shower of sparks off the concrete floor of the jail cell rolls under the deputy's desk.   A gray bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.[paragraph break]";
 			move the screw to limbo;
 			move the gray bar to the jail cell;
 			move the gap to the jail cell;
@@ -1916,7 +1916,7 @@ The marshal is a person in Limbo. The scent of the marshal is "of authority". Th
 
 Section Muddy
 
-Muddy is a man in the jail cell. Muddy is proper-named.  "In the corner of the cell, Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be inked. Muddy is not inked.
+Muddy is a man in the jail cell. Muddy is proper-named.  "Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be inked. Muddy is not inked.
 
 The scent of Muddy is "[one of]unwashed[or]like he's in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
@@ -2750,7 +2750,7 @@ Instead of going a direction (called the way) during the denouement:
 			if the player consents:
 				say "[rather not hang around]" as dialogue;
 				change the endgame to escaped;
-				award three points;
+				adjust points by 3;
 				end the game in victory;
 			otherwise:
 				say "That's more like it, partner. Let's look for some silver linings.";
@@ -2804,7 +2804,7 @@ Every turn during crunch time:
 	if silver-found is true and receipt-found is true and patent-found is true:
 		say "[happy-ending]";
 		change the endgame to won;
-		award five points;
+		adjust points by 5;
 		end the game in victory;
 	increase the crunch counter by one;
 	if the crunch counter is:
