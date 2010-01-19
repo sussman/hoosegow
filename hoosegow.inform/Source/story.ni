@@ -808,6 +808,20 @@ Carry out using:
 	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
 
 
+Section Xyzzying
+
+Xyzzying is an action applying to nothing.  Understand "xyzzy" as xyzzying.
+The xyzzy-counter is a value which varies.  The xyzzy-counter is false.
+
+Carry out xyzzying:
+	if the xyzzy-counter is false:
+		say "You ponder your life.[paragraph break]For a brief moment, you wonder if your situation is but a painting in the mind of an artist;  a meditation on form, an impression of rural life on the verge of industrialization as abstracted in the modern style.[paragraph break]On the other hand, you may just have some indigestion.[paragraph break]";
+		now the xyzzy-counter is true;
+	otherwise:
+		say "Absolutely nothing happens.".
+		
+
+
 Chapter General Insteads
 
 Chapter Not Ready For Prime Time - Not for release
