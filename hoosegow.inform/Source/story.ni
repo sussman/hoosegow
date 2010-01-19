@@ -228,7 +228,7 @@ Carry out blowing at:
 		-- the coffee:
 			say "[spiked coffee dialogue]";
 			if the coffee is not spiked:
-				increase the score by one;
+				adjust points by one;
 				now the coffee is spiked;
 		-- the bell:
 			hit-bell;
@@ -734,7 +734,7 @@ To hit-bell:
 			say "Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash huffs perfunctorily and resumes his former position, pulling the lever back to the middle position.";
 			now the bell is rung;
 			make coffee;
-			increase the score by one;
+			adjust points by one;
 		otherwise: [bell has already been rung, Flash is still around]
 			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow brewing a cup of coffee. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
 			make coffee;
@@ -847,7 +847,8 @@ When play begins:
 	change the time of day to 7:15 PM;
         	change the left hand status line to "[capped room name of the location]";
         	change right hand status line to "Score: [score]/[maximum score]";
-	move the harmonica to Muddy.
+	move the harmonica to Muddy;
+	try silently switching score notification off.
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns a-blazin[apostrophe].[paragraph break]";
@@ -1134,9 +1135,21 @@ This is the farting rule:
 				change the ambient odor to 100;
 		change the block stage business flag to true;
 		decrease the flatulometer by one.
+		
+
+[It is difficult to replace the library message about score, as the "x1" variable in
+the English definition is buried rather deeply. It's easier to deactivate score notification when play begins and to generally use a custom function.]
+
+To adjust points by (amount - a number):
+	say "[bracket]Your score has just gone ";
+	if amount is less than zero:
+		say "down";
+	otherwise:
+		say "up";
+	say " by [amount in words][close bracket][paragraph break]";
+	change the score to the score plus amount.
 
 Before eating beans:
-	try silently switching score notification off;
 	if the bean counter is:
 		-- 0: 
 		say "When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don't even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.[paragraph break]Nonetheless, your stomach is growling and you could do with a meal.[paragraph break][bracket]You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points[close bracket][paragraph break]";
@@ -1150,7 +1163,6 @@ Before eating beans:
 		-- 3: say "Give Muddy the damn beans. He likes them, but they you can't stand to even look at them.";
 		-- otherwise: say "No way. No how. But Muddy likes them well enough.";
 	increase the bean counter by one;
-	try silently switching score notification on;
 	stop the action.
 	
 Before giving the can to someone (called the receiver):
@@ -1686,7 +1698,7 @@ Carry out playing the harmonica:
 			say "The deputy cringes, as you blow not only the notes that are built into the harmonica, but every note in between as well. He stands up, shoves the warrant into his pocket, and grabs a bottle of whiskey off the cabinet.[paragraph break]'I declare: that's just the worst thing I ever heard in my life. It's enough to drive a man to drink.' To prove it, he takes a mighty swig from the whiskey bottle and wipes his mouth with the back of his sleeve. The deputy puts his fingers in his ears and tries to ignore you.[paragraph break]You keep playing.[paragraph break]The deputy balls his hands into fists and trembles with annoyance, 'I'm going to the saloon to listen to some real music, from some real talented lady folk of the female persuasion.' The deputy walks out the front door in a huff.[paragraph break]'You should hear me play piano,' you remark, but he's already out of earshot.[paragraph break]"; 
 			now the deputy is harmonicated;
 			move the deputy to limbo;
-			increase the score by one;
+			adjust points by one;
 			say "Muddy says, 'Nice one.  Hey -- I reckon I saw that screw up there wiggle a bit when you played the harmonica. I didn't say nothing on account what the deputy was here.'  He points to a screw holding in one of the cell bars.";
 	otherwise:  [no deputy present]
 		if the play-counter is:
@@ -1741,7 +1753,7 @@ Instead of taking or pulling the gray bar:
 		move the gray bar to the player;
 		if the bar is not first-held:
 			say "You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you.  'Don't that just beat all,' ponders Muddy.";
-			increase the score by one;
+			adjust points by one;
 			now the bar is first-held;
 		otherwise:
 			say "You pick up the gray bar.".
@@ -1831,7 +1843,7 @@ Instead of taking the berry:
 		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.";
 		if the berry is not first-held:
 			now the berry is first-held;
-			increase the score by one.
+			adjust points by one.
 
 Instead of eating the berry:
 	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".
@@ -2294,7 +2306,7 @@ The feather is part of the tail. Understand "feathers" as the feather.  The desc
 Instead of taking the feather:
 	if the feather is part of the tail:
 		say "You pluck a feather from the vulture's tail, and it twists its head momentarily to glare at you before plunging back to its task of devouring the rotting meat.";
-		increase the score by one;
+		adjust points by one;
 		move the feather to the player;
 	otherwise:
 		continue the action.
@@ -2518,7 +2530,7 @@ LibMsg <cannot take something you are within>		"You[apostrophe]d have to get off
 LibMsg <cannot take something already taken>		"Sakes alive. You already done got that.[paragraph break]"    
 LibMsg <cannot reach within closed containers>		"[The main object] ain't open.[paragraph break]"  
 LibMsg <cannot take scenery>		"That ain't hardly what a body would aim to carry about.[paragraph break]"  
-LibMsg <cannot take something fixed>	"That's/they're planted real good and not going anywhere, I do reckon.[paragraph break]"
+LibMsg <cannot take something fixed>	"That's planted real good and not going anywhere, I do reckon.[paragraph break]"
 LibMsg <report player removing>		"Snatched.[paragraph break]"  
 LibMsg <cannot remove something not within>		"But it ain't there now.[paragraph break]"  
 LibMsg <report player dropping>		"Ditched.[paragraph break]"  
@@ -2575,6 +2587,7 @@ LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
 
+	
 Section Hints
 
 Table of Active Hints (continued)
@@ -2638,7 +2651,7 @@ This is the introduction stink rule:
 				now rick wears the right boot;
 			say "The fragrance gradually improves as the universe cools.";
 			move the deputy to limbo;
-			increase score by one.
+			adjust points by one.
 		
 When introduction ends:
 	move the cigar to limbo;
@@ -2703,7 +2716,7 @@ Every turn during flashing:
 				now the deputy carries the warrant;
 				now the deputy carries the brass key;
 				now the deputy is asleep;
-				increase the score by one;
+				adjust points by one;
 			otherwise: [deputy drinks coffee then leaves again]
 				say deputy drinks some normal coffee.
 				
