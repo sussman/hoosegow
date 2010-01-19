@@ -144,7 +144,7 @@ A sheet is a kind of prop. [paper]
 
 A furniture is a kind of supporter. It is usually scenery and fixed in place. [In general, furniture descriptions should be integrated into room descriptions.] 
 
-A thing can be large. Usually a thing is not large.
+A thing can be large. A thing is usually not large.
 
 Everything has some text called texture. The texture of something is usually "".
 Everything has some text called scent. The scent of something is usually "". 
@@ -203,14 +203,46 @@ Instead of asking someone (called the reporter) about a topic listed in the Tabl
 			if the deputy is drugged:
 				say "He's in no state of mind to talk right now.";
 			otherwise:
-				say "The deputy looks annoyed, but says, [quotation mark][deputy-text entry][quotation mark][paragraph break]";			
+				say "The deputy looks annoyed, but says, [quotation mark][deputy-text entry][quotation mark][paragraph break]";
 		-- otherwise:
 			say "[The reporter] does not reply."
 	
 Table of Muddy and Deputy Questions
 topic				muddy-text			deputy-text
-"sheriff" or "the sheriff" or "sheriff cheney" or "cheney"		"He don't strike me as very pleasant or law-abiding himself."					"He's the law in these here parts, but he's much more. He's also an inventor! Heck, look at that machine he done made with his own two hands. Took him five years, but he done it. "  [###TOO needs expansion]
-"machine" or "the machine" or "protocappuccinomatic" or "contraption" or "invention" or "the invention"		"Your guess is as good as mine, partner."		"Sheriff Cheney done rigged up that machine and the steam whistle, both of them run off that steam boiler stove. Near as I can tell, the machine makes coffee, but oh, what fine coffee it do make. I can't as much as figure, though, how he's paying for all the inventing he does. Well, I guess sheriffs is paid more than deputies is." 
+"sheriff" or "the sheriff" or "sheriff cheney" or "cheney"		"He don't strike me as very pleasant or law-abiding himself."					"He's the law in these here parts, but he's much more. He's also an inventor! Heck, look at that machine he done made with his own two hands. Took him five years, but he done it. "
+"machine" or "the machine" or "protocappuccinomatic" or "contraption" or "invention" or "inventions" or "the invention"		"Your guess is as good as mine, partner."		"Sheriff Cheney done rigged up that machine and the steam whistle, both of them run off that steam boiler stove. Near as I can tell, the machine makes coffee, but oh, what fine coffee it do make. I can't as much as figure, though, how he's paying for all the inventing he does. Well, I guess sheriffs is paid more than deputies is."
+"can" or "can of beans" or "the can" or "the can of beans"			"Mmm. I love beans."		"Beans is good for the heart."
+"meat" or "the meat"		"I'll eat almost anything."		"I prefer beef jerky."
+"spoon" or "the spoon"	"They're good for making music."	"To get every drop."
+"warrant" or "the warrant"		"It gives law men their marching orders."	"A very complicated legal document the likes of which ain't nobody really understand."
+"jail" or "jailhouse"	"Home, sweet home."	"Better than working at a fish-packing plant."
+"bell" or "the bell"		"I reckon it's a dinner bell."		"When I ring it, my dog Flash gets all excited on account he thinks it's dinner time."
+"boiler" or "the boiler"		"It probably heats the office."		"It makes steam to power the sheriff's inventions."
+"cabinet" or "the cabinet"		"Where they store our stuff."		"Where we put stuff confiscated from the likes of you two."
+"portrait" or "the portrait"		"The proportions is all wrong."		"I think it looks just like Sheriff Cheney, but smaller."
+"whiskey" or "bottle"		"Looks like some powerful rotgut."		"My best friend. Aside from Flash, but you can't drink a dog."
+"gate" or "the gate"		"It looks sturdy."		"It came from a dungeon somewhere."
+"wall" or "walls"		"They look mighty thick."		"We had them painted last week."
+"vulture" or "the vulture" or "vultures"		"Don't care for [apostrophe]em"		"They is pretty birds and much misunderstood."
+"cigar" or "the cigar" or "cigars"		"I don't smoke. I figure there got to be one thing what I don't do."	"Ain't nothing I like more than a smelly cigar."
+"lever"		"I don't rightly know."	"If you push it away from the jail cell, it turns on the train whistle, and if you push it towards the jail cell, it makes a cup of coffee. I don't know how; it just does."
+"banana"		"They grow on trees and is for eating. I seen some once in Mexico."	"Sometimes a banana is just a banana."
+"gun" or "guns" or "LeMat" or "pistol" or "revolver" or "gun belt" or "gunbelt" or "the gun" or "my gun" or "our guns"		"I like my gun well enough, but did you see that deputy's gun? Sure is purty."	"Don't bother yourselves none about guns. You won't be needing one."
+"desk" or "the desk"		"[if the drawer has not been open]Maybe there's something worth finding in it[otherwise]I reckon we already looked through it[end if]."	"That's where the sheriff stores all his important documents, like his inventions and all."
+"brass key" or "key" or "brass" or "the key"	"[if the drawer has not been open]It's too small for the jail gate, maybe it works a lock box or something[otherwise]It's for the desk drawer[end if]."		"Brass? I don't know that word. Stop using words what I don't know."
+"coffee" or "cup" or "cup of coffee" or "the coffee" or "the cup"		"I reckon coffee if the fourth best thing in the world."	"Nothing is as good as the coffee that comes out of the sheriff's machine"
+"stool" or "the stool"		"[if the socket is not occupied]It's a dang shame that stool can't be used. I wonder if we can repair it[otherwise]That stool's just the thing for climbing up to that window[end if]."		"[if socket is not occupied]Yeah, go ahead, try it out[otherwise]I reckon it were more funny when it weren't repaired[end if]."
+"mouth organ" or "harmonica" or "the harmonica"		"Give it a toot, Rick."		"It were an unfortunate day when them blue-haired old bitties done stuck that harmonica in the jail cell. I hate harmonicas."
+"scrap" or "scrap of paper"		"That plan didn't work out too well, I'll admit"		"Huh?"
+"boot" or "boots" or "my boot" or "my boots" or "left boot" or "right boot"	"Ain't never smelled nothing so bad."		"I prefer snakeskin."
+"pete" or "pastor pete" or "priest" or "drunk" or "bum" or "man" or "hobo"		"Seems harmless."		"Oh, don't pay him no mind. He's just a crazy old preacher."
+"tin" or "the tin" or "tobacco tin"		"Looks like tobacco."		"I reckon prisoners is allowed to have tobacco."
+"tobacco" or "chewing tobacco" or "chaw"		"Looks juicy."		"Don't go spitting up everything and making a mess."
+"deputy"		"He's as dumb as a mud fence and twice as ugly."	"That's me, all right."
+"hat" or "the hat" or "my hat"		"It's the biggest one I ever seen."	"I reckon it's better than a rucksack."
+"saloon" or "the saloon"		"I bet that deputy spends a lot of time there."	"I get my best work done there."
+"watch" or "pocket watch" or "my watch" or "the watch"		"I ain't never seen you without it."		"Yeah, reckoned it would be more fun to let you keep it, so'ins you could tell when it was eight in the morning and time for the hanging."
+"barrel"		"Mighty convenient there, right below the window."	"We keep it mainly for ducking behind during gun fights."
 
 Section Blowing
 
