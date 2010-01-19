@@ -155,7 +155,7 @@ Definition: A thing (called the item) is bootlike if the item is the left boot o
 
 An ungulate is a kind of backdrop.
 
-Conclusion is a kind of value. The conclusions are hanged, shot, escaped, and won.  
+Conclusion is a kind of value. The conclusions are hanged, shot, escaped, rolled, and won.  
 
 Endgame is a conclusion that varies. The endgame is usually hanged.
 
@@ -319,7 +319,7 @@ Check opening it with:
 		try unlocking the noun with the second noun instead;
 	if the noun is open:
 		say "It's already open." instead;
-	if the noun is the can:
+	if the noun is the can of beans:
 		if the second noun is not the spur:
 			say "You don't seem to be able to open [the noun] with [the second noun]." instead;
 		otherwise:
@@ -330,10 +330,14 @@ Check opening it with:
 					say "It's very awkward trying to open the can with the heel of your right boot. The boot part keeps getting in the way." instead.
 		
 Carry out opening it with:
-	now the noun is open;
-	say "You open [the noun] with [the second noun][if the noun contains something] revealing [the contents of the noun][end if].";
-	if the noun is the can:
-		award one point.
+	now the noun is open.
+
+Report opening it with:
+	if the noun is the can of beans:
+		say "Muddy cranes his neck to see what you're doing. He's never seen someone open a can with heel spurs. You slide the spur into the groove along the top of the can, and wiggle it back and forth. The can revolves, and the lid is nearly sawn off. It is hard to tell which of you is more surprised that this worked. [paragraph break]";
+		adjust points by five;
+	otherwise:
+		say "You open [the noun] with [the second noun][if the noun contains something]."
 		
 Section WarrantForging
 
@@ -820,7 +824,7 @@ Check using:[this is where all the overriding happens for specific cases]
 			say "He's the one that usually manipulates you!" instead;
 		-- Pete:
 			say "You ain't got no use for a preacher." instead;
-		-- can:
+		-- can of beans:
 			say "You can take care of business later." instead.
 
 Carry out using:
@@ -1123,12 +1127,9 @@ The cigar is a prop in Limbo. The description of the cigar is "A stogie."
 
 Section Can
 
-The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]".
+The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can of beans is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can of beans is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]". The can of beans can be consumed. The can of beans is not consumed.
 
-Instead of reading the can:
-	try examining the can instead.
-
-Instead of opening the can:
+Instead of opening the can of beans:
 	say "What do you want to open it with?"
 
 Does the player mean doing something with the can of beans:
@@ -1168,7 +1169,7 @@ To adjust points by (amount - a number):
 	say " by [amount in words][close bracket][paragraph break]";
 	change the score to the score plus amount.
 
-Before eating beans:
+Before eating the can of beans:
 	if the bean counter is:
 		-- 0: 
 		say "When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don't even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.[paragraph break]Nonetheless, your stomach is growling and you could do with a meal.[paragraph break][bracket]You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points[close bracket][paragraph break]";
@@ -1184,14 +1185,14 @@ Before eating beans:
 	increase the bean counter by one;
 	stop the action.
 	
-Before giving the can to someone (called the receiver):
-	if the player does not carry the can:
-		try silently taking the can;
-		say "(first fetching the can)[command clarification break]";
+Before giving the can of beans to someone (called the receiver):
+	if the player does not carry the can of beans:
+		try silently taking the can of beans;
+		say "(first fetching the can of beans)[command clarification break]";
 	if the receiver is Muddy:
-		if the can is open:		
+		if the can of beans is open:		
 			say "Muddy takes the can and stares hungrily at the beans.[paragraph break]Even in the most dire situation, Muddy's appetite remains intact. He looks expectantly at you and says, [quotation mark]Rick, got a spoon?[quotation mark][paragraph break]";
-			move the can to muddy;
+			move the can of beans to muddy;
 		otherwise:
 			say "[quotation mark]I may be long in the teeth, but I can't use them to open cans -- hungry though I reckon I sorely am.[quotation mark]  Muddy grumbles, as he often does when he's hungry and growing ornery.";
 	otherwise:
@@ -1203,11 +1204,11 @@ Before giving the spoon to someone (called the receiver):
 		try silently taking the spoon;
 		say "(first fetching the spoon)[command clarification break]";
 	if the receiver is Muddy:
-		if Muddy carries the can:
+		if Muddy carries the can of beans:
 			say "Muddy cracks a gap-toothed smile and says, [quotation mark]Much obliged,[quotation mark] before digging into the can of beans like a miner hot on a fresh gold vein. A couple moments later, he finishes circling the inside of the can with the spoon, trying to get every last drop of bean juice into his mouth. Afterwards, he places the can and spoon on the floor and rubs his stomach with satisfaction.";
-			now the beans are in limbo;
-			now the spoon is in the can;
-			now the can is in the location;
+			now the can of beans is consumed;
+			now the spoon is in the can of beans;
+			now the can of beans is in the location;
 			change the flatulometer to 5;
 		otherwise:
 			say "Muddy politely refuses your offer. [quotation mark]Thanks, Rick, but one spoon don't help. Now, if'n we had two, then we could make us some serious music[if the deputy is in the jailhouse]![quotation mark][paragraph break]Hearing this, the deputy becomes strangely conversant. He offers, [quotation mark]Yeah, I reckon you two could play the harmonica and the spoons, I could play the jug some, and there ain't nothing in the whole wide world the sheriff likes more than a good waterboarding[end if]!";
@@ -1217,6 +1218,8 @@ Before giving the spoon to someone (called the receiver):
 		
 Instead of entering the stool when the flatulometer is 2:
 	say "Muddy warns, [quotation mark]That ain't high enough to matter![quotation mark][paragraph break]".
+	
+
 
 Section Meat
 
@@ -1254,6 +1257,9 @@ Instead of eating the meat:
 	increase the time of day by one hour;
 	if the hours part of the time of day is greater than 7 and the hours part of the time of day is less than 9:
 		change the time of day to 8 AM.
+		
+Instead of giving the meat to Muddy:
+	say "[one of]Muddy reaches eagerly, but stops just short of taking it. You've never seen Muddy turn down food before, so you're not sure how this experiment will work out. He sniffs it tentatively, hoping that the smell will be better than the sight. His eyes cross and he staggers backward, fanning the air and loosening his collar. [quotation mark]I think I'll pass,[quotation mark] he says weakly[or][quotation mark]No thanks, Rick. I'm on a diet this week -- I'm trying to avoid vulture food[stopping].[quotation mark][paragraph break]" as dialogue. 
 
 Section Spoon
 
@@ -1599,7 +1605,7 @@ Instead of opening the gate with the brass key:
 
 Section Stool & Bench
 
-The stool is a large portable enterable supporter in the jail cell.  "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]A repaired stool stands upright.[end if]".  The description of the stool is "A small stool.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of grey jail-bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with numerous initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
+The stool is a large portable enterable supporter in the jail cell. "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]A repaired stool stands upright.[end if]". The description of the stool is "A small stool.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of grey jail bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with their initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
 
 The bronze plate is part of the stool.  Understand "plate" as the bronze plate.  The description of the bronze plate is "You read aloud the engraving on the bronze plate: 'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.'".
 
@@ -1645,9 +1651,9 @@ Instead of entering the stool:
 	if the socket is not occupied: [stool is broken]
 		if the broken-stool-sit-count is:
 			-- 0:
-			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You sit down on the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off.[if the deputy is not in limbo] [paragraph break]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich.  Maybe he'll try again.'[end if]";
+			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You sit down on the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off.[if the deputy is not in limbo] [paragraph break]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich. Maybe he'll try again.'[end if]";
 			-- 1:
-			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now.[if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.''[paragraph break][end if]";
+			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now.[if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.'[paragraph break][end if]";
 			-- otherwise:
 			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna sit on the stool unless it stands solidly on three good legs.";
 		increase the broken-stool-sit-count by one;
@@ -1673,7 +1679,7 @@ To say bench sekrits:
 	say "Under the bench, you notice the remnants of a meal";
 	move the meat to the jail cell;
 	move the spoon to the jail cell;
-	move the can to the jail cell;
+	move the can of beans to the jail cell;
 	now the bench is investigated.
 
 To say first initials:
@@ -1810,25 +1816,26 @@ The rods are plural-named part of the cell window. The description of the rods a
 Understand "look out [something]" as searching.
 Instead of searching the window:
 	if the player is tall:
-		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street which have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. [if something is on the barrel]On the barrel you see [contents of barrel]. [end if]Just to the left of the window, a berry-covered vine has grown up the side of the building. [if the vulture is not on the barrel][paragraph break]Up in the sky, you notice a couple of hungry, circling vultures.[paragraph break][end if]";
+		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street that have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. [if something is on the barrel]On the barrel you see [contents of barrel]. [end if]Just to the left of the window, a berry-covered vine has grown up the side of the building. [if the vulture is not on the barrel][paragraph break]Up in the sky, you notice a couple of hungry, circling vultures.[paragraph break][end if]";
 	otherwise:
-		say "From down here, all you can see is the evening sky and the dark window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. You'd have to climb up to the window to get a better view of the street.";
+		say "From down here, all you can see is the evening sky and the [if the deputy is in the office]dark[otherwise]illuminated[end if] window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. [if a random chance of one in three succeeds]In the distance, you watch a hawk making lazy circles in the sky.[end if] You'd have to climb up to the window to get a better view of the street.";
 	
 Understand "climb through [something]" as climbing. Understand "jump through [something]" as climbing.
+
 Instead of climbing the window: 
 	try entering the window.
 	
 Instead of going through the window:
-	say "Those rods aren't going anywhere;  at most, you can maybe reach your hand through them."
+	say "Those rods aren't going anywhere; at most, you can maybe reach your hand through them."
 Instead of opening the window:
 	say "There is no glass in the window; it is already open."
 Instead of closing the window:
-	say "You feel around for shutters, but you don't find none.  Just rods."
+	say "You feel around for shutters, but you don't find none. Just rods."
 
-The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel.  You can't tell what inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
+The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel. You can't tell what inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
 
 Instead of touching the barrel:
-	say "You can't quite reach it.  You could maybe drop something on it, though.".
+	say "You can't quite reach it. You could maybe drop something on it, though.".
 
 The vine is scenery in the street.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall] It's covered with small red berries.[end if]".
 
@@ -2307,7 +2314,7 @@ To say 8AM-text:
 	say "Eight in the morning comes faster than you expected, and the sheriff and marshal show up punctually. You, Muddy and Pete are loaded into a wagon and escorted to Fort Sill. The three of you are marched up the gallows, and ropes are tightened around your necks.[paragraph break]From the other side of the preacher, Muddy yells over to you, [quotation mark]Rick...Rick....[quotation mark][paragraph break]You ignore him. You're just not in the mood.[paragraph break]Muddy persists. [quotation mark]Rick... Rick....[quotation mark][paragraph break][quotation mark]What?[quotation mark] you huff. [quotation mark]I hope this ain't another of your plans. It would be a little late.[quotation mark][paragraph break][quotation mark]Nope, no plan Rick. I just wanted to mention that from up here, I can see our house.[quotation mark][paragraph break]The floor falls away, and everything goes dark."
 	
 To say meat-text:
-	say "[one of]When your eyes refocus, you can see Muddy leaning over you, has face an expression of concern.[paragraph break][quotation mark]You done fainted, Rick. Flat out like a board. Didn't say nothing, at all. Just went down like a hog at a rodeo[quotation mark][or]After some time, you pick yourself off the ground, where you have collapsed. Muddy just shakes his head, incredulous of your inability to learn from your mistakes. Like he should talk[or]You wake up with a pain in your [one of]head[or]back[or]leg[or]arm[or]neck[or]feet[at random], having once again passed out[stopping].[paragraph break]". 
+	say "[one of]When your eyes refocus, you can see Muddy leaning over you, his face an expression of concern.[paragraph break][quotation mark]You done fainted, Rick. Flat out like a board. Didn't say nothing, at all. Just went down like a hog at a rodeo[quotation mark][or]After some time, you pick yourself off the ground, where you have collapsed. Muddy just shakes his head, incredulous of your inability to learn from your mistakes. Like he should talk[or]You wake up with a pain in your [one of]head[or]back[or]leg[or]arm[or]neck[or]feet[at random], having once again passed out[stopping].[paragraph break]". 
 	
 To say muddy-clues:
 	say "Muddy whispers, [quotation mark][one of]Rick, we ain't got long. I reckon that marshal is someone what can be reasoned with[or]We got to show that marshal something. I reckon maybe we could make up some kind of excuse or shift the blame, maybe[or]Rick, we're almost out of time. You got to convince that marshal that we ain't no more crooked than that sheriff[stopping].[quotation mark][paragraph break]"
@@ -2624,10 +2631,10 @@ title													subtable
 "How can I open the can?"						Table of Can Opening
 
 A hint activation rule:
-	if the can is in the jail cell and the can is closed then activate the Table of Can Opening.
+	if the can of beans is in the jail cell and the can of beans is closed then activate the Table of Can Opening.
 	
 A hint deactivation rule:
-	if the can is open then deactivate the Table of Can Opening.
+	if the can of beans is open then deactivate the Table of Can Opening.
 
 Table of Can Opening
 hint													used
@@ -2698,7 +2705,7 @@ At the time when the deputy returns:
 At the time when Muddy comments about departure:
 	say "[quotation mark]That worked out well,[quotation mark] says Muddy proudly.[paragraph break]";
 	if the deputy is not harmonicated:
-		if the beans are not in the can:
+		if the can of beans is consumed:
 			say "[quotation mark]For you maybe,[quotation mark] you reply. [quotation mark]But I near as lost my lunch what with that stench.[quotation mark][paragraph break]To which Muddy counters, [quotation mark]Ain't much worse than your feet, I reckon.[quotation mark][paragraph break]";
 		otherwise:
 			say "[quotation mark]And that was just my feet -- imagine how fast he would have run if you got into them beans.";
@@ -2938,6 +2945,8 @@ Rule for printing the player's obituary:
 			say "*** HANGED ***";
 		-- shot:
 			say "*** SHOT ***";
+		-- rolled:
+			say "*** YOU'VE BEEN ROLLED, RICK ***";
 		-- won:
 			say "*** YOU WIN ***".
 			
