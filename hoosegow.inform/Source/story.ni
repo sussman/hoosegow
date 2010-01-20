@@ -247,7 +247,7 @@ topic				muddy-text			deputy-text
 "town" or "crawdad's gulch" or "the town"	"A less inhospital piece of dirt west of the Mississippi I don't know"		"Yessiree. This here city got almost five hundred people and even some indoor plumbing some of the time"
 "army" or "union" or "confederacy" or "war"		"I ain't heard you talk much about the war. I figure you was sore on it"		"I don't know much about war and politics and that kind of bigwheeling business"
 "pamphlet" or "sermon"		"[pamphlet-muddy]"	"[pamphlet-deputy]"
-
+"berry" or "the berry" or "snoozeberry" or "the snoozeberry" or "peruvian snoozeberry"	"[berry-muddy]"		"[berry-deputy]"
 
 To say watch-muddy:
 	say "I ain't never seen you without it".
@@ -343,6 +343,16 @@ To say pamphlet-muddy:
 	
 To say pamphlet-deputy:
 	say "A body can't learn no church religion from an old pamphlet".
+	
+To say berry-muddy:
+	say "What berry are you talking about? Can you show me? That would help".
+	
+To say berry-deputy:
+	say "There's lots of berries around here. My grandma used to make berry tea. That's how we lost grandpa. You gotta know your berries. You just [italic type]gotta[bold type] know your berries".
+	
+To say berry-show-muddy:
+	say "[one of]Mohs gah! Where'd you get that? I reckon it's a Peruvian Snoozeberry. I ain't never seen one of them around here.[quotation mark][paragraph break][quotation mark]Are you making that up, Mud?[quotation mark][paragraph break][quotation mark]No, for real. Whatever you do, don't eat it -- you'll sleep right through your hanging.[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, [quotation mark]I wouldn't want to miss that[or]Sure enough. A Peruvian (or perhaps Bolivian, now that I think about it. Could very well be.) Snoozeberry[stopping]".
+
 	
 Section Blowing
 
@@ -749,6 +759,7 @@ tin						"[tin-muddy]"				"[tin-deputy]"
 tobacco				"[tobacco-muddy]"			"[tobacco-deputy]"
 hat						"[hat-muddy]"				"[hat-deputy]"
 pamphlet				"--"							"[pamphlet-deputy]"
+berry					"[berry-show-muddy]"		"[berry-deputy]"
 
 Section Smelling
 	
@@ -2909,8 +2920,8 @@ This is the introduction stink rule:
 		
 When introduction ends:
 	move the cigar to limbo;
-	move the whiskey to the deputy.
-
+	move the whiskey to the deputy;
+	change the angerometer to 10.
 				
 Chapter Flashing
 
