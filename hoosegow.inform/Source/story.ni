@@ -1940,9 +1940,14 @@ Section Bars
 
 The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
 
-Instead of attacking the bars:
-	say "Muddy stands back as you let loose with your full fury and pound on the metal bars.[if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it?[end if]".
-
+Instead of doing something with the bars:
+	if the current action is examining:
+		continue the action;
+	otherwise if the current action is attacking:
+		say "Muddy stands back as you let loose with your full fury and pound on the metal bars.[if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it?[end if][paragraph break]";
+	increase the angerometer by one;
+	warn about the noun.
+		
 The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is just a shade lighter than other cell bars.  [if the gray bar is part of the bars]You notice that the bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all.[end if][if the gray bar contains something] Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held.
 
 The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
@@ -1988,6 +1993,12 @@ The street is a room.  "This is a dusty road with a few buildings lining it, inc
 The cell window is a door.  The cell window is scenery.  The description of the cell window is "About seven feet up, as wide as your shoulders, and secured by four vertical iron rods as thick as your thumb. And you have thick thumbs. The green tip of a vine pokes in from outside."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
 
 The rods are plural-named part of the cell window. The description of the rods are "The rods are firmly embedded in the solid brick walls."
+
+Instead of doing something with the rods:
+	if the current action is examining:
+		continue the action;
+	increase the angerometer by one;
+	warn about the noun.
 
 Understand "look out [something]" as searching.
 Instead of searching the window:
@@ -2062,9 +2073,11 @@ The army guards are a person in Limbo. The army guards are plural-named. The arm
 
 Section Deputy
 
+Angerometer is a number that varies. The angerometer is zero.
+
 Consciousness is a kind of value. The consciousnesses are awake, drugged, and asleep.
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.  The deputy can be singing-sensitive. The deputy is not singing-sensitive.
 
 To say deputy-description:
 	if the consciousness of the deputy is:
@@ -2073,11 +2086,44 @@ To say deputy-description:
 		-- drugged:
 			say "The deputy is only barely awake. His face is blanker than usual, and his eyelids are heavy";
 		-- asleep:
-			say "[one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gun belt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping]"
+			say "[one of]You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gun belt, no boots[or]He's lying unconscious on the floor, just next to the jail cell[stopping]".
+			
+To warn about the (cylinder - a thing):
+	change the block stage business flag to true;
+	if the angerometer is:
+		-- 1:
+			say "The deputy looks up from the warrant, annoyed at the distraction. [quotation mark]Them [if the cylinder is the bars]jail bars[otherwise]window rods[end if] is solid iron, boys. Now stop messing with them. I would surely hate to have to shoot you tonight and ruin tomorrow's hanging.[quotation mark][paragraph break]";
+		-- 2:
+			say "The deputy shifts forward in his seat, [quotation mark]I done told you once, don't mess with the metal bars, not the jail bars, and not them rods in the window. It ain't like it's going to help you none anyhow, but it don't seem proper, what with me sitting here. Keep it up, and I may have to shoot some lead in your direction. That's a [italic type]metaphor[roman type]. It means, I'm going to have to shoot you, in case you don't know what a [italic type]metaphor[roman type] is. See. Lead is what's in bullets, so in this case, lead is a symbol for... um, lead. I can see I'm wasting my time explaining this to the likes of you.[quotation mark][paragraph break]";
+		-- 3:
+			say "Muddy raises his eyebrows at you to get your attention and whispers, [quotation mark]He ain't kidding, Rick. We best not push him too far. He's  a rattlesnake in a bottle of tequila.[quotation mark][paragraph break][quotation mark]What the blazes does that mean, Muddy?[quotation mark][paragraph break][quotation mark]Just metanymy, I reckon.[quotation mark][paragraph break]";
+		-- 4:
+			say "Without bothering to get up from his comfortable position behind the desk, the deputy draws his mean-looking nine-shot LeMat revolver and squeezes off a lazy shot in your direction, only looking afterwards to see if he hit anything. [quotation mark]I said, stop messing around in there, or the vultures are going to dine early tonight.[quotation mark][paragraph break]";
+		-- 5:
+			say "The deputy folds down his paper and leers at you, [quotation mark]Don't tempt me. I could do with some target practice.[quotation mark][paragraph break]Muddy shakes his head, motioning you back. [quotation mark]Rick, this guy's one stagecoach stop short of the fort, if you know what I mean. We best to find a way to get him out of the picture, or we ain't never going to get out of here.[quotation mark][paragraph break]";
+		-- 6:
+			say "The deputy rolls his eyes, [quotation mark]You is about the dumbest, stupidist, most corn-starched spit-lickingest idiotic pie-brained goat-guzzling criminals I did ever see.[quotation mark][paragraph break]He pulls his gun out from under the desk and uses it for punctuation, mainly of the ceiling. [quotation mark]Listen, you![quotation mark] (Bang.) [quotation mark]When I said--[quotation mark] (bang) [quotation mark]--don't--[quotation mark] (bang) [quotation mark]--go messing--[quotation mark] (bang) [quotation mark]--with stuff--[quotation mark] (bang) [quotation mark]--I meant it.[quotation mark] (Bang, bang.) [quotation mark]Now, do you understand me-- [quotation mark] (bang). The last bang rises slightly in pitch to convey that it was a question.[paragraph break]The bullets ricocheting off the jailhouse walls every which way are enough to shake up even Muddy, who hisses, [quotation mark]Stop messing with him Rick, the clock's ticking and we got to get out here by morning, or we'll be wearing hemp neckties for the rest of our lives. Rick, you got to figure us a way to get him out of here, so we can get busy with some proper jail-breaking.[quotation mark][paragraph break]";
+		-- 7:
+			say "The deputy leaps up, this time angry, his face flushing. He stuffs the paper in his pocket and levels his gun at your head. [quotation mark]I had enough of you! (click)[quotation mark] He stares stupidly at his gun before realizing that he has to reload it. [quotation mark]Lucky for you, I reckon.[quotation mark] He begins plucking bullets from his belt and loading them one by one into the cylinder. [quotation mark]You so much as [italic type]sing[roman type], and I'll have to see to your killing.[quotation mark][paragraph break]A look of fear washes over Muddy's face, [quotation mark]Don't do it, Rick. Don't do it.[quotation mark]";
+			now the deputy is singing-sensitive;
+			the deputy desensitizes in five turns from now;
+		-- 8:
+			say "The deputy swaggers as he levels his overgrown pistol at your head. [quotation mark]I reckon you touched one [if the cylinder is the bars]jail bar[otherwise]window rod[end if] too many for what was good for you. Shame ever body ain't going to have the chance to see you swinging like a regulator clock.[paragraph break]Nine bullets and one buckshot round later, you find yourself walking down a dark tunnel towards a bright light. Muddy is right behind you. You hear a train appraoching.[paragraph break]Muddy holds up his hand and the train's brakes scream, sparks fly from its undercarriage and steam spills to each side of the locomotive. Muddy says, [quotation mark]I guess it worked after all. C'mon, Rick. All aboard![quotation mark][paragraph break]";
+			change the endgame to shot;
+			end the game in death. 
+			
+At the time when the deputy desensitizes:
+	now the deputy is not singing-sensitive.
+	
+Instead of singing when the deputy is singing-sensitive:
+	say "The deputy sighs, raises his gun and fires. You catch the bullet smack dab in forehead.[paragraph break]As the lights fade, Muddy bends over you and closes your eyes, whispering, [quotation mark]I ain't gonna give you up, I ain't gonna let you down...[quotation mark][paragraph break]";
+	change the block stage business flag to true;
+	change the endgame to rolled;
+	end the game in death. 
 
 Rule for reaching inside a room when doing something with the deputy and introduction is not happening:
 	allow access.
-
+	
 Instead of searching the deputy when the deputy is not awake:
 	if the deputy carries the warrant:
 		say "You rifle through his pants pockets and find a federal warrant. You also find a small brass key. Naturally, you take both.";
