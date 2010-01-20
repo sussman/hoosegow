@@ -337,7 +337,9 @@ To say hat-deputy:
 	say "I reckon it's better than a rucksack".
 	
 To say pamphlet-muddy:
-	say "Religion always gives me the shivers, Rick. Can we talk about something else? I'd be much obliged".
+	say "Religion always gives me the shivers, Rick. Can we talk about something else? I'd be much obliged";
+	if Pete is not recognized:
+		say "[quotation mark].[paragraph break][quotation mark]Wait just a snake twizzling second, Rick... Can you show me that pamphlet? I got me a hunch".
 	
 To say pamphlet-deputy:
 	say "A body can't learn no church religion from an old pamphlet".
@@ -721,6 +723,8 @@ Instead of showing something (called the thingie) to a person (called the observ
 		-- the vulture:
 			say "Squaaaarrrrrkkkkk!"
 			
+
+[blanks occur for cases where the deputy will not be in a state to comment on the object: either he's drugged, or the object is not available at the time.]
 Table of Muddy and Deputy Show and Tell
 item					muddy-text					deputy-text
 pocketwatch			"[watch-muddy]"				"[watch-deputy]"
@@ -744,7 +748,7 @@ boots					"[boot-muddy]"				"[boot-deputy]"
 tin						"[tin-muddy]"				"[tin-deputy]"
 tobacco				"[tobacco-muddy]"			"[tobacco-deputy]"
 hat						"[hat-muddy]"				"[hat-deputy]"
-pamphlet				"[pamphlet-muddy]"			"[pamphlet-deputy]"
+pamphlet				"--"							"[pamphlet-deputy]"
 
 Section Smelling
 	
@@ -1156,6 +1160,7 @@ times-used		verbage
 0					"rubs his eyes, [quotation mark]I didn't get a good night's sleep last night either. I'm bushed.[quotation mark]"
 0					"glances over at you, and seems about to speak, but then walks away again. "
 0					"seems lost in thought. "
+0					"drums his fingers against the wall. "
 		
 The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
 		
