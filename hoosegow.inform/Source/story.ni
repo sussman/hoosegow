@@ -198,52 +198,150 @@ Instead of asking someone (called the reporter) about a topic listed in the Tabl
 		-- Rick:
 			say "You reflect on the matter for a while."; 
 		-- Muddy:
-			say "Muddy replies, [quotation mark][muddy-text entry][quotation mark][paragraph break]";
+			say "Muddy replies, [quotation mark][muddy-text entry].[quotation mark][paragraph break]";
 		-- the deputy:
 			if the deputy is drugged:
 				say "He's in no state of mind to talk right now.";
 			otherwise:
-				say "The deputy looks annoyed, but says, [quotation mark][deputy-text entry][quotation mark][paragraph break]";
+				say "The deputy looks annoyed, but says, [quotation mark][deputy-text entry].[quotation mark][paragraph break]";
 		-- otherwise:
 			say "[The reporter] does not reply."
 	
 Table of Muddy and Deputy Questions
 topic				muddy-text			deputy-text
-"sheriff" or "the sheriff" or "sheriff cheney" or "cheney"		"He don't strike me as very pleasant or law-abiding himself."					"He's the law in these here parts, but he's much more. He's also an inventor! Heck, look at that machine he done made with his own two hands. Took him five years, but he done it. "
-"machine" or "the machine" or "protocappuccinomatic" or "contraption" or "invention" or "inventions" or "the invention"		"Your guess is as good as mine, partner."		"Sheriff Cheney done rigged up that machine and the steam whistle, both of them run off that steam boiler stove. Near as I can tell, the machine makes coffee, but oh, what fine coffee it do make. I can't as much as figure, though, how he's paying for all the inventing he does. Well, I guess sheriffs is paid more than deputies is."
-"can" or "can of beans" or "the can" or "the can of beans"			"Mmm. I love beans."		"Beans is good for the heart."
-"meat" or "the meat"		"I'll eat almost anything."		"I prefer beef jerky."
-"spoon" or "the spoon"	"They're good for making music."	"To get every drop."
-"warrant" or "the warrant"		"It gives law men their marching orders."	"A very complicated legal document the likes of which ain't nobody really understand."
-"jail" or "jailhouse"	"Home, sweet home."	"Better than working at a fish-packing plant."
-"bell" or "the bell"		"I reckon it's a dinner bell."		"When I ring it, my dog Flash gets all excited on account he thinks it's dinner time."
-"boiler" or "the boiler"		"It probably heats the office."		"It makes steam to power the sheriff's inventions."
-"cabinet" or "the cabinet"		"Where they store our stuff."		"Where we put stuff confiscated from the likes of you two."
-"portrait" or "the portrait"		"The proportions is all wrong."		"I think it looks just like Sheriff Cheney, but smaller."
-"whiskey" or "bottle"		"Looks like some powerful rotgut."		"My best friend. Aside from Flash, but you can't drink a dog."
-"gate" or "the gate"		"It looks sturdy."		"It came from a dungeon somewhere."
-"wall" or "walls"		"They look mighty thick."		"We had them painted last week."
-"vulture" or "the vulture" or "vultures"		"Don't care for [apostrophe]em"		"They is pretty birds and much misunderstood."
-"cigar" or "the cigar" or "cigars"		"I don't smoke. I figure there got to be one thing what I don't do."	"Ain't nothing I like more than a smelly cigar."
-"lever"		"I don't rightly know."	"If you push it away from the jail cell, it turns on the train whistle, and if you push it towards the jail cell, it makes a cup of coffee. I don't know how; it just does."
-"banana"		"They grow on trees and is for eating. I seen some once in Mexico."	"Sometimes a banana is just a banana."
-"gun" or "guns" or "LeMat" or "pistol" or "revolver" or "gun belt" or "gunbelt" or "the gun" or "my gun" or "our guns"		"I like my gun well enough, but did you see that deputy's gun? Sure is purty."	"Don't bother yourselves none about guns. You won't be needing one."
-"desk" or "the desk"		"[if the drawer has not been open]Maybe there's something worth finding in it[otherwise]I reckon we already looked through it[end if]."	"That's where the sheriff stores all his important documents, like his inventions and all."
-"brass key" or "key" or "brass" or "the key"	"[if the drawer has not been open]It's too small for the jail gate, maybe it works a lock box or something[otherwise]It's for the desk drawer[end if]."		"Brass? I don't know that word. Stop using words what I don't know."
-"coffee" or "cup" or "cup of coffee" or "the coffee" or "the cup"		"I reckon coffee if the fourth best thing in the world."	"Nothing is as good as the coffee that comes out of the sheriff's machine"
-"stool" or "the stool"		"[if the socket is not occupied]It's a dang shame that stool can't be used. I wonder if we can repair it[otherwise]That stool's just the thing for climbing up to that window[end if]."		"[if socket is not occupied]Yeah, go ahead, try it out[otherwise]I reckon it were more funny when it weren't repaired[end if]."
-"mouth organ" or "harmonica" or "the harmonica"		"Give it a toot, Rick."		"It were an unfortunate day when them blue-haired old bitties done stuck that harmonica in the jail cell. I hate harmonicas."
-"scrap" or "scrap of paper"		"That plan didn't work out too well, I'll admit"		"Huh?"
-"boot" or "boots" or "my boot" or "my boots" or "left boot" or "right boot"	"Ain't never smelled nothing so bad."		"I prefer snakeskin."
-"pete" or "pastor pete" or "priest" or "drunk" or "bum" or "man" or "hobo"		"Seems harmless."		"Oh, don't pay him no mind. He's just a crazy old preacher."
-"tin" or "the tin" or "tobacco tin"		"Looks like tobacco."		"I reckon prisoners is allowed to have tobacco."
-"tobacco" or "chewing tobacco" or "chaw"		"Looks juicy."		"Don't go spitting up everything and making a mess."
-"deputy"		"He's as dumb as a mud fence and twice as ugly."	"That's me, all right."
-"hat" or "the hat" or "my hat"		"It's the biggest one I ever seen."	"I reckon it's better than a rucksack."
-"saloon" or "the saloon"		"I bet that deputy spends a lot of time there."	"I get my best work done there."
-"watch" or "pocket watch" or "my watch" or "the watch"		"I ain't never seen you without it."		"Yeah, reckoned it would be more fun to let you keep it, so'ins you could tell when it was eight in the morning and time for the hanging."
-"barrel"		"Mighty convenient there, right below the window."	"We keep it mainly for ducking behind during gun fights."
+"sheriff" or "the sheriff" or "sheriff cheney" or "cheney"		"He don't strike me as very pleasant or law-abiding himself"					"He's the law in these here parts, but he's much more. He's also an inventor! Heck, look at that machine he done made with his own two hands. Took him five years, but he done it"
+"machine" or "the machine" or "protocappuccinomatic" or "contraption" or "invention" or "inventions" or "the invention"		"Your guess is as good as mine, partner"		"Sheriff Cheney done rigged up that machine and the steam whistle, both of them run off that steam boiler stove. Near as I can tell, the machine makes coffee, but oh, what fine coffee it do make. I can't as much as figure, though, how he's paying for all the inventing he does. Well, I guess sheriffs is paid more than deputies is"
+"can" or "can of beans" or "the can" or "the can of beans"			"[can-muddy]"		"[can-deputy]"
+"meat" or "the meat"		"[meat-muddy]"		"[meat-deputy]"
+"spoon" or "the spoon"	"[spoon-muddy]"		"[spoon-deputy]"
+"warrant" or "the warrant"		"[warrant-muddy]"	"[warrant-deputy]"
+"jail" or "jailhouse"	"Home, sweet home"	"Better than working at a fish-packing plant"
+"bell" or "the bell"		"[bell-muddy]"		"When I ring it, my dog Flash gets all excited on account he thinks it's dinner time"
+"boiler" or "the boiler"		"It probably heats the office"		"It makes steam to power the sheriff's inventions"
+"cabinet" or "the cabinet"		"Where they store our stuff"		"Where we put stuff confiscated from the likes of you two"
+"portrait" or "the portrait"		"The proportions is all wrong"		"I think it looks just like Sheriff Cheney, but smaller"
+"whiskey" or "the whiskey" or "the bottle" or "bottle"		"Looks like some powerful rotgut"		"My best friend. Aside from Flash, but you can't drink a dog"
+"gate" or "the gate"		"It looks sturdy"		"It came from a dungeon somewhere"
+"wall" or "walls"		"They look mighty thick"		"We had them painted last week"
+"vulture" or "the vulture" or "vultures"		"Don't care for [apostrophe]em"		"They is pretty birds and much misunderstood"
+"cigar" or "the cigar" or "cigars"		"I don't smoke. I figure there got to be one thing what I don't do"	"Ain't nothing I like more than a smelly cigar"
+"lever" or "the lever"		"I don't rightly know"	"If you push it away from the jail cell, it turns on the train whistle, and if you push it towards the jail cell, it makes a cup of coffee. I don't know how; it just does"
+"banana"		"[banana-muddy]"	"Sometimes a banana is just a banana"
+"gun" or "guns" or "LeMat" or "pistol" or "revolver" or "gun belt" or "gunbelt" or "the gun" or "my gun" or "our guns"		"[gun-muddy]"	"Don't bother yourselves none about guns. You won't be needing one"
+"desk" or "the desk"		"[if the drawer has not been open]Maybe there's something worth finding in it[otherwise]I reckon we already looked through it[end if]"	"That's where the sheriff stores all his important documents, like his inventions and all"
+"brass key" or "the brass key" or "key" or "brass" or "the key"	"[brass-muddy]"		"Brass? I don't know that word. Stop using words what I don't know"
+"coffee" or "cup" or "cup of coffee" or "the coffee" or "the cup"		"[cup-muddy]"	"Nothing is as good as the coffee that comes out of the sheriff's machine"
+"stool" or "the stool"		"[stool-muddy]"		"[stool-deputy]"
+"mouth organ" or "harmonica" or "the harmonica"		"[harmonica-muddy]"		"[harmonica-deputy]"
+"scrap" or "scrap of paper" or "the scrap of paper"		"[scrap-muddy]"		"[scrap-deputy]"
+"boot" or "boots" or "my boot" or "my boots" or "left boot" or "right boot"	"[boot-muddy]"		"[boot-deputy]"
+"pete" or "pastor pete" or "priest" or "drunk" or "bum" or "man" or "hobo"		"Seems mostly harmless"		"Pete? Oh, don't pay him no mind. He's just a crazy old preacher"
+"tin" or "the tin" or "tobacco tin"		"[tin-muddy]"		"[tin-deputy]"
+"tobacco" or "chewing tobacco" or "chaw"		"[tobacco-muddy]"		"[tobacco-deputy]"
+"deputy"		"He's as dumb as a mud fence and twice as ugly"	"That's me, all right"
+"hat" or "the hat" or "my hat"		"[hat-muddy]"	"[hat-deputy]"
+"saloon" or "the saloon"		"I bet that deputy spends a lot of time there."	"I get my best work done there"
+"watch" or "pocket watch" or "my watch" or "the watch"		"[watch-muddy]"		"[watch-deputy]"
+"barrel" or "the barrel"		"Mighty convenient there, right below the window"	"We keep it mainly for ducking behind during gun fights"
+"flash" or "the dog" or "dog" or "bloodhound"		"That's one sorry excuse for a dog"	"Ain't he marvelous? Yessir"
+"town" or "crawdad's gulch" or "the town"	"A less inhospital piece of dirt west of the Mississippi I don't know"		"Yessiree. This here city got almost five hundred people and even some indoor plumbing some of the time"
+"army" or "union" or "confederacy" or "war"		"I ain't heard you talk much about the war. I figure you was sore on it"		"I don't know much about war and politics and that kind of bigwheeling business"
+"pamphlet" or "sermon"		"[pamphlet-muddy]"	"[pamphlet-deputy]"
 
+
+To say watch-muddy:
+	say "I ain't never seen you without it".
+	
+To say watch-deputy:
+	say "Yeah, reckoned it would be more fun to let you keep it, so'ins you could tell when it was eight in the morning and time for the hanging".
+	
+To say can-muddy:
+	say "Mmm. I love beans".
+	
+To say can-deputy:
+	say "Beans is good for the heart".
+	
+To say meat-muddy:
+	say "I'll eat almost anything. Almost".
+	
+To say meat-deputy:
+	say "I allow I prefer beef jerky my own self".
+	
+To say spoon-muddy:
+	say "They're good for making music".
+	
+To say spoon-deputy:
+	say "To get every drop".
+	
+To say warrant-muddy:
+	say "It gives law men their marching orders".
+	
+To say warrant-deputy:
+	say "A very complicated legal document the likes of which ain't nobody really understand".
+	
+To say bell-muddy:
+	say "I reckon it's a dinner bell".
+		
+To say banana-muddy:
+	say "They grow on trees and is for eating. I seen some once in Mexico".
+	
+To say gun-muddy:
+	say "I prefer my own gun. A man ought have feelings for his gun, and I most surely do".
+	
+To say brass-muddy:
+	say "[if the drawer has not been open]It's too small for the jail gate, maybe it works a lock box or something[otherwise]It's for the desk drawer[end if]".
+
+To say cup-muddy:
+	say "I reckon coffee if the fourth best thing in the world".
+	
+To say stool-muddy:
+	say "[if the socket is not occupied]It's a dang shame that stool can't be used. I wonder if we can repair it[otherwise]That stool's just the thing for climbing up to that window[end if]".
+	
+To say stool-deputy:
+	say "[if socket is not occupied]Yeah, go ahead, try it out[otherwise]I reckon it were more funny when it weren't repaired[end if]".
+	
+To say harmonica-muddy:
+	say "Give it a toot, Rick".
+	
+To say harmonica-deputy:
+	say "It were an unfortunate day when them blue-haired old bitties done stuck that harmonica in the jail cell. I hate harmonicas".
+	
+To say scrap-muddy:
+	say "That plan didn't work out too well, I'll admit".
+	
+To say scrap-deputy:
+	say "Huh? I can't read that chicken scratch".
+	
+To say boot-muddy:
+	say "Ain't never smelled nothing so bad".
+	
+To say boot-deputy:
+	say "I prefer snakeskin".
+	
+To say tin-muddy:
+	say "Looks like tobacco".
+	
+To say tin-deputy:
+	say "I reckon prisoners is allowed to have tobacco".
+	
+To say tobacco-muddy:
+	say "Looks juicy".
+	
+To say tobacco-deputy:
+	say "Don't go spitting up everything and making a mess".
+	
+To say hat-muddy:
+	say "It's the biggest one I ever seen".
+	
+To say hat-deputy:
+	say "I reckon it's better than a rucksack".
+	
+To say pamphlet-muddy:
+	say "Religion always gives me the shivers, Rick. Can we talk about something else? I'd be much obliged".
+	
+To say pamphlet-deputy:
+	say "A body can't learn no church religion from an old pamphlet".
+	
 Section Blowing
 
 Understand "berry" or "bar" or "gray bar" as "[weapon]".
@@ -597,14 +695,14 @@ Section Showing
 
 Rule for reaching inside a room when the current action is showing:
 	allow access.
-
+	
 Instead of showing something (called the thingie) to a person (called the observer):
 	if the observer is:
 		-- Rick:
-			do nothing; [####TODO reactions are stubs]
+			say "You show [the thingie] to yourself and you wonder how this is different from just examining [the thingie].";
 		-- Muddy:
 			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
-				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell][quotation mark].[paragraph break]";
+				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark].[paragraph break]";
 			otherwise:
 				say "Muddy grunts, unimpressed.";
 		-- the deputy:
@@ -612,18 +710,42 @@ Instead of showing something (called the thingie) to a person (called the observ
 				say "He's in no state of mind to look at [the thingie].";
 			otherwise:
 				if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
-					say "The deputy looks annoyed, but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark][deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";
+					if there is a deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell:
+						say "The deputy looks [one of]annoyed[or]irritated[or]put out[or]irked[or]bored[or]like he's a bad mood[or]like he has better things to do[at random], but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark][deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";
+					otherwise:
+						say "[one of]Dunno[or]Humph[or]Huh[or]Um[at random].";
 				otherwise:
 					say "The deputy isn't impressed.";				
 		-- Flash:
-			say "Flash breathes deeply.";
+			say "Flash [one of]breathes deeply[or]sighs[or]ignores you[or]pretends to ignore you[or]daydreams[or]looks at everything but what you are trying to show him[or]licks his nose[or]smells hit butt[or]snorts[at random].";
 		-- the vulture:
 			say "Squaaaarrrrrkkkkk!"
 			
 Table of Muddy and Deputy Show and Tell
-item					muddy-text			deputy-text
-pocketwatch			"foo"					"bar"
-	
+item					muddy-text					deputy-text
+pocketwatch			"[watch-muddy]"				"[watch-deputy]"
+can of beans			"[can-muddy]"				"[can-deputy]"
+meat					"[meat-muddy]"				"[meat-deputy]"
+spoon					"[spoon-muddy]"				"[spoon-deputy]"
+warrant				"[warrant-muddy]"			"[warrant-deputy]"
+bell					"[bell-muddy]"				--
+banana					"[banana-muddy]"			--
+gun						"[gun-muddy]"				--
+gunbelt				"[gun-muddy]"				--
+holster				"[gun-muddy]"				--
+brass key				"[brass-muddy]"				--
+cup						"[cup-muddy]"				--
+stool					"[stool-muddy]"				--
+harmonica				"[harmonica-muddy]"		"[harmonica-deputy]"
+scrap					"[scrap-muddy]"				"[scrap-deputy]"
+left boot				"[boot-muddy]"				"[boot-deputy]"
+right boot			"[boot-muddy]"				"[boot-deputy]"
+boots					"[boot-muddy]"				"[boot-deputy]"
+tin						"[tin-muddy]"				"[tin-deputy]"
+tobacco				"[tobacco-muddy]"			"[tobacco-deputy]"
+hat						"[hat-muddy]"				"[hat-deputy]"
+pamphlet				"[pamphlet-muddy]"			"[pamphlet-deputy]"
+
 Section Smelling
 	
 [Like listening, smelling is performed through instead rules. The generic smell rule tracks bad smells, which decay over time.]
@@ -813,6 +935,9 @@ Instead of tasting a thing (called the sample):
 	
 Section Telling
 
+Rule for reaching inside a room when telling someone about something:
+	allow access.
+
 Instead of telling someone about anything:
 	say "You ain't got much to tell.[paragraph break]Maybe you could try ASK people ABOUT stuff, or SHOW stuff TO them."
 	
@@ -998,7 +1123,7 @@ This is the block all stage business rule:
 The Muddy's stage business rule is listed after the block all stage business rule in the stage business rules.
 
 This is the Muddy's stage business rule:
-	if a random chance of 1 in 10 succeeds:
+	if a random chance of 4 in 20 succeeds:
 		say "Muddy ";
 		pick a phrase from the Table of Muddy Actions;
 		say paragraph break;
@@ -1035,9 +1160,9 @@ times-used		verbage
 The Flash's stage business rule is listed after the Muddy's stage business rule in the stage business rules.
 		
 This is the Flash's stage business rule:
-	if Flash is not in Limbo and a random chance of 1 in 10 succeeds:
+	if Flash is not in Limbo and a random chance of 4 in 20 succeeds:
 		say "Flash ";
-		if a random chance of 8 in 10 succeeds:
+		if a random chance of 16 in 20 succeeds:
 			pick a phrase from the Table of Common Flash Actions;
 		otherwise:
 			pick a phrase from the table of Rare Flash Actions;
@@ -1086,8 +1211,8 @@ This is the Pete's stage business rule:
 		make no decision;
 		[Pete only becomes noticeable when they recognize him as Pastor Pete; this can 
 		be either by Muddy getting the pamphlet, or a certain amount of time after Pete is examined (as a failsafe)]
-	if Pete is not in Limbo and a random chance of 1 in 20 succeeds:
-		if a random chance of 8 in 10 succeeds:
+	if Pete is not in Limbo and a random chance of 8 in 20 succeeds:
+		if a random chance of 16 in 20 succeeds:
 			say "Pastor Pete [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
 			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]howl[or]bellow[or]holler[at random]s, [quotation mark]";
 			pick a phrase from the Table of Pete's Rants;
@@ -1119,14 +1244,14 @@ times-used		verbage
 
 Table of Pete's Vulture Clues
 times-used		verbage
-0					""
+0					"vulture clue 1"
 0					"vulture clue 2"	
 0					"vulture clue 3"
 		
 The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
 	
 This is the Deputy's stage business rule:
-	if the Deputy is not in Limbo and the Introduction is happening:
+	if the Deputy is not in Limbo and the Introduction is happening and a random chance of 10 in 20 succeeds:
 		say "[if the player is in the jail cell][one of]Over in[or]Back in[or]In[or]On the other side of the jail bars in[at random] the office, the[otherwise]The[end if] deputy ";
 		pick a phrase from the Table of Deputy's Doings;
 		say paragraph break;
@@ -1150,7 +1275,7 @@ times-used		verbage
 The Environmental stage business rule is listed last in the stage business rules.
 
 This is the Environmental stage business rule:
-	if a random chance of 1 in 10 succeeds:
+	if a random chance of 2 in 20 succeeds:
 		pick a phrase from the Table of Environmental Stage Business;
 		say ".";
 		the rule succeeds.
@@ -2580,7 +2705,7 @@ LibMsg <cannot undo nothing>		"[bracket]You can't [apostrophe]undo[apostrophe] w
 LibMsg <oops failed>			"That were so balled up, ain't nothing can fix it.[paragraph break]"
 LibMsg <oops no arguments>		"[aintNothing].[paragraph break]" 
 LibMsg <cannot do again>		"You can't hardly repeat that.[paragraph break]"   
-LibMsg <command not understood>	"Is you talking plain English? I ain't following the words coming out of your lips. Mayhaps it's your accent.[paragraph break]"  
+LibMsg <command not understood>	"Is you talking plain English? I ain't following the words coming out of your lips. Mayhaps it's your accent."  
 LibMsg <command partly understood>	"I only twigged your meaning as far as hankering to "    
 LibMsg <command incomplete>		"You seem to have said too little! Normally, I find that right pleasant.[paragraph break]"   
 LibMsg <cannot begin at comma>		"Commas ain't for beginning sentences with. Land sakes, ain't you got no grammar?[paragraph break]"  
