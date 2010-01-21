@@ -2101,7 +2101,7 @@ Visibility rule when in the jail cell:
 	if examining the barrel and the player is tall:
 		there is sufficient light.
 
-The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no short of mystery about it.  Don't look so edible." The scent of the berry is "sweet, but onerous".  The berry can be first-held.  The berry is not first-held.
+The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no short of mystery about it.  Don't look so edible." The scent of the berry is "sweet, but onerous".  The berry can be first-held.  The berry is not first-held. The berry can be almost-eaten. The berry is not almost-eaten.
 
 Instead of taking the berry:
 	if the player carries the berry:
@@ -2113,12 +2113,19 @@ Instead of taking the berry:
 			now the berry is first-held;
 			adjust points by one.
 
+Instead of inserting the berry into the mouth:
+	try eating the berry.
+
 Instead of eating the berry:
-	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".
+	if the berry is not almost-eaten:
+		say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll sleep clear through to the afternoon -- and we only got till eight in the 'A' of 'M' to get out of here.'";
+		now the berry is almost-eaten;
+	otherwise:
+		say "[8AM-text]" as dialogue;
+		change the endgame to hanged;
+		end the game in death.
 
-The saloon is a fardrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
-[####TODO dynamic description of saloon;  specifically, if tall, there should be a much more detailed description]
-
+The saloon is a fardrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street[if the deputy is not in the office]. The light is on in the upper story window[end if]."
 
 Chapter Characters
 
