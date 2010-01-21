@@ -7,7 +7,7 @@ The story genre is "Western".
 
 The story description is "Muddy's plan done landed you and your partner in the hoosegow. Now you're fixing to rectificate the matter before the marshal introduces you to the business end of a hangin' rope at dawn."
 
-The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, Sheriff Cheney angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and a pile of silver dollars, which until recently had been the property of the Missouri, Kansas & Texas Line.[paragraph break]Muddy whispers, 'Don't fret none, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the... [paragraph break]".
+The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, Sheriff Cheney angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and a pile of  silver dollars, which until recently had been the property of the Missouri, Kansas & Texas Line.[paragraph break]Muddy whispers, 'Don't fret none, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the... [paragraph break]".
 
 Include Menus by Emily Short.
 Include Adaptive Hints by Eric Eve.
@@ -241,13 +241,17 @@ topic				muddy-text			deputy-text
 "deputy"		"He's as dumb as a mud fence and twice as ugly"	"That's me, all right"
 "hat" or "the hat" or "my hat"		"[hat-muddy]"	"[hat-deputy]"
 "saloon" or "the saloon"		"I bet that deputy spends a lot of time there."	"I get my best work done there"
-"watch" or "pocket watch" or "my watch" or "the watch"		"[watch-muddy]"		"[watch-deputy]"
+"watch" or "pocket watch" or "my watch" or "the watch" or "pocketwatch" or "the pocket watch" or "the pocketwatch"		"[watch-muddy]"		"[watch-deputy]"
 "barrel" or "the barrel"		"Mighty convenient there, right below the window"	"We keep it mainly for ducking behind during gun fights"
 "flash" or "the dog" or "dog" or "bloodhound"		"That's one sorry excuse for a dog"	"Ain't he marvelous? Yessir"
 "town" or "crawdad's gulch" or "the town"	"A less inhospital piece of dirt west of the Mississippi I don't know"		"Yessiree. This here city got almost five hundred people and even some indoor plumbing some of the time"
 "army" or "union" or "confederacy" or "war"		"I ain't heard you talk much about the war. I figure you was sore on it"		"I don't know much about war and politics and that kind of bigwheeling business"
 "pamphlet" or "sermon"		"[pamphlet-muddy]"	"[pamphlet-deputy]"
 "berry" or "the berry" or "snoozeberry" or "the snoozeberry" or "peruvian snoozeberry"	"[berry-muddy]"		"[berry-deputy]"
+"feather" or "vulture feather" or "plume"		"[feather-muddy]"		"[feather-deputy]"
+
+
+[###TODO vine, feather]
 
 To say watch-muddy:
 	say "I ain't never seen you without it".
@@ -352,6 +356,12 @@ To say berry-deputy:
 	
 To say berry-show-muddy:
 	say "[one of]Mohs gah! Where'd you get that? I reckon it's a Peruvian Snoozeberry. I ain't never seen one of them around here.[quotation mark][paragraph break][quotation mark]Are you making that up, Mud?[quotation mark][paragraph break][quotation mark]No, for real. Whatever you do, don't eat it -- you'll sleep right through your hanging.[quotation mark][paragraph break][quotation mark]Yeah,[quotation mark] you reply, [quotation mark]I wouldn't want to miss that[or]Sure enough. A Peruvian (or perhaps Bolivian, now that I think about it. Could very well be.) Snoozeberry[stopping]".
+	
+To say feather-muddy:
+	say "Good for making pillows. In a pinch, they make a right fine pen too".
+	
+To say feather-deputy:
+	say "The only feathers you'll be seeing is vulture feathers. Har! Har! I made a joke and it were a good one".
 
 	
 Section Blowing
@@ -618,6 +628,18 @@ Check playing:
 		say "You don't rightly know how to play such a thing.";
 		stop the action.
 		
+Section Plucking
+
+Plucking is an action applying to one thing. Understand "pluck [a thing]" as plucking.
+
+Check plucking:
+	if the noun is not the feather:
+		say "There ain't but two things for plucking: feathers and banjos." instead.
+		
+Carry out plucking:
+	try taking the feather.
+
+
 Section Poking
 
 Poking is an action applying to one thing. Understand "poke [a thing]" as poking.
@@ -721,7 +743,7 @@ Instead of showing something (called the thingie) to a person (called the observ
 			say "You show [the thingie] to yourself and you wonder how this is different from just examining [the thingie].";
 		-- Muddy:
 			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
-				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark].[paragraph break]";
+				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";
 			otherwise:
 				say "Muddy grunts, unimpressed.";
 		-- the deputy:
@@ -765,8 +787,11 @@ boots					"[boot-muddy]"				"[boot-deputy]"
 tin						"[tin-muddy]"				"[tin-deputy]"
 tobacco				"[tobacco-muddy]"			"[tobacco-deputy]"
 hat						"[hat-muddy]"				"[hat-deputy]"
-pamphlet				"--"							"[pamphlet-deputy]"
+pamphlet				"test"								"[pamphlet-deputy]"
 berry					"[berry-show-muddy]"		"[berry-deputy]"
+feather				"[feather-muddy]"			"[feather-deputy]"
+
+[gray bar]
 
 Section Smelling
 	
@@ -1343,7 +1368,7 @@ This is the farting rule:
 			-- 3: 
 				say "Muddy wraps his arms around his belly, and moans softly, [quotation mark]I might have overdone it with them beans.[quotation mark][if the deputy is in the office][paragraph break]The deputy looks up from his reading, curious. [end if][paragraph break]"; 
 			-- 2: 
-				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow![no line break][if the deputy is in the office] Deputy, if'n I was you, I would put some distance between Muddy and your nose.[end if][no line break][quotation mark][if the deputy is in the office][paragraph break]The Deputy looks concerned, but confused. [end if][paragraph break]";
+				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow![no line break][if the deputy is in the office] Deputy, if'n I was you, I would put some distance between Muddy and your nose. [end if][quotation mark][if the deputy is in the office][paragraph break]The Deputy looks concerned, but confused. [end if][paragraph break]";
 			-- 1: 
 				say "You hear nothing. The smell nearly knocks you out. Vision fades, the room spins.[paragraph break]Muddy whispers in that understated manner of his, [quotation mark]That were a silent but deadly.[quotation mark][paragraph break]";
 				change the ambient odor to 100;
@@ -1471,10 +1496,17 @@ The warrant is a sheet. The description of the warrant is "A piece of paper with
 The warrant can be acknowledged. The warrant is not acknowledged.[by the deputy after editing]
 
 To say warrant-text:
-	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
+	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Seventy-One and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
+	
+Instead of showing the warrant to muddy:
+	if the warrant is not recognized:
+		try reading the warrant;
+	otherwise:
+		continue the action.
+	
 	
 Instead of reading the warrant:
-	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][paragraph break][or]It says: [warrant-text].[stopping]";
+	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark] [paragraph break][or]It says: [warrant-text].[stopping]";
 	change the block stage business flag to true;
 	if the warrant is not recognized:
 		change the current plan to two;
@@ -2484,7 +2516,7 @@ To say happy doggie:
 	say "Flash breathes a sign of relief, walks back towards his warm spot and lies down.";
 	
 To say deputy resets the whistle:
-	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if the coffee is spiked]. Flash is so scared that yanks the leash and snaps the lever clear off the machine[end if].[paragraph break]The deputy thunders, [quotation mark]What the [one of]hoot-hollering[or]cluster chucking[or]hee-haw hobgoblining[or]saddle sore slapping[or]cow-poking sheep-sheering bear-baiting turkey-trotting[at random] blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break][if the coffee is not spiked]Satisfied that you haven't escaped, he pushes the lever back to the middle position and warns, [quotation mark][one of]I don't know what you were up to what made old Flash trigger-happy, but don't let it happen again[or]You understand that I don't like having to come back here when I got better things to do now, right? You just stay put now[or]I am getting fed up with this whistle business. Damn machines. They is supposed to make ever body's life better, but every ten minutes this dang whistle is going off. I ain't cut out for modern times, I do fancy[or]Let me be clear: that whistle is for official use only, and I am the official. If you set it off one more time, there's going to be some answering for it[or]You has pushed me to my limit, and I mean it. Next time I come through that door, I might just have a mind to shoot you both dead as potatoes[stopping].[quotation mark][end if][paragraph break][quotation mark]Dumb dog,[quotation mark] he mumbles, [quotation mark]I was doing important business.[quotation mark] [if the coffee is spiked]He looks around for Flash, but the dog has already slid out of the office. [end if]The deputy [one of]spits on the ground once[or]grumbles to himself[or]gives you a mean look[or]shakes his head in frustration[or]waves his fist at you[or]checks the gate again[at random] and leaves the office.[paragraph break]".
+	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if the coffee is spiked]. Flash is so scared that yanks the leash and snaps the lever clear off the machine[end if].[paragraph break]The deputy thunders, [quotation mark]What the [one of]hoot-hollering[or]cluster chucking[or]hee-haw hobgoblining[or]saddle sore slapping[or]cow-poking sheep-sheering bear-baiting turkey-trotting[at random] blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if]. [paragraph break][if the coffee is not spiked]Satisfied that you haven't escaped, he pushes the lever back to the middle position and warns, [quotation mark][one of]I don't know what you were up to what made old Flash trigger-happy, but don't let it happen again[or]You understand that I don't like having to come back here when I got better things to do now, right? You just stay put now[or]I am getting fed up with this whistle business. Damn machines. They is supposed to make ever body's life better, but every ten minutes this dang whistle is going off. I ain't cut out for modern times, I do fancy[or]Let me be clear: that whistle is for official use only, and I am the official. If you set it off one more time, there's going to be some answering for it[or]You has pushed me to my limit, and I mean it. Next time I come through that door, I might just have a mind to shoot you both dead as potatoes[stopping].[quotation mark][end if][quotation mark]Dumb dog,[quotation mark] he mumbles, [quotation mark]I was doing important business.[quotation mark] [if the coffee is spiked]He looks around for Flash, but the dog has already slid out of the office. [end if]The deputy [one of]spits on the ground once[or]grumbles to himself[or]gives you a mean look[or]shakes his head in frustration[or]waves his fist at you[or]checks the gate again[at random] and leaves the office.[paragraph break]".
 	
 To say deputy responds to whistle:
 	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash.[paragraph break][quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth.[paragraph break][quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
@@ -2496,7 +2528,7 @@ To say deputy drinks some normal coffee:
 	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]The deputy looks at the two of you.  [quotation mark]Enough is enough.  You jokers stay put, I'll be back again in a bit.[quotation mark][paragraph break]The deputy watches Flash slink back into the office before sauntering out again.".
 
 To say get out of jail free:
-	say "The deputy groans deeply and curls up into a ball. You keep poking him with your finger, and finally he rolls towards you, blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office."
+	say "The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office."
 	
 To say rather not hang around:
 	say "[quotation mark]I reckon,[quotation mark] agrees Muddy. [quotation mark]I ain't keen to hang around here no more neither.[quotation mark] You walk out into the pitch dark night, poor but free.[paragraph break]From somewhere ahead of you, Muddy offers, [quotation mark]You know, Rick. While we were in there I did some thinking, and this time I reckon I got a plan that can't fail...[quotation mark][paragraph break]".
