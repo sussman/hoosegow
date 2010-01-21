@@ -447,7 +447,27 @@ Instead of dropping the tobacco:
 		now the tobacco is in the tin;
 		now the tin is closed;
 	otherwise:
-		say "You don't have any."
+		say "You don't have any." 
+		
+Section Dropping and Dropping On
+
+Understand the command "drop" as something new.
+
+Understand "drop [things preferably held]" as dropping.
+
+Dropping it on is an action applying to two things.  Understand "drop [things preferably held] on [other things]" as dropping it on.
+
+Carry out dropping it on:
+	if the second noun is not a supporter:
+		move the noun to the holder of the player;
+	otherwise:
+		move the noun to the second noun.
+		
+Report dropping it on:
+	if the second noun is not a supporter:
+		say "[The noun] drops to the ground.";
+	otherwise:
+		say "[The noun] lands on [the second noun]."
 
 Section Digging
 
@@ -2074,7 +2094,7 @@ Instead of opening the window:
 Instead of closing the window:
 	say "You feel around for shutters, but you don't find none. Just rods."
 
-The barrel is scenery in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel. You can't tell what inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
+The barrel is a furniture in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel. You can't tell what inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
 
 Instead of touching the barrel:
 	say "You can't quite reach it. You could maybe drop something on it, though.".
