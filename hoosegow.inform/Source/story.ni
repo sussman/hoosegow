@@ -457,18 +457,6 @@ Understand "drop [things preferably held]" as dropping.
 
 Dropping it on is an action applying to two things.  Understand "drop [things preferably held] on [other things]" as putting it on.
 
-[Carry out dropping it on:
-	if the second noun is not a supporter:
-		move the noun to the holder of the player;
-	otherwise:
-		move the noun to the second noun.
-		
-Report dropping it on:
-	if the second noun is not a supporter:
-		say "[The noun] drops to the ground.";
-	otherwise:
-		say "[The noun] lands on [the second noun]."]
-
 Section Digging
 
 Digging is an action applying to one thing. Understand "dig [a thing]" or "dig with [a thing]" as digging.
@@ -1715,7 +1703,7 @@ Before doing something other than examining with the metal lock:
 	change the noun to the drawer;
 	continue the action.
 
-After opening the drawer:
+After opening the drawer with the brass key:
 	say "You slide the drawer open revealing [a list of things in the drawer].";
 	if the drawer is not rewarded:
 		now the drawer is rewarded;
@@ -2606,7 +2594,7 @@ To say happy-ending:
 	say "[if sent-for-silver is not true]The marshal dispatches two guards to search behind the office, and when they return with corroboration about the stolen silver, the marshal[otherwise]Marshal McLuhan[end if] instructs his guards to restrain and disarm the sheriff, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off the Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break]Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows, but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark] The newly appointed sheriff grins and shakes his hand. As the marshal pins the star on Jimbo's chest he advises, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
 
 To say capital-charges:
-	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark][paragraph break]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark]".
+	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of the all that's Holy, whyn't we shoot [apostrophe]em dead right here?[quotation mark][paragraph break]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark][paragraph break]".
 
 To say silver-discovered:
 	say "An excited looking army guard burst into the room and tells the marshal, [quotation mark]We just found a whole wagon of silver around the back of the jail. Looks like it was stolen from that train.[quotation mark][paragraph break]The sheriff winces, but remains quiet.";
@@ -3146,6 +3134,7 @@ Crunch Time is a scene. Crunch Time begins when the sheriff is in the office.[an
 The crunch counter is a number that varies. The crunch counter is zero.
 
 Every turn during crunch time:
+	change the block stage business flag to true;[supress entirely for end of game]
 	if silver-found is true and receipt-found is true and patent-found is true:
 		say "[happy-ending]";
 		change the endgame to won;
