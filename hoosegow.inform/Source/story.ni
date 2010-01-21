@@ -1951,7 +1951,7 @@ Section Bars
 
 The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by metal bars on three sides. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
 
-Instead of doing something with the bars:
+Instead of doing something with the bars during introduction:
 	if the current action is examining:
 		continue the action;
 	otherwise if the current action is attacking:
@@ -2005,7 +2005,7 @@ The cell window is a door.  The cell window is scenery.  The description of the 
 
 The rods are plural-named part of the cell window. The description of the rods are "The rods are firmly embedded in the solid brick walls."
 
-Instead of doing something with the rods:
+Instead of doing something with the rods during introduction:
 	if the current action is examining:
 		continue the action;
 	increase the angerometer by one;
@@ -2473,7 +2473,7 @@ To say happy doggie:
 	say "Flash breathes a sign of relief, walks back towards his warm spot and lies down.";
 	
 To say deputy resets the whistle:
-	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if the coffee is spiked]. Flash is so scared that yanks the leash and snaps the lever clear off the machine[end if].[paragraph break]The deputy thunders, [quotation mark]What the hoot-hollering blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break][if the coffee is not spiked]Satisfied that you haven't escaped, he pushes the lever back to the middle position. [end if][quotation mark]Dumb dog. I was doing important business.[quotation mark] [if the coffee is spiked] He looks around for Flash, but the dog has already slid out of the office. [end if][paragraph break]".
+	say "The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty handed, aside from a nearly empty bottle of whiskey[if the coffee is spiked]. Flash is so scared that yanks the leash and snaps the lever clear off the machine[end if].[paragraph break]The deputy thunders, [quotation mark]What the [one of]hoot-hollering[or]cluster chucking[or]hee-haw hobgoblining[or]saddle sore slapping[or]cow-poking sheep-sheering bear-baiting turkey-trotting[at random] blazes is the matter here?[quotation mark] The deputy surveys the office quickly and then rattles the gate to make sure it is still locked[if the gray bar is not part of the bars]. In his drunk rage, he doesn't notice the missing metal bar[end if].[paragraph break][if the coffee is not spiked]Satisfied that you haven't escaped, he pushes the lever back to the middle position and warns, [quotation mark][one of]I don't know what you were up to what made old Flash trigger-happy, but don't let it happen again[or]You understand that I don't like having to come back here when I got better things to do now, right? You just stay put now[or]I am getting fed up with this whistle business. Damn machines. They is supposed to make ever body's life better, but every ten minutes this dang whistle is going off. I ain't cut out for modern times, I do fancy[or]Let me be clear: that whistle is for official use only, and I am the official. If you set it off one more time, there's going to be some answering for it[or]You has pushed me to my limit, and I mean it. Next time I come through that door, I might just have a mind to shoot you both dead as potatoes[stopping].[quotation mark][end if][paragraph break][quotation mark]Dumb dog,[quotation mark] he mumbles, [quotation mark]I was doing important business.[quotation mark] [if the coffee is spiked]He looks around for Flash, but the dog has already slid out of the office. [end if]The deputy [one of]spits on the ground once[or]grumbles to himself[or]gives you a mean look[or]shakes his head in frustration[or]waves his fist at you[or]checks the gate again[at random] and leaves the office.[paragraph break]".
 	
 To say deputy responds to whistle:
 	say "The deputy pokes his head back in the office and remarks, [quotation mark]I've about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.[quotation mark][paragraph break]The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.[paragraph break]The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog's bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office's strange looking steam boiler and ties him to it with a leash.[paragraph break][quotation mark]This here's Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don't cross him.[quotation mark] Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth.[paragraph break][quotation mark]Flash here's apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff's fancy steam contraption.[quotation mark] The deputy narrows his eyes distrustfully. [quotation mark]If you boys were so stupid as to make for the jailhouse door, [apostrophe]ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if'n I do hear it, then you'll have to deal with me *and* Flash.[quotation mark] The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.";
@@ -2552,6 +2552,8 @@ To say meat-text:
 To say muddy-clues:
 	say "Muddy whispers, [quotation mark][one of]Rick, we ain't got long. I reckon that marshal is someone what can be reasoned with[or]We got to show that marshal something. I reckon maybe we could make up some kind of excuse or shift the blame, maybe[or]Rick, we're almost out of time. You got to convince that marshal that we ain't no more crooked than that sheriff[stopping].[quotation mark][paragraph break]"
 
+To say whistled-to-death:
+	say "The deputy stumbles in from the street, barely able to stand. Regarding you through bloodshot and unfocused eyes, he whines, [quotation mark]I done told you enough times not to set off that whistle and did you listen? Heck, no. Well, maybe this will teach you a lesson![quotation mark][paragraph break]He staggers forward and draws his gun. The first shot goes into the pipe above the steam boiler, puncturing the pipe and sending a jet of hot steam into the Deputy's face. The deputy howls in pain and shoots again, hitting the dinner bell. Flash darts forward, tripping the deput and sending him sprawling on the floor. The deputy curses and fires a volley of three more shots into the ceiling, which showers him with concrete fragments, blinding him. The next shot goes wide, straight out the jail cell window and brings down a hawk which had been circling overhead. With his final shot, the deputy shoots the floor just in front of his left boot.[paragraph break]By some quirk of physics and happenstance, the exact nature of which is debated to this very day, the bullet ricochets off the wooden cabinet, clips the ends of the portrait frame, rebounds off the bricks above Pastor Pete's bench, vibrates rapidly between the jail bars, kicks the bean can into the air, and flies in a final straight line which includes both your head and Muddy's."
 		
 Section Vulture
 
@@ -2971,6 +2973,13 @@ This is the flashing stink rule:
 Every turn during flashing:
 	if the position of the lever is whistleward:
 		change the position of the lever to neutral;
+		increase the angerometer by one;		
+		if the angerometer is 16:
+			change the block stage business flag to true;
+			say "[whistled-to-death]";
+			change the endgame to shot;
+			end the game in death;
+			the rule succeeds;
 		say deputy resets the whistle;
 		if the office encloses the coffee:
 			if the coffee is spiked:
