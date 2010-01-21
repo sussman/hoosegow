@@ -153,7 +153,9 @@ A thing has some text called the inscription. The inscription of something is us
 
 Definition: A thing (called the item) is bootlike if the item is the left boot or the item is the right boot.
 
-An ungulate is a kind of backdrop.
+A fardrop is a kind of backdrop.
+
+An ungulate is a kind of fardrop.
 
 Conclusion is a kind of value. The conclusions are hanged, shot, escaped, rolled, and won.  
 
@@ -817,9 +819,10 @@ Instead of smelling:
 		choose row R in the Table of Relative Smells;
 		say "[verbage entry].";
 		the rule succeeds;
-	otherwise if the noun is a backdrop:				
-		do nothing;[backdrops are not in the location; the default rule serves adequately.]
 	otherwise:
+		if the noun is a fardrop:
+			say "[The noun] is too far away to smell.";
+			the rule fails;
 		if the scent of the noun is "":
 			[note that this presumes that people all have a defined scent]
 			say "The [noun] [the regverb in correct agreement] [one of]unremarkable[or]ordinary[or]not particularly interesting[in random order].";
@@ -990,6 +993,9 @@ Instead of telling someone about anything:
 	
 Section Touch
 [Touching is implemented through an after rule, which is nice in terms of making use of existing relationships about whether something is touchable or not. If an item has a texture attribute, this rule makes use of it.]
+
+Instead of touching a fardrop:
+	say "[The noun] is too far away to touch."
 
 After touching something (called the item):
 	if the item is the player:
@@ -1568,21 +1574,16 @@ Chapter Jailhouse Region
 
 The jailhouse is a region.  The office and jail cell are part of the jailhouse.
 
-The ceiling is a backdrop in the jailhouse.  The description of the ceiling is "The jailhouse ceiling is stucco and too high to touch. "
+The ceiling is a fardrop in the jailhouse.  The description of the ceiling is "The jailhouse ceiling is stucco and too high to touch. "
 
-The walls are a plural-named backdrop in the jailhouse.  Understand "wall" as the walls.  The description of the walls is "The jailhouse walls are made of brightly painted white bricks. The bricks still smell like fresh paint."   The scent of the walls is "fresh paint."
+The walls are a plural-named backdrop in the jailhouse.  Understand "wall" as the walls.  The description of the walls is "The jailhouse walls are made of brightly painted white bricks. The bricks still smell like fresh paint."   The scent of the walls is "like fresh paint". The texture of the walls is "rough and a little bit powdery".
 
-The sky is a backdrop in the jailhouse.  The description of the sky is "Outside the window, the moon rises on a cloudless night. In the distance, a wake of vultures saws the air, circling their prey."
+The sky is a fardrop in the jailhouse.  The description of the sky is "Outside the window, the moon rises on a cloudless night. In the distance, a wake of vultures saws the air, circling their prey."
 
 Instead of touching the sky:
-	say "Don't you wish.".
+	say "Kind of makes you wonder if the world is hollow, don't it?"
 
-The vultures are a plural-named backdrop in the jailhouse.  The description of the vultures is "They look hungry.  Why else would they circle like that?".
-
-Instead of smelling or touching the vultures:
-	say "They're too far away."
-
-[TODO:  ceiling and sky should not be reachable]
+The vultures are a plural-named fardrop in the jailhouse.  The description of the vultures is "They look hungry.  Why else would they circle like that?".
 
 Chapter Office
 
@@ -1757,11 +1758,11 @@ Instead of reading the receipt:
 
 Section Outdoors
 
-The outdoors is a backdrop. The outdoors is everywhere. The description of the outdoors is "Oh, what a beautiful [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]. Lush farm fields, the endless cattle range -- except that you're going to be hanged at 8 a.m. That puts a damper on things." Understand "outside" as the outdoors.
+The outdoors is a fardrop. The outdoors is everywhere. The description of the outdoors is "Oh, what a beautiful [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]. Lush farm fields, the endless cattle range -- except that you're going to be hanged at 8 a.m. That puts a damper on things." Understand "outside" as the outdoors.
 
-The range is a backdrop. The description of the range is "[if the deer is in a room]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]". The range is everywhere. Understand "cattle" as the range.
+The range is a fardrop. The description of the range is "[if the deer is in a room]The deer and the antelope are playing.[otherwise]The skies are not cloudy.[end if]". The range is everywhere. Understand "cattle" as the range.
 
-The fields are a plural-named backdrop. The description of the fields is "Corn, mostly." The fields are everywhere. Understand "lush" or "farm" or "field" as the fields.
+The fields are a plural-named fardrop. The description of the fields is "Corn, mostly." The fields are everywhere. Understand "lush" or "farm" or "field" as the fields.
 
 The deer is an ungulate. The deer is everywhere.
 
@@ -1772,7 +1773,7 @@ Instead of examining an ungulate:
 	remove the deer from play;
 	remove the antelope from play;
 		
-The corn is a backdrop. The corn is everywhere. The description of the corn is "Tall enough that elephants who value their eyesight do not walk through it."	
+The corn is a fardrop. The corn is everywhere. The description of the corn is "Tall enough that elephants who value their eyesight do not walk through it."	
 
 Section Portrait
 
@@ -1819,7 +1820,7 @@ After inserting something into the mouth:
 	
 Section Floor
 
-The floor is a backdrop in the jail cell. The description of the floor is "Rough, dirty[if the stain is on the floor], and stained[end if] concrete."
+The floor is a backdrop in the jail cell. The description of the floor is "Rough, dirty[if the stain is on the floor], and stained[end if] concrete." The scent of the floor is "remarkably like every other jail house floor you have ever taken the time to examine closely". The texture of the floor is "gritty".
 
 Section Gate
 
@@ -2115,7 +2116,7 @@ Instead of taking the berry:
 Instead of eating the berry:
 	say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll be out cold for hours -- and we only got till eight in the 'A' of 'M' to get out of here.'".
 
-The saloon is a backdrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
+The saloon is a fardrop. The saloon is everywhere. The description of the saloon is "Looking out the jail cell window, you can see the saloon across the street."
 [####TODO dynamic description of saloon;  specifically, if tall, there should be a much more detailed description]
 
 
@@ -2406,7 +2407,7 @@ Instead of searching the overcoat:
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 	
-The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." 
+The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." The scent of the footwear is "horrible". The texture of the footwear is "leathery".
 
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
