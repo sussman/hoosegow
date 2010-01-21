@@ -511,6 +511,13 @@ Carry out WarrantForging:
 	now Rick carries the warrant;
 	now the warrant is edited.
 	
+Instead of doing something with the warrant when the warrant is edited:
+	if the current action is dropping or inserting or putting on or throwing at:
+		say "No way. That warrant is your ticket out of here.";
+	otherwise:
+		continue the action.
+
+	
 Section FunnyLooking
 
 FunnyLooking is an action applying to nothing. Understand "look funny" or "look at flash funny" or "look funny at Flash" as FunnyLooking when Flash is in the jailhouse.
@@ -1458,7 +1465,10 @@ The stain is scenery in Limbo. The description of the stain is "A dark brown sta
 
 Section Warrant
 
-The warrant is a sheet. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper". The warrant can be recognized. The warrant is not recognized.
+The warrant is a sheet. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper".
+ The warrant can be recognized. The warrant is not recognized. [by muddy, as a cue for second plan]
+
+The warrant can be acknowledged. The warrant is not acknowledged.[by the deputy after editing]
 
 To say warrant-text:
 	say "FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Sixty Nine and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias [quotation mark]Muddy,[quotation mark] alias [quotation mark]Mudshoe,[quotation mark] alias [quotation mark]Pensicola Thelma,[quotation mark] and one Major Richard Carter, alias [quotation mark]Gentleman Rick,[quotation mark] alias [quotation mark]Poor Richard,[quotation mark] alias [quotation mark]Gumball Ricky,[quotation mark] both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging[if the warrant is edited] of the Sheriff's portrait on the office wall[end if]"
@@ -1513,13 +1523,14 @@ Instead of giving the tobacco to Muddy during forgery:
 			say "Muddy reluctantly accepts the tobacco, saying, [quotation mark]Well, I suppose I could use the tobacco juice.[quotation mark][if Muddy carries the feather] Muddy chews the tobacco some more, fills his makeshift pen with the juice, and throws the wad out the window. [end if][paragraph break]";
 		try WarrantForging.
 
-Instead of showing the warrant to the deputy when the warrant is edited:
-	if the gate is not locked:
-		say "The deputy acknowledges the official-looking document with a yawn.";
-	otherwise:
-		say "[get out of jail free]";
-		now the gate is unlocked;
-		now the gate is open.
+Instead of doing something with the deputy when the warrant is edited and the warrant is not acknowledged:
+	say "[get out of jail free]";
+	now the gate is unlocked;
+	now the gate is open.
+		
+Instead of showing the warrant to the deputy when the warrant is acknowledged:
+	say "The deputy acknowledges the official-looking document with a yawn.";
+
 
 Chapter Jailhouse Region
 
@@ -1838,7 +1849,7 @@ Instead of entering the stool:
 	if the socket is not occupied: [stool is broken]
 		if the broken-stool-sit-count is:
 			-- 0:
-			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You sit down on the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off.[if the deputy is not in limbo] [paragraph break]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich. Maybe he'll try again.'[end if]";
+			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You sit down on the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off. [paragraph break][if the deputy is not in limbo]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich. Maybe he'll try again.'[end if]";
 			-- 1:
 			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now.[if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.'[paragraph break][end if]";
 			-- otherwise:
@@ -2038,7 +2049,7 @@ Instead of touching the barrel:
 The vine is scenery in the street.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall] It's covered with small red berries.[end if]".
 
 Instead of taking the vine:
-	say "You yank on the wiry vine and it yanks back.  It's too tough to break off.".
+	say "You yank on the wiry vine and it yanks back. It's too tough to break off.".
 
 Rule for reaching inside the street:
 	if the player is tall, allow access;
@@ -2762,7 +2773,7 @@ LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure?[paragraph br
 LibMsg <yes or no prompt>		"Ain't you got no manners? Answer yes or no.[paragraph break]"  
 LibMsg <restrict answer>			"Enough of your blatheration. Give one of them answers from above.[paragraph break]"  
 LibMsg <page prompt>			"[bracket]Press SPACE if'n you want to go on a pace.[close bracket]"  
-LibMsg <undo succeeded>		"[bracket]You done backtracked[dot][close bracket]"  
+LibMsg <undo succeeded>		"You done backtracked some.[paragraph break]"  
 LibMsg <undo failed>			"[apostrophe]Undo[apostrophe] failed real miserable-like. [bracket]Not all interpreters got the cajones to get undid[dot][close bracket]"
 LibMsg <undo not provided>		"[bracket]Your 'terp don't provide [apostrophe]undo[apostrophe]. [apologies].[ExMark][close bracket]"  
 LibMsg <cannot undo nothing>		"[bracket]You can't [apostrophe]undo[apostrophe] what ain't been did none[ExMark][close bracket]"   
