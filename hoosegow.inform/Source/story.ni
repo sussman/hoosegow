@@ -455,9 +455,9 @@ Understand the command "drop" as something new.
 
 Understand "drop [things preferably held]" as dropping.
 
-Dropping it on is an action applying to two things.  Understand "drop [things preferably held] on [other things]" as dropping it on.
+Dropping it on is an action applying to two things.  Understand "drop [things preferably held] on [other things]" as putting it on.
 
-Carry out dropping it on:
+[Carry out dropping it on:
 	if the second noun is not a supporter:
 		move the noun to the holder of the player;
 	otherwise:
@@ -467,7 +467,7 @@ Report dropping it on:
 	if the second noun is not a supporter:
 		say "[The noun] drops to the ground.";
 	otherwise:
-		say "[The noun] lands on [the second noun]."
+		say "[The noun] lands on [the second noun]."]
 
 Section Digging
 
