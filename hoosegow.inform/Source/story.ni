@@ -474,6 +474,9 @@ Carry out digging:
 Does the player mean digging the floor:
 	it is very likely.
 	
+[tracks whether plays has attempted to open the can with anything; referenced in hint generation]
+Attempted-can is a truth state that varies. Attempted-can is false.
+
 Opening it with is an action applying to two things. Understand "open [a thing] with/using [other things]" as opening it with.
 
 Check opening it with:
@@ -482,6 +485,7 @@ Check opening it with:
 	if the noun is open:
 		say "It's already open." instead;
 	if the noun is the can of beans:
+		change attempted-can to true;
 		if the second noun is not the spur:
 			say "You don't seem to be able to open [the noun] with [the second noun]." instead;
 		otherwise:
@@ -1106,7 +1110,7 @@ When play begins:
 	try silently switching score notification off.
 	
 After printing the banner text:
-	say "Type [quotation mark]help[quotation mark] for instructions, credits, and license -- or just roll into town guns a-blazin[apostrophe].[paragraph break]";
+	say "Type [quotation mark]help[quotation mark] for instructions and [quotation mark]hints[quotation mark] for hints -- or just roll into town guns a-blazin[apostrophe].[paragraph break]";
 	say "[bracket]Press Space To Continue[close bracket]";
 	wait for any key;
 	clear screen;
@@ -1684,7 +1688,7 @@ After taking the gun:
 
 Section Chair
 
-The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is in the office and the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
+The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down olawmanffice[if the deputy is in the office and the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
 
 The scent of the chair is "like an amalgam of the butts that have sat on it over the years. Not pleasant". The texture of the chair is "like an expensive piece of furniture".
 
@@ -1754,7 +1758,7 @@ Instead of reading the note:
 	say "You read the note aloud.[paragraph break][note-text].[paragraph break]Muddy [one of]shakes his head with enjoyment and shouts, [quotation mark]Bully for you Ella[or]nods in agreement. [quotation mark]That's telling him[stopping]![quotation mark][paragraph break]"
 
 To say note-text: 
-	say "[quotation mark]Dear Sam, I can't go on like this. When you were just a plain old sheriff that was one thing, but since you started inventing stuff, I can see what you are made of. A man that kicks my dog isn't cut out for marrying anyone. I thought you were an honest law man, but I can see what you've become. Don't come around no more or my pa might just take a disliking to you. I was going to send you my ring, but I found out it was glass. Why am I not surprised? You are a scoundrel and not fit to wear that uniform.[paragraph break]Explicitly not yours,[paragraph break]Ella[quotation mark]". 
+	say "[quotation mark]Dear Sam, I can't go on like this. When you were just a plain old sheriff that was one thing, but since you started inventing stuff, I can see what you are made of. A man that kicks my dog isn't cut out for marrying anyone. I thought you were an honest lawman, but I can see what you've become. Don't come around no more or my pa might just take a disliking to you. I was going to send you my ring, but I found out it was glass. Why am I not surprised? You are a scoundrel and not fit to wear that uniform.[paragraph break]Explicitly not yours,[paragraph break]Ella[quotation mark]". 
 	
 The receipt is a sheet in the folder. The description of the receipt is "A receipt from Jeffries & Brand Steam Works Co Ltd of Witchita Falls. The receipt is for four hundred dollars worth of pipes and fittings purchased by Sheriff Sam Cheney of Crawdad's Gulch. At the bottom of the note, written in red is the following postscriptum: [postscriptum]."
 
@@ -1892,7 +1896,7 @@ Instead of entering the stool:
 			-- 0:
 			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You sit down on the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off. [paragraph break][if the deputy is not in limbo]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich. Maybe he'll try again.'[end if]";
 			-- 1:
-			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now.[if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.'[paragraph break][end if]";
+			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now. [if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.'[paragraph break][end if]";
 			-- otherwise:
 			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna sit on the stool unless it stands solidly on three good legs.";
 		increase the broken-stool-sit-count by one;
@@ -2076,7 +2080,29 @@ Instead of climbing the window:
 	try entering the window.
 	
 Instead of going through the window:
-	say "Those rods aren't going anywhere; at most, you can maybe reach your hand through them."
+	if the introduction is happening:
+		try touching the rods;[to set off deputy warning.]
+	otherwise:
+		if Rick is tall:
+			say "You are already high enough up to reach through the windows.";
+			the rule fails;
+		if mud-lifted is less than 4:
+			say "[lifting text]" as dialogue;
+			increase mud-lifted by one;
+			now Rick is tall;
+			Muddy whimpers in one turn from now;
+			[could adjust this to a random number from one to two turns from now]
+		otherwise:
+			say "Those rods aren't going anywhere; at most, you can maybe reach your hand through them."
+			
+At the time when Muddy whimpers:
+	say "[whimper text]" as dialogue;
+	Rick falls in one turn from now.
+			
+At the time when Rick falls:
+	now Rick is not tall;
+	say "[falling text]" as dialogue.
+
 Instead of opening the window:
 	say "There is no glass in the window; it is already open."
 Instead of closing the window:
@@ -2166,13 +2192,13 @@ To warn about the (cylinder - a thing):
 		-- 2:
 			say "The deputy shifts forward in his seat, [quotation mark]I done told you once, don't mess with the metal bars, not the jail bars, and not them rods in the window. It ain't like it's going to help you none anyhow, but it don't seem proper, what with me sitting here. Keep it up, and I may have to shoot some lead in your direction. That's a [italic type]metaphor[roman type]. It means, I'm going to have to shoot you, in case you don't know what a [italic type]metaphor[roman type] is. See. Lead is what's in bullets, so in this case, lead is a symbol for... um, lead. I can see I'm wasting my time explaining this to the likes of you.[quotation mark][paragraph break]";
 		-- 3:
-			say "Muddy raises his eyebrows at you to get your attention and whispers, [quotation mark]He ain't kidding, Rick. We best not push him too far. He's  a rattlesnake in a bottle of tequila.[quotation mark][paragraph break][quotation mark]What the blazes does that mean, Muddy?[quotation mark][paragraph break][quotation mark]Just metanymy, I reckon.[quotation mark][paragraph break]";
+			say "The deputy rubs his head with his palms and growls, [quotation mark]I'm a-warning you first instead of a-shooting you first because I got myself a bad headache and I don't need the extra noise. Keep messing with them [if the cylinder is the bars]jail bars[otherwise]window rods[end if] and I will scratch my itchy trigger finger.[quotation mark][paragraph break]Muddy raises his eyebrows at you to get your attention and whispers, [quotation mark]He ain't kidding, Rick. We best not push him too far. He's  a rattlesnake in a bottle of tequila.[quotation mark][paragraph break][quotation mark]What the blazes does that mean, Muddy?[quotation mark][paragraph break][quotation mark]Just metanymy, I reckon.[quotation mark][paragraph break]";
 		-- 4:
 			say "Without bothering to get up from his comfortable position behind the desk, the deputy draws his mean-looking nine-shot LeMat revolver and squeezes off a lazy shot in your direction, only looking afterwards to see if he hit anything. [quotation mark]I said, stop messing around in there, or the vultures are going to dine early tonight.[quotation mark][paragraph break]";
 		-- 5:
 			say "The deputy folds down his paper and leers at you, [quotation mark]Don't tempt me. I could do with some target practice.[quotation mark][paragraph break]Muddy shakes his head, motioning you back. [quotation mark]Rick, this guy's one stagecoach stop short of the fort, if you know what I mean. We best to find a way to get him out of the picture, or we ain't never going to get out of here.[quotation mark][paragraph break]";
 		-- 6:
-			say "The deputy rolls his eyes, [quotation mark]You is about the dumbest, stupidist, most corn-starched spit-lickingest idiotic pie-brained goat-guzzling criminals I did ever see.[quotation mark][paragraph break]He pulls his gun out from under the desk and uses it for punctuation, mainly of the ceiling. [quotation mark]Listen, you![quotation mark] (Bang.) [quotation mark]When I said--[quotation mark] (bang) [quotation mark]--don't--[quotation mark] (bang) [quotation mark]--go messing--[quotation mark] (bang) [quotation mark]--with stuff--[quotation mark] (bang) [quotation mark]--I meant it.[quotation mark] (Bang, bang.) [quotation mark]Now, do you understand me-- [quotation mark] (bang). The last bang rises slightly in pitch to convey that it was a question.[paragraph break]The bullets ricocheting off the jailhouse walls every which way are enough to shake up even Muddy, who hisses, [quotation mark]Stop messing with him Rick, the clock's ticking and we got to get out here by morning, or we'll be wearing hemp neckties for the rest of our lives. Rick, you got to figure us a way to get him out of here, so we can get busy with some proper jail-breaking.[quotation mark][paragraph break]";
+			say "The deputy rolls his eyes, [quotation mark]You is about the dumbest, stupidist, most corn-starched spit-lickingest idiotic pie-brained goat-galooting criminals I did ever see.[quotation mark][paragraph break]He pulls his gun out from under the desk and uses it for punctuation, mainly of the ceiling. [quotation mark]Listen, you![quotation mark] (Bang.) [quotation mark]When I said--[quotation mark] (bang) [quotation mark]--don't--[quotation mark] (bang) [quotation mark]--go messing--[quotation mark] (bang) [quotation mark]--with stuff--[quotation mark] (bang) [quotation mark]--I meant it.[quotation mark] (Bang, bang.) [quotation mark]Now, do you understand me-- [quotation mark] (bang). The last bang rises slightly in pitch to convey that it was a question.[paragraph break]The bullets ricocheting off the jailhouse walls every which way are enough to shake up even Muddy, who hisses, [quotation mark]Stop messing with him Rick, the clock's ticking and we got to get out here by morning, or we'll be wearing hemp neckties for the rest of our lives. Rick, you got to figure us a way to get him out of here, so we can get busy with some proper jail-breaking.[quotation mark][paragraph break]";
 		-- 7:
 			say "The deputy leaps up, this time angry, his face flushing. He stuffs the paper in his pocket and levels his gun at your head. [quotation mark]I had enough of you! (click)[quotation mark] He stares stupidly at his gun before realizing that he has to reload it. [quotation mark]Lucky for you, I reckon.[quotation mark] He begins plucking bullets from his belt and loading them one by one into the cylinder. [quotation mark]You so much as [italic type]sing[roman type], and I'll have to see to your killing.[quotation mark][paragraph break]A look of fear washes over Muddy's face, [quotation mark]Don't do it, Rick. Don't do it.[quotation mark]";
 			now the deputy is singing-sensitive;
@@ -2234,7 +2260,9 @@ The marshal is a person in Limbo. The scent of the marshal is "of authority". Th
 
 Section Muddy
 
-Muddy is a man in the jail cell. Muddy is proper-named.  "Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be inked. Muddy is not inked.
+Mud-lifted is a number that varies. Mud-lifted is zero.
+
+Muddy is a man in the jail cell. Muddy is proper-named.  "Muddy leans against the wall[if Muddy carries the harmonica] tapping a harmonica on his arm[end if].".  The description of Muddy is "Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn't at all match his formal frock coat, which is covered with dust and mud. [one of]In short, he hasn't changed a jot since the day you were both picked up for desertion and thrown in the stockade.[or]He's a bit short and pudgy, but always more nimble than you'd expect for someone of his age.[or]He hasn't shaved for days, and when he grins you notice one of his front teeth is missing.[or][stopping]". Muddy can be inked. Muddy is not inked. 
 
 The scent of Muddy is "[one of]unwashed[or]like he's in need of a bath[or]like you feel[at random]". The texture of muddy is "rough and gritty".
 
@@ -2559,7 +2587,7 @@ To say wake-deputy:
 	say "Seeing the sheriff, the deputy sobers up immediately and jumps to his feet. [quotation mark]I was just resting my eyes for a moment, sir, and helping these gentlemen hang your portrait up.[quotation mark][paragraph break]The marshal looks confused and asks the deputy, [quotation mark]Hang up his portrait?[quotation mark][paragraph break][quotation mark]Well sure, mister marshal, sir. The sheriff done told me they was our welcome guests and that he wanted his picture hung up.[quotation mark][paragraph break]The marshal raises his eyebrows suspiciously, [quotation mark]You had federal suspects tidying up your office? Sheriff Cheney, I have to say that seems quite sloppy, and not in keeping with the public trust inherent in your position.[quotation mark][paragraph break]". 
 	
 To say talk only to me:
-	say "The marshal interjects, [quotation mark][one of]I am the senior law man present. The prisoners will address their remarks to me[or]Address your remarks to me[stopping].[quotation mark][paragraph break]".
+	say "The marshal interjects, [quotation mark][one of]I am the senior lawman present. The prisoners will address their remarks to me[or]Address your remarks to me[stopping].[quotation mark][paragraph break]".
 	
 To say talk is cheap:
 	say "The marshal says, [quotation mark][one of]Talk is cheap. All I'm interested in is evidence of your guilt or innocence[or]If you have something to show me, show me. Otherwise, the prisoners will remain silent, awaiting prosecution[stopping].[quotation mark][paragraph break]";
@@ -2613,6 +2641,15 @@ To say muddy-clues:
 
 To say whistled-to-death:
 	say "The deputy stumbles in from the street, barely able to stand. Regarding you through bloodshot and unfocused eyes, he whines, [quotation mark]I done told you enough times not to set off that whistle and did you listen? Heck, no. Well, maybe this will teach you a lesson![quotation mark][paragraph break]He staggers forward and draws his gun. The first shot goes into the pipe above the steam boiler, puncturing the pipe and sending a jet of hot steam into the Deputy's face. The deputy howls in pain and shoots again, hitting the dinner bell. Flash darts forward, tripping the deput and sending him sprawling on the floor. The deputy curses and fires a volley of three more shots into the ceiling, which showers him with concrete fragments, blinding him. The next shot goes wide, straight out the jail cell window and brings down a hawk which had been circling overhead. With his final shot, the deputy shoots the floor just in front of his left boot.[paragraph break]By some quirk of physics and happenstance, the exact nature of which is debated to this very day, the bullet ricochets off the wooden cabinet, clips the ends of the portrait frame, rebounds off the bricks above Pastor Pete's bench, vibrates rapidly between the jail bars, kicks the bean can into the air, and flies in a final straight line which includes both your head and Muddy's."
+	
+To say lifting text:
+	say "[one of][quotation mark]Muddy, give me a hand up,[quotation mark] you ask. Muddy stretches his back and boosts you up to the window[or]Muddy knows the drill, and bends down to give you a boost, saying, [quotation mark]Go gentle. I got a bad back, you know. Age ain't kind to them that is in our profession, you know.[quotation mark][or]Muddy rubs his back but lifts you up[or]Muddy looks like his back hurts; he's walking kind of bent over now, but still gives you a boost up to the window[stopping]."
+	
+To say falling text:
+	say "[one of]Muddy trembles and jumps back. You fall to the floor. Muddy apologizes, [quotation mark]Sorry, Rick. My hands slipped.[quotation mark][or]Muddy slips and you hop off, none the worse for the effort. [or][quotation mark]Timber![quotation mark] yells Muddy, as his shaky grip fails and you once again plummet to the floor of the jail cell. [quotation mark]I think you just about done my back in that time, Rick.[quotation mark][or]Muddy's grip fails and you drop. He shakes his head. [quotation mark]I ain't got it in me to do no more lifting, and I ain't fixing to do no climbing neither. Can you climb up on something else (besides me, that is)?[quotation mark][stopping][paragraph break]";
+	
+To say whimper text:
+	say "Muddy [one of]grunts[or]shifts with a whimper[or]moves his feet to get in a better position[or]breathes heavily[or]strains to keep you aloft[or]shakes and quivers with effort[or]puts his back into it[or]mutters something under his breath about how much beef you've been putting away lately[or]wonders if he would have had a better life as a dentist[at random]. [quotation mark][one of]I'm fine[or]No problem[or]doing okay, Rick[or]Hanging in there for now, Rick[or]This ain't so bad[or]I think I got you[or]I hope you got a good view up there[or]This might just work[at random],[quotation mark] he [one of]grunts[or]mutters[or]yells[or]says[or]whines[or]remarks[or]adds[or]observes[or]declares[at random], [quotation mark]but [one of]I'd appreciate it rightly if you'd be quick about it[or]you might consider cutting back on the victuals after this[or]why am I always the one doing the lifting? I guess on account of you is taller[or]don't dally up there[or]my back ain't gonna last much longer[or]there's got to be a better way of climbing up there[or]I wish you could climb on something else instead[or]I wish they put that window down lower[at random].[quotation mark][paragraph break]".
 		
 Section Vulture
 
@@ -2915,6 +2952,8 @@ LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph 
 
 	
 Section Hints
+[Note: In thinking about hint activation, remember that the set up of the extension is such that once a hint is deactivated, the activation rule will not reset it. The table row is deleted, so one doesn't need to worry about recurrent activation of a hint. Still, it's good to make the activation rules specific.]
+
 
 Table of Active Hints (continued)
 title		subtable			description			toggle
@@ -2923,12 +2962,26 @@ text		table-name		text					a rule
 Table of Potential Hints (continued)
 title													subtable
 "How can I open the can?"						Table of Can Opening
+"Getting rid of the deputy."						Table of Deputy Repulsion
+"Finding stuff in the jail cell."				Table of Finding Stuff Inside
+"What's this berry good for?"					Table of Trap Setting
+"Getting the deputy to drink the coffee."	Table of Deputy Luring
+"How does that steam contraption work?"		Table of Machine Operation
+"The deputy's out cold. Now what?"				Table of Post-knockout Hints
+"Where to find a pen?"							Table of Pen Hints
+"Where to find some ink?"						Table of Inklings
+"Uh oh. The marshal!"								Table of Evidence Hints
+"Fixing the wobbly stool."						Table of Stool Fixing
 
-A hint activation rule:
-	if the can of beans is in the jail cell and the can of beans is closed then activate the Table of Can Opening.
-	
-A hint deactivation rule:
-	if the can of beans is open then deactivate the Table of Can Opening.
+
+A hint activation rule (this is the opening the can of beans hint activation rule):
+	if attempted-can is true and the can of beans is not open:
+		activate the Table of Can Opening.
+		
+A hint deactivation rule (this is the opening the can of beans hint deactivation rule):
+	if the can of beans is open:
+		deactivate the Table of Can Opening.
+
 
 Table of Can Opening
 hint													used
@@ -2943,6 +2996,227 @@ hint													used
 "You need to remove the spurs from the boot to use them as a can opener."
 "You can pull the spurs of the right boot."
 "Open the can with the spurs."
+
+A hint activation rule (this is the getting rid of the deputy hint activation rule):
+	if introduction is happening then activate the Table of Deputy Repulsion.
+	
+A hint deactivation rule (this is the getting rid of the deputy hint deactivation rule):
+	if introduction is not happening then deactivate the Table of Deputy Repulsion.
+	
+Table of Deputy Repulsion
+hint												used
+"It's hard to get stuff done with that deputy in the office."
+"The deputy is in a perpetual bad mood and has a headache, which got worse the moment you two arrived. He was looking forward to a quiet evening in the saloon, but all that's gone out the window now."
+"The deputy's headache is teetering on the edge of a full-blown migraine, and the whiskey can only help so much. The last thing he needs is any kind of sensory overload."
+"Certain loud sounds and unplesant smells bother the deputy."
+"The deputy is not a big fan of the harmonica, and has attempted on several occassions to rip it out of the wall."
+"The deputy dislikes strong odors as well."
+"Since the deputy is basically lazy, it may take more than one attempt to drive him out of the office."
+"You and Muddy have a couple ways of producing unpleasant odors, but it may take more than one step."
+"[if the can of beans is not in Limbo]You've already seen something [otherwise]If you look around the office a little more, you might find something[end if] that has the potential to smell bad if eaten."
+"[if the player wears the right boot and the player wears the left boot]You have been told on occassion by some not very tactful acquintances of yours that your feet have a distinct scent[otherwise]If one boot is bad, imagine two[end if]."
+"Two debooted feet, one consumed can of beans (and subsequent side effects) or a few times playing the harmonica should be enough to convince the deputy that he'd rather spend his evening somewhere else."
+
+A hint activation rule (this is the finding stuff inside hint activation rule):
+	if the turn count is greater than ten and (the can of beans is in limbo or the tin is in the pocket or the pamphlet is in the pocket):
+		activate the Table of Finding Stuff Inside.
+		
+A hint deactivation rule (this is the finding stuff inside hint deactivation rule):
+	if the can of beans is not in limbo and the tin is not in the pocket and the pamphlet is not in the pocket:
+		deactivate the Table of Finding Stuff Inside.
+		
+Table of Finding Stuff Inside
+hint												used
+"To get out of the jail cell, you're going to need to make the best use of what's at hand."
+"There are a few items in the jail cell that are not immediately apparent and may require some looking around."
+"It is fair game to LOOK UNDER large items, to SEARCH people (if they'll permit you to do so), and to OPEN up things that are closed."
+"You can start by [if inventory-done is not true]seeing what INVENTORY you are carrying and by EXAMINING yourself and your own clothes[otherwise]seeing if your third cell mate has any interesting possessions.You're in jail to start with, what do you have to lose? Go on, don't be shy[end if]."
+"[if the can of beans is in Limbo]Did you look under all the big pieces of furniture (there aren't many. It's a jail -- not a hotel)?[otherwise]Have you picked up everything you can see and EXAMINEd it, SHOWn it to Muddy, or ASKed him about it?[end if]"
+"[if the can of beans is in Limbo]Thanks to the deputy's poor housekeeping skills, there are some items under the bench[otherwise]Make sure you've availed yourself of any possessions the stranger may have in his pockets. He's not using them for the moment, anyhow[end if]."
+
+
+A hint activation rule (this is the stool fixing hint activation rule):
+	if the broken-stool-sit-count is greater than zero:
+		activate the Table of Stool Fixing.
+		
+A hint deactivation rule (this is the stool fixing hint deactivation rule):
+	if the socket is occupied then deactivate the Table of Trap Setting.
+
+
+Table of Stool Fixing
+hint												used
+"With only two legs, the stool is not usable."
+"If you look at the seat, you'll see that something is missing."
+"The stool is missing a leg. It would be nice to find a replacement."
+"Have you EXAMINEd the seat of the stool?"
+"On the bottom surface of the seat there is a socket."
+"You need to put a substitute leg in the socket to fix the stool."
+"You have [if the gray bar is not part of the bars]already[otherwise]not yet[end if] found the substitute leg."
+"[if the gray bar is part of the bars]One of the jail bars is different from the others. You can use sound to help find the one that you need[otherwise]Try putting the gray bar into the socket[end if]."
+
+[
+
+[Getting to the window during flashing if window attempted]
+
+A hint activation rule (this is the accessing the window hint activation rule):
+	
+
+A hint deactivation rule (this is the accessing the window hint deactivation rule):
+	
+
+Table of Window Hints
+hint												used
+"filler"
+
+]
+
+A hint activation rule (this is the setting the trap hint activation rule):
+	if the berry is first-held and flashing is happening:
+		activate the Table of Trap Setting.
+		
+A hint deactivation rule (this is the setting the trap hint deactivation rule):
+	if flashing is not happening or the coffee is spiked then deactivate the Table of Trap Setting.
+	
+Table of Trap Setting
+hint												used
+"So, you have a juicy little red berry, do you? Have you asked Muddy's opinion? Maybe if he takes a look at the berry, he can give you some advice."
+"You could, at your own risk, see what happens if you eat one of those berries. Eating random berries may not be the best idea."
+"Did you SHOW the berry to Muddy? If so, does its name suggest any uses for the berry?"
+"You can use the snooze berry to drug the deputy."
+"You'll have to find a way of getting the deputy to ingest the berry. He's not the most cooperative guy, so you'll have to be clever."
+"There probably isn't any good way to convince the deputy to eat the berry. You can try, but he isn't much on conversation."
+"He does like coffee, though."
+"Is there any way to get the berry into the coffee?"
+"It's a tough shot to get the berry into the coffee cup. You'll need some kind of way of aiming the berry."
+"Does the gray bar have any special qualities? Maybe something that might explain why it vibrated differently that the other bars?"
+"The gray bar is hollow."
+"Have you tried putting things in the gray bar?"
+"You can use the gray bar as a blow gun. It's very accurate."
+"You can BLOW the berry ATthe coffee."
+
+
+A hint activation rule (this is the luring the deputy back hint activation rule):
+	if the coffee is spiked:
+		activate the Table of Deputy Luring.
+	
+
+A hint deactivation rule (this is the luring the deputy back hint deactivation rule):
+	if the deputy is asleep:
+		deactivate the Table of Deputy Luring.
+	
+Table of Deputy Luring
+hint												used
+"How clever. You've doped the deputy's coffee, so if he drinks some, it will put him to sleep instead of waking him up. Now the question is -- how to you get him back to the jail house?"
+"The deputy said he'd know if you were making a break for it."
+"Before the deputy left, he did something with Flash."
+"To make the coffee, you had to attract Flash towards the jail cell or his food bowl. His leash then pulled the lever in that direction, turning on the coffee machine."
+"He tied Flash to the lever so that if you went towards the door and old Flash gave chase (for a few feet), Flash would set off the train whistle as an alarm."
+"What happens if Flash goes in the other direction -- away from the jail cell and towards the door that leads to the street?"
+"Flash, a bloodhound of unquestionable lineage, has a fine sense of smell."
+"To get Flash to back away from the jail cell, you need to create a stink."
+"There are a couple ways to produce a bad smell[if the can of beans is consumed]. You've already used up your beans, so you'll have to find another way[end if]."
+"Taking off your boots is sure make Flash want to give you some distance."
+"One boot may not be enough." 
+
+A hint activation rule (this is the operating the strange machine hint activation rule):
+	if Flashing is happening:
+		activate the Table of Machine Operation.
+
+A hint deactivation rule (this is the operating the strange machine hint deactivation rule):
+	if Flashing is not happening:
+		deactivate the Table of Machine Operation.
+	
+Table of Machine Operation
+hint												used
+"The deputy mentioned that the sheriff is an inventor, and there's this big old boiler in the middle of the sheriff's office. The deputy's dog, Flash, is tied to a lever on that machine."
+"The lever looks like it could either swing towards or away from you."
+"The deputy said he was tying Flash to the lever so that if you made a break for the door, Flash would set off the train whistle on the roof."
+"The lever is attached to a junction in the pipe and it looks like it can direct the flow of steam either upwards towards the roof or across the office and into the strange machine."
+"Flash can move the lever by either walking towards or away from the jail cell."
+"If Flash walks away from the jail cell, he'll pull the lever and set off the train whistle."
+"If Flash walks towards the jail cell, he'll pull the lever in the other direction and direct steam to the machine."
+"When have you seen Flash move quickly? Is there anything that motivates him?"
+"The food bowl is near the jail cell. How can you make Flash walk towards it?"
+"How did the deputy let Flash know he a some food for him?"
+"Flash has been conditioned to respond to the dinner bell by running towards his food bowl."
+"The dinner bell is hanging on a hook near the front door, inconveniently distant for someone stuck in a jail cell."
+"To ring the bell, you'll need to hit the bell with something."
+"[If the tin is not in the pocket or (the berry is first-held and the gray bar is not part of the bars)]From what you've already discovered in the cell, you already have at least one[otherwise]You need to look around a bit more to find some[end if] means of ringing the bell."
+"You could spit something at the bell."
+"Have you found the chewing tobacco?"
+"Alternatively, you could try to shoot the bell, if you had something that you could aim accurately."
+
+
+A hint activation rule (this is the what now after knockout hint activation rule):
+	if the deputy is not awake and the deputy has the warrant:
+		activate the Table of Post-knockout Hints.
+
+A hint deactivation rule (this is the what now after knockout hint deactivation rule):
+	if forgery is happening:
+		deactivate the Table of Post-knockout Hints.
+
+Table of Post-knockout Hints
+hint												used
+"Now that the big oaf has clapsed next the jail cell, you can reach him."
+"He's even less talkative that usual in this state, so witty repartée is probably not going to get you very far."
+"Does the deputy have anything that might be of use to you?"
+"You can SEARCH people to see what they are carrying. The deputy is too sedated to take exception to your searching."
+
+A hint activation rule (this is the pen finding hint activation rule):
+	if Forgery is happening and the current plan is two and the ask-me counter is six and Muddy does not carry the feather:[muddy has told his plan about forging the warrant]
+		activate the Table of Pen Hints.
+	
+A hint deactivation rule (this is the pen finding hint deactivation rule):
+	if Forgery is not happening:
+		deactivate the Table of Pen Hints.
+
+Table of Pen Hints
+hint												used
+"Muddy's plan was, as is often the case, short on practical details. He did say that you'd need some kind of writing implement and ink."
+"It doesn't look like there's anything obvious in the jail cell to use as a pen, and you can't reach most of the stuff in the office."
+"Maybe you can find something that is pen-like outside."
+"A feather would work well as a pen, but you don't have one."
+"Through the jail cell window, you may have either seen or heard birds outside."
+"If you could lure a bird to the window, you might be able to take a feather. On the other hand, it doesn't seem very likely that you'd convince a hawk to just visit your jail cell out of the blue."
+"[if the meat is in limbo]You need to look around your room a little more to find something that would be useful in luring a bird. Make sure you LOOK UNDER large pieces of furniture.[otherwise]Do you have anything that might be of interest to a bird?[end if]"
+"Vulture feathers would work just as well as hawk feathers."
+"What would attract a vulture?" 
+"That hunk of meat is kind of putrid."
+"Vultures like putrid."
+"If you drop the piece of meat on the barrel, the vulture may come to visit."
+"You can pluck a feather."
+"Don't forget to give the feather to Muddy."
+
+A hint activation rule (this is the ink finding hint activation rule):
+	if Forgery is happening and the current plan is two and the ask-me counter is six and Muddy is not inked:[muddy has told his plan about forging the warrant]
+		activate the Table of Pen Hints.
+
+A hint deactivation rule (this is the ink finding hint deactivation rule):
+	if Forgery is not happening:
+		deactivate the Table of Pen Hints.
+		
+Table of Inklings
+hint												used
+"Muddy went light on the details of his plan. Somewhere, you're supposed to come up with some ink."
+"[if the berry is first-held or the tin is not in the pocket]You've already found at least one item that can serve as ink of a sort[otherwise]You have not yet located an item that would serve as ink. Consider looking around either inside the cell... or outside of it[end if]."
+"Have you seen anything that would stain clothing?"
+"How about a vegetable dye?"
+"When you find something suitable, give it to Muddy."
+
+A hint activation rule (this is the showing evidence hint activation rule):
+	If the PlusQueDenouement is happening:
+		activate the Table of Evidence Hints.
+
+Table of Evidence Hints
+hint												used
+"It'll take some fast and fancy talking to not end up snared like a rabbit. The clock is ticking."
+"[if the drawer is not rewarded]You need to find something in the office to[otherwise]Is that anything from that drawer that could[end if] take the marshal's mind of hanging you and Muddy."
+"As a lawman, the marshal holds other lawmen to a high standard."
+"If you can convince the marshall that the sheriff is crooked, you might just come out of this with your skins."
+"Is there some evidence from the desk drawer that might indicate that the sheriff has engaged in some questionable business practices?"
+"Show the evidence to the marshal."
+"Show the marshall the telegram, the receipt, and the patent."
+
 		
 Book 2  Scenes
  
@@ -3045,6 +3319,7 @@ Every turn during flashing:
 				say deputy drinks some spiked coffee;
 				now the cup is in limbo;
 				now flash is in limbo;
+				now the lever is in limbo;
 				move the deputy to the office;
 				now the deputy carries the warrant;
 				now the deputy carries the brass key;
@@ -3227,7 +3502,7 @@ Instead of showing something (called the evidence) to someone (called the specta
 				-- otherwise:
 					say "The marshal looks at [the evidence] briefly, but does not seem impressed.";
 		-- otherwise:
-			say "The marshal demands, [quotation mark]As the senior law man present, all evidence must be presented to me.[quotation mark][paragraph break]".
+			say "The marshal demands, [quotation mark]As the senior lawmen present, all evidence must be presented to me.[quotation mark][paragraph break]".
 	
 	
 Chapter Time Out
