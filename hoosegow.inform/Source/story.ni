@@ -775,31 +775,31 @@ Instead of showing something (called the thingie) to a person (called the observ
 
 [blanks occur for cases where the deputy will not be in a state to comment on the object: either he's drugged, or the object is not available at the time.]
 Table of Muddy and Deputy Show and Tell
-item					muddy-text					deputy-text
-pocketwatch			"[watch-muddy]"				"[watch-deputy]"
-can of beans			"[can-muddy]"				"[can-deputy]"
-meat					"[meat-muddy]"				"[meat-deputy]"
-spoon					"[spoon-muddy]"				"[spoon-deputy]"
-warrant				"[warrant-muddy]"			"[warrant-deputy]"
-bell					"[bell-muddy]"				--
-banana					"[banana-muddy]"			--
-gun						"[gun-muddy]"				--
-gunbelt				"[gun-muddy]"				--
-holster				"[gun-muddy]"				--
-brass key				"[brass-muddy]"				--
-cup						"[cup-muddy]"				--
-stool					"[stool-muddy]"				--
-harmonica				"[harmonica-muddy]"		"[harmonica-deputy]"
-scrap					"[scrap-muddy]"				"[scrap-deputy]"
-left boot				"[boot-muddy]"				"[boot-deputy]"
-right boot			"[boot-muddy]"				"[boot-deputy]"
-boots					"[boot-muddy]"				"[boot-deputy]"
-tin						"[tin-muddy]"				"[tin-deputy]"
-tobacco				"[tobacco-muddy]"			"[tobacco-deputy]"
-hat						"[hat-muddy]"				"[hat-deputy]"
-pamphlet				"test"								"[pamphlet-deputy]"
-berry					"[berry-show-muddy]"		"[berry-deputy]"
-feather				"[feather-muddy]"			"[feather-deputy]"
+item		muddy-text		deputy-text
+pocketwatch		"[watch-muddy]"		"[watch-deputy]"
+can of beans		"[can-muddy]"		"[can-deputy]"
+meat		"[meat-muddy]"		"[meat-deputy]"
+spoon		"[spoon-muddy]"		"[spoon-deputy]"
+warrant		"[warrant-muddy]"		"[warrant-deputy]"
+bell		"[bell-muddy]"		--
+banana		"[banana-muddy]"		--
+gun		"[gun-muddy]"		--
+gunbelt		"[gun-muddy]"		--
+holster		"[gun-muddy]"		--
+brass key		"[brass-muddy]"		--
+cup		"[cup-muddy]"		--
+stool		"[stool-muddy]"		--
+harmonica		"[harmonica-muddy]"		"[harmonica-deputy]"
+scrap		"[scrap-muddy]"		"[scrap-deputy]"
+left boot		"[boot-muddy]"		"[boot-deputy]"
+right boot		"[boot-muddy]"		"[boot-deputy]"
+boots		"[boot-muddy]"		"[boot-deputy]"
+tin		"[tin-muddy]"		"[tin-deputy]"
+tobacco		"[tobacco-muddy]"		"[tobacco-deputy]"
+hat		"[hat-muddy]"		"[hat-deputy]"
+pamphlet		"test"		"[pamphlet-deputy]"
+berry		"[berry-show-muddy]"		"[berry-deputy]"
+feather		"[feather-muddy]"		"[feather-deputy]"
 
 [gray bar]
 
