@@ -369,6 +369,8 @@ To say feather-deputy:
 Section Blowing
 
 Understand "berry" or "bar" or "gray bar" as "[weapon]".
+Understand "shoot [weapon] at/on/onto/towards [something]" as blowing at.
+Understand "fire [weapon] at/on/onto/towards [something]" as blowing at.
 
 Blowing at is an action applying to one visible thing. Understand "blow [weapon] at/on/onto/towards [something]" as blowing at.
 
@@ -397,6 +399,7 @@ Carry out blowing at:
 		-- window:
 			say "The berry shoots out the window and into the street.";	
 		-- the cup:
+			try blowing at the coffee instead;
 		-- the coffee:
 			say "[spiked coffee dialogue]";
 			if the coffee is not spiked:
@@ -409,7 +412,7 @@ Carry out blowing at:
 	now the berry is part of the vine.
 
 To say spiked coffee dialogue:
-	say "The berry splatters against the side of the cup, and its juice drips into the steaming brew.[if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the coffee, 'Now, if we can only get the deputy to come back and drink that coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
+	say "The berry splatters against the side of the cup, and its juice drips into the steaming brew.[no line break][if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the coffee, 'Now, if we can only get the deputy to come back and drink that coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
 
 
 Section Chewing
@@ -978,7 +981,7 @@ To hit-bell:
 			make coffee;
 			adjust points by one;
 		otherwise: [bell has already been rung, Flash is still around]
-			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow [if the cup is on the protocappuccinomatic]causing the machine to rattle and buzz[otherwise]brewing a cup of coffee[end if]. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
+			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![quotation mark][paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow [if the cup is on the protocappuccinomatic]causing the machine to rattle and buzz[otherwise]brewing a cup of coffee[end if]. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
 			make coffee;
 	otherwise:[still the bell, but nothing to do with Flash]
 		say "The bell rings hollowly."
