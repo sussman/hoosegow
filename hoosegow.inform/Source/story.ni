@@ -1309,6 +1309,8 @@ times-used		verbage
 
 
 
+
+
 To say herring:
 	say "Kippered herring, please![no line break]".
 
@@ -1629,9 +1631,17 @@ Section Boiler
 
 Position is a kind of value. The positions are whistleward, neutral, and coffeeward.
 
-The boiler is a large furniture in the office. The description of the boiler is "A pot-bellied inferno, with a grate on the front. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office.  [lever position]". Understand "combustion" or "chamber" as the boiler. The texture of the boiler is "painfully hot". The scent of the boiler is "of soot and burning coal".
+The boiler is a large furniture in the office. The description of the boiler is "Midway betwen the jail cell and the door to the sheriff's office stands a pot-bellied inferno. Through a small grate on its front, you can see flames burning within. Above the combustion chamber, there is a round, rivet-studded ball which in turn leads into a junction. One pipe runs sideways to the bronze machine behind the desk, while the main pipe runs straight up through the roof[if the Lever is not in Limbo]. There is a lever at the junction which looks like it could either swing towards the front door or towards the rear of the office. [lever position][end if]". Understand "combustion" or "chamber" or "furnace" as the boiler. The texture of the boiler is "[boiler-texture]". The scent of the boiler is "[boiler-scent]". 
 
-The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler." The texture of the grate is "hot enough to burn someone".
+To say boiler-texture:
+	say "painfully hot".
+	
+To say boiler-scent:
+	say "of soot and burning coal".
+
+The junction is part of the boiler. The description of the junction is "A bulge in the the pipework coming out of the boiler. From the junction, a smaller pipe continues to the roof, while another branches off to the strange bronze machine. [if the lever is not in limbo]A lever projects from the junction, and it looks like it could regulate the flow of steam into the two output pipes[otherwise]When Flash ran away, he snapped off the lever that used to stick out of the junction[end if]." The scent of the junction is "[boiler-scent]." The texture of the junction is "[boiler-texture]."
+
+The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler." The texture of the grate is "hot enough to burn someone". The scent of the grate is "[boiler-scent]."
 
 The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball. The texture of the ball is "hot to the touch".
 
@@ -1648,7 +1658,7 @@ To say lever position:
 			say "the rear of the office";
 	if Flash is in the office:
 		say ". Flash the brave guard dog is tied by a leash to the lever";
-	say "."
+	say ".[no line break]".
 
 Section Cabinet
 
@@ -1817,7 +1827,7 @@ Section Protocappuccinomatic
 
 The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "strange machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic. The scent of the device is "like coffee beans". The texture of the protocappuccinomatic is "[smooth] and warm".
 
-The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe. The texture of the iron pipe is "hot".
+The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe. The texture of the iron pipe is "hot". Understand "pipes" or "output" as the iron pipe.
 
 The cup is in Limbo. The description of the cup is "A white porcelain mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
