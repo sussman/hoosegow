@@ -1482,8 +1482,6 @@ Before giving the spoon to someone (called the receiver):
 		
 Instead of entering the stool when the flatulometer is 2:
 	say "Muddy warns, [quotation mark]That ain't high enough to matter![quotation mark][paragraph break]".
-	
-
 
 Section Meat
 
@@ -2500,7 +2498,7 @@ Instead of taking inventory: [purloined from Persephone, example 62 in I7 docume
 
 Rick carries a scrap of paper.   The scrap of paper is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the scrap of paper is "Muddy's scribbled instructions for holding up the train, which you carried out faithfully before the Sheriff showed up." The inscription of the scrap of paper is "In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNNEL, 4. WAIT FOR ME'[one of].[paragraph break]That was Muddy's cunning plan, and unlike most of his plans, it went off without a hitch: you got the silver, nobody got hurt. Yup, not a single hitch -- except for getting caught[or][stopping]." Understand "instructions" as the scrap of paper.
 
-Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction gone awry, the hole on the the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Each flaw in the garment reminds you of one of Muddy's plans, each of which sounded so reasonable at the time...[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten".
+Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction gone awry, the hole on the the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Each flaw in the garment reminds you of one of Muddy's plans, each of which sounded so reasonable at the time...[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten". Understand "coat" as overcoat.
 
 Instead of searching the overcoat:
 	say "[one of]Your hands slip into where your pockets used to be. Nothing is left of your pockets, except holes. Not that your overcoat needed more holes[or]You don't find anything[stopping]."
