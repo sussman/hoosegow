@@ -1967,6 +1967,9 @@ Instead of getting off the stool:
 
 The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated. The texture of the bench is "like rough wood".
 
+Instead of entering the bench:
+	say "You can't! A pastor is passed out on it. There's no room for you."
+
 Instead of searching the bench:
 	if the bench is not investigated:
 		say "[bench sekrits].";
