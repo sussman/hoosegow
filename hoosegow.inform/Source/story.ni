@@ -1754,7 +1754,7 @@ Does the player mean examining or attacking or unlocking or opening or picking t
 	if the player is in the office:
 		it is likely.
 
-The small lock is part of the drawer. The description of the small lock is "A simple small lock." 
+The small lock is a privately-named part of the drawer. The description of the small lock is "A simple small lock on the desk drawer." Understand "small" or "lock" as the small lock when forgery has happened.
 	
 Instead of inserting the brass key into the small lock:
 	try opening the drawer with the brass key.
