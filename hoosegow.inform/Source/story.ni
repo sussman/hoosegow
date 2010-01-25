@@ -1679,8 +1679,17 @@ Section Cabinet
 
 The cabinet is a large closed openable scenery container in the office. The top of the cabinet is a part of the cabinet. The top of the cabinet is a supporter that is part of the cabinet. The cabinet door is part of the cabinet. The description of the cabinet is "About three feet tall, and made of oak. The cabinet's top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape[if the whiskey is on the cabinet]. A bottle of whiskey stands on the cabinet[end if]. Its [cabinet-door-details]." The texture of the cabinet is "fine-grained".
 
-Does the player mean opening the cabinet:
-	It is very likely.
+Does the player mean doing something with muddy:
+	it is likely.
+
+Does the player mean doing something with the cabinet:
+	it is possible.
+
+Does the player mean doing something with the cabinet door:
+	it is unlikely.
+	
+Does the player mean doing something with the cabinet top:
+	it is unlikely.
 	
 To say cabinet-door-details:
 	if the cabinet is closed:
