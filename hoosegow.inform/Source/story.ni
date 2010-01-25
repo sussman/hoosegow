@@ -2399,6 +2399,12 @@ Instead of showing the pamphlet to muddy:
 
 The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. The texture of the tin is "[metallic]". The scent of the tin is "like tobacco".
 
+Instead of inserting something (called the item) into the tin:
+	if the item is tobacco or the item is the berry:
+		continue the action;
+	otherwise:
+		say "[The item] won't fit in the tin."
+
 Instead of reading the tin:
 	try examining the tin instead.
 
