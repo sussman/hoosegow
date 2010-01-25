@@ -189,6 +189,10 @@ To say (regular verb - some text) in correct agreement:
 
 Chapter Verbs
 
+Section Answering
+
+Instead of answering:
+	say "[lame talk]".
 
 Section Asking
 
@@ -998,6 +1002,9 @@ Check talking:
 		say "People will say you're odd if you make of habit of talking to [the noun]." instead.
 		
 Carry out talking:
+	say "[lame talk]".
+	
+To say lame talk:
 	say "You can ASK someone ABOUT something or SHOW something TO someone."
 	
 Section Tasting
@@ -2936,8 +2943,8 @@ LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more ro
 LibMsg <cannot put if this exceeds carrying capacity>		"There [aintNo]more room on [the main object].[paragraph break]"  
 LibMsg <who disambiguation>		"That warn't clear. Who all do you mean, "  
 LibMsg <which disambiguation>		"Which all do you mean, "  
-LibMsg <whom disambiguation>		"Who all do you want to {command}?[paragraph break]"   
-LibMsg <pronoun not set>		"I don't rightly twig what '{pronoun}' refers to.[paragraph break]"  
+LibMsg <whom disambiguation>		"Who all are you talking to?[paragraph break]"   
+LibMsg <pronoun not set>		"I don't rightly twig what who your talking about.[paragraph break]"  
 LibMsg <person ignores command>	"[The main object] ain't having none of your balderdash.[paragraph break]"  
 LibMsg <cannot talk to absent person>	"Your cake hole is jabbering, but I can't rightly say to who you is talking.[paragraph break]"  
 LibMsg <confirm Restart>			"You sure you want to turn tail and restart? "     
@@ -2964,9 +2971,9 @@ LibMsg <cannot enter something not enterable>		"That ain't something you can ent
 LibMsg <cannot exit when not within anything>		"[youAint]in anything at the moment.[paragraph break]"
 LibMsg <cannot get off things>		"[youAint]on [the main object] at the moment.[paragraph break]"  
 LibMsg <cannot go up through closed doors>		"[youAint]able to climb [the main object].[paragraph break]"  
-LibMsg <brief look mode>			"{Story name} is now 'brief' printing mode, what gives long descriptions of places you ain't visited before and short descriptions otherwise.[paragraph break]"  
-LibMsg <superbrief look mode>		"{Story name} is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before).[paragraph break]"  
-LibMsg <verbose look mode>		"{Story name} is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty).[paragraph break]"  
+LibMsg <brief look mode>			" is now 'brief' printing mode, what gives long descriptions of places you ain't visited before and short descriptions otherwise.[paragraph break]"  
+LibMsg <superbrief look mode>		" is now in its 'superbrief' mode, what gives short descriptions of locations (even if a body ain't been there before).[paragraph break]"  
+LibMsg <verbose look mode>		" is now in its 'verbose' mode, which always gives long descriptions of locations (even if you been there plenty).[paragraph break]"  
 LibMsg <cannot search unless container or supporter>	"You don't find nothing at all.[paragraph break]"  
 LibMsg <cannot search closed opaque containers>		"[youAint]able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
 LibMsg <nothing found on top of>	"There [aintNothing]on [the main object].[paragraph break]"  
