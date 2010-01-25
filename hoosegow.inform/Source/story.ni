@@ -1290,7 +1290,7 @@ This is the Pete's stage business rule:
 	if Pete is not in Limbo and a random chance of 8 in 20 succeeds:
 		if a random chance of 4 in 20 succeeds:
 			say "Pastor Pete [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
-			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]chants[or]bellow[or]holler[at random]s, [quotation mark]";
+			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]chant[or]bellow[or]holler[at random]s, [quotation mark]";
 			pick a phrase from the Table of Pete's Rants;
 			say "![paragraph break]Pete [one of]collapses[or]dives[or]crumples[or]faints[or]falls[at random] onto the bench and [one of]falls back to sleep immediately[or]is soon lost in dreams again[or]resumes snoring without missing a beat[or]resumes his previous position as if nothing had happened[at random].";
 		otherwise:
@@ -1315,7 +1315,7 @@ times-used		verbage
 0		"I cry unto thee, OLD PORK CHOP, and you looked upon my doleful case and set before me a charger of mustards gathered from all lands. The sweet mustard of the orient, the bitter mustard of the desert, the piquant and creamy mustards of the plains, and the chewy, almost TAFFY-LIKE mustards that crop up from time to time by mail order. All these you set before me, and yet not a bowl, not a teaspoon of MINT JELLY. The truth is evident in the absence of evidence itself, you are no Pork Chop but a Lamb Cutlet, and trying to lead me astray. The condiments have betrayed me and lead me down the path of devious hoofed meat. But I rejoice, for I know that dessert is around the corner, and ever your aftertaste shall perish in the SHERBET of EQUANIMITY"
 0		"My SOUL thirsteth for the comfort of the divine, and yet how shall I recognize it? The divine must grow where is seeded, and having been sawn, it cannot yield its fruit. No, the vine must be PLUCKED early, but not too early, or the fruit will be tart, and if picked more tardily, so more fruity. It matters not so much as the sweetness of the divine, although the sweeter, the stronger after some time. I drink the heady fruits of the divine, the more frothy and heady are fine. Let us decant the praises of the wine, and slake the furnace of the SUBLIME"
 0		"The desires of an earthly PRINCE are met not by gold or myrrh or power over his enemies, but by HERRING. Salted, preserved herring from a can. Kippered Herring. Sweet, sweet, kippered herring. Who could desire more? Indeed, after a few, who could desire more KIPPERED herring, at least for a little while, having filled up on the first tin of them? They're indeed salty, harmless to you and me, but for a SLUG or snail, lethal. This is part of the divine wisdom, and why herrings live in the sea (prior to being canned) and slugs do not (and are, therefore, unlikely to be canned). To argue with this is sheer madness"
-0		"Fear not the judgement, for each of us will be accorded mercy, and the accordion of mercy shall be loud and have a good beat. One that you can dance to. Let us give thanks for mercy, except in FRANCE, where it would be redundant. Let the music, or the closest approximation thereto renderable by an accordion, flow over all lands, except France, which again is a special case. Inhabited by MIMES and having not the power of proper speech, the accordion is irrelevant and will only inspire their wrath and vitriole, unless played upon a victrola, or as they say, a francophono"
+0		"Fear not the judgement, for each of us will be accorded mercy, and the accordion of mercy shall be loud and have a good beat. One that you can dance to. Let us give thanks for mercy, except in FRANCE, where it would be redundant. Let the music, or the closest approximation thereto renderable by an accordion, flow over all lands, except France, which again is a special case. Inhabited by MIMES and having not the power of proper speech, the accordion is irrelevant and will only inspire their wrath and vitriol, unless played upon a victrola, or as they say, a francophono"
 
 
 
@@ -1635,7 +1635,7 @@ Section Bell
 
 The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging on a small hook by the doorway[end if]." The bell can be rung. The bell is not rung. The texture of the bell is "surprisingly heavy".
 
-The hook is part of the swinging doors.  The hook is a supporter.  The description of the hook is "A small metal hook screwed into the door jam.[if the bell is on the hook] A bell hangs from the hook[end if]."
+The hook is part of the swinging doors.  The hook is a supporter.  The description of the hook is "A small metal hook screwed into the door jamb.[if the bell is on the hook] A bell hangs from the hook[end if]."
 
 Section Boiler
 
