@@ -1205,7 +1205,7 @@ times-used		verbage
 0					"murmurs to himself about not being able to recall a limerick he once heard that had something to do with cowboys and farmers. "
 0					"counts the number of stars he can see out the window, divides by the number of bars in the jail cell, and takes the natural logarithm. [quotation mark]Yup,[quotation mark] he says, [quotation mark]that's what I thought.[quotation mark]"
 0					"rubs up and down against the brick wall, scratching an itch"
-0					"burps loudly and remarks,[quotation mark]Oh, that's much better.[quotation mark]"
+0					"burps loudly and remarks, [quotation mark]Oh, that's much better.[quotation mark]"
 0					"rubs his belly and says, [quotation mark]I reckon I could do with a snack right about now.[quotation mark]"
 0					"rubs his eyes, [quotation mark]I didn't get a good night's sleep last night either. I'm bushed.[quotation mark]"
 0					"glances over at you, and seems about to speak, but then walks away again. "
