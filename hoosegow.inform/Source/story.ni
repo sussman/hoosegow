@@ -512,43 +512,13 @@ Report opening it with:
 	otherwise:
 		say "You open [the noun] with [the second noun][if the noun contains something]."
 		
-Section WarrantForging
+Section Exiting
 
-To say need-pen:
-	say "something to serve as a pen";
-	
-To say need-ink:
-	say "something to serve as ink".
+Hopping off is an action applying to nothing. Understand "stand" or "stand up" or "get down/off" or "climb down" or "jump off/down" or "hop off/down" or "go down" or "stand on ground" or "stand on the ground" as hopping off when the holder of the player is a supporter.
 
-WarrantForging is an action applying to nothing.
-
-Check WarrantForging:
-	if Muddy carries the warrant and Muddy carries the feather and Muddy is inked:		
-		continue the action;
-	otherwise:
-		say "He continues, [quotation mark]To finish this business with the warrant, I'll need ";
-		if Muddy does not carry the feather and Muddy is not inked:
-			say "both [need-pen] and another [need-ink]";
-		otherwise if Muddy carries the feather and Muddy is not inked:
-			say "[need-ink]";	
-		otherwise if Muddy does not carry the feather and Muddy is inked:
-			say "[need-pen]";
-		otherwise:
-			say "the warrant itself";
-		say ".[quotation mark][paragraph break]" instead.
-				
-Carry out WarrantForging:
-	say "Muddy applies his quill to the paper and with a few flourishes, scrawls an additional sentence on the warrant. He blows gently on it to dry the [quotation mark]ink[quotation mark] and hands the warrant back to you for your inspection.";
-	now Rick carries the warrant;
-	now the warrant is edited.
-	
-Instead of doing something with the warrant when the warrant is edited:
-	if the current action is dropping or inserting or putting on or throwing at:
-		say "No way. That warrant is your ticket out of here.";
-	otherwise:
-		continue the action.
-
-	
+Carry out hopping off:
+	try getting off the holder of the player.
+			
 Section FunnyLooking
 
 FunnyLooking is an action applying to nothing. Understand "look funny" or "look at flash funny" or "look funny at Flash" as FunnyLooking when Flash is in the jailhouse.
@@ -1650,6 +1620,43 @@ Instead of doing something with the deputy when the warrant is edited and the wa
 		
 Instead of showing the warrant to the deputy when the warrant is acknowledged:
 	say "The deputy acknowledges the official-looking document with a yawn.";
+
+
+Section WarrantForging
+
+To say need-pen:
+	say "something to serve as a pen";
+	
+To say need-ink:
+	say "something to serve as ink".
+
+WarrantForging is an action applying to nothing.
+
+Check WarrantForging:
+	if Muddy carries the warrant and Muddy carries the feather and Muddy is inked:		
+		continue the action;
+	otherwise:
+		say "He continues, [quotation mark]To finish this business with the warrant, I'll need ";
+		if Muddy does not carry the feather and Muddy is not inked:
+			say "both [need-pen] and another [need-ink]";
+		otherwise if Muddy carries the feather and Muddy is not inked:
+			say "[need-ink]";	
+		otherwise if Muddy does not carry the feather and Muddy is inked:
+			say "[need-pen]";
+		otherwise:
+			say "the warrant itself";
+		say ".[quotation mark][paragraph break]" instead.
+				
+Carry out WarrantForging:
+	say "Muddy applies his quill to the paper and with a few flourishes, scrawls an additional sentence on the warrant. He blows gently on it to dry the [quotation mark]ink[quotation mark] and hands the warrant back to you for your inspection.";
+	now Rick carries the warrant;
+	now the warrant is edited.
+	
+Instead of doing something with the warrant when the warrant is edited:
+	if the current action is dropping or inserting or putting on or throwing at:
+		say "No way. That warrant is your ticket out of here.";
+	otherwise:
+		continue the action.
 
 
 Chapter Jailhouse Region
