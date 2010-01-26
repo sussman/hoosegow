@@ -1680,6 +1680,15 @@ Chapter Office
 
 The office is a room. The description of the office is "[one of]A one room jailhouse is fitting for this jerkwater town. [or][stopping]There's a big, wooden desk in the middle of the room[if introduction is happening and the cigar is not in the jailhouse], and behind it sits the deputy[end if]. Just behind the desk is a fancy cabinet, with real glass in the door[if the cabinet door is open], which is open[end if]. [if the portrait is hung up]An aesthetically questionable portrait of the sheriff hangs on the office wall[otherwise]Next to the cabinet, a large, framed picture of the sheriff stands on the floor[end if]. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town. [if Introduction is happening]Inexplicably, a metal[otherwise]Flash's empty dog food[end if] bowl is nailed to the floor just in front of your jail cell."
 
+Instead of searching the office:
+	try examining the office.
+	
+Instead of searching the bars:
+	if the player is in the office:
+		try examining the jail cell;
+	otherwise:
+		try examining the office.
+
 Section Bell
 
 The bell is a prop. The bell is on the hook. The description of the bell is "A shiny silver bell with a black handle[if the bell is on the hook]. It is hanging on a small hook by the doorway[end if]." The bell can be rung. The bell is not rung. The texture of the bell is "surprisingly heavy".
@@ -2142,6 +2151,8 @@ The bars are plural-named scenery in the jail cell.   Understand "bar" as the ba
 
 Instead of doing something with the bars during introduction:
 	if the current action is examining:
+		continue the action;
+	if the current action is searching:
 		continue the action;
 	otherwise if the current action is attacking:
 		say "[one of] stands back as you let loose with your full fury and pound on the metal bars.[if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it? You're not sure[end if][or]You can hit all the bars you want after you get out of jail[stopping].[paragraph break]";
