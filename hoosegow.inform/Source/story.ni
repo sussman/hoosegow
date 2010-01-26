@@ -402,9 +402,9 @@ Carry out blowing at:
 	if the noun is:
 		-- window:
 			say "The berry shoots out the window and into the street.";	
-		-- the cup:
-			try blowing at the coffee instead;
 		-- the coffee:
+			try blowing at the cup instead;
+		-- the cup:
 			say "[spiked coffee dialogue]";
 			if the coffee is not spiked:
 				adjust points by one;
@@ -416,7 +416,7 @@ Carry out blowing at:
 	now the berry is part of the vine.
 
 To say spiked coffee dialogue:
-	say "The berry splatters against the side of the cup, and its juice drips into the steaming brew.[no line break][if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the coffee, 'Now, if we can only get the deputy to come back and drink that coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
+	say "The berry splatters against the side of the cup, and its juice dribbles downwards.[no line break][if the coffee is not spiked][paragraph break]Muddy jumps up, claps you congratulatorily on the back, and you nearly swallow the metal tube still held to your lips.[paragraph break]He beams, 'That were a one in a million shot, Rick!'  Muddy strokes his chin and wags a finger at the cup, 'Now, if we can only get the deputy to come back and drink some coffee, he might be a whole lot more cooperative, I reckon.'[paragraph break]You sure like the way Muddy thinks.[end if]";
 
 
 Section Chewing
@@ -1135,6 +1135,8 @@ Every turn:
 Section Nasal Reactions
 
 The nasal reaction rules is a rulebook. [see individual rules in the scene descriptions]
+
+[I just noticed that the picker follows the nose stuff....]
 	
 Section Phrase Picker
 [To select a canned phrase from a table, choosing randomly amongst the less frequently said phrases. Tables need at least two entries.]
@@ -1470,9 +1472,9 @@ Before giving the can of beans to someone (called the receiver):
 		-- Marshal:
 			say "Despite the excellent nutritional value of legumes, I am a meatatarian and only eat beef. It is good for the American economy.";	
 		-- Flash:
-			say "Woof!";
+			say "[quotation mark]Grrrrrrrrr![quotation mark][paragraph break]";
 		-- Vulture:
-			say "Brrrrraaak!";
+			say "[quotation mark]Brrrrraaak![quotation mark][paragraph break]";
 	stop the action.
 	
 Before giving the spoon to someone (called the receiver):
@@ -1865,7 +1867,16 @@ To say postscriptum:
 	
 Instead of reading the receipt:
 	say "[quotation mark]Well, Muddy,[quotation mark] you say, [quotation mark]it's a business receipt of some kind, from J&B Steam Works down in Witchita Falls. Looks like the Sheriff Cheney done gone himself deep into debt on account of his coffee invention.[quotation mark][paragraph break]Muddy looks at the receipt and replies, [quotation mark][one of]I reckon, he's got more debt that we ever had loot[or]I don't twig how a jerk water town two-bit sheriff like Cheney could get that kind of greenery[or]Indeed[stopping].[quotation mark][paragraph break]".
+	
+Section Food Bowl
 
+The food bowl is a container in the office. "A metal food bowl." The description of the food bowl is "A beat up mining pan full of dents and scratch marks[if the food bowl is not first-held]. The bowl sits on the office floor, slightly more than an arm's length from the jail cell[end if]." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
+
+Instead of taking the food bowl:
+	if the food bowl is not first-held:
+		now the food bowl is first-held;
+	continue the action.
+	
 Section Outdoors
 
 The outdoors is a fardrop. The outdoors is everywhere. The description of the outdoors is "Oh, what a beautiful [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]. Lush farm fields, the endless cattle range -- except that you're going to be hanged at 8 a.m. That puts a damper on things." Understand "outside" as the outdoors.
