@@ -2126,6 +2126,9 @@ Instead of doing something with the bars during introduction:
 		
 The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is just a shade lighter than the surrounding cell bars.  [if the gray bar is part of the bars]You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all.[end if][if the gray bar contains something] Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held.
 
+Rule for printing room description details of the gray bar:
+	do nothing.
+
 The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
 
 Instead of taking or pulling the gray bar:
@@ -2433,6 +2436,9 @@ Instead of showing the pamphlet to muddy:
 		say "[quotation mark]Yeah, I seen. It's Pastor Pete, sure as a sawbuck,[quotation mark] remarks Muddy."
 
 The tin is a closed portable openable container in the pocket.  The carrying capacity of the tin is 1. The texture of the tin is "[metallic]". The scent of the tin is "like tobacco".
+
+Rule for printing room description details of the tin:
+	say " (which is [if the tin is open]open[otherwise]closed[end if])".
 
 Instead of inserting something (called the item) into the tin:
 	if the item is tobacco or the item is the berry:
