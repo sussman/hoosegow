@@ -1401,6 +1401,9 @@ Section Can
 The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can of beans is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can of beans is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]". The can of beans can be consumed. The can of beans is not consumed.
 
 Instead of inserting something (called the item) into the can of beans:
+	if the can of beans is not open:
+		say "Impossible. The can of beans isn't open.";	
+		the rule succeeds;
 	if the can of beans is not consumed:
 		say "You can't. The can is full of beans.";
 		the rule succeeds;
@@ -1476,14 +1479,30 @@ Before giving the can of beans to someone (called the receiver):
 	if the player does not carry the can of beans:
 		try silently taking the can of beans;
 		say "(first fetching the can of beans)[command clarification break]";
-	if the receiver is Muddy:
-		if the can of beans is open:		
-			say "Muddy takes the can and stares hungrily at the beans.[paragraph break]Even in the most dire situation, Muddy's appetite remains intact. He looks expectantly at you and says, [quotation mark]Rick, got a spoon?[quotation mark][paragraph break]";
-			move the can of beans to muddy;
-		otherwise:
-			say "[quotation mark]I may be long in the teeth, but I can't use them to open cans -- hungry though I reckon I sorely am.[quotation mark]  Muddy grumbles, as he often does when he's hungry and growing ornery.";
-	otherwise:
-		say "[The receiver] [one of]looks at the can curiously and pushes it away. [quotation mark]I don't want your ten year-old can of prison beans.[quotation mark][or]waves away the can of beans. [quotation mark]Nope. On a diet.[quotation mark][or]says, [quotation mark]No thanks[quotation mark][stopping][paragraph break]";
+	if the receiver is:
+		-- Muddy:
+			if the can of beans is open:	
+				if the can of beans is consumed:
+					say "Muddy looks into the empty can and says, [quotation mark]Even if there were more beans, I reckon I've done had my fill for the month.[quotation mark][paragraph break]";
+				otherwise:
+					say "Muddy takes the can and stares hungrily at the beans.[paragraph break]Even in the most dire situation, Muddy's appetite remains intact. He looks expectantly at you and says, [quotation mark]Rick, got a spoon?[quotation mark][paragraph break]";
+					move the can of beans to muddy;
+			otherwise:
+				say "[quotation mark]I may be long in the teeth, but I can't use them to open cans -- hungry though I reckon I sorely am.[quotation mark]  Muddy grumbles, as he often does when he's hungry and growing ornery.";
+		-- Pete:
+			say "The offer of beans is not enough to wake him from his tormented dreams.";
+		-- Deputy:
+			say "[if the deputy is awake][quotation mark]Nope. I know where them has been.[quotation mark][paragraph break][otherwise]He doesn't stir.[end if]";
+		-- Rick:
+			say "No way. You hate beans.";
+		-- Sheriff:
+			say "[The receiver] [one of]looks at the can curiously and pushes it away. [quotation mark]I don't want your ten year-old can of prison beans.[quotation mark][or]waves away the can of beans. [quotation mark]Nope. On a diet.[quotation mark][or]says, [quotation mark]No thanks[quotation mark][stopping][paragraph break]";
+		-- Marshal:
+			say "Despite the excellent nutritional value of legumes, I am a meatatarian and only eat beef. It is good for the American economy.";	
+		-- Flash:
+			say "Woof!";
+		-- Vulture:
+			say "Brrrrraaak!";
 	stop the action.
 	
 Before giving the spoon to someone (called the receiver):
