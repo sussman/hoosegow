@@ -1976,6 +1976,9 @@ The stool is a large portable enterable supporter in the jail cell. "[if the soc
 
 The bronze plate is part of the stool.  Understand "plate" as the bronze plate.  The description of the bronze plate is "You read aloud the engraving on the bronze plate: 'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.'".
 
+Instead of reading the bronze plate:
+	try examining the bronze plate.
+
 After examining the plate for the first time:
 	say "Muddy shakes his head, 'They sure are an upstanding organization.'".
 
