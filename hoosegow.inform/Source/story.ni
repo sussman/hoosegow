@@ -2261,7 +2261,7 @@ The barrel is a furniture in the street.  The barrel is a supporter.  The descri
 Instead of touching the barrel:
 	say "You can't quite reach it. You could maybe drop something on it, though.".
 
-The vine is scenery in the street.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall] It's covered with small red berries.[end if]".
+The vine is scenery in the jail cell.  The description of the vine is "The leafless tip of a wiry vine pokes into the cell through the window.[if the player is tall] It's covered with small red berries.[end if]".
 
 Instead of taking the vine:
 	say "You yank on the wiry vine and it yanks back. It's too tough to break off.".
