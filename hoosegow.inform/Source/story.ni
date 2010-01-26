@@ -1897,6 +1897,9 @@ The iron pipe is a large part of the protocappuccinomatic. The description of th
 
 The cup is in Limbo. The description of the cup is "A white porcelain mug [if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
+Rule for printing room description details of the the cup:
+	do nothing.
+
 Some coffee is in the cup. The description of some coffee is "Steaming hot, black joe." The indefinite article of coffee is "a cup of". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistable[or]tantalizing[at random]". The texture of the coffee is "steaming hot".  The coffee can be spiked.  The coffee is not spiked.
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
