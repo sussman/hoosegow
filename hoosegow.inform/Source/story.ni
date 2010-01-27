@@ -1797,7 +1797,7 @@ After taking the gun:
 
 Section Chair
 
-The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down olawmanffice[if the deputy is in the office and the deputy is sitting]The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
+The chair is a large furniture in the office. The description of the chair is "A heavy chair of polished maple[one of]. The sort of chair you used to have in your dining room[or][stopping]. It looks out of place in this run-down office[if the deputy is in the office and the deputy is sitting]. The chair is occupied by the deputy[end if]." [###CONSIDER implementing a description of what incidental activity the deputy is performing; could be used both here and in the deputy description.]
 
 The scent of the chair is "like an amalgam of the butts that have sat on it over the years. Not pleasant". The texture of the chair is "like an expensive piece of furniture".
 
