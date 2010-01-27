@@ -580,7 +580,7 @@ times-used		verbage
 0			"All the sounds of the Earth are like music"
 0			"You seldomly hear a discouraging word"
 0			"You hear the sounds of the men working on the chain gang"
-0			"From the boiler, you hear the occassional hiss of steam"
+0			"From the boiler, you hear the occasional hiss of steam"
 0			"In the distance, a train blows its whistle"
 0			"You hear the creaking of Muddy's two-cent boots"
 0			"From outside, you hear the raspy call of the turkey vulture"
