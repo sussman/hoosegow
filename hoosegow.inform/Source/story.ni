@@ -2544,7 +2544,7 @@ Instead of searching the tin:
 		now the tin is open;
 	say "It's full of chewing tobacco."
 
-The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]". To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "a wad of". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky". Understand "wad", "leaf", and "chaw" as tobacco.
+The tin contains the tobacco.  The tobacco is edible. The description of tobacco is "Some [tobacco-appearance]." To say tobacco-appearance: say "shredded black chewing tobacco". The tobacco can be ingested. The tobacco is not ingested. The chew count is a number that varies. The chew count is zero. The indefinite article of tobacco is "a wad of". Tobacco can be commented. Tobacco is not commented. The scent of the tobacco is "leafy and aromatic". The texture of the tobacco is "flaky". Understand "wad", "leaf", and "chaw" as tobacco.
 	
 After taking tobacco:
 	say "You take a pinch of tobacco."
