@@ -1985,7 +1985,7 @@ Instead of attacking the gate:
 
 Section Stool & Bench
 
-The stool is a large portable enterable supporter in the jail cell. "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]A repaired stool stands upright.[end if]". The description of the stool is "A small stool.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of grey jail bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with their initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
+The stool is a large portable enterable supporter in the jail cell. "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]A repaired stool stands upright.[end if]". The description of the stool is "A small stool, with legs a couple of feet long.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.  There's an empty socket where the third leg should be.[otherwise] One of its three legs is a piece of gray jail bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with their initials (and the initials look intriguing!)  A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
 
 The bronze plate is part of the stool.  Understand "plate" as the bronze plate.  The description of the bronze plate is "You read aloud the engraving on the bronze plate: 'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.'".
 
@@ -2017,14 +2017,18 @@ Instead of examining the initials:
 		say "You can't make out any more initials.";
 	increase the initial-counter by one.
 
-The socket is part of the seat.  The socket is a container. The socket can be occupied.  The socket is not occupied.  The description of the socket is "[if the socket is not occupied]Once upon a time, a three-quarter inch stool leg must have occupied the now empty hole in the stool seat. Without that leg, the stool isn't much good.[otherwise]A nice piece of gray jail bar is wedged into it, acting as a third leg.[end if]".
+The socket is part of the seat.  The socket is a container. The socket can be occupied.  The socket is not occupied.  The description of the socket is "[if the socket is not occupied]Once upon a time, a stool leg about two feet long must have occupied the now empty hole in the stool seat. Without that leg, the stool isn't much good.[otherwise]A nice piece of gray jail bar is wedged into it, acting as a third leg.[end if]".
 
 Instead of inserting something (called the filler) into the socket:
 	if the filler is the gray bar:
 		say "You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.";
 		now the socket is occupied;
+		now the gray bar is part of the stool;
 	otherwise:
 		say "Putting [the filler] into the socket don't make a lick of sense.  Not likely to fit well anyway.".
+
+Instead of inserting something (called the filler) into the stool:
+	try inserting the filler into the socket instead.
 
 The broken-stool-sit-count is a number that varies.  The broken-stool-sit-count is zero.
 
@@ -2123,7 +2127,7 @@ Carry out playing the harmonica:
 			-- 1:
 			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
 			-- 2:
-			say "The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks and rolls under the deputy's desk. A hollow gray tube falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.[paragraph break]";
+			say "The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks and rolls under the deputy's desk. A hollow gray tube falls loose from the upper reaches of the jailbars and lands at your feet.[paragraph break]'You done it!' shouts Muddy.[paragraph break]";
 			move the screw to limbo;
 			move the gray bar to the jail cell;
 			move the gap to the jail cell;
@@ -2153,7 +2157,7 @@ Instead of going when the player is in the jail cell:
 
 Section Bars
 
-The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
+The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color and as short as a table leg. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
 
 Instead of doing something with the bars during introduction:
 	if the current action is examining:
@@ -2165,7 +2169,7 @@ Instead of doing something with the bars during introduction:
 	increase the angerometer by one;
 	warn about the noun.
 		
-The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray [if the gray bar is part of the bars]bar is just a shade lighter than the surrounding jail bars[otherwise]tube is about three feet long -- not quite long enough to reach anything useful outside the cell, unfortunately[end if].[if the gray bar is part of the bars] You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all.[end if][if the gray bar contains something] Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held. The printed name of the gray bar is "gray [if the gray bar is part of the bars]bar[otherwise]tube[end if]". Understand "hollow" or "tube" as the gray bar.
+The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray [if the gray bar is part of the bars]bar is just a shade lighter than the surrounding jail bars[otherwise]tube is about two feet long -- not quite long enough to reach anything useful outside the cell, unfortunately[end if].[if the gray bar is part of the bars] You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all.[end if][if the gray bar contains something] Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held. The printed name of the gray bar is "gray [if the gray bar is part of the bars]bar[otherwise]tube[end if]". Understand "hollow" or "tube" as the gray bar.
 
 Rule for printing room description details of the gray bar:
 	do nothing.
@@ -2173,24 +2177,33 @@ Rule for printing room description details of the gray bar:
 The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
 
 Instead of taking or pulling the gray bar:
-	if the gray bar is part of the bars:
-		say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
+	if the gray bar is carried by the player:
+		say "You already have it.";
 	otherwise:
-		move the gray bar to the player;
-		if the bar is not first-held:
-			say "You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.";
-			adjust points by one;
-			now the bar is first-held;
+		if the gray bar is part of the bars:
+			say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
 		otherwise:
-			say "You pick up the gray bar.".
+			if the gray bar is part of the stool:
+				say "You yank the bar out of the stool's socket.";
+				now the socket is not occupied;
+			move the gray bar to the player;
+			if the bar is not first-held:
+				say "You grab the bar.[if the gray bar is not blowgun-discussed][paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.[end if]";
+				adjust points by one;
+				now the bar is first-held;
+			otherwise:
+				say "You pick up the gray bar.".
 		
 Instead of inserting something (called the ammo) into the gray bar:
 	if the ammo is the berry:
-		say "You drop the berry into the gray tube.";
-		move the berry to the gray bar;
-		if the gray bar is not blowgun-discussed:
-			say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
-			now the gray bar is blowgun-discussed;
+		if the gray bar is not carried by the player:
+			say "You don't have the gray bar in hand.";
+		otherwise:
+			say "You drop the berry into the gray tube.";
+			move the berry to the gray bar;
+			if the gray bar is not blowgun-discussed:
+				say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
+				now the gray bar is blowgun-discussed;
 	otherwise:
 		say "You don't reckon there's much point in that."
 
@@ -2295,11 +2308,14 @@ Instead of taking the berry:
 	if the player carries the berry:
 		say "You already got a mighty nice one.";
 	otherwise:
-		move the berry to the player;
-		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.";
-		if the berry is not first-held:
-			now the berry is first-held;
-			adjust points by one.
+		if the player is not tall:
+			say "You can't reach it!";
+		otherwise:
+			move the berry to the player;
+			say "You pluck a plump juicy red berry from the part of the vine growing outside the window.";
+			if the berry is not first-held:
+				now the berry is first-held;
+				adjust points by one.
 
 Instead of inserting the berry into the mouth:
 	try eating the berry.
@@ -2966,7 +2982,7 @@ title	subtable		description	toggle
 Chapter Credits
 
 To say list of testers:
-	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]Jenni Polodna[line break]";
+	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]Adrian Colley[line break]";
 
 Section Help Menu
 
