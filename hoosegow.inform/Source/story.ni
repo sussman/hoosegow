@@ -512,6 +512,13 @@ Report opening it with:
 	otherwise:
 		say "You open [the noun] with [the second noun][if the noun contains something]."
 		
+Section Dropping
+
+
+Instead of putting something that is held on the floor:
+	try dropping the noun.
+	
+		
 Section Exiting
 
 Hopping off is an action applying to nothing. Understand "stand" or "stand up" or "get down/off" or "climb down" or "jump off/down" or "hop off/down" or "go down" or "stand on ground" or "stand on the ground" as hopping off when the holder of the player is a supporter.
@@ -2051,8 +2058,9 @@ Instead of entering the stool:
 		continue the action.
 		
 After entering the stool:
-	now the player is tall;
-	say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
+	if the stool is in the jail cell:
+		now the player is tall;
+		say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
 
 Instead of getting off the stool:
 	say "You jump down to the ground again.";
