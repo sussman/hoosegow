@@ -2043,9 +2043,11 @@ Instead of entering the stool:
 			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna sit on the stool unless it stands solidly on three good legs.";
 		increase the broken-stool-sit-count by one;
 	otherwise: [stool is repaired]
-		say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
-		move the player to the stool;
-		now the player is tall.
+		continue the action.
+		
+After entering the stool:
+	now the player is tall;
+	say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
 
 Instead of getting off the stool:
 	say "You jump down to the ground again.";
@@ -2162,7 +2164,7 @@ Instead of doing something with the bars during introduction:
 	increase the angerometer by one;
 	warn about the noun.
 		
-The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is about three feet long and just a shade lighter than the surrounding cell bars. Not quite long enough to reach anything useful outside the cell, unfortunately[if the gray bar is part of the bars] You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike[end if][if the player holds the gray bar]. It doesn't weigh much at all[end if][if the gray bar contains something]. Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held.
+The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is about three feet long and just a shade lighter than the surrounding cell bars. Not quite long enough to reach anything useful outside the cell, unfortunately.[if the gray bar is part of the bars] You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all[end if][if the gray bar contains something]. Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held.
 
 Rule for printing room description details of the gray bar:
 	do nothing.
@@ -3110,7 +3112,7 @@ LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
 
-	
+
 Section Hints
 [Note: In thinking about hint activation, remember that the set up of the extension is such that once a hint is deactivated, the activation rule will not reset it. The table row is deleted, so one doesn't need to worry about recurrent activation of a hint. Still, it's good to make the activation rules specific.]
 
