@@ -1985,7 +1985,7 @@ Instead of attacking the gate:
 
 Section Stool & Bench
 
-The stool is a large portable enterable supporter in the jail cell. "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]A repaired stool stands upright.[end if]". The description of the stool is "A small stool, with legs a couple of feet long.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.[otherwise] One of its three legs is a piece of gray jail bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with their initials. A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
+The stool is a large portable enterable supporter in the jail cell. "[if the socket is not occupied]A broken stool lies on the floor.[otherwise]A repaired stool stands upright.[end if]". The description of the stool is "A small stool, with legs a couple of feet long.[if the socket is not occupied] It's three-legged by design, but two-legged in practice, hence its inability to stand upright.  There's an empty socket where the third leg should be.[otherwise] One of its three legs is a piece of gray jail bar, but it seems relatively solid.[end if] All of the paint has been worn off the seat by your illustrious predecessors who inhabited this cell. Those same occupants carved every square inch of the stool's seat with their initials (and the initials look intriguing!)  A small bronze plate has been nailed to the bottom of the stool. ". The texture of the stool is "like it has been worn [smooth] over the years". 
 
 The bronze plate is part of the stool.  Understand "plate" as the bronze plate.  The description of the bronze plate is "You read aloud the engraving on the bronze plate: 'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.'".
 
@@ -2026,6 +2026,9 @@ Instead of inserting something (called the filler) into the socket:
 		now the gray bar is part of the stool;
 	otherwise:
 		say "Putting [the filler] into the socket don't make a lick of sense.  Not likely to fit well anyway.".
+
+Instead of inserting something (called the filler) into the stool:
+	try inserting the filler into the socket instead.
 
 The broken-stool-sit-count is a number that varies.  The broken-stool-sit-count is zero.
 
