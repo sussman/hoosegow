@@ -2243,9 +2243,10 @@ Instead of doing something with the rods during introduction:
 	warn about the noun.
 
 Understand "look out [something]" as searching.
+
 Instead of searching the window:
 	if the player is tall:
-		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street that have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. [if something is on tophe barrel]On the barrel you see [contents of barrel]. [end if]Just to the left of the window, a berry-covered vine has grown up the side of the building. [if the vulture is not on the barrel][paragraph break]Up in the sky, you notice a couple of hungry, circling vultures.[paragraph break][end if]";
+		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street that have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. [if something is on the barrel]On the barrel you see [contents of barrel]. [end if]Just to the left of the window, a berry-covered vine has grown up the side of the building. [if the vulture is not on the barrel][paragraph break]Up in the sky, you notice a couple of hungry, circling vultures.[paragraph break][end if]";
 	otherwise:
 		say "From down here, all you can see is the evening sky and the [if the deputy is in the office]dark[otherwise]illuminated[end if] window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. [if a random chance of one in three succeeds]In the distance, you watch a hawk making lazy circles in the sky. [end if]You'd have to climb up to the window to get a better view of the street.";
 	
