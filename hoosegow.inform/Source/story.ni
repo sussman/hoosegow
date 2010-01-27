@@ -3142,7 +3142,7 @@ LibMsg <block singing>			"You got a right fine voice. Just not for singing.[para
 LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"  
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
-
+LibMsg <block throwing at>		"Your throwing arm ain't been any good since the accident with the musk ox and the hedge clippers.[line break]"
 
 Section Hints
 [Note: In thinking about hint activation, remember that the set up of the extension is such that once a hint is deactivated, the activation rule will not reset it. The table row is deleted, so one doesn't need to worry about recurrent activation of a hint. Still, it's good to make the activation rules specific.]
