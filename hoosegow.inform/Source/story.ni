@@ -1883,7 +1883,7 @@ Instead of reading the receipt:
 	
 Section Food Bowl
 
-The food bowl is a container in the office. "A metal food bowl sits on the office floor, only a few feet from the jail bars." The description of the food bowl is "A beat up mining pan full of dents and scratch marks. The bowl seems to be nailed [one of](yes, nailed!)[or][stopping] to the office floor." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
+The food bowl is a fixed in place container in the office. "A metal food bowl sits on the office floor, only a few feet from the jail bars." The description of the food bowl is "A beat up mining pan full of dents and scratch marks. The bowl seems to be nailed [one of](yes, nailed!)[or][stopping] to the office floor." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
 
 Instead of taking the food bowl:
 	if the food bowl is not first-held:
@@ -3547,6 +3547,7 @@ Instead of going a direction (called the way) during the denouement:
 				change the endgame to escaped;
 				adjust points by 3;
 				end the game in victory;
+				the rule succeeds;
 			otherwise:
 				say "That's more like it, partner. Let's look for some silver linings.";
 			the rule succeeds;
@@ -3602,6 +3603,7 @@ Every turn during crunch time:
 		change the endgame to won;
 		adjust points by 5;
 		end the game in victory;
+		the rule succeeds;
 	increase the crunch counter by one;
 	if the crunch counter is:
 		-- 1:
@@ -3638,7 +3640,8 @@ Every turn during crunch time:
 		-- 16:
 			say "[death-note]";
 			change the endgame to hanged;
-			end the game in death.
+			end the game in death;
+			the rule succeeds.
 		
 Instead of asking someone (called the auditor) about some topic (called the issue) during the plusquedenouement:
 	if the auditor is:
