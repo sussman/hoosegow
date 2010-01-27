@@ -1184,8 +1184,14 @@ The block all stage business rule is listed after the endgame block stage busine
 This is the block all stage business rule:
 	if the block stage business flag is true:
 		the rule succeeds.
+		
+The block stage business while-looking rule is listed after the block all stage business rule in the stage business rules.
+
+This is the block stage business while-looking rule:
+	if the current action is looking:
+		the rule succeeds.
 	
-The Muddy's stage business rule is listed after the block all stage business rule in the stage business rules.
+The Muddy's stage business rule is listed after the block stage business while-looking rule in the stage business rules.
 
 This is the Muddy's stage business rule:
 	if a random chance of 4 in 20 succeeds:
@@ -1306,10 +1312,6 @@ times-used		verbage
 0		"My SOUL thirsteth for the comfort of the divine, and yet how shall I recognize it? The divine must grow where is seeded, and having been sawn, it cannot yield its fruit. No, the vine must be PLUCKED early, but not too early, or the fruit will be tart, and if picked more tardily, so more fruity. It matters not so much as the sweetness of the divine, although the sweeter, the stronger after some time. I drink the heady fruits of the divine, the more frothy and heady are fine. Let us decant the praises of the wine, and slake the furnace of the SUBLIME"
 0		"The desires of an earthly PRINCE are met not by gold or myrrh or power over his enemies, but by HERRING. Salted, preserved herring from a can. Kippered Herring. Sweet, sweet, kippered herring. Who could desire more? Indeed, after a few, who could desire more KIPPERED herring, at least for a little while, having filled up on the first tin of them? They're indeed salty, harmless to you and me, but for a SLUG or snail, lethal. This is part of the divine wisdom, and why herrings live in the sea (prior to being canned) and slugs do not (and are, therefore, unlikely to be canned). To argue with this is sheer madness"
 0		"Fear not the judgement, for each of us will be accorded mercy, and the accordion of mercy shall be loud and have a good beat. One that you can dance to. Let us give thanks for mercy, except in FRANCE, where it would be redundant. Let the music, or the closest approximation thereto renderable by an accordion, flow over all lands, except France, which again is a special case. Inhabited by MIMES and having not the power of proper speech, the accordion is irrelevant and will only inspire their wrath and vitriol, unless played upon a victrola, or as they say, a francophono"
-
-
-
-
 
 To say herring:
 	say "Kippered herring, please![no line break]".
