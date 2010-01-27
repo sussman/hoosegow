@@ -517,7 +517,6 @@ Section Dropping
 
 Instead of putting something that is held on the floor:
 	try dropping the noun.
-	
 		
 Section Exiting
 
@@ -2991,7 +2990,7 @@ title	subtable		description	toggle
 Chapter Credits
 
 To say list of testers:
-	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]Adrian Colley[line break]";
+	say "Adrian Colley[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
 
 Section Help Menu
 
