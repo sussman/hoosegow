@@ -1961,7 +1961,7 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "[if the gate lock is locked]A metal gate stands between you and freedom. [end if]The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive padlock [if the gate is locked]that clicked definitively behind you when you were thrown into the cell[otherwise]of great antiquity[end if]. You've seen banks with poorer locks. At this is a quality institution." The texture of the gate is "cold and unyielding".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "[if the gate lock is locked]A metal gate stands between you and freedom. [end if]The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive padlock [if the gate is locked]that clicked definitively behind you when you were thrown into the cell[otherwise]of great antiquity[end if]. You've seen banks with poorer locks. At least this is a quality institution." The texture of the gate is "cold and unyielding".
 
 Does the player mean unlocking or attacking or examining or opening or picking the gate lock:
 	if the player is in the jail cell:
