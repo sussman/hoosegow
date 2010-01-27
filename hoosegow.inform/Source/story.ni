@@ -1894,7 +1894,7 @@ Instead of reading the receipt:
 	
 Section Food Bowl
 
-The food bowl is a fixed in place container in the office. "A metal food bowl sits on the office floor, only a few feet from the jail bars." The description of the food bowl is "A beat up mining pan full of dents and scratch marks. The bowl seems to be nailed [one of](yes, nailed!)[or][stopping] to the office floor." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
+The food bowl is a fixed in place container in the office. "A dented food bowl sits on the office floor, only a few feet from the jail bars." The description of the food bowl is "A beat up mining pan full of dents and scratch marks. The bowl seems to be nailed [one of](yes, nailed!)[or][stopping] to the office floor." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" or "dented" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
 
 Instead of taking the food bowl:
 	if the food bowl is not first-held:
