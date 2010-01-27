@@ -2182,7 +2182,7 @@ Instead of taking or pulling the gray bar:
 		otherwise:
 			if the gray bar is part of the stool:
 				say "You yank the bar out of the stool's socket.";
-				now the gray bar is not part of the stool;
+				now the socket is not occupied;
 			move the gray bar to the player;
 			if the bar is not first-held:
 				say "You grab the bar.[if the gray bar is not blowgun-discussed][paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.[end if]";
