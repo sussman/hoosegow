@@ -372,7 +372,7 @@ To say feather-deputy:
 	
 Section Blowing
 
-Understand "berry" or "bar" or "gray bar" as "[weapon]".
+Understand "berry" or "bar" or "gray bar" or "tube" or "hollow" or "hollow tube" as "[weapon]".
 Understand "shoot [weapon] at/on/onto/towards [something]" as blowing at.
 Understand "fire [weapon] at/on/onto/towards [something]" as blowing at.
 
@@ -386,7 +386,7 @@ This is the blowing rule:
 			say "You ain't got nothing to blow.";
 			the rule fails;
 		if the gray bar does not contain the berry:
-			say "You might use your bar as a blow-gun, but it's got an emptiness to it right now.";
+			say "You might use your tube as a blow-gun, but it's got an emptiness to it right now.";
 			the rule fails.
 
 Check blowing at:
@@ -1927,7 +1927,7 @@ The coffee is in the cup. The description of some coffee is "Steaming hot, black
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
-The chute is part of the protocappuccinomatic. The description of the chute is "A tube on the side of the machine." Understand "tube" as the chute. The texture of the chute is "[smooth]".
+The chute is part of the protocappuccinomatic. The description of the chute is "A chute that runs down the side of the machine." Understand "tube" as the chute. The texture of the chute is "[smooth]".
 
 To make coffee:
 	now the coffee is in the cup;
@@ -2122,7 +2122,7 @@ Carry out playing the harmonica:
 			-- 1:
 			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
 			-- 2:
-			say "The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks and rolls under the deputy's desk. A gray bar falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.[paragraph break]";
+			say "The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks and rolls under the deputy's desk. A hollow gray tube falls loose from the ceiling and lands at your feet.[paragraph break]'You done it!' shouts Muddy.[paragraph break]";
 			move the screw to limbo;
 			move the gray bar to the jail cell;
 			move the gap to the jail cell;
@@ -2164,7 +2164,7 @@ Instead of doing something with the bars during introduction:
 	increase the angerometer by one;
 	warn about the noun.
 		
-The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray bar is about three feet long and just a shade lighter than the surrounding cell bars. Not quite long enough to reach anything useful outside the cell, unfortunately.[if the gray bar is part of the bars] You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all[end if][if the gray bar contains something]. Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held.
+The gray bar is part of the bars.  The gray bar is a transparent portable container.  The carrying capacity of the gray bar is 1.  Understand "grey bar" as the gray bar. The description of the gray bar is "The gray [if the gray bar is part of the bars]bar is just a shade lighter than the surrounding jail bars[otherwise]tube is about three feet long -- not quite long enough to reach anything useful outside the cell, unfortunately[end if].[if the gray bar is part of the bars] You notice that the gray bar is held to the ceiling by a screw the size of a railroad spike.[end if][if the player holds the gray bar] It doesn't weigh much at all.[end if][if the gray bar contains something] Inside it is [contents of gray bar].[end if]". The texture of the gray bar is "lighter than it looks".  The gray bar can be blowgun-discussed.  The gray bar is not blowgun-discussed.  The gray bar can be first-held.  The gray bar is not first-held. The printed name of the gray bar is "gray [if the gray bar is part of the bars]bar[otherwise]tube[end if]". Understand "hollow" or "tube" as the gray bar.
 
 Rule for printing room description details of the gray bar:
 	do nothing.
@@ -2185,7 +2185,7 @@ Instead of taking or pulling the gray bar:
 		
 Instead of inserting something (called the ammo) into the gray bar:
 	if the ammo is the berry:
-		say "You drop the berry into the gray bar.";
+		say "You drop the berry into the gray tube.";
 		move the berry to the gray bar;
 		if the gray bar is not blowgun-discussed:
 			say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
@@ -3214,7 +3214,7 @@ hint												used
 "On the bottom surface of the seat there is a socket."
 "You need to put a substitute leg in the socket to fix the stool."
 "You have [if the gray bar is not part of the bars]already[otherwise]not yet[end if] found the substitute leg."
-"[if the gray bar is part of the bars]One of the jail bars is different from the others. You can use sound to help find the one that you need[otherwise]Try putting the gray bar into the socket[end if]."
+"[if the gray bar is part of the bars]One of the jail bars is different from the others. You can use sound to help find the one that you need[otherwise]Try putting the gray tube into the socket[end if]."
 
 [
 
