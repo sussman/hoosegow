@@ -512,6 +512,12 @@ Report opening it with:
 	otherwise:
 		say "You open [the noun] with [the second noun][if the noun contains something]."
 		
+Section Dropping
+
+
+Instead of putting something that is held on the floor:
+	try dropping the noun.
+		
 Section Exiting
 
 Hopping off is an action applying to nothing. Understand "stand" or "stand up" or "get down/off" or "climb down" or "jump off/down" or "hop off/down" or "go down" or "stand on ground" or "stand on the ground" as hopping off when the holder of the player is a supporter.
@@ -2056,8 +2062,9 @@ Instead of entering the stool:
 		continue the action.
 		
 After entering the stool:
-	now the player is tall;
-	say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
+	if the stool is in the jail cell:
+		now the player is tall;
+		say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
 
 Instead of getting off the stool:
 	say "You jump down to the ground again.";
@@ -2240,11 +2247,12 @@ Instead of doing something with the rods during introduction:
 	warn about the noun.
 
 Understand "look out [something]" as searching.
+
 Instead of searching the window:
 	if the player is tall:
 		say "The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street that have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. [if something is on the barrel]On the barrel you see [contents of barrel]. [end if]Just to the left of the window, a berry-covered vine has grown up the side of the building. [if the vulture is not on the barrel][paragraph break]Up in the sky, you notice a couple of hungry, circling vultures.[paragraph break][end if]";
 	otherwise:
-		say "From down here, all you can see is the evening sky and the [if the deputy is in the office]dark[otherwise]illuminated[end if] window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. [if a random chance of one in three succeeds]In the distance, you watch a hawk making lazy circles in the sky.[end if] You'd have to climb up to the window to get a better view of the street.";
+		say "From down here, all you can see is the evening sky and the [if the deputy is in the office]dark[otherwise]illuminated[end if] window of the upper story of the saloon across the street. The roof of the saloon is bathed in the light of the evening's full moon. [if a random chance of one in three succeeds]In the distance, you watch a hawk making lazy circles in the sky. [end if]You'd have to climb up to the window to get a better view of the street.";
 	
 Understand "climb through [something]" as climbing. Understand "jump through [something]" as climbing.
 
@@ -2924,7 +2932,7 @@ To say plan1-blurt:
 	say "Muddy vibrates with excitement and gushes, [quotation mark]I got to tell you, Rick, or this new plan of mine is going to drive me plumb crazy![quotation mark] "
 	
 To say plan2:
-	say "Muddy says excitedly, [quotation mark]Here's my idea: I reckon I could take that warrant and forge a different ending. Maybe trick them into releasing us.[quotation mark][paragraph break][quotation mark]That's a great idea, Muddy, let me get my pen and some ink. Oh, wait a minute. I don't have either![quotation mark] You glare at Muddy.[paragraph break][quotation mark]Oh, yeah. I suppose. I didn't think of that.[quotation mark] Muddy considers the matter. [quotation mark]Maybe we could make one. If you can find something that I can use as a pen, I reckon that one of them red berries would make a right proper kind of ink for it.[quotation mark][paragraph break]". 
+	say "Muddy says excitedly, [quotation mark]Here's my idea: I reckon I could take that warrant and forge a different ending. Maybe trick them into releasing us.[quotation mark][paragraph break][quotation mark]That's a great idea, Muddy, let me get my pen and some ink. Oh, wait a minute. I don't have either![quotation mark] You glare at Muddy.[paragraph break][quotation mark]Oh, yeah. I suppose. I didn't think of that.[quotation mark] Muddy considers the matter. [quotation mark]Maybe we could make one. If you can find something that I can use as a pen, I reckon we can squish something or other up to make some kind of ink for it.[quotation mark][paragraph break]". 
 	
 To say plan2-askme:
 	say "[one of]Muddy gives you that familiar old look that always leads to trouble. [quotation mark]I got me another cunning plan. C'mon, ask your old buddy Muddy...[quotation mark] Muddy leans forward, clearly impatient for you to ask him about his latest stroke of (in his opinion) genius.[quotation mark] [or][quotation mark]No, really. This plan is a winner. I'm dying for you to ask me about it. You'll see. This one will work.[quotation mark] Muddy looks desperate to prove himself to you. [or][quotation mark]I know some of my plans haven't panned out entirely, but I see a way clear out of this jail. Go on, ask me.[quotation mark] It's like the years have caught up to Muddy, and he wants this one more chance to do right by you. [or][quotation mark]Rick, will you trust me on this one? Ask me my plan.[quotation mark] Muddy looks at the ground, despondent that you are ignoring him. [stopping]".
@@ -2987,7 +2995,7 @@ title	subtable		description	toggle
 Chapter Credits
 
 To say list of testers:
-	say "John Lodder[line break]Conrad Cook[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]Adrian Colley[line break]";
+	say "Adrian Colley[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
 
 Section Help Menu
 
