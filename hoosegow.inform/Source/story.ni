@@ -1682,7 +1682,7 @@ The jailhouse is a region.  The office and jail cell are part of the jailhouse.
 
 The ceiling is a fardrop in the jailhouse.  The description of the ceiling is "The stucco jailhouse ceiling is too high to touch. "
 
-The walls are a plural-named backdrop in the jailhouse.  Understand "wall" as the walls.  The description of the walls is "The jailhouse walls are made of brightly painted white bricks. The bricks still smell like fresh paint."   The scent of the walls is "like fresh paint". The texture of the walls is "rough and a little bit powdery".
+The walls are a plural-named backdrop in the jailhouse.  Understand "wall" as the walls.  The description of the walls is "The jailhouse walls are made of brightly painted white bricks. The bricks still smell like fresh paint."   The scent of the walls is "like fresh paint". The texture of the walls is "rough and a little bit powdery". Understand "brick" or "bricks" or "brickwork" as the walls.
 
 The sky is a fardrop in the jailhouse.  The description of the sky is "Outside the window, the moon [if the hours part of the time of day is less than 8]sets[otherwise]rises[end if] on a cloudless night. In the distance, a wake of vultures saw the air, circling their unfortunate prey."
 
