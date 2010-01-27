@@ -2468,7 +2468,7 @@ After going a direction:
 
 Section Pete
 
-Pete is a man in the jail cell. Pete is proper-named.  "In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner wears a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]". The printed name of Pete is "[if Pete is recognized]Pastor Pete[otherwise]the disheveled man[end if]". 
+Pete is a man in the jail cell. Pete is not proper-named.  "In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner wears a black suit and a pastor's neck tie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a camp fire[or]like bourbon[or]strongly of gin[at random]". The printed name of Pete is "[if Pete is recognized]Pastor Pete[otherwise]disheveled man[end if]". 
 
 Instead of doing something with pete:
 	if the current action is examining or searching:
@@ -2502,6 +2502,7 @@ Instead of showing the pamphlet to muddy:
 	if Pete is not recognized:
 		say "[Hot diggity dog]" as dialogue;
 		now Pete is recognized;
+		now Pete is proper-named;
 	otherwise:
 		say "[quotation mark]Yeah, I seen. It's Pastor Pete, sure as a sawbuck,[quotation mark] remarks Muddy."
 
