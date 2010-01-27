@@ -897,7 +897,7 @@ Check directedSpitting at:
 Carry out directedSpitting at:
 	if the outdoors encloses the noun:
 		say "The [noun] is too far away." instead;
-	if the office encloses the noun and the deputy is in the office and the noun is not a man:
+	if the office encloses the noun and the deputy is in the office and the deputy is awake and the noun is not a man:
 		say "The deputy gives you a frightful stern look, so you decide not to spit at anything in the office while he's around." instead;	
 	if the jail cell encloses the noun and the noun is not the floor and the noun is not Muddy and the noun is not the window:
 		say "You're not keen to spit at anything in the jail cell with you. A man don't spit where he lives (excepting maybe on the floor, of course)." instead;
