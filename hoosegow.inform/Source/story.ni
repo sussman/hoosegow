@@ -1615,10 +1615,11 @@ Instead of giving the tobacco to Muddy during forgery:
 			say "Muddy reluctantly accepts the tobacco, saying, [quotation mark]Well, I suppose I could use the tobacco juice.[quotation mark][if Muddy carries the feather] Muddy chews the tobacco some more, fills his makeshift pen with the juice, and throws the wad out the window. [end if][paragraph break]";
 		try WarrantForging.
 
-Instead of doing something with the deputy when the warrant is edited and the warrant is not acknowledged:
+Instead of doing something with the deputy when the warrant is edited and the warrant is not acknowledged and the deputy is not explicated:
 	if the current action is examining:
 		continue the action;
 	otherwise:
+		now the deputy is explicated;
 		say "[get out of jail free]";
 		now the gate is unlocked;
 		now the gate is open.
@@ -2326,7 +2327,7 @@ Angerometer is a number that varies. The angerometer is zero.
 
 Consciousness is a kind of value. The consciousnesses are awake, drugged, and asleep.
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.  The deputy can be singing-sensitive. The deputy is not singing-sensitive.
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.  The deputy can be singing-sensitive. The deputy is not singing-sensitive. The deputy can be explicated. The deputy is not explicated.[explicated keeps track of whether the deputy has been given the explanation about how the warrant really says that the prisoners need to be released]
 
 To say deputy-description:
 	if the consciousness of the deputy is:
