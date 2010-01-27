@@ -2007,7 +2007,7 @@ Instead of inserting something (called the filler) into the socket:
 	if the filler is the gray bar:
 		say "You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.";
 		now the socket is occupied;
-		[now the gray bar is part of the stool;]
+		now the gray bar is part of the stool;
 	otherwise:
 		say "Putting [the filler] into the socket don't make a lick of sense.  Not likely to fit well anyway.".
 
@@ -2136,7 +2136,7 @@ Instead of going when the player is in the jail cell:
 
 Section Bars
 
-The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
+The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color and as short as a table leg. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
 
 Instead of doing something with the bars during introduction:
 	if the current action is examining:
@@ -2154,24 +2154,33 @@ Rule for printing room description details of the gray bar:
 The gap is scenery in limbo.  The description of the gap is "You don't pay no mind to the gap -- it ain't big enough to even get your arm through."
 
 Instead of taking or pulling the gray bar:
-	if the gray bar is part of the bars:
-		say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
+	if the gray bar is carried by the player:
+		say "You already have it.";
 	otherwise:
-		move the gray bar to the player;
-		if the bar is not first-held:
-			say "You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.";
-			adjust points by one;
-			now the bar is first-held;
+		if the gray bar is part of the bars:
+			say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
 		otherwise:
-			say "You pick up the gray bar.".
+			if the gray bar is part of the stool:
+				say "You yank the bar out of the stool's socket.";
+				now the gray bar is not part of the stool;
+			move the gray bar to the player;
+			if the bar is not first-held:
+				say "You grab the bar.[if the gray bar is not blowgun-discussed][paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.[end if]";
+				adjust points by one;
+				now the bar is first-held;
+			otherwise:
+				say "You pick up the gray bar.".
 		
 Instead of inserting something (called the ammo) into the gray bar:
 	if the ammo is the berry:
-		say "You drop the berry into the gray bar.";
-		move the berry to the gray bar;
-		if the gray bar is not blowgun-discussed:
-			say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
-			now the gray bar is blowgun-discussed;
+		if the gray bar is not carried by the player:
+			say "You don't have the gray bar in hand.";
+		otherwise:
+			say "You drop the berry into the gray bar.";
+			move the berry to the gray bar;
+			if the gray bar is not blowgun-discussed:
+				say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
+				now the gray bar is blowgun-discussed;
 	otherwise:
 		say "You don't reckon there's much point in that."
 
@@ -2276,11 +2285,14 @@ Instead of taking the berry:
 	if the player carries the berry:
 		say "You already got a mighty nice one.";
 	otherwise:
-		move the berry to the player;
-		say "You pluck a plump juicy red berry from the part of the vine growing outside the window.";
-		if the berry is not first-held:
-			now the berry is first-held;
-			adjust points by one.
+		if the player is not tall:
+			say "You can't reach it!";
+		otherwise:
+			move the berry to the player;
+			say "You pluck a plump juicy red berry from the part of the vine growing outside the window.";
+			if the berry is not first-held:
+				now the berry is first-held;
+				adjust points by one.
 
 Instead of inserting the berry into the mouth:
 	try eating the berry.
