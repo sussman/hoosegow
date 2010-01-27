@@ -1883,7 +1883,7 @@ Instead of reading the receipt:
 	
 Section Food Bowl
 
-The food bowl is a container in the office. "A metal food bowl." The description of the food bowl is "A beat up mining pan full of dents and scratch marks[if the food bowl is not first-held]. The bowl sits on the office floor, slightly more than an arm's length from the jail cell[end if]." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
+The food bowl is a container in the office. "A metal food bowl sits on the office floor, only a few feet from the jail bars." The description of the food bowl is "A beat up mining pan full of dents and scratch marks. The bowl seems to be nailed [one of](yes, nailed!)[or][stopping] to the office floor." The carrying capacity of the food bowl is 1. Understand "mining" or "pan" as the food bowl. The food bowl can be first-held. The texture of the food bowl is "uneven and pitted". The scent of the food bowl is "like dog food".
 
 Instead of taking the food bowl:
 	if the food bowl is not first-held:
@@ -1919,7 +1919,7 @@ The protocappuccinomatic is a large furniture in the office. The description of 
 
 The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe. The texture of the iron pipe is "hot". Understand "pipes" or "output" as the iron pipe.
 
-The cup is in Limbo. The description of the cup is "A white porcelain mug[if the coffee is in the cup]containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
+The cup is in Limbo. The description of the cup is "A white porcelain mug[if the coffee is in the cup] containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
 
 Rule for printing room description details of the the cup:
 	do nothing.
