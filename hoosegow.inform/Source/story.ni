@@ -1803,9 +1803,9 @@ The scent of the chair is "like an amalgam of the butts that have sat on it over
 
 Section Desk
 
-The desk is a large furniture in the office. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface[if the drawer is mentioned]e. The rear of the desk has a small drawer[end if]." The texture of the desk is "old and battered".
+The desk is a large furniture in the office. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface[if the player is in the office]. The rear of the desk has a drawer with a small lock[end if]." The texture of the desk is "old and battered".
 
-The drawer is part of the desk. The drawer is a closed openable lockable locked container. The description of the drawer is "A small, closed drawer built into the back of the desk. The drawer has a small small lock." The drawer can be recognized. The drawer is not recognized. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?" The drawer can be rewarded. The drawer is not rewarded.
+The drawer is part of the desk. The drawer is a closed openable lockable locked container. The description of the drawer is "A small, [if the drawer is closed]closed[otherwise]open[end if] drawer built into the back of the desk. It has a small lock." The drawer can be recognized. The drawer is not recognized. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?" The drawer can be rewarded. The drawer is not rewarded.
 
 Does the player mean examining or attacking or unlocking or opening or picking the small lock:
 	if the player is in the office:
@@ -1961,13 +1961,13 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "[if the gate lock is locked]A metal gate stands between you and freedom. [end if]The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive lock [if the gate is locked]that clicked definitively behind you when you were thrown into the cell[otherwise]of great antiquity[end if]. You've seen banks with poorer locks. At this is a quality institution." The texture of the gate is "cold and unyielding".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "[if the gate lock is locked]A metal gate stands between you and freedom. [end if]The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive padlock [if the gate is locked]that clicked definitively behind you when you were thrown into the cell[otherwise]of great antiquity[end if]. You've seen banks with poorer locks. At this is a quality institution." The texture of the gate is "cold and unyielding".
 
 Does the player mean unlocking or attacking or examining or opening or picking the gate lock:
 	if the player is in the jail cell:
 		it is likely.
 
-The gate lock is part of the gate. The description of the gate lock is "A cast iron mechanical device of diabolical ingenuity. It is like no lock you've ever seen."
+The gate lock is part of the gate. The description of the gate lock is "A cast iron padlock of diabolical ingenuity. It is like no lock you've ever seen." Understand "padlock" or "diabolical" as the gate lock.
 
 Instead of opening the gate lock:
 	try opening the gate.
