@@ -603,6 +603,11 @@ Section Looking Under
 Instead of looking under the noun:
 	try searching the noun instead.
 	
+Section Looking
+
+Understand "look [a visible thing]" as examining.
+['Look outside' or 'look stool' should work.]
+
 Section LS
 
 LSing is an action applying to nothing. Understand "ls" as LSing.
