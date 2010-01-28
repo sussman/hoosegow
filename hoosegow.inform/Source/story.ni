@@ -2603,8 +2603,8 @@ To say remaining time:
 		otherwise:
 			let D be eight minus H;
 		say "[if M is zero]about[otherwise]less than[end if] [D in words] hours";
-	say " until you and Muddy are [one of]hanged[or]pushing up daisies[or]six feet under[or]wearing hemp collars[or]to be put on permanent disability[or]dead as a door nail[at random]".[###TODO more dead euphemisms]
-
+	say " until you and Muddy are [one of]hanged[or]wearing hemp collars[or]looking all so peaceful and serene[or]all laid out to rest with your hands across your chest[or]giving a different smell to the daisies in the dell[or]laying in coffins made of wood[or]looking like you're asleep[or]daid[at random]".
+	
 Rick wears a hat. The hat is a player's holdall.  The description of the hat is "An unusually capacious, wide-brimmed hat to protect you from the sun." The indefinite article of the hat is "your". The texture of the hat is "like coarse fabric". The scent of the hat is "like your head".
 
 To say doffhat:
@@ -3002,7 +3002,7 @@ title	subtable		description	toggle
 Chapter Credits
 
 To say list of testers:
-	say "Adrian Colley[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
+	say "Adrian Colley[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Rob Dubbin[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
 
 Section Help Menu
 
