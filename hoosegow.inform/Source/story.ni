@@ -205,6 +205,8 @@ Instead of asking someone (called the reporter) about a topic listed in the Tabl
 			say "You reflect on the matter for a while."; 
 		-- Muddy:
 			say "Muddy replies, [quotation mark][muddy-text entry].[quotation mark][paragraph break]";
+		-- Pete:
+			do nothing;[because this will provoke a rant]
 		-- the deputy:
 			if the deputy is drugged:
 				say "He's in no state of mind to talk right now.";
@@ -2483,7 +2485,7 @@ Instead of doing something with pete:
 		if Pete is recognized:
 			follow the Pete's stage business rule;
 		otherwise:
-			say "Suddenly the man leaps up and rants, [quotation mark]";
+			say "[line break]Suddenly the man leaps up and rants, [quotation mark]";
 			pick a phrase from the Table of Pete's Rants;
 			say "[quotation mark]. He then collapses on the bench again and falls fast asleep."	
 
