@@ -16,13 +16,10 @@ compiler and IDE as a single package from here:
   http://www.inform-fiction.org
 
 When compiled, the source code produces a bytecode file which can be
-executed on any implementation of a Glulx virtual machine:
-
-  http://www.eblong.com/zarf/glulx/
+executed on any implementation of a Z machine interpreter; we
+typically tell Inform to compile it to a .z8 file.
 
 The game's source code lives in a single file called 'story.ni'.
-However, it also depends on an 'extension' module called "Default
-Messages.i7x"..
 
 
 To build the game:
