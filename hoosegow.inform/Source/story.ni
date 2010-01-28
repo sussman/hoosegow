@@ -627,6 +627,16 @@ LSing is an action applying to nothing. Understand "ls" as LSing.
 Report LSing:
 	say "Ellis? The town barber? He ain't here."
 	
+Section Opening
+
+Understand "cut [something] with [other things]" as opening it with.
+
+Check opening it with:
+	if the noun is not openable:
+		say "That don't work none. What kind of crazy talk is you up to?" instead;
+	if the noun is the tin:
+		say "You ain't got to use not a thing but your own two hands to open the tin." instead.
+	
 Section Picking
 
 Picking is an action applying to one thing. Understand "pick [something]" as picking.
@@ -1411,7 +1421,14 @@ Instead of inserting something (called the item) into the can of beans:
 
 Instead of opening the can of beans:
 	say "What do you want to open it with?"
-
+	
+Instead of closing the can of beans:
+	change the block stage business flag to true;
+	say "[one of][no-can-do][or]You fumble with the can and its edges, which are likely rather sharp, brush perilously near to your right wrist[or]The razor sharp edges of the can slice through your right radial artery and blood gushes in a fountain, spraying the bright white walls with red speckles. Muddy's eyes grow large, and fangs protrude, as the scent of blood awakens some dark, dormant secret from his past. He steps out of the shadows and reaches... reaches...[paragraph break]No, that doesn't happen. It was just a trick of the lighting.[paragraph break]The pressure must just be getting to you.[paragraph break]Muddy says, in a low and controlled voice intended to be both reassuring and calming, [quotation mark]Partner, I'd appreciate it if'n you didn't pick this moment to take leave of your senses. We don't got time just now for a side trip to the funny farm.[quotation mark][paragraph break]Sigh[or][no-can-do][stopping]." 
+	
+To say no-can-do:
+	say "There ain't no way to close a metal can once it's been opened".
+	
 Does the player mean doing something with the can of beans:
 	it is likely.
 
