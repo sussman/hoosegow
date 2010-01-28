@@ -1378,7 +1378,6 @@ times-used		verbage
 0			"Outside, there is a brief cloudburst. The wind comes right behind the rain"
 0			"A yellow-fringed surrey trots past the sheriff's office"
 0			"A cockroach scrambles by, making a detour around Muddy. Cockroaches have noses, you figure"
-0			"It feels cooler than it did last night"
 
 Chapter Limbo
 [A place for offstage stuff]
