@@ -2645,16 +2645,16 @@ Instead of searching the overcoat:
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 	
-The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." The scent of the footwear is "horrible". The texture of the footwear is "leathery".
+The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." The scent of the footwear is "monumentally repulsive". The texture of the footwear is "leathery".
 
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
 
-Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn-down, and the spurs have broken clear off." The scent of a the left boot is "better on the outside". The indefinite article of the left boot is "your". The texture of the left boot is "[smooth]".
+Rick wears the left boot. The description of the left boot is "A cowhide boot that has been rubbed [smooth]. The heel is worn-down, and the spurs have broken clear off." The scent of a the left boot is "monumentally repulsive". The indefinite article of the left boot is "your". The texture of the left boot is "[smooth]".
 
 Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth][if the spur is part of the right boot]. A metal riding spur is about ready to fall off the worn-down heel[end if]."
 
-A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "better on the outside". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" as the spur.
+A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "monumentally repulsive". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" as the spur.
 
 
 [Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
