@@ -571,6 +571,10 @@ Instead of putting the portrait on the walls:
 	otherwise:
 		continue the action.]
 
+Section Jumping
+
+Understand "jump in place" as jumping.
+
 
 Section Listening
 [Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
@@ -2171,7 +2175,7 @@ Instead of going when the player is in the jail cell:
 
 Section Bars
 
-The bars are plural-named scenery in the jail cell.   Understand "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color and as short as a table leg. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
+The bars are plural-named scenery in the jail cell.   Understand "jail" and "bar" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color and as short as a table leg. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one which is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
 
 Instead of doing something with the bars during introduction:
 	if the current action is examining:
@@ -2179,7 +2183,7 @@ Instead of doing something with the bars during introduction:
 	if the current action is searching:
 		continue the action;
 	otherwise if the current action is attacking:
-		say "[one of] stands back as you let loose with your full fury and pound on the metal bars.[if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it? You're not sure[end if][or]You can hit all the bars you want after you get out of jail[stopping].[paragraph break]";
+		say "[one of]Muddy stands back as you let loose with your full fury and pound on the metal bars. [if the gray bar is part of the bars]As you beat them senseless, you notice that one of them sounds hollow. But which was it? You're not sure[end if][or]You whack on the jail bars fruitlessly. You might as well jump in place[stopping].[paragraph break]";
 	increase the angerometer by one;
 	warn about the noun.
 		
