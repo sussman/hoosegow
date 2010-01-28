@@ -1007,7 +1007,10 @@ To say lame talk:
 Section Tasting
 
 Instead of tasting a thing (called the sample):
-	try eating the sample.
+	if the sample is tobacco and the sample is in the mouth:
+		say "It tastes horrid.";
+	otherwise:
+		try eating the sample.
 	
 Section Telling
 
@@ -2593,6 +2596,29 @@ Before inserting the tobacco into the mouth:
 		
 After inserting the tobacco into the mouth:
 	say "You stick the tobacco in your mouth and get ready to chew it some."
+	
+Before doing something when the tobacco is in the mouth:
+	[All of these do-nothings are to allow the otherwise to continue the action]
+	if the action-name part of the current action is:
+		-- the playing action:
+		-- the asking it for action:
+		-- the saying yes action: 
+		-- the saying no action:
+		-- the eating action:
+		 	if the noun is tobacco:
+				continue the action;
+		-- the drinking action:
+		-- the saying sorry action: 
+		-- the swearing obscenely action:
+		-- the swearing mildly action:
+		-- the singing action:
+		-- the blowing at action: 
+		-- the playing action:
+		-- the talking action:
+		-- otherwise:
+			continue the action;
+	say "[quotation mark][one of]Mmmnn[or]Hpphh[or]Rrruur[or]Pppffft[or]Gaakk[at random][one of]mmm[or]nnn[or]kkk[or]ffffssss[or]gakgakgak[or]ptooie[at random][one of]pschaw[or]gulumph[or]spooooblaba[or]zzot[at random].[quotation mark][paragraph break]That doesn't work so well since your mouth is full of tobacco.";
+	stop the action.
 			
 Section Rick
 
