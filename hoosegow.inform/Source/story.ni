@@ -2363,7 +2363,7 @@ Angerometer is a number that varies. The angerometer is zero.
 
 Consciousness is a kind of value. The consciousnesses are awake, drugged, and asleep.
 
-The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.  The deputy can be singing-sensitive. The deputy is not singing-sensitive. The deputy can be explicated. The deputy is not explicated.[explicated keeps track of whether the deputy has been given the explanation about how the warrant really says that the prisoners need to be released]
+The deputy is a man in the office. Understand "Jim" or "Jimbo" as the deputy. The deputy can be either standing or sitting. The deputy is sitting. The deputy carries the brass key. The description of the deputy is "[deputy-description]." The scent of the deputy is "of cigar smoke and cheap perfume". The texture of the deputy is "warm and alive".  The deputy can be harmonicated. The deputy is not harmonicated. The deputy has consciousness. The deputy is awake.  The deputy can be singing-sensitive. The deputy is not singing-sensitive. The deputy can be explicated. The deputy is not explicated.[explicated keeps track of whether the deputy has been given the explanation about how the warrant really says that the prisoners need to be released] The indefinite article of the deputy is "the".
 
 To say deputy-description:
 	if the consciousness of the deputy is:
@@ -2912,7 +2912,7 @@ Before asking Muddy about "[muddyplan]":
 		say "Muddy says, [quotation mark]Rick, I'm ashamed to admit it, but I ain't got one at this very moment.[quotation mark][paragraph break]";
 	otherwise:
 		if ask-me counter is six:
-			say "I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].";
+			say "[quotation mark]I already done told you -- [the plan-reminder corresponding to the plan-number of the current plan in the Table of Plans].[quotation mark][paragraph break]";
 		otherwise:
 			say "[the plan-text corresponding to the plan-number of the current plan in the Table of Plans]";
 			change the ask-me counter to six;
