@@ -2177,6 +2177,9 @@ Instead of climbing the stool:
 	try entering the stool.
 
 Instead of entering the stool:
+	if the player is tall:
+		say "You are already high enough up.";
+		the rule succeeds;
 	if the socket is not occupied: [stool is broken]
 		if the broken-stool-sit-count is:
 			-- 0:
