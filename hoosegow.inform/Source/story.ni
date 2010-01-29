@@ -1462,7 +1462,18 @@ The cigar is a prop in Limbo. The description of the cigar is "A stogie."
 
 Section Can
 
-The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "A[if the can of beans is open]n open[otherwise] closed[end if] metal can with a paper label saying [quotation mark]BEANS[quotation mark]. [if the spoon is in the can]One end of a spoon sticks out of the can. [end if]On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". The scent of the can of beans is "[if the can of beans is open]like beans. No surprise there[otherwise]delicious and yet somehow disgusting[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]". The can of beans can be consumed. The can of beans is not consumed.
+The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "[cob-description]". The scent of the can of beans is "[if the can of beans is open]like beans. No surprise there[otherwise]metallic[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]". The can of beans can be consumed. The can of beans is not consumed.
+
+To say cob-description:
+	say "A[if the can of beans is open]n open[otherwise] closed[end if] metal can labeled [quotation mark]BEANS[quotation mark]. ";
+	if the can of beans is open:
+		if the can of beans is consumed:
+			say "Unfortunately for Muddy, the can is empty. ";
+		otherwise:
+			say "The can is full of plump, glistening, little beans. ";
+		if the spoon is in the can:
+			say "One end of a spoon sticks out of the can. ";
+	say "On the back, some fine print says, [quotation mark]Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.[quotation mark]". 
 
 Instead of inserting something (called the item) into the can of beans:
 	if the can of beans is not open:
