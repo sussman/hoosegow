@@ -1882,7 +1882,12 @@ After opening the cabinet:
 	
 [###CONSIDER: suppress disambiguation message]
 
-The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana. This is one of those times[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity".
+The banana is an edible prop in the cabinet. The description of the banana is "[one of]Sometimes a banana is just a banana. This is one of those times[or]A bright yellow banana[stopping]." The texture of the banana is "soft and mushy". The scent of the banana is "fruity". 
+
+The shiny yellow object is a privately-named fardrop in the office. The shiny yellow object is everywhere. Understand "shiny" or "yellow" or  "object" as the shiny yellow object when the banana is in the cabinet and the cabinet is closed. The description of the shiny yellow object is "Could be good. Shiny and yellow often means gold in these parts. You feel the rumble of gold fever in your ears and dollar signs drift before your eyes." 
+
+Instead of doing something other than examining with the shiny yellow object:
+	say "Whatever it is, it's in the cabinet. You'd have to open the cabinet first."
 
 [TODO:  what happens when we point the banana at someone?  Put it in our ear?]
 
