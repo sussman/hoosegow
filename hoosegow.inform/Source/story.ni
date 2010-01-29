@@ -2511,7 +2511,7 @@ At the time when the deputy zonks out:
 Section Flash
 [dun dun dun FLASH! Wa-oooouughhhh, he'll save every one of us...]
 
-Flash is a male animal in Limbo. Flash is proper-named. Flash can be spat upon. Flash is not spat upon.
+Flash is a male animal in Limbo. Flash is proper-named. The description of Flash is "A mangy old mutt well past his prime." Flash can be spat upon. Flash is not spat upon.
 
 The collar is part of Flash. The description of the colar is a "A simple leather collar of the sort that you once wore briefly during an embarrassing episode of poor judgement in New Orleans. But, as they say, what happens in New Orleans, stays in New Orleans." Understand "leather" as the collar.
 
