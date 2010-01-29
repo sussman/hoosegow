@@ -370,6 +370,12 @@ To say feather-muddy:
 	
 To say feather-deputy:
 	say "The only feathers you'll be seeing is vulture feathers. Har! Har! I made a joke and it were a good one".
+	
+To say tube-muddy:
+	say "It may be hollow, but I'll allow it sure is strong enough"
+	
+To say tube-deputy:
+	say "First a harmonica. Now a flute. You prisoners is spoiled rotten these days"
 
 	
 Section Blowing
@@ -762,61 +768,111 @@ Section Showing
 Rule for reaching inside a room when the current action is showing:
 	allow access.
 	
+[To the reader who may one day come across this next bit and wonder why we didn't use some kind of data structure to do this more efficiently. Well, dear reader, we did. We stuck it in a table with a column for object, and a column that referenced Muddy's phrases and one for the Deputy. It was nice and compact, but it didn't work consistently. We still can't explain why. It's three days before this has to be submitted for a competition, so...]
+	
 Instead of showing something (called the thingie) to a person (called the observer):
 	if the observer is:
 		-- Rick:
 			say "You show [the thingie] to yourself and you wonder how this is different from just examining [the thingie].";
 		-- Muddy:
-			if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
-				say "Muddy takes a look at [the thingie] and says, [quotation mark][muddy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";
-			otherwise:
-				say "Muddy grunts, unimpressed.";
+			say "Muddy takes a look at [the thingie] and says, [quotation mark]";
+			if the thingie is:
+				-- the left boot: 
+					say "[boot-muddy]";
+				-- the can of beans: 
+					say "[can-muddy]";
+				-- the tin: 
+					say "[tin-muddy]";	
+				-- the pocketwatch:
+					say "[watch-muddy]";
+				-- the meat:
+					say "[meat-muddy]";
+				-- the spoon:
+					say "[spoon-muddy]";
+				-- the warrant:
+					say "[warrant-muddy]";
+				-- the bell:
+					say "[bell-muddy]";
+				-- the banana:
+					say "[banana-muddy]";
+				-- the gun:
+					say "[gun-muddy]";
+				-- the gunbelt:
+					say "[gun-muddy]";
+				-- the holster:
+					say "[gun-muddy]";
+				-- the brass key:
+					say "[brass-muddy]";
+				-- the cup:
+					say "[cup-muddy]";
+				-- the stool:
+					say "[stool-muddy]";
+				-- the harmonica:
+					say "[harmonica-muddy]";
+				-- the scrap:
+					say "[scrap-muddy]";
+				-- the left boot:
+					say "[boot-muddy]";
+				-- the right boot:
+					say "[boot-muddy]";
+				-- tin:
+					say "[tin-muddy]";
+				-- tobacco:
+					say "[tobacco-muddy]";
+				-- hat:
+					say "[hat-muddy]";
+				-- berry:
+					say "[berry-show-muddy]";
+				-- feather:
+					say "[feather-muddy]";
+				-- otherwise:
+					say "that don't impress me much";
+			say ".[quotation mark][paragraph break]";
 		-- the deputy:
 			if the deputy is not awake:
 				say "He ain't awake enough to take a look at [the thingie].";
 			otherwise:
-				if the thingie is an item listed in the Table of Muddy and Deputy Show and Tell:
-					if there is a deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell:
-						say "The deputy looks [one of]annoyed[or]irritated[or]put out[or]irked[or]bored[or]like he's a bad mood[or]like he has better things to do[at random], but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark][deputy-text corresponding to an item of thingie in the Table of Muddy and Deputy Show and Tell].[quotation mark][paragraph break]";
-					otherwise:
-						say "[one of]Dunno[or]Humph[or]Huh[or]Um[at random].";
-				otherwise:
-					say "The deputy isn't impressed.";				
+				say "The deputy seems [one of]annoyed[or]irritated[or]put out[or]irked[or]bored[or]like he's a bad mood[or]like he has better things to do[at random], but looks [if the thingie is not in the location of the deputy]over [end if]at [the thingie] and says, [quotation mark]";
+				if the thingie is:
+					-- pocketwatch:
+						say "[watch-deputy]";
+					-- spoon:
+						say "[spoon-deputy]";
+					-- can of beans:
+						say "[can-deputy]";
+					-- meat:
+						say "[meat-deputy]";
+					-- spoon:
+						say "[spoon-deputy]";
+					-- warrant:
+						say "[warrant-deputy]";
+					-- harmonica:					
+						say "[harmonica-deputy]";
+					-- scrap:
+						say "[scrap-deputy]";
+					-- left boot:
+						say "[boot-deputy]";
+					-- right boot:
+						say "[boot-deputy]";
+					-- tin:
+						say "[tin-deputy]";
+					-- tobacco:
+						say "[tobacco-deputy]";
+					-- hat:
+						say "[hat-deputy]";
+					-- pamphlet:
+						say "[pamphlet-deputy]";
+					-- berry:
+						say "[berry-deputy]";
+					-- feather:
+						say "[feather-deputy]";
+					-- otherwise:
+						say "[one of]Unh huh[or]Yep. Real nice. Now leave me alone[or]Humph[at random]";
+				say ".[quotation mark][paragraph break]";		
 		-- Flash:
-			say "Flash [one of]breathes deeply[or]sighs[or]ignores you[or]pretends to ignore you[or]daydreams[or]looks at everything but what you are trying to show him[or]licks his nose[or]smells hit butt[or]snorts[at random].";
+			say "Flash [one of]breathes deeply[or]sighs[or]ignores you[or]pretends to ignore you[or]daydreams[or]looks at everything but what you are trying to show him[or]licks his nose[or]snorts[at random].";
 		-- the vulture:
-			say "Squaaaarrrrrkkkkk!"
-			
-
-[blanks occur for cases where the deputy will not be in a state to comment on the object: either he's drugged, or the object is not available at the time.]
-Table of Muddy and Deputy Show and Tell
-item		muddy-text		deputy-text
-pocketwatch		"[watch-muddy]"		"[watch-deputy]"
-can of beans		"[can-muddy]"		"[can-deputy]"
-meat		"[meat-muddy]"		"[meat-deputy]"
-spoon		"[spoon-muddy]"		"[spoon-deputy]"
-warrant		"[warrant-muddy]"		"[warrant-deputy]"
-bell		"[bell-muddy]"		--
-banana		"[banana-muddy]"		--
-gun		"[gun-muddy]"		--
-gunbelt		"[gun-muddy]"		--
-holster		"[gun-muddy]"		--
-brass key		"[brass-muddy]"		--
-cup		"[cup-muddy]"		--
-stool		"[stool-muddy]"		--
-harmonica		"[harmonica-muddy]"		"[harmonica-deputy]"
-scrap		"[scrap-muddy]"		"[scrap-deputy]"
-left boot		"[boot-muddy]"		"[boot-deputy]"
-right boot		"[boot-muddy]"		"[boot-deputy]"
-boots		"[boot-muddy]"		"[boot-deputy]"
-tin		"[tin-muddy]"		"[tin-deputy]"
-tobacco		"[tobacco-muddy]"		"[tobacco-deputy]"
-hat		"[hat-muddy]"		"[hat-deputy]"
-pamphlet		"test"		"[pamphlet-deputy]"
-berry		"[berry-show-muddy]"		"[berry-deputy]"
-feather		"[feather-muddy]"		"[feather-deputy]"
-
-[gray bar]
+			say "[quotation mark]Squaaaarrrrrkkkkk![quotation mark][paragraph break]"	
 
 Section Smelling
 	
