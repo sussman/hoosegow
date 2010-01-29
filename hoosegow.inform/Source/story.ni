@@ -2210,10 +2210,12 @@ Instead of examining the harmonica for the first time:
 	now the harmonica is discussed;
 	try examining the harmonica.
 	
-Instead of taking the harmonica for the first time:
+Instead of taking the harmonica:
 	if the harmonica is not discussed:
 		say "[initial harmonica]" as dialogue;
-	now the harmonica is discussed.
+		now the harmonica is discussed;
+	otherwise:
+		continue the action.
 
 Check playing the harmonica:
 	if the player does not carry the harmonica:
