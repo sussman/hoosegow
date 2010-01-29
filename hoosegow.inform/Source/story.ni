@@ -2236,7 +2236,7 @@ Carry out playing the harmonica:
 			-- 0:
 			say "Tentatively, you blow a few notes. The bars in the jail cell rattle sympathetically.[paragraph break]'Look at that, boy', Muddy laughs, 'I swear that screw up there holding that bar is wiggling loose!'";
 			-- 1:
-			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
+			say "Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a beluga whale.[paragraph break]Muddy points excitedly towards the top of the gray bar, 'When you played, that screw worked its way out more. It's like you got some kind of sonic screwdriver or something! I think one more time will do it.'[paragraph break]";
 			-- 2:
 			say "The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks and rolls under the deputy's desk. A hollow gray tube falls loose from the upper reaches of the jailbars and lands at your feet.[paragraph break]'You done it!' shouts Muddy.[paragraph break]";
 			move the screw to limbo;
