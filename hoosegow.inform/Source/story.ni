@@ -1588,7 +1588,7 @@ Before giving the spoon to someone (called the receiver):
 			now the can of beans is in the location;
 			change the flatulometer to 5;
 		otherwise:
-			say "Muddy politely refuses your offer. [quotation mark]Thanks, Rick, but one spoon don't help. Now, if'n we had two, then we could make us some serious music[if the deputy is in the jailhouse]![quotation mark][paragraph break]Hearing this, the deputy becomes strangely conversant. He offers, [quotation mark]Yeah, I reckon you two could play the harmonica and the spoons, I could play the jug some, and there ain't nothing in the whole wide world the sheriff likes more than a good waterboarding[end if]!";
+			say "Muddy politely refuses your offer. [quotation mark]Thanks, Rick, but one spoon don't help. Now, if'n we had two, then we could make us some serious music[if the deputy is in the jailhouse]![quotation mark][paragraph break]Hearing this, the deputy becomes strangely conversant. He offers, [quotation mark]Yeah, I reckon you two could play the harmonica and the spoons, I could play the jug some, and there ain't nothing in the whole wide world the sheriff likes more than a good waterboarding[end if]![quotation mark][paragraph break]";
 	otherwise:
 		say "[The receiver] is puzzled by your offer and says that he already has a spoon of his own.";
 	stop the action.
@@ -2545,6 +2545,11 @@ The frock coat and suit are worn by muddy. The description of the frock coat is 
 Instead of searching muddy:
 	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
 	
+Before giving something (called the item) to Muddy:
+	if the player does not enclose the item:
+		say "You ain't got [the item]. How's a body to give something away what they ain't got a hold of any how?";
+		stop the action.
+
 [This is meant to be over-ridden by more specific insteads]
 Instead of giving something (called the item) to Muddy:
 	say "Muddy glances at [the item] and says, [quotation mark]I ain't got no idea what I'd do with [an item]. No thanks.[quotation mark][paragraph break]".
@@ -2748,7 +2753,7 @@ Inventory-done is a truth state that varies. Inventory-done is false.
 
 Instead of taking inventory: [purloined from Persephone, example 62 in I7 documentation]
 	say "You're carrying [a list of things carried by the player][if the player wears something]. You are wearing your [list of things worn by the player][end if]. [paragraph break]";
-	if inventory-done is not true:
+	if inventory-done is not true and the player does not enclose the gun:
 		say "Your revolver was confiscated, it seems.";
 		change inventory-done to true.
 	
