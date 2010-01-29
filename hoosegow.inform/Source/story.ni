@@ -1609,7 +1609,7 @@ Instead of entering the stool when the flatulometer is 2:
 
 Section Meat
 
-The meat is an edible prop in Limbo. Understand "rancid", "rotting", "flesh", or "meal", "hunk of" as the meat. The description of the meat is "[if the deputy is in the jailhouse and the deputy is awake][one of]The deputy has been watching you and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][paragraph break]You are distracted by his comment and forget what you were doing[or][yucky meat][stopping][otherwise][yucky meat][end if]." The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others". The indefinite article of the meat is "a hunk of".
+The meat is an edible prop in Limbo. Understand "rancid", "rotting", "flesh", "hunk of" as the meat. The description of the meat is "[if the deputy is in the jailhouse and the deputy is awake][one of]The deputy has been watching you and he smiles sardonically. [quotation mark]I see you found your dinner. Or was that last week's dinner? Har, har![quotation mark][paragraph break]You are distracted by his comment and forget what you were doing[or][yucky meat][stopping][otherwise][yucky meat][end if]." The scent of the meat is "like it should be buried". The texture of the meat is "sticky in some places, fuzzy in others". The indefinite article of the meat is "a hunk of".
 
 To say yucky meat:
 	say "A grayish half-chewed haunch of something only slightly less lucky than you. Between waxy fibers and greasy gristle, the surface of the meat teems with... you don't want to look closer. It's vulture food, not something you'd want to pass your lips".
@@ -2182,7 +2182,7 @@ Instead of searching the bench:
 		say "You peek under the bench but don't find anything new."
 	
 To say bench sekrits:
-	say "Under the bench, you notice the remnants of a meal: a piece of questionable meat, a spoon and a metallic can";
+	say "Under the bench, you notice a piece of questionable meat, a spoon and a metallic can";
 	move the meat to the jail cell;
 	move the spoon to the jail cell;
 	move the can of beans to the jail cell;
