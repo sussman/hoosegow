@@ -2389,7 +2389,7 @@ Instead of opening the window:
 Instead of closing the window:
 	say "You feel around for shutters, but you don't find none. Just rods."
 
-The barrel is a furniture in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel. You can't tell what inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
+The barrel is a furniture in the street.  The barrel is a supporter.  The description of the barrel is "It's a weathered oak barrel. You can't tell what's inside it, if anything.[if something is on the barrel] On the barrel you see [contents of barrel].[end if]".
 
 Instead of touching the barrel:
 	say "You can't quite reach it. You could maybe drop something on it, though.".
@@ -3611,7 +3611,7 @@ At the time when Muddy comments about departure:
 		if the can of beans is consumed:
 			say "[quotation mark]For you maybe,[quotation mark] you reply. [quotation mark]But I near as lost my lunch what with that stench.[quotation mark][paragraph break]To which Muddy counters, [quotation mark]Ain't much worse than your feet, I reckon.[quotation mark][paragraph break]";
 		otherwise:
-			say "[quotation mark]And that was just my feet -- imagine how fast he would have run if you got into them beans.";
+			say "[quotation mark]And that was just my feet -- imagine how fast he would have run if you got into them beans.[quotation mark][paragraph break]";
 	otherwise:
 		say "[quotation mark]Yeah,[quotation mark] you agree, [quotation mark]but my ears are still buzzing from that sound.[quotation mark][paragraph break]".		
 		
