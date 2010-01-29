@@ -2728,6 +2728,11 @@ Rick wears a hat. The hat is a player's holdall.  The description of the hat is 
 
 To say doffhat:
 	say "(First taking off the hat)[command clarification break]".
+	
+Instead of wearing the hat when the hat is not worn:
+	if the hat encloses something:
+		say "The contents of the hat shift around noisily, but you know your hat can hold just about anything. [run paragraph on]";
+	say "You proudly park the huge hat on your head."
 
 Instead of inserting something (called the item) into the hat:
 	if player wears the hat:
@@ -2756,7 +2761,6 @@ Instead of taking inventory: [purloined from Persephone, example 62 in I7 docume
 	if inventory-done is not true and the player does not enclose the gun:
 		say "Your revolver was confiscated, it seems.";
 		change inventory-done to true.
-	
 
 Rick carries a scrap of paper.   The scrap of paper is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the scrap of paper is "Muddy's scribbled instructions for holding up the train, which you carried out faithfully before the Sheriff showed up." The inscription of the scrap of paper is "In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNNEL, 4. WAIT FOR ME'[one of].[paragraph break]That was Muddy's cunning plan, and unlike most of his plans, it went off without a hitch: you got the silver, nobody got hurt. Yup, not a single hitch -- except for getting caught[or][stopping]." Understand "instructions" as the scrap of paper.
 
