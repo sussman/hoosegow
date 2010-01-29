@@ -2405,6 +2405,27 @@ Instead of going through the window:
 		otherwise:
 			say "Those rods aren't going anywhere; at most, you can maybe reach your hand through them."
 			
+Instead of doing something when the player is tall and mud-lifted is less than 4:
+	change the block stage business flag to true;
+	if the action-name part of the current action is:
+		-- the jumping action:
+			say "Muddy [one of]screams[or]bellows[or]yells[or]hollers[at random], [quotation mark][one of]Ow[or]Dang it all[or]Ouch[at random]! [one of]What in the heck do you think you're doing, Rick[or]Are you trying to break my back[or]Could you have some consideration for my back[or]Do you want me to jump on your back and see how it feels mister bucking bronco[at random]?[quotation mark][paragraph break]";
+			the rule succeeds;
+		-- the blowing at action:
+			say "[shifty]";
+			the rule succeeds;
+		-- the shooting action:
+			say "[shifty]";
+			the rule succeeds;
+		-- the directedSpitting at action:
+			say "[shifty]";
+			the rule succeeds;
+		-- otherwise:
+			continue the action.			
+
+To say shifty:
+	say "Muddy shifts around too much for you to even attempt the shot."
+			
 At the time when Muddy whimpers:
 	say "[whimper text]" as dialogue;
 	Rick falls in one turn from now.
