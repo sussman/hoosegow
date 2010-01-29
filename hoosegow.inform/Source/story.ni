@@ -1302,7 +1302,7 @@ This is the Pete's stage business rule:
 		make no decision;
 		[Pete only becomes noticeable when they recognize him as Pastor Pete; this can 
 		be either by Muddy getting the pamphlet, or a certain amount of time after Pete is examined (as a failsafe)]
-	if Pete is not in Limbo and a random chance of 8 in 20 succeeds:
+	if Pete is not in Limbo and a random chance of 6 in 20 succeeds:
 		if a random chance of 4 in 20 succeeds:
 			say "Pastor Pete [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
 			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]chant[or]bellow[or]holler[at random]s, [quotation mark]";
@@ -1311,6 +1311,7 @@ This is the Pete's stage business rule:
 		otherwise:
 			say "Pastor Pete ";
 			pick a phrase from the table of Pete's Strange Behavior;
+			say paragraph break;
 		the rule succeeds.
 		
 Table of Pete's Rants
@@ -1345,12 +1346,6 @@ times-used		verbage
 0					"froths at the mouth."
 0					"stared wide-eyed at the ceiling for a moment and the falls back asleep."
 0					"sits bolt upright, howls at the moon, and flips back over, fast asleep."
-
-Table of Pete's Vulture Clues
-times-used		verbage
-0					"vulture clue 1"
-0					"vulture clue 2"	
-0					"vulture clue 3"
 		
 The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
 	
