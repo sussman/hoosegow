@@ -75,7 +75,7 @@ After deciding the scope of the player when the location is an inter-visible roo
 Rule for reaching inside a room (called target) which is connected with the location:
 	let way be the best route from the location to the target;
 	if the way is not a direction:
-		say "[if the gate is closed]You can't get over to [the target] from here[otherwise]You'd have to go over to [the target] first[end if].";
+		say "[if the gate is closed]You can reach through the bars, but not far enough to touch [the noun][otherwise]You'd have to go over to [the target] first[end if].";
 		deny access;
 	say "(first heading [way])[command clarification break]";
 	try going way;
