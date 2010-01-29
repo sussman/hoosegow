@@ -1184,7 +1184,10 @@ When play begins:
         	change the left hand status line to "[capped room name of the location]";
         	change right hand status line to "Score: [score]/[maximum score]";
 	move the harmonica to Muddy;
-	try silently switching score notification off.
+	try silently switching score notification off;
+	choose row with a left of " P = Previous" in the Table of Deep Menu Status;
+	change right entry to "SPACE = Select".
+
 	
 After printing the banner text:
 	say "Type [quotation mark]help[quotation mark] for instructions and [quotation mark]hints[quotation mark] for hints -- or just roll into town guns a-blazin[apostrophe].[paragraph break]";
@@ -3114,9 +3117,6 @@ Carry out asking for help:
 	clear the screen;
 	try looking.
 
-[Choose row with a left of " P = Previous" in the Table of Deep Menu Status.
-Change right entry to "SPACE = Select".
-]
 Table of Options
 title				subtable			description	toggle
 "What the Sam Hill is this?"	--	"I don't set much by book learning and I don't reckon that explaining's half as good as doing, but let me give you the skinny on this here piece of fictional work, so as a body can understand what's going on hereabouts. This is what them high-falutin[apostrophe] dudes out East call an [quotation mark]interactive fiction[quotation mark], but me and the boys, we like to call it an [quotation mark]adventure game[quotation mark]. Heck, fiction is something you see a doctor about, clear as I can tell.[paragraph break]In this story, you is the main character, and you get to says what you're fixing to do. See, on account of you being in charge, it ain't boring like reading a book or going to church. Ever time you see one of these arrowhead things [quotation mark]>[quotation mark] you can write just what you'd like to do. Don't use no big sentences or nothing cause that'll just mix everything up real bad. But you can say things like [quotation mark]drink whiskey[quotation mark], [quotation mark]smoke cigar[quotation mark] and [quotation mark]play cards[quotation mark] -- you know, all the kinds a thing a body might hanker to do. Then, you see what happens.[paragraph break]I reckon your goal is to not end up wearing a hemp necktie, and that do seem real sensible."		--
