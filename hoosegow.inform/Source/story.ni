@@ -3149,7 +3149,7 @@ title	subtable		description	toggle
 Chapter Credits
 
 To say list of testers:
-	say "Adrian Colley[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Rob Dubbin[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
+	say "Adrian Colley[line break]Beth Vanichtheeranont[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Peter Olson[line break]Rob Dubbin[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
 
 Section Help Menu
 
