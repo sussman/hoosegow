@@ -2516,6 +2516,12 @@ The pocket is part of Pete. The description of the pocket is "A deep pocket sewn
 Instead of taking the pamphlet when the pamphlet is in the pocket:
 	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
 	move the pamphlet to the player.
+	
+Instead of inserting something (called the item) into the pocket (this is the block putting stuff into Pete's pocket rule):
+	if the player does not enclose the item:
+		say "You ain't got [the item] to put anywhere no how.";
+	otherwise:
+		say "Muddy catches you before you can put [the item] into [Pete]'s pocket. [quotation mark]Taking stuff out of people's pockets is one thing, Rick, but you ain't got no business putting stuff in. It's a violation of a person's privacy I do reckon."
 
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
@@ -2523,7 +2529,7 @@ Check examining the pamphlet:
 Check reading the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
 	
-The pamphlet is a sheet in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][paragraph break][initial pamphlet][or][second pamphlet][or][pamphlet sermon][stopping]". 
+The pamphlet is a sheet in the pocket. The description of the pamphlet is "The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture." The texture of the pamphlet is "like cheap newsprint". Understand "sermon" as the pamphlet. The inscription of the pamphlet is "[one of]You read it aloud:[paragraph break][pamphlet sermon][paragraph break][initial pamphlet][or][second pamphlet][or][pamphlet sermon][stopping]". 
 
 Instead of giving the pamphlet to muddy:
 	try showing the pamphlet to muddy.
@@ -2764,7 +2770,7 @@ To say second pamphlet:
 	say "You straighten out the pamphlet and skim it, paraphrasing for Muddy.[paragraph break]'Well let's see. It keeps going on like that for a ways without really saying much. By and by there's this part about a revival meeting. Some kind of doxology works, but out in the open, like under a circus tent. It says they'll be some preaching, some healing and even some dancing. I'd allow it sounds like a right pleasant shindig, it do.'[paragraph break]Muddy pauses. 'Can I see that pamphlet a minute?' asks Muddy".
 
 To say pamphlet sermon:
-	say "'The Prairie Gospel Church of Uncanny Righteousness'[paragraph break]'For lo, the impetuous and retributive spirit of FINAL JUDGEMENT is stirring in the heart of the unfaithful, and a FIERY thunderhead of retribution is gathering across the plains of the undeserving, the bereft of propriety, and promulgators of heresy, and the scalding hot sparks of TRUTH are spraying forth, catching light the arid and HIGHLY FLAMMABLE and veritably kerosene-soaked sawdust of the weak-willed. And into this fray, the unwholesome BEAST shall arise and the earth shall tremble. Its body shall tower above like a mountain, and upon the body shall be nineteen heads, each like unto a serpent. Upon each head, twelve horns, like that of the ram, the bull, and the elephant, say four of each. And upon each horn, sixteen stalks, not unlike celery in some respects, yet more flexible, more like the arms of an octopus, except being twice as numerous. And upon each stalk, eighty eyes, or forty pairs of eyes, if you prefer!' ".
+	say "'The Prairie Gospel Church of Uncanny Righteousness (copyrighteous 1871)'[paragraph break]'For lo, the impetuous and retributive spirit of FINAL JUDGEMENT is stirring in the heart of the unfaithful, and a FIERY thunderhead of retribution is gathering across the plains of the undeserving, the bereft of propriety, and promulgators of heresy, and the scalding hot sparks of TRUTH are spraying forth, catching light the arid and HIGHLY FLAMMABLE and veritably kerosene-soaked sawdust of the weak-willed. And into this fray, the unwholesome BEAST shall arise and the earth shall tremble. Its body shall tower above like a mountain, and upon the body shall be nineteen heads, each like unto a serpent. Upon each head, twelve horns, like that of the ram, the bull, and the elephant, say four of each. And upon each horn, sixteen stalks, not unlike celery in some respects, yet more flexible, more like the arms of an octopus, except being twice as numerous. And upon each stalk, eighty eyes, or forty pairs of eyes, if you prefer!' ".
 	
 To say swallowed chaw:
 	say "[quotation mark]Glmph.[quotation mark][paragraph break][quotation mark]You didn't just swallow that chaw, did you?[quotation mark] asks Muddy incredulously.[paragraph break][quotation mark]I reckon I done just that -- and it didn't go down pretty.[quotation mark][paragraph break]You galoot. You're supposed to chew it. Hain't I learned you nothing?[quotation mark][paragraph break]".
