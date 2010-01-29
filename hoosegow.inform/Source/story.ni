@@ -268,7 +268,7 @@ To say watch-deputy:
 	say "Yeah, reckoned it would be more fun to let you keep it, so'ins you could tell when it was eight in the morning and time for the hanging".
 	
 To say can-muddy:
-	say "Mmm. I love beans".
+	say "[if the can of beans is consumed]I done had my fill of them already, Rick[otherwise]Mmm. I love beans[end if]".
 	
 To say can-deputy:
 	say "Beans is good for the heart".
