@@ -2282,7 +2282,7 @@ Instead of inserting something (called the item) into the gap:
 	otherwise:
 		say "The gap is small and not worth shoving things into.".
 
-Instead of taking or pulling the gray bar:
+Instead of taking or pulling or pushing the gray bar:
 	if the gray bar is carried by the player:
 		say "You already have it.";
 	otherwise:
