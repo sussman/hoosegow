@@ -3121,7 +3121,7 @@ title				subtable			description	toggle
 "Stuff you do a lot"		--	"We made it easy to do some stuff without typing a whole lot. You can use the letter in [fixed letter spacing]<brackets>[variable letter spacing] instead having to spell out the whole word, which is good on account some folk don't spell so good (not to mention their grandma and sin tax):[paragraph break]
 [fixed letter spacing]   <i>nventory      - [variable letter spacing]what are you carrying?[line break]
 [fixed letter spacing]   <l>ook           - [variable letter spacing]look around[line break]
-[fixed letter spacing]   e<x>amine        - [variable letter spacing]look real hard at somethingl[line break]
+[fixed letter spacing]   e<x>amine        - [variable letter spacing]look real hard at something[line break]
 [fixed letter spacing]   <z>zzzz          - [variable letter spacing]cool yer heels[line break]
 [fixed letter spacing]   a<g>ain          - [variable letter spacing]do what you done, again[line break]
 [fixed letter spacing]   <o>ops           - [variable letter spacing]if'n you make a spellin[apostrophe] mistake[variable letter spacing]"		--
