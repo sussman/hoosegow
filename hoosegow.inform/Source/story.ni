@@ -872,7 +872,9 @@ Instead of showing something (called the thingie) to a person (called the observ
 		-- Flash:
 			say "Flash [one of]breathes deeply[or]sighs[or]ignores you[or]pretends to ignore you[or]daydreams[or]looks at everything but what you are trying to show him[or]licks his nose[or]snorts[at random].";
 		-- the vulture:
-			say "[quotation mark]Squaaaarrrrrkkkkk![quotation mark][paragraph break]"	
+			say "[quotation mark]Squaaaarrrrrkkkkk![quotation mark][paragraph break]";
+		-- Pete:
+			try poking Pete. [provoking a rant]	
 
 Section Smelling
 	
