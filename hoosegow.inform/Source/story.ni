@@ -1036,10 +1036,12 @@ To hit-bell:
 			say "Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.[paragraph break]The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.[paragraph break]The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.[paragraph break]Finding no food in his bowl, Flash snorts perfunctorily and resumes his former position, pulling the lever back to the middle position.";
 			now the bell is rung;
 			make coffee;
+			change the block stage business flag to true;
 			adjust points by one;
 		otherwise: [bell has already been rung, Flash is still around]
 			say "Your projectile ricochets off the bell with a metallic [quotation mark]ding![quotation mark][paragraph break]Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow [if the cup is on the protocappuccinomatic]causing the machine to rattle and buzz[otherwise]brewing a cup of coffee[end if]. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.";
 			make coffee;
+			change the block stage business flag to true;
 	otherwise:[still the bell, but nothing to do with Flash]
 		say "The bell rings hollowly."
 
@@ -1269,7 +1271,7 @@ This is the block stage business while-looking rule:
 The Muddy's stage business rule is listed after the block stage business while-looking rule in the stage business rules.
 
 This is the Muddy's stage business rule:
-	if a random chance of 4 in 20 succeeds:
+	if a random chance of 3 in 20 succeeds:
 		say "Muddy ";
 		pick a phrase from the Table of Muddy Actions;
 		say paragraph break;
@@ -1358,7 +1360,7 @@ This is the Pete's stage business rule:
 		make no decision;
 		[Pete only becomes noticeable when they recognize him as Pastor Pete; this can 
 		be either by Muddy getting the pamphlet, or a certain amount of time after Pete is examined (as a failsafe)]
-	if Pete is not in Limbo and a random chance of 6 in 20 succeeds:
+	if Pete is not in Limbo and a random chance of 4 in 20 succeeds:
 		if a random chance of 4 in 20 succeeds:
 			say "Pastor Pete [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
 			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]chant[or]bellow[or]holler[at random]s, [quotation mark]";
@@ -1408,7 +1410,7 @@ times-used		verbage
 The Deputy's stage business rule is listed after Pete's stage business rule in the stage business rules.
 	
 This is the Deputy's stage business rule:
-	if the Deputy is not in Limbo and the Introduction is happening and a random chance of 10 in 20 succeeds:
+	if the Deputy is not in Limbo and the Introduction is happening and a random chance of 8 in 20 succeeds:
 		say "[if the player is in the jail cell][one of]Over in[or]Back in[or]In[or]On the other side of the jail bars in[at random] the office, the[otherwise]The[end if] deputy ";
 		pick a phrase from the Table of Deputy's Doings;
 		say paragraph break;
@@ -1428,6 +1430,12 @@ times-used		verbage
 0					"peeks through the jail cell window at the saloon across the street. It's clear he'd rather be there. "
 0					"runs his hand through his sparse hair. "
 0					"makes you nervous as he waves his gun back and forth, jerking the barrel up and shaping the words [quotation mark]Pow! Pow![quotation mark] with his lips. "
+
+The Machine stage business rule is listed after the Deputy's stage business rule in the stage business rules.
+
+This is the Machine stage business rule:
+	if the player is in the jail cell and a random chance of 3 in 20 succeeds:
+		say "[one of]Over in the office[or]Not far from your jail cell[or]Half way between the door to the outside and your jail cell[or]Just to the side of the desk[at random], the [one of]boiler[or]furnace[or]metal contraption[or]sheriff's invention[or]bronze machine[at random] [one of]gurgles and bubbles quietly[or]hisses, venting some steam[or]creaks[or]percolates[or]rumbles for a moment and then stops[or]ticks like a clock[or]puffs some steam into the office[at random]."
 	
 The Environmental stage business rule is listed last in the stage business rules.
 
@@ -3610,6 +3618,7 @@ This is the flashing stink rule:
 			
 Every turn during flashing:
 	if the position of the lever is whistleward:
+		change the block stage business flag to true;
 		change the position of the lever to neutral;
 		increase the angerometer by one;		
 		if the angerometer is 16:
