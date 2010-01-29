@@ -1827,7 +1827,7 @@ The junction is part of the boiler. The description of the junction is "A bulge 
 
 The grate is part of the boiler. The description of the grate is "Through the grate, you can see the red-hot interior of the boiler." The texture of the grate is "hot enough to burn someone". The scent of the grate is "[boiler-scent]."
 
-The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "iron" or "rivet" or "rivets" as the ball. The texture of the ball is "hot to the touch".
+The ball is a large part of the boiler. The description of the ball is "A thick, cast iron ball filled with enough pressurized steam to blow you from here to kingdom come." Understand "cast" or "iron" as the ball. The texture of the ball is "hot to the touch".
 
 The lever is part of the boiler. The description of the lever is "A swinging metal arm that pivots on the pipe junction. The arm can swing towards either the door or the back of the office. [lever position]".  The lever has position. The lever is neutral. The texture of the lever is "[smooth] and warm". The lever can be whistling. The lever is not whistling.
 
@@ -2032,7 +2032,11 @@ The portrait is a large scenery prop in the office. The portrait can be hung up.
 
 Section Protocappuccinomatic
 
-The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, valves, grommets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic. The scent of the device is "like coffee beans". The texture of the protocappuccinomatic is "[smooth] and warm".
+The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, rivets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic. The scent of the device is "like coffee beans". The texture of the protocappuccinomatic is "[smooth] and warm".
+
+The rivets are part of the protocappuccinomatic. The description of the rivets is "Heavy-duty steel rivets, with a quarter inch shaft. They stud the surface of the machine and its pipes, and speak to the high pressures that the machine must contain." The scent of the rivets is "riveting". The texture of the rivets is "bumpy". Understand "rivet" as the rivets.
+
+The flanges are part of the protocappuccinomatic. The description of the flanges is "Reinforcing ribs, meant to help contain the steam pressure in the machine." The scent of the flanges is "unaccountably like peppermint". The texture of the flanges is "hot". Understand "flange" or "rib" or "ribs" as the flanges.
 
 The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe. The texture of the iron pipe is "hot". Understand "pipes" or "output" as the iron pipe.
 
