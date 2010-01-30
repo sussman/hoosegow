@@ -338,8 +338,8 @@ To say harmonica-muddy:
 	say "Give it a toot, Rick".
 	
 To say harmonica-deputy:
-	say "It were an unfortunate day when them blue-haired old bitties done stuck that harmonica in the jail cell. I hate harmonicas".
-	
+	say "It were an unfortunate day when them blue-haired old bitties done stuck that harmonica in the jail cell. I hate them jailhouse blues".
+
 To say scrap-muddy:
 	say "That plan didn't work out too well, I'll admit".
 	
@@ -2267,7 +2267,7 @@ To say third initials:
 
 Section Harmonica
 
-The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "The harmonica is attached to the wall by a silvery chain.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy. The scent of the harmonica is "like last week's saliva". Understand "inscription" as the harmonica. Understand "engraving" as harmonica.
+The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "A standard prison-issue harmonica.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy. The scent of the harmonica is "like last week's saliva". Understand "inscription" as the harmonica. Understand "engraving" as harmonica.
 
 The play-counter is a number that varies.  The play-counter is zero. [Number of times harmonica is played AFTER deputy has left.]
 
@@ -2321,6 +2321,7 @@ The inscription of the harmonica is "'Donated to the Crawdad's Gulch Municipal H
 Instead of reading harmonica for the first time:
 	say "[initial harmonica inscription]" as dialogue.
 	
+[
 The chain is part of the harmonica.  The description of the chain is "The harmonica is tethered by a heavy chain embedded directly into the wall. It looks like they're dead serious about making sure this harmonica doesn't sprout legs and walk away."
 
 Instead of pulling the harmonica:
@@ -2334,6 +2335,7 @@ Instead of going when the player is in the jail cell:
 		move the harmonica to the jail cell;
 		say "As you leave to go, the harmonica is yanked away from you by the wall-chain.[paragraph break]";
 	continue the action.
+]
 
 Section Bars
 
@@ -2941,7 +2943,7 @@ To say (verbage - some text) as dialogue:
 
 To say initial harmonica:
 	now the player holds the harmonica;
-	say "'I ain't never seen you play the mouth organ, Muddy.'[paragraph break]Your partner turns the harmonica back and forth, and a chain rattles. 'That's [apostrophe]cuz I ain't never learned how,' he replies.[paragraph break]Muddy hands the harmonica to you."
+	say "'I ain't never seen you play the mouth organ, Muddy.'[paragraph break]Your partner turns the harmonica back and forth. 'That's [apostrophe]cuz I ain't never learned how,' he replies.[paragraph break]Muddy hands the harmonica to you."
 
 To say initial harmonica inscription:
 	say "'Lookie here, Mud. There's some fancy engraving on the harmonica.'[paragraph break]'Don't that beat all. What do it say?'[paragraph break]'Let's see. I could do with more light. You got a lantern?'[paragraph break]'Nope.'[paragraph break]'Torch?'[paragraph break]'Unh-uh.'[paragraph break]'Matches?'[paragraph break]'Nary one.'[paragraph break]'Dang. Didn't we say that next adventure we'd bring [apostrophe]em?'[paragraph break]'I reckon we did, at that.'[paragraph break]'Well, the moon's up, I can see a little. It says, --Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One.--'[paragraph break]'These is some Ace-high accomodations we got us, I'll say.'".
