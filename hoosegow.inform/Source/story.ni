@@ -2235,7 +2235,7 @@ Instead of going a direction (called the way) when the player is tall:
 		otherwise:
 			say "Muddy doesn't anticipate your action, and struggles to keep you aloft.";
 	otherwise:
-		say "The only way to go from here is down."
+		say "The only way to go from here is down. [if the player is on the stool]You're standing on a stool[otherwise]Muddy is shakily boosting you up a few feet[end if]."
 
 The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated. The texture of the bench is "like rough wood".
 
