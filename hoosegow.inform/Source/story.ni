@@ -15,7 +15,7 @@ Include Plurality by Emily Short.
 Include Default Messages by David Fisher.
 
 Use full-length room descriptions, american dialect and the serial comma.
-Use memory economy.
+[Use memory economy.]
 
 Release along with cover art.
 
@@ -73,6 +73,7 @@ After deciding the scope of the player when the location is an inter-visible roo
 		unless the other place is the location, place the other place in scope.
 
 Rule for reaching inside a room (called target) which is connected with the location:
+	if the current action is giving, allow access;
 	let way be the best route from the location to the target;
 	if the way is not a direction:
 		say "[if the gate is closed]You can reach through the bars, but not far enough to touch [the noun][otherwise]You'd have to go over to [the target] first[end if].";
@@ -103,7 +104,7 @@ Carry out looking (this is the new room description heading rule):
 			issue miscellaneous library message number 71; 
 		end the printing the name of a dark room activity; 
 	otherwise if the visibility ceiling is the location: 
-		say "[capped room name of the visibility ceiling]"; 
+		say "[capped room name of the visibility ceiling]";
 	otherwise: 
 		if the visibility ceiling is a room: 
 			say "[The capped room name of the visibility ceiling]"; 
@@ -1764,6 +1765,10 @@ Instead of doing something with the deputy when the warrant is edited and the wa
 		now the gate is unlocked;
 		now the gate is open.
 		
+[This above action would not catch giving because the first noun after giving is the object given, rather than the indirect object]
+Instead of giving the warrant to the deputy when the warrant is edited and the warrant is not acknowledged and the deputy is not explicated:
+	try poking the deputy.
+			
 Instead of showing the warrant to the deputy when the warrant is acknowledged:
 	say "The deputy acknowledges the official-looking document with a yawn.";
 
