@@ -1146,6 +1146,13 @@ Check using:[this is where all the overriding happens for specific cases]
 
 Carry out using:
 	say "You're not sure how to use [a noun]. If you're really hankering to use [the noun], try saying it different. That might help."	
+	
+Section UberUsing
+
+UberUsing is an action applying to two things. Understand "use [a thing] on/with [other things]" as UberUsing.
+
+Check UberUsing:
+	say "That went by me like corn chow through a goat. Could you say it differently?"
 
 
 Section Xyzzying
@@ -2053,7 +2060,7 @@ The portrait is a large scenery prop in the office. The portrait can be hung up.
 
 Section Protocappuccinomatic
 
-The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, rivets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "machine", "device", "strange", "bronze" or "contraption" as the protocappuccinomatic. The scent of the device is "like coffee beans". The texture of the protocappuccinomatic is "[smooth] and warm".
+The protocappuccinomatic is a large furniture in the office. The description of the protocappuccinomatic is "All bronze and shiny, with lots of pipes, rivets, and flanges, the word [quotation mark]Protocappuccinomatic[quotation mark] is written on the main body of the machine. The device stands about five feet high and must weigh a ton. A sturdy iron pipe runs from the machine to the boiler." The printed name of the protocappuccinomatic is "machine". Understand "machine", "device", "strange", "bronze", "invention" or "contraption" as the protocappuccinomatic. The scent of the device is "like coffee beans". The texture of the protocappuccinomatic is "[smooth] and warm".
 
 The rivets are part of the protocappuccinomatic. The description of the rivets is "Heavy-duty steel rivets, with a quarter inch shaft. They stud the surface of the machine and its pipes, and speak to the high pressures that the machine must contain." The scent of the rivets is "riveting". The texture of the rivets is "bumpy". Understand "rivet" as the rivets.
 
