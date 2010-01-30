@@ -15,7 +15,7 @@ Include Plurality by Emily Short.
 Include Default Messages by David Fisher.
 
 Use full-length room descriptions, american dialect and the serial comma.
-[Use memory economy.]
+Use memory economy.
 
 Release along with cover art.
 
@@ -280,8 +280,6 @@ topic				muddy-text			deputy-text
 "berry" or "the berry" or "snoozeberry" or "the snoozeberry" or "peruvian snoozeberry"	"[berry-muddy]"		"[berry-deputy]"
 "feather" or "vulture feather" or "plume"		"[feather-muddy]"		"[feather-deputy]"
 
-
-[###TODO vine, feather]
 
 To say watch-muddy:
 	say "I ain't never seen you without it".
@@ -945,7 +943,7 @@ Instead of smelling:
 		say " [scent of the noun]."
 
 
-Table of Relative Smells [###TODO Buff generic smells, add variety]
+Table of Relative Smells 
 intensity		verbage
 10				"[if the location of the coffee is not Limbo]Freshly brewed coffee[otherwise]The waving wheat sure smells sweet[end if]"
 20				"It smells mostly nice"
@@ -954,10 +952,6 @@ intensity		verbage
 100				"It stinks to high heaven"
 	
 Section Spitting
-
-[###TODO kill the parenthetical expression after tin in inventory -- it betrays that the tobacco isn't in the tin, contrary to the static description.
-
-May need to consider cases where the tobacco isn't in tin, mouth, or held by Rick.]
 
 Understand "tobacco" or "chaw" or "chewing tobacco" or "wad" as "[wad]".
 
@@ -1251,8 +1245,7 @@ Every turn:
 	if muted is false:
 		Consider the stage business rules;
 	[unblock stage business for next turn]
-	Change the block stage business flag to false;	
-	[###TODO Add other every-turn items]
+	Change the block stage business flag to false.
 	
 Section Nasal Reactions
 
@@ -2625,7 +2618,6 @@ Instead of doing something with the deputy when the deputy is asleep or the depu
 		change the consciousness of the deputy to drugged;
 		the deputy zonks out in two turns from now;
 		say "The deputy stirs slowly, his eyes half-shut."
-		[###TODO add any other drugged deputy behaviors here.]
 		
 At the time when the deputy zonks out:
 	say "The deputy[one of] slides back down to the floor and passes out again[or]'s eyes slowly close and he drifts back to sleep[or] yawns and snuggles up to the jail bars, already asleep[at random].";
@@ -3168,7 +3160,7 @@ plan-number		plan-askme			plan-text			plan-blurt			plan-reminder
 2					"[plan2-askme]"		"[plan2]"		"[plan2-blurt]"		"we got to forge that warrant"
 
 To say plan1:
-	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers.[paragraph break][if Pete in not recognized]He notices the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break][end if]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts over to your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy Charlie,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
+	say "[quotation mark]Let's keep this between us, though[quotation mark], he whispers.[paragraph break][if Pete is not recognized]He notices the sleeping man in your cell for the first time. [quotation mark]Don't know about him.[quotation mark] Muddy jerks his thumb towards the sleeping figure. [quotation mark]Might be a spy.[quotation mark][paragraph break][end if]Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. [quotation mark]Okay, Rick, I'm a-going to tell my plan.[quotation mark] Muddy pauses dramatically. [quotation mark]Here it is: we got to break out of this jail before we get strunged up.[quotation mark][paragraph break][quotation mark]That's it? That's your whole damn plan? That don't count as no plan![quotation mark] you fume.[paragraph break][quotation mark]Keep it down, Rick![quotation mark] Muddy's gaze darts over to your third cellmate. [quotation mark]Yeah, that's it for now. It takes time to cook up a good plan. You need lots of ingredients.[quotation mark][paragraph break][quotation mark]Muddy Charlie,[quotation mark] you retort, [quotation mark]I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman's March.[quotation mark][paragraph break]Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy."
 
 To say plan1-askme:	
 	say "[quotation mark][one of]Ain't you gonna ask me about my plan?[quotation mark] Muddy whispers. [or]This time my plan is sure fire -- go ahead, ask me. C'mon.[quotation mark] Muddy jibes quietly. [or]Ain't you even a speck curious to ask me about my plan?[quotation mark] taunts Muddy. [or]Truthful, Rick,[quotation mark] whispers Muddy solemnly, [quotation mark]this ain't like all my other plans, this one is iron-clad. Ask me about it. Go ahead.[quotation mark] [or]I hope you ain't still angry about my last plan. It worked fine except for the last part.[quotation mark]Muddy's eyes gleam. [quotation mark]This new plan's even more slicker![quotation mark] [stopping]".
@@ -3489,22 +3481,6 @@ hint												used
 "You need to put a substitute leg in the socket to fix the stool."
 "You have [if the gray bar is not part of the bars]already[otherwise]not yet[end if] found the substitute leg."
 "[if the gray bar is part of the bars]One of the jail bars is different from the others. You can use sound to help find the one that you need[otherwise]Try putting the gray tube into the socket[end if]."
-
-[
-
-[Getting to the window during flashing if window attempted]
-
-A hint activation rule (this is the accessing the window hint activation rule):
-	
-
-A hint deactivation rule (this is the accessing the window hint deactivation rule):
-	
-
-Table of Window Hints
-hint												used
-"filler"
-
-]
 
 A hint activation rule (this is the setting the trap hint activation rule):
 	if the berry is first-held and flashing is happening:
