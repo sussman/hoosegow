@@ -171,6 +171,12 @@ To say is-are:
     if the last mentioned thing is plural-named, say "are"; 
     otherwise say "is".
 
+To say that-those:
+	if the last mentioned thing is plural-named:
+		say "them";[note, this only works in this dialect]
+	otherwise:
+		say "that".
+
 To say it-they:
 	if the last mentioned thing is plural-named:
 		say "they"; 
@@ -180,6 +186,18 @@ To say it-they:
 				say "he";
 			otherwise:
 				say "she";
+		otherwise:
+			say "it".
+			
+To say pronoun-accusative:
+	if the last mentioned thing is plural-named:
+		say "them";
+	otherwise:
+		if the last mentioned thing is a person:
+			if the last mentioned thing is male:
+				say "him";
+			otherwise:
+				say "her";
 		otherwise:
 			say "it".
 
@@ -2162,6 +2180,9 @@ Instead of climbing the stool:
 	try entering the stool.
 
 Instead of entering the stool:
+	if the player is tall:
+		say "You are already high enough up.";
+		the rule succeeds;
 	if the socket is not occupied: [stool is broken]
 		if the broken-stool-sit-count is:
 			-- 0:
@@ -2183,6 +2204,17 @@ Instead of getting off the stool:
 	say "You jump down to the ground again.";
 	move the player to the location of the stool;
 	now the player is not tall.
+	
+Instead of going a direction (called the way) when the player is tall:
+	if the way is down:
+		if the player is on the stool:
+			say "You jump down to the ground again.";
+			move the player to the location;
+			now the player is not tall;
+		otherwise:
+			say "Muddy doesn't anticipate your action, and struggles to keep you aloft.";
+	otherwise:
+		say "The only way to go from here is down."
 
 The bench is a large furniture in the jail cell.  The description of the bench is "A long wood bench made of rough, splintery planks[if pete is on the bench]. You ignore the man with the black suit who is lying on the bench[end if][if the bench is not investigated]. [bench sekrits][end if]." The bench can be investigated. The bench is not investigated. The texture of the bench is "like rough wood".
 
@@ -2395,6 +2427,27 @@ Instead of going through the window:
 			[could adjust this to a random number from one to two turns from now]
 		otherwise:
 			say "Those rods aren't going anywhere; at most, you can maybe reach your hand through them."
+			
+Instead of doing something when the player is tall and mud-lifted is less than 4:
+	change the block stage business flag to true;
+	if the action-name part of the current action is:
+		-- the jumping action:
+			say "Muddy [one of]screams[or]bellows[or]yells[or]hollers[at random], [quotation mark][one of]Ow[or]Dang it all[or]Ouch[at random]! [one of]What in the heck do you think you're doing, Rick[or]Are you trying to break my back[or]Could you have some consideration for my back[or]Do you want me to jump on your back and see how it feels mister bucking bronco[at random]?[quotation mark][paragraph break]";
+			the rule succeeds;
+		-- the blowing at action:
+			say "[shifty]";
+			the rule succeeds;
+		-- the shooting action:
+			say "[shifty]";
+			the rule succeeds;
+		-- the directedSpitting at action:
+			say "[shifty]";
+			the rule succeeds;
+		-- otherwise:
+			continue the action.			
+
+To say shifty:
+	say "Muddy shifts around too much for you to even attempt the shot."
 			
 At the time when Muddy whimpers:
 	say "[whimper text]" as dialogue;
@@ -2782,7 +2835,7 @@ Instead of searching the hat:
 		now the player carries the hat;
 	say "[if the hat contains something]In the hat you can see [contents of hat][otherwise]Ten gallons of nothing. You sure could shove a lot of loot in there you reckon[end if]."   Instead of eating the hat, say "If you don't get out of this place, you sure will!"
 	
-Rick wears some pants. The description of the pants is "Rugged, blue denim." The indefinite article of the pants is "your". The scent of the pants is "grubby". The texture of the pants is "abrasive".
+Rick wears some pants. The pants are plural-named. The description of the pants is "Rugged, blue denim." The indefinite article of the pants is "your". The scent of the pants is "grubby". The texture of the pants is "abrasive".
 
 Instead of taking off pants:
 	say "Etiquette, if not just plain old common sense, suggests that you keep them on in a jail cell."
@@ -3130,7 +3183,7 @@ title				subtable			description	toggle
 "Stuff you do a lot"		--	"We made it easy to do some stuff without typing a whole lot. You can use the letter in [fixed letter spacing]<brackets>[variable letter spacing] instead having to spell out the whole word, which is good on account some folk don't spell so good (not to mention their grandma and sin tax):[paragraph break]
 [fixed letter spacing]   <i>nventory      - [variable letter spacing]what are you carrying?[line break]
 [fixed letter spacing]   <l>ook           - [variable letter spacing]look around[line break]
-[fixed letter spacing]   e<x>amine        - [variable letter spacing]look real hard at somethingl[line break]
+[fixed letter spacing]   e<x>amine        - [variable letter spacing]look real hard at something[line break]
 [fixed letter spacing]   <z>zzzz          - [variable letter spacing]cool yer heels[line break]
 [fixed letter spacing]   a<g>ain          - [variable letter spacing]do what you done, again[line break]
 [fixed letter spacing]   <o>ops           - [variable letter spacing]if'n you make a spellin[apostrophe] mistake[variable letter spacing]"		--
@@ -3158,7 +3211,7 @@ title	subtable		description	toggle
 Chapter Credits
 
 To say list of testers:
-	say "Adrian Colley[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Rob Dubbin[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
+	say "Adrian Colley[line break]Beth Vanichtheeranont[line break]Conrad Cook[line break]Duncan Bowsman[line break]Jenni Polodna[line break]Jacob Lee[line break]John Lodder[line break]Peter Olson[line break]Rob Dubbin[line break]Rochelle Lodder[line break]Sam Ashwell[line break]Sarah Morayati[line break]Yoon Ha Lee[line break]";
 
 Section Help Menu
 
@@ -3204,19 +3257,18 @@ To say aintNothing:
 
 Table of custom library messages (continued)
 Message Id				Message Text
-LibMsg <confirm Quit>			"For real? Give up now just when things is getting hopping?[paragraph break]"
 LibMsg <you have died>			"You done cashed it in.[paragraph break]"
 LibMsg <you have won>			"You has won.[paragraph break]"
-LibMsg <unimportant object>		"That ain't something what you gotta pay heed to round these parts.[paragraph break]"
+LibMsg <unimportant object>		"Oh heck, [that-those] ain't something what you gotta pay heed to round these parts.[paragraph break]"
 LibMsg <empty line>			"Sorry citizen, I didn't hear you rightly. What?[paragraph break]"  
-LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure?[paragraph break]"  
+LibMsg <confirm Quit>			"I didn't mark you for a quitter. You sure? (y/n)[paragraph break]>>"  
 LibMsg <yes or no prompt>		"Ain't you got no manners? Answer yes or no.[paragraph break]"  
 LibMsg <restrict answer>			"Enough of your blatheration. Give one of them answers from above.[paragraph break]"  
 LibMsg <page prompt>			"[bracket]Press SPACE if'n you want to go on a pace.[close bracket]"  
 LibMsg <undo succeeded>		"You done backtracked some.[paragraph break]"  
-LibMsg <undo failed>			"[apostrophe]Undo[apostrophe] failed real miserable-like. [bracket]Not all interpreters got the cajones to get undid[dot][close bracket]"
-LibMsg <undo not provided>		"[bracket]Your 'terp don't provide [apostrophe]undo[apostrophe]. [apologies].[ExMark][close bracket]"  
-LibMsg <cannot undo nothing>		"[bracket]You can't [apostrophe]undo[apostrophe] what ain't been did none[ExMark][close bracket]"   
+LibMsg <undo failed>			"[apostrophe]Undo[apostrophe] failed real miserable-like. [bracket]Not all interpreters got the cajones to get undid.[close bracket][paragraph break]"
+LibMsg <undo not provided>		"[bracket]Your 'terp don't provide no [apostrophe]undo[apostrophe]. [apologies]![close bracket][paragraph break]"  
+LibMsg <cannot undo nothing>		"[bracket]You can't [apostrophe]undo[apostrophe] what ain't been did none![close bracket][paragraph break]"   
 LibMsg <oops failed>			"That were so balled up, ain't nothing can fix it.[paragraph break]"
 LibMsg <oops no arguments>		"[aintNothing].[paragraph break]" 
 LibMsg <cannot do again>		"You can't hardly repeat that.[paragraph break]"   
@@ -3225,7 +3277,7 @@ LibMsg <command partly understood>	"I only twigged your meaning as far as hanker
 LibMsg <command incomplete>		"You seem to have said too little! Normally, I find that right pleasant.[paragraph break]"   
 LibMsg <cannot begin at comma>		"Commas ain't for beginning sentences with. Land sakes, ain't you got no grammar?[paragraph break]"  
 LibMsg <unknown object>		"[youAint]able to see no such thing.[line break]"  
-LibMsg <object not held>			"[youAint]holdin' that![paragraph break]"  
+LibMsg <object not held>			"[youAint]holdin' [pronoun-accusative]![paragraph break]"  
 LibMsg <unknown verb>			"That [aintNo]verb I got knowledge of.[line break]"   
 LibMsg <cannot exceed carrying capacity>	"Your carrying too dang-blasted many things already.[paragraph break]"    
 LibMsg <cannot insert if this exceeds carrying capacity>		"There [aintNo]more room in [the main object].[paragraph break]"  
@@ -3245,14 +3297,14 @@ LibMsg <examine while dark>		"Ain't no seeing to be had on account of it's so da
 LibMsg <report player taking>		"Fetched.[paragraph break]"  
 LibMsg <cannot take other people>	"I don't reckon [the main object] would much care for that.[paragraph break]"  
 LibMsg <cannot take something you are within>		"You[apostrophe]d have to scoot off of [the main object] first.[paragraph break]"  
-LibMsg <cannot take something already taken>		"Sakes alive. You already done got that.[paragraph break]"    
+LibMsg <cannot take something already taken>		"Sakes alive. You already done got [pronoun-accusative].[paragraph break]"    
 LibMsg <cannot reach within closed containers>		"[The main object] ain't open.[paragraph break]"  
 LibMsg <cannot take scenery>		"That ain't hardly what a body would aim to carry about.[paragraph break]"  
-LibMsg <cannot take something fixed>	"That's planted real good and not going anywhere, I do reckon.[paragraph break]"
+LibMsg <cannot take something fixed>	"I reckon [that-those]'s planted real good and not going anywhere, I do reckon.[paragraph break]"
 LibMsg <report player removing>		"Snatched.[paragraph break]"  
 LibMsg <cannot remove something not within>		"But it ain't there now.[paragraph break]"  
 LibMsg <report player dropping>		"Ditched.[paragraph break]"  
-LibMsg <cannot drop not holding>		"[youAint]got that.[paragraph break]"  
+LibMsg <cannot drop not holding>		"[youAint]got [pronoun-accusative].[paragraph break]"  
 LibMsg <cannot give what you have not got>		"[youAint]holding [the main object].[paragraph break]"
 LibMsg <block giving>			"[The main object] don't seem interested.[paragraph break]"  
 LibMsg <cannot show what you have not got>		"[youAint]holding [the main object].[paragraph break]"  
@@ -3266,11 +3318,11 @@ LibMsg <verbose look mode>		" is now in its 'verbose' mode, which always gives l
 LibMsg <cannot search unless container or supporter>	"You don't find nothing at all.[paragraph break]"  
 LibMsg <cannot search closed opaque containers>		"[youAint]able to peek inside, seeing as how [the main object] is closed.[paragraph break]"  
 LibMsg <nothing found on top of>	"There [aintNothing]on [the main object].[paragraph break]"  
-LibMsg <cannot open unless openable>	"They ain't something you can open.[paragraph break]"  
-LibMsg <cannot switch on unless switchable>		"They ain't something you can switch.[paragraph break]"  
+LibMsg <cannot open unless openable>	"You know, [that-those] ain't something you can open.[paragraph break]"  
+LibMsg <cannot switch on unless switchable>		"Seems like [that-those] ain't something what you can switch.[paragraph break]"  
 LibMsg <cannot take off something not worn>		"[youAint]wearing that.[paragraph break]"  
 LibMsg <report player eating>		"You choke down [the main object]. Not bad.[paragraph break]"  
-LibMsg <cannot eat unless edible>		"Any tom fool could see that ain't for eating.[paragraph break]"  
+LibMsg <cannot eat unless edible>		"Any tom fool could see [that-those] ain't for eating.[paragraph break]"  
 LibMsg <block drinking>			"There's [aintNothing]proper fit for drinking here.[paragraph break]"  
 LibMsg <report player touching self>	"If you reckon that'll help.[paragraph break]"  
 LibMsg <report player touching other people>		"Keep your filthy sheep shearing, pig wallowing, cow poking hands to your lonesome![paragraph break]"  
@@ -3284,7 +3336,7 @@ LibMsg <block waving hands>		"You send a wave.[paragraph break]"
 LibMsg <block attacking>			"You reckon violence usually is the answer, but maybe not just now.[paragraph break]"  
 LibMsg <block rubbing>			"That don't seem to serve no purpose.[paragraph break]"  
 LibMsg <report player waving things>	"You look stranger than a preacher in a vaulting house waving [the main object].[paragraph break]"  
-LibMsg <cannot wave something not held>		"Nope. [youAint]holding that.[paragraph break]"  
+LibMsg <cannot wave something not held>		"Nope. [youAint]holding [that-those].[paragraph break]"  
 LibMsg <squeezing people>		"Keep your paws to yerself.[paragraph break]"  
 LibMsg <report player squeezing>		"That don't get nothing done.[paragraph break]"  
 LibMsg <not pushed in a direction>	"That [aintNo]direction.[paragraph break]"  
