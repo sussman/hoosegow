@@ -1553,9 +1553,9 @@ This is the farting rule:
 			-- 4: 
 				say "Muddy holds his belly and comments, [quotation mark]Got a bit of indigestion, I does.[quotation mark][paragraph break]";
 			-- 3: 
-				say "Muddy wraps his arms around his belly, and moans softly, [quotation mark]I might have overdone it with them beans.[quotation mark][if the deputy is in the office][paragraph break]The deputy looks up from his reading, curious. [end if][paragraph break]"; 
+				say "Muddy wraps his arms around his belly, and moans softly, [quotation mark]I might have overdone it with them beans.[quotation mark][if the deputy is in the office and the deputy is awake][paragraph break]The deputy looks up from his reading, curious. [end if][paragraph break]"; 
 			-- 2: 
-				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow![no line break][if the deputy is in the office] Deputy, if'n I was you, I would put some distance between Muddy and your nose. [end if][quotation mark][if the deputy is in the office][paragraph break]The Deputy looks concerned, but confused. [end if][paragraph break]";
+				say "Muddy doubles over, [quotation mark]Rick, you should get to high ground. I'm feeling a mite bloated after them beans, and I think you know what's coming![quotation mark][paragraph break][quotation mark]Where the Sam Hill do you think I'm going to run to, Muddy? We're locked up in a hoosegow![no line break][if the deputy is in the office and the deputy is awake] Deputy, if'n I was you, I would put some distance between Muddy and your nose. [end if][quotation mark][if the deputy is in the office and the deputy is awake][paragraph break]The Deputy looks concerned, but confused. [end if][paragraph break]";
 			-- 1: 
 				say "You hear nothing. The smell nearly knocks you out. Vision fades, the room spins.[paragraph break]Muddy whispers in that understated manner of his, [quotation mark]That were a silent but deadly.[quotation mark][paragraph break]";
 				change the ambient odor to 100;
@@ -2145,7 +2145,6 @@ Instead of opening the gate when the gate is locked:
 Instead of attacking the gate:
 	say "[one of]You bruise your knuckles. The gate is non-nonplussed[or]Ow[stopping]".
 	
-
 
 Section Stool & Bench
 
