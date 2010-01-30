@@ -74,6 +74,7 @@ After deciding the scope of the player when the location is an inter-visible roo
 
 Rule for reaching inside a room (called target) which is connected with the location:
 	if the current action is giving, allow access;
+	if the noun is the gate lock, allow access;
 	let way be the best route from the location to the target;
 	if the way is not a direction:
 		say "[if the gate is closed]You can reach through the bars, but not far enough to touch [the noun][otherwise]You'd have to go over to [the target] first[end if].";
@@ -161,6 +162,8 @@ An ungulate is a kind of fardrop.
 Conclusion is a kind of value. The conclusions are hanged, shot, escaped, rolled, and won.  
 
 Endgame is a conclusion that varies. The endgame is usually hanged.
+
+A latch is a kind of thing. A latch can be openable. A latch can be open. A latch can be lockable. A latch can be locked. A latch is usually openable, lockable, closed and locked.
 
 Chapter General Routines
 		
@@ -2115,19 +2118,26 @@ The floor is a backdrop in the jail cell. The description of the floor is "Rough
 
 Section Gate
 
-The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "[if the gate lock is locked]A metal gate stands between you and freedom. [end if]The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive padlock [if the gate is locked]that clicked definitively behind you when you were thrown into the cell[otherwise]of great antiquity[end if]. You've seen banks with poorer locks. At least this is a quality institution." The texture of the gate is "cold and unyielding".
+The gate is a large door.  The gate is scenery.  The gate is west of the office and east of the Jail Cell.  The gate is lockable and locked.  The description of the gate is "[if the gate is locked]A metal gate stands between you and freedom. [end if]The gate is set into the metal bars which surround your cell, and its hinges must be internal. The gate has a massive padlock [if the gate is locked]that clicked definitively behind you when you were thrown into the cell[otherwise]of great antiquity[end if]. You've seen banks with poorer locks. At least this is a quality institution." The texture of the gate is "cold and unyielding".
 
 Does the player mean unlocking or attacking or examining or opening or picking the gate lock:
 	if the player is in the jail cell:
 		it is likely.
+		
+Does the player mean examining or opening or attacking the gate:
+	if the player is in the jail cell:
+		it is very likely.
 
-The gate lock is part of the gate. The description of the gate lock is "A cast iron padlock of diabolical ingenuity. It is like no lock you've ever seen." Understand "padlock" or "diabolical" as the gate lock.
+The gate lock is a latch. The gate lock is part of the gate. The description of the gate lock is "A cast iron padlock of diabolical ingenuity. It is like no lock you've ever seen." Understand "padlock" or "diabolical" as the gate lock. 
 
-Instead of opening the gate lock:
-	try opening the gate.
+Instead of unlocking or locking or picking the gate lock:
+	say "You don't know how. The thing doesn't even have a keyhole."
 	
-Instead of opening the gate with the brass key:
-	say "The key is way too small to fit the medieval lock which imprisons you."
+Instead of opening or closing the gate lock:
+	say "The solid lump of arcane metal resists the attempt as if it had a will of its own."
+	
+Instead of inserting something (called the item) into the gate lock:
+	try unlocking the gate lock with the item.
 	
 Instead of opening the gate when the gate is locked:
 	say "There is not so much as a hair's breadth of play in the prison gate. It is locked but good."
