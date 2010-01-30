@@ -2082,7 +2082,7 @@ The coffee is in the cup. The description of some coffee is "Steaming hot, black
 
 The nozzle is part of the protocappuccinomatic. The description of the nozzle is "A tapering outlet." Understand "outlet" as the nozzle. The scent of the nozzle is "like coffee". The texture of the nozzle is "ridged and tapering".
 
-The chute is part of the protocappuccinomatic. The description of the chute is "A chute that runs down the side of the machine." Understand "tube" as the chute. The texture of the chute is "[smooth]".
+The chute is part of the protocappuccinomatic. The description of the chute is "A chute that runs down the side of the machine." The texture of the chute is "[smooth]".
 
 To make coffee:
 	now the coffee is in the cup;
