@@ -560,6 +560,11 @@ FunnyLooking is an action applying to nothing. Understand "look funny" or "look 
 Carry out FunnyLooking:
 	say "Flash remains inert[if a random chance of one in ten succeeds], but secretly, he's laughing to himself[end if]."
 	
+Section TakeFromming
+
+Instead of removing something from something:
+	try taking the noun.	
+
 Section Hanging
 
 Hanging it on is an action applying to two things. Understand "hang [a thing] on/upon/onto [other things]" as hanging it on.
@@ -2365,15 +2370,20 @@ Instead of taking or pulling or pushing the gray bar:
 			say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
 		otherwise:
 			if the gray bar is part of the stool:
-				say "You yank the bar out of the stool's socket.";
+				say "You yank the bar out of the stool's socket";
 				now the socket is not occupied;
-			move the gray bar to the player;
-			if the bar is not first-held:
-				say "You grab the bar.[if the gray bar is not blowgun-discussed][paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.[end if]";
-				adjust points by one;
-				now the bar is first-held;
+				if the player is on the stool:
+					say ", lose your balance, topple [one of]forwards[or]backwards[or]to the side[at random] and plant your face smartly in the prison floor. Muddy looks away in embarassment";
+					now the player is not tall;
+				say ".";
 			otherwise:
-				say "You pick up the gray bar.".
+				if the bar is not first-held:
+					say "You grab the bar.[if the gray bar is not blowgun-discussed][paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.[end if]";
+					adjust points by one;
+					now the bar is first-held;
+				otherwise:
+					say "You pick up the gray bar.";
+			move the gray bar to the player.
 		
 Instead of inserting something (called the ammo) into the gray bar:
 	if the ammo is the berry:
@@ -3097,7 +3107,7 @@ The feather is part of the tail. Understand "feathers" as the feather.  The desc
 	
 Instead of taking the feather:
 	if the feather is part of the tail:
-		say "You pluck a feather from the vulture's tail, and it twists its head momentarily to glare at you before plunging back to its task of devouring the rotting meat.";
+		say "You pluck a feather from the vulture's tail. The bird twists its head momentarily to glare at you before plunging back to its task of devouring the rotting meat.";
 		adjust points by one;
 		move the feather to the player;
 	otherwise:
