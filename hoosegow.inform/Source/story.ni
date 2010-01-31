@@ -2521,7 +2521,7 @@ Visibility rule when in the jail cell:
 	if examining the barrel and the player is tall:
 		there is sufficient light.
 
-The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no shortage of mystery about it. Don't look so edible." The scent of the berry is "sweet, but ominous".  The berry can be first-held.  The berry is not first-held. The berry can be almost-eaten. The berry is not almost-eaten.
+The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no short of mystery about it. Don't look so edible." The scent of the berry is "sweet, but ominous".  The berry can be first-held.  The berry is not first-held. The berry can be almost-eaten. The berry is not almost-eaten.
 
 Instead of taking the berry:
 	if the player carries the berry:
@@ -2881,7 +2881,7 @@ Instead of taking inventory: [purloined from Persephone, example 62 in I7 docume
 
 Rick carries a scrap of paper.   The scrap of paper is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the scrap of paper is "Muddy's scribbled instructions for holding up the train, which you carried out faithfully before the Sheriff showed up." The inscription of the scrap of paper is "In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNNEL, 4. WAIT FOR ME'[one of].[paragraph break]That was Muddy's cunning plan, and unlike most of his plans, it went off without a hitch: you got the silver, nobody got hurt. Yup, not a single hitch -- except for getting caught[or][stopping]." Understand "instructions" as the scrap of paper.
 
-Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction went awry, the hole on the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Each flaw in the garment reminds you of one of Muddy's plans, each of which sounded so reasonable at the time...[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten". Understand "coat" as overcoat.
+Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction done gone awry, the hole on the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Each flaw in the garment reminds you of one of Muddy's plans, each of which sounded so reasonable at the time...[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten". Understand "coat" as overcoat.
 
 Instead of searching the overcoat:
 	say "[one of]Your hands slip into where your pockets used to be. Nothing is left of your pockets, except holes. Not that your overcoat needed more holes[or]You don't find anything[stopping]."
@@ -3478,7 +3478,7 @@ A hint activation rule (this is the stool fixing hint activation rule):
 		activate the Table of Stool Fixing.
 		
 A hint deactivation rule (this is the stool fixing hint deactivation rule):
-	if the socket is occupied then deactivate the Table of Trap Setting.
+	if the socket is occupied then deactivate the Table of Stool Fixing.
 
 
 Table of Stool Fixing
