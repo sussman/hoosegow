@@ -1375,7 +1375,7 @@ times-used		verbage
 	
 Table of Rare Flash Actions
 times-used		verbage
-0					"streches slowly and then settles back down"
+0					"stretches slowly and then settles back down"
 0					"prepares to bark at something he sees outside, but gets winded and breathes heavily for a few minutes"	
 0					"rolls over and takes a few minutes afterwards to catch his breath"
 0					"stands up, turns around once, and lays back down again"
