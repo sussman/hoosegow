@@ -2288,7 +2288,7 @@ Check playing the harmonica:
 		stop the action.
 
 Carry out playing the harmonica:
-	if the deputy is in the office:
+	if the deputy is in the office and the deputy is awake:
 		if the harmonica is not first-heard-by-deputy:
 			say "You tentatively blow on it a bit, but you're not rightly sure what you're doing.[paragraph break]The deputy grimaces, 'Knock off that racket, you two. A noise like that, a man can't get to thinking straight. Settle down now, you hear? I got me some reading to do.' The deputy unfolds the warrant, furrows his brow and begins reading. You can tell because his lips are moving. Slowly.";
 			now the harmonica is first-heard-by-deputy;
