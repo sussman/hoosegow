@@ -2931,7 +2931,7 @@ Instead of touching the spur:
 
 Instead of taking or pulling or attacking or taking off the spur when the spur is part of the right boot:
 	now the player carries the spur;
-	say "You yank the spurs off your right boot, careful not to cut yourself in the process."
+	say "You yank the spur off your right boot, careful not to cut yourself in the process."
 
 Section Sheriff
 
