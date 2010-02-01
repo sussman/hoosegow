@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
-<Skein rootNode="node-0x1611cd10" xmlns="http://www.logicalshift.org.uk/IF/Skein">
+<Skein rootNode="node-0xf2c3ef0" xmlns="http://www.logicalshift.org.uk/IF/Skein">
   <generator>Zoom</generator>
-  <activeNode nodeId="node-0x17ef2cf0" />
-  <item nodeId="node-0x1611cd10">
+  <activeNode nodeId="node-0xf3c9f00" />
+  <item nodeId="node-0xf2c3ef0">
     <command xml:space="preserve">- start -</command>
     <result xml:space="preserve">
 
@@ -20,18 +20,1000 @@ The sheriff disagrees. &quot;The only place you boys are heading is straight to 
 
 Hoosegow
 A Wild West Wreck by Ben Collins-Sussman and Jack Welch
-Release 3 / Serial number 100126 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) SD
+Release 8 / Serial number 100131 / Inform 7 build 5Z71 (I6/v6.31 lib 6/12N) SD
 Type &quot;help&quot; for instructions and &quot;hints&quot; for hints -- or just roll into town guns a-blazin&apos;.
 
 [Press Space To Continue]</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1611ccb0" />
+      <child nodeId="node-0xf2c3e90" />
+      <child nodeId="node-0xe69ace0" />
     </children>
   </item>
-  <item nodeId="node-0x1611ccb0">
+  <item nodeId="node-0xe69ace0">
+    <command xml:space="preserve">þ</command>
+    <result xml:space="preserve">In the twilight, you sight the sheriff&apos;s sturdy brick office near the edge of town. &quot;That&apos;s mighty fine construction,&quot; notes Muddy, sounding less feisty now. &quot;Mighty fine indeed.&quot; The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, &quot;Bring the coach around back, we got to impound that evidence.&quot; You are shoved into the sheriff&apos;s office and then into a small holding cell.
+
+The deputy wakes with a start, whips his dusty boots off the desk and stands, tucking his shirt back into his pants. The sheriff gives him a brief, judgmental glance and offhandedly tosses an arrest warrant on the desk. He barks, &quot;Jimbo, listen up. Picked up these two down near the train. A federal marshal will be coming for them at eight o&apos;clock tomorrow morning. There&apos;s going to be a hanging!&quot; The deputy nods slowly. The sheriff continues, &quot;Please take care of our &apos;guests&apos;. I got to head down to Wichita Falls to discuss my invention with some investors, so you is in charge.&quot; The deputy smiles until the sheriff adds, &quot;Jimbo, don&apos;t screw up,&quot; as he heads out the door.
+
+Jail Cell
+Why are you not surprised to have landed right back in the hoosegow after another one of Muddy&apos;s dubious plans? Will you ever learn? How did it come to this? 
+
+The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
+
+A broken stool lies on the floor.
+
+Muddy leans against the wall tapping a harmonica on his arm.
+
+In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf14d8b0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf14d8b0">
+    <command xml:space="preserve">x bench</command>
+    <result xml:space="preserve">A long wooden bench made of rough, splintery planks. Under the bench, you notice a piece of questionable meat, a spoon and a metallic can.
+
+On the other side of the jail bars in the office, the deputy makes you nervous as he waves his gun back and forth, jerking the barrel up and shaping the words &quot;Pow! Pow!&quot; with his lips. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf16d730" />
+    </children>
+  </item>
+  <item nodeId="node-0xf16d730">
+    <command xml:space="preserve">x meat</command>
+    <result xml:space="preserve">The deputy has been watching you and he smiles sardonically. &quot;I see you found your dinner. Or was that last week&apos;s dinner? Har, har!&quot;
+
+You are distracted by his comment and forget what you were doing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf226720" />
+    </children>
+  </item>
+  <item nodeId="node-0xf226720">
+    <command xml:space="preserve">take can</command>
+    <result xml:space="preserve">Fetched.
+
+Muddy seems lost in thought. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf32ea90" />
+    </children>
+  </item>
+  <item nodeId="node-0xf32ea90">
+    <command xml:space="preserve">take spoon</command>
+    <result xml:space="preserve">Fetched.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2975a0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2975a0">
+    <command xml:space="preserve">x can</command>
+    <result xml:space="preserve">A closed metal can labeled &quot;BEANS&quot;. On the back, some fine print says, &quot;Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.&quot;
+
+Over in the office, the deputy sniffles loudly and wipes his nose on his sleeve. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf278290" />
+    </children>
+  </item>
+  <item nodeId="node-0xf278290">
+    <command xml:space="preserve">x boots</command>
+    <result xml:space="preserve">Black boots that have seen better days. The left boot is missing its heel spur.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf337670" />
+    </children>
+  </item>
+  <item nodeId="node-0xf337670">
+    <command xml:space="preserve">x right boot</command>
+    <result xml:space="preserve">A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn-down heel.
+
+On the other side of the jail bars in the office, the deputy pokes his head out of the office and yells at some passersby. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2727a0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2727a0">
+    <command xml:space="preserve">take sopur</command>
+    <result xml:space="preserve">You ain&apos;t able to see no such thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2875e0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2875e0">
+    <command xml:space="preserve">take spur</command>
+    <result xml:space="preserve">You yank the spurs off your right boot, careful not to cut yourself in the process.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf373c80" />
+    </children>
+  </item>
+  <item nodeId="node-0xf373c80">
+    <command xml:space="preserve">open can with spur</command>
+    <result xml:space="preserve">Muddy cranes his neck to see what you&apos;re doing. He&apos;s never seen someone open a can with heel spurs. You slide the spur into the groove along the top of the can, and wiggle it back and forth. The can revolves, and the lid is nearly sawn off. It is hard to tell which of you is more surprised that this worked. 
+
+[Your score has just gone up by five]
+
+Back in the office, the deputy reaches into his pocket, produces a strip of beef jerky, and chews on it for a while. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfe59980" />
+    </children>
+  </item>
+  <item nodeId="node-0xfe59980">
+    <command xml:space="preserve">eat beans</command>
+    <result xml:space="preserve">When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don&apos;t even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.
+
+Nonetheless, your stomach is growling and you could do with a meal.
+
+[You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points]
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf3a7f80" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3a7f80">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">The beans disgust you even more than the rancid meat.
+
+[The thought is enough to make you lose a point.]
+
+Not far from your jail cell, the boiler gurgles and bubbles quietly.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf388e30" />
+    </children>
+  </item>
+  <item nodeId="node-0xf388e30">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">No. It&apos;s a matter of principle now.
+
+[Your score just went back up by a point for being so principled.]
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0x235320" />
+    </children>
+  </item>
+  <item nodeId="node-0x235320">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Give Muddy the damn beans. He likes them, but you can&apos;t stand to even look at them.
+
+Over in the office, the deputy stares at Muddy. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf290730" />
+    </children>
+  </item>
+  <item nodeId="node-0xf290730">
+    <command xml:space="preserve">give beans to muddy</command>
+    <result xml:space="preserve">Muddy takes the can and stares hungrily at the beans.
+
+Even in the most dire situation, Muddy&apos;s appetite remains intact. He looks expectantly at you and says, &quot;Rick, got a spoon?&quot;
+
+Muddy murmurs to himself about not being able to recall a limerick he once heard that had something to do with cowboys and farmers. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf12fc80" />
+    </children>
+  </item>
+  <item nodeId="node-0xf12fc80">
+    <command xml:space="preserve">give spoon to muddy</command>
+    <result xml:space="preserve">Muddy cracks a gap-toothed smile and says, &quot;Much obliged,&quot; before digging into the can of beans like a miner hot on a fresh gold vein. A couple moments later, he finishes circling the inside of the can with the spoon, trying to get every last drop of bean juice into his mouth. Afterwards, he places the can and spoon on the floor and rubs his stomach with satisfaction.
+
+Muddy has an aura of well-fed contentment.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf3725d0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3725d0">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+Muddy holds his belly and comments, &quot;Got a bit of indigestion, I does.&quot;
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf38dcf0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf38dcf0">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+Muddy wraps his arms around his belly, and moans softly, &quot;I might have overdone it with them beans.&quot;
+
+The deputy looks up from his reading, curious. 
+
+&quot;Ain&apos;t you gonna ask me about my plan?&quot; Muddy whispers. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf10dd50" />
+    </children>
+  </item>
+  <item nodeId="node-0xf10dd50">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+Muddy doubles over, &quot;Rick, you should get to high ground. I&apos;m feeling a mite bloated after them beans, and I think you know what&apos;s coming!&quot;
+
+&quot;Where the Sam Hill do you think I&apos;m going to run to, Muddy? We&apos;re locked up in a hoosegow! Deputy, if&apos;n I was you, I would put some distance between Muddy and your nose. &quot;
+
+The Deputy looks concerned, but confused. 
+
+&quot;This time my plan is surefire -- go ahead, ask me. C&apos;mon.&quot; Muddy jibes quietly. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf1e3860" />
+    </children>
+  </item>
+  <item nodeId="node-0xf1e3860">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+You hear nothing. The smell nearly knocks you out. Vision fades, the room spins.
+
+Muddy whispers in that understated manner of his, &quot;That were a silent but deadly.&quot;
+
+&quot;Ain&apos;t you even a speck curious to ask me about my plan?&quot; taunts Muddy. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2837a0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2837a0">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+Suppressing the urge to throw up from the smell, the deputy reaches over to the whiskey bottle and half drains it on his way out the door.
+
+The fragrance gradually improves as the universe cools.
+[Your score has just gone up by one]
+
+&quot;Truthful, Rick,&quot; whispers Muddy solemnly, &quot;this ain&apos;t like all my other plans, this one is iron-clad. Ask me about it. Go ahead.&quot; 
+
+Muddy strokes his whiskers. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf3dcb60" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3dcb60">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+Muddy vibrates with excitement and gushes, &quot;I got to tell you, Rick, or this new plan of mine is going to drive me plumb crazy!&quot; 
+
+&quot;Let&apos;s keep this between us, though&quot;, he whispers.
+
+He notices the sleeping man in your cell for the first time. &quot;Don&apos;t know about him.&quot; Muddy jerks his thumb towards the sleeping figure. &quot;Might be a spy.&quot;
+
+Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. &quot;Okay, Rick, I&apos;m a-going to tell you my plan.&quot; Muddy pauses dramatically. &quot;Here it is: we got to break out of this jail before we get strunged up.&quot;
+
+&quot;That&apos;s it? That&apos;s your whole damn plan? That don&apos;t count as no plan!&quot; you fume.
+
+&quot;Keep it down, Rick!&quot; Muddy&apos;s gaze darts over to your third cellmate. &quot;Yeah, that&apos;s it for now. It takes time to cook up a good plan. You need lots of ingredients.&quot;
+
+&quot;Muddy Charlie,&quot; you retort, &quot;I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman&apos;s March.&quot;
+
+Muddy gives you a hurt look and sulks in the corner. After a while, you regret being so quick-tempered with your old buddy.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe6d9de0" />
+    </children>
+  </item>
+  <item nodeId="node-0xe6d9de0">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Time passes.
+
+The deputy pokes his head back in the office and remarks, &quot;I&apos;ve about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.&quot;
+
+The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the doorway, tempted by the dinner bell.
+
+The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog&apos;s bowl, and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office&apos;s strange-looking steam boiler and ties him to it with a leash.
+
+&quot;This here&apos;s Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don&apos;t cross him.&quot; Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close, and drool drips from his toothless mouth.
+
+&quot;Flash here&apos;s apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff&apos;s fancy steam contraption.&quot; The deputy narrows his eyes distrustfully. &quot;If you boys were so stupid as to make for the jailhouse door, &apos;ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that halfway across town, and if&apos;n I do hear it, then you&apos;ll have to deal with me *and* Flash.&quot; The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe63bea0" />
+    </children>
+  </item>
+  <item nodeId="node-0xe63bea0">
+    <command xml:space="preserve">ask muddy about plan</command>
+    <result xml:space="preserve">&quot;I already done told you -- we got to bust out.&quot;
+
+&quot;That worked out well,&quot; says Muddy proudly.
+
+&quot;For you maybe,&quot; you reply. &quot;But I near as lost my lunch what with that stench.&quot;
+
+To which Muddy counters, &quot;Ain&apos;t much worse than your feet, I reckon.&quot;
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfe5ce40" />
+    </children>
+  </item>
+  <item nodeId="node-0xfe5ce40">
+    <command xml:space="preserve">take harmonica</command>
+    <result xml:space="preserve">&quot;I ain&apos;t never seen you play the mouth organ, Muddy.&quot;
+
+Your partner turns the harmonica back and forth. &quot;That&apos;s &apos;cuz I ain&apos;t never learned how,&quot; he replies.
+
+Muddy hands the harmonica to you.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf148180" />
+    </children>
+  </item>
+  <item nodeId="node-0xf148180">
+    <command xml:space="preserve">play harmonica</command>
+    <result xml:space="preserve">Tentatively, you blow a few notes. The bars in the jail cell rattle sympathetically.
+
+&quot;Look at that, boy&quot;, Muddy laughs, &quot;I swear that screw up there holding that bar is wiggling loose!&quot;
+
+Muddy rubs his belly and says, &quot;I reckon I could do with a snack right about now.&quot;
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf207f50" />
+    </children>
+  </item>
+  <item nodeId="node-0xf207f50">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a beluga whale.
+
+Muddy points excitedly towards the top of the gray bar, &quot;When you played, that screw worked its way out more. It&apos;s like you got some kind of sonic screwdriver or something! I think one more time will do it.&quot;
+
+Flash nuzzles up to the boiler.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf27deb0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf27deb0">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks, and rolls under the deputy&apos;s desk. A hollow gray tube falls loose from the upper reaches of the jailbars and lands at your feet.
+
+&quot;You done it!&quot; shouts Muddy.
+
+Flash swallows loudly.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf1f2a60" />
+    </children>
+  </item>
+  <item nodeId="node-0xf1f2a60">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">You blow a few more notes, but you&apos;re not getting any better.
+
+Muddy picks some food from between his teeth. 
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf388490" />
+    </children>
+  </item>
+  <item nodeId="node-0xf388490">
+    <command xml:space="preserve">g</command>
+    <result xml:space="preserve">You blow a few more notes, but you&apos;re not getting any better.
+
+A yellow-fringed surrey trots past the sheriff&apos;s office.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf341190" />
+    </children>
+  </item>
+  <item nodeId="node-0xf341190">
+    <command xml:space="preserve">take bar</command>
+    <result xml:space="preserve">(the gray tube)
+You grab the bar.
+
+
+You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. 
+
+&quot;Don&apos;t that just beat all,&quot; ponders Muddy.
+[Your score has just gone up by one]
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf4977b0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf4977b0">
+    <command xml:space="preserve">put bar in socket</command>
+    <result xml:space="preserve">(the gray tube in the socket)
+You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf207ab0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf207ab0">
+    <command xml:space="preserve">stand on stool</command>
+    <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfe0b6f0" />
+    </children>
+  </item>
+  <item nodeId="node-0xfe0b6f0">
+    <command xml:space="preserve">look out window</command>
+    <result xml:space="preserve">The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street that have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. Just to the left of the window, a berry-covered vine has grown up the side of the building. 
+
+Up in the sky, you notice a couple of hungry, circling vultures.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2373f0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2373f0">
+    <command xml:space="preserve">x vine</command>
+    <result xml:space="preserve">Only the leafless tip of a wiry vine pokes into the cell through the window. It&apos;s covered with small red berries.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe68c930" />
+    </children>
+  </item>
+  <item nodeId="node-0xe68c930">
+    <command xml:space="preserve">take berry</command>
+    <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
+[Your score has just gone up by one]
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2cb1a0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2cb1a0">
+    <command xml:space="preserve">get down</command>
+    <result xml:space="preserve">You jump down to the ground again.
+
+Jail Cell
+The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
+
+A repaired stool stands upright.
+
+Muddy leans against the wall.
+
+In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
+
+You can also see a can of beans (in which is a spoon) and a hunk of meat here.
+
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
+
+In the office you can also see Flash.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfe36be0" />
+    </children>
+  </item>
+  <item nodeId="node-0xfe36be0">
+    <command xml:space="preserve">take gray bar</command>
+    <result xml:space="preserve">You yank the bar out of the stool&apos;s socket.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe699410" />
+    </children>
+  </item>
+  <item nodeId="node-0xe699410">
+    <command xml:space="preserve">put berry in bar</command>
+    <result xml:space="preserve">(the gray tube)
+You drop the berry into the gray tube.
+
+
+&quot;Oh, I get it!&quot; nods Muddy, &quot;You&apos;re making some kind of berry gun. I seen the Injuns do something like that, except you ain&apos;t got no darts in there to blow at people.&quot;
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf365a70" />
+    </children>
+  </item>
+  <item nodeId="node-0xf365a70">
+    <command xml:space="preserve">blow berry at bell</command>
+    <result xml:space="preserve">Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.
+
+The amoeba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.
+
+The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.
+
+Finding no food in his bowl, Flash snorts perfunctorily and resumes his former position, pulling the lever back to the middle position.
+[Your score has just gone up by one]
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf32dd60" />
+    </children>
+  </item>
+  <item nodeId="node-0xf32dd60">
+    <command xml:space="preserve">put gray bar in socket</command>
+    <result xml:space="preserve">You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf15dfa0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf15dfa0">
+    <command xml:space="preserve">climb stool</command>
+    <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf2f45b0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2f45b0">
+    <command xml:space="preserve">take berry</command>
+    <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf21a110" />
+    </children>
+  </item>
+  <item nodeId="node-0xf21a110">
+    <command xml:space="preserve">get down</command>
+    <result xml:space="preserve">You jump down to the ground again.
+
+Jail Cell
+The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
+
+A repaired stool stands upright.
+
+Muddy leans against the wall.
+
+In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
+
+You can also see a can of beans (in which is a spoon) and a hunk of meat here.
+
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
+
+On the machine is a cup (in which is some coffee).
+
+In the office you can also see Flash.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfe4bb50" />
+    </children>
+  </item>
+  <item nodeId="node-0xfe4bb50">
+    <command xml:space="preserve">take gray bar</command>
+    <result xml:space="preserve">You yank the bar out of the stool&apos;s socket.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe6f9d60" />
+    </children>
+  </item>
+  <item nodeId="node-0xe6f9d60">
+    <command xml:space="preserve">put berry in bar</command>
+    <result xml:space="preserve">(the gray tube)
+You drop the berry into the gray tube.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf1fb220" />
+    </children>
+  </item>
+  <item nodeId="node-0xf1fb220">
+    <command xml:space="preserve">take off left boot</command>
+    <result xml:space="preserve">There are people within a thousand yards. Are you sure?
+
+(yes or no) &gt;&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe6e2820" />
+    </children>
+  </item>
+  <item nodeId="node-0xe6e2820">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
+
+Muddy&apos;s eyes water as he complains, &quot;Ain&apos;t you got no sense of smell in that head of yours?&quot;
+
+To which you reply, &quot;Not after I been downwind of you around feeding time, nope. This ain&apos;t nothing next to what you can do with a can of beans!&quot;
+
+Flash wakes with a start and sneezes loudly. The fur on his back bristles, and he opens his eyes to stare in horror at your feet. He backs away, towards the front door. The leash pulls taut. He seems caught in the balance between an urge to run away from your stinky foot and his own laziness, which holds him to the spot.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf16cbe0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf16cbe0">
+    <command xml:space="preserve">take off right boot</command>
+    <result xml:space="preserve">Oh, you really don&apos;t want to do that. Not indoors at least. Are you sure?
+
+(yes or no) &gt;&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf15f570" />
+    </children>
+  </item>
+  <item nodeId="node-0xf15f570">
+    <command xml:space="preserve">z</command>
+    <result xml:space="preserve">Ain&apos;t you got no manners? Answer yes or no.
+
+&gt; </result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf287c90" />
+    </children>
+  </item>
+  <item nodeId="node-0xf287c90">
+    <command xml:space="preserve">take off right boot</command>
+    <result xml:space="preserve">Ain&apos;t you got no manners? Answer yes or no.
+
+&gt; </result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe6d9c20" />
+    </children>
+  </item>
+  <item nodeId="node-0xe6d9c20">
+    <command xml:space="preserve">y</command>
+    <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
+
+Muddy&apos;s eyes water as he complains, &quot;Not again! My poor nose!&quot;
+
+One foot was bad enough, but two is more than the old dog can handle. Trying not to sniff the air, Flash turns tail and breaks for the door, straining against his leash, which is tied to the steam pipe lever. The lever swings towards the door, and from the roof you hear the ear-splitting drone of a railway steam whistle.
+
+You agree with with Muddy that the deputy is not likely to be in a good mood when he arrives, so you put your boots back on.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe680260" />
+    </children>
+  </item>
+  <item nodeId="node-0xe680260">
+    <command xml:space="preserve">blow berry at bell</command>
+    <result xml:space="preserve">Your projectile ricochets off the bell with a metallic &quot;ding!&quot;
+
+Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow causing the machine to rattle and buzz. Finding no food, the despondent dog returns to his favorite place in front of the boiler, shutting off the coffee machine.
+
+The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty-handed, aside from a nearly empty bottle of whiskey.
+
+The deputy thunders, &quot;What the cluster-chucking blazes is the matter here?&quot; The deputy surveys the office quickly and then rattles the gate to make sure it is still locked. In his drunken rage, he doesn&apos;t notice the missing metal bar. 
+
+Satisfied that you haven&apos;t escaped, he pushes the lever back to the middle position and warns, &quot;I don&apos;t know what you were up to what made old Flash trigger-happy, but don&apos;t let it happen again.&quot;
+
+&quot;Dumb dog,&quot; he mumbles, &quot;I was doing important business.&quot; The deputy checks the gate again and sets off again towards the door.
+
+The deputy brightens. &quot;Ummm. I do smell me some coffee.&quot; The deputy drains the mug with a single gulp. &quot;That&apos;s good. I got to wake me up some.&quot;
+
+The deputy looks at the two of you.  &quot;Enough is enough.  You jokers stay put, I&apos;ll be back again in a bit.&quot;
+
+Flash slinks back to his spot near the boiler and lays down again.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf3d2ca0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3d2ca0">
+    <command xml:space="preserve">x cup</command>
+    <result xml:space="preserve">A white porcelain mug.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf1920d0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf1920d0">
+    <command xml:space="preserve">put gray bar in socket</command>
+    <result xml:space="preserve">You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe6c38f0" />
+    </children>
+  </item>
+  <item nodeId="node-0xe6c38f0">
+    <command xml:space="preserve">climb stool</command>
+    <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf3147f0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3147f0">
+    <command xml:space="preserve">take berry</command>
+    <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0x2ae950" />
+    </children>
+  </item>
+  <item nodeId="node-0x2ae950">
+    <command xml:space="preserve">get down</command>
+    <result xml:space="preserve">You jump down to the ground again.
+
+Jail Cell
+The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
+
+A repaired stool stands upright.
+
+Muddy leans against the wall.
+
+In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
+
+You can also see a can of beans (in which is a spoon) and a hunk of meat here.
+
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
+
+On the machine is a cup.
+
+In the office you can also see Flash.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfd96a00" />
+    </children>
+  </item>
+  <item nodeId="node-0xfd96a00">
+    <command xml:space="preserve">take metal bar</command>
+    <result xml:space="preserve">I only twigged your meaning as far as hankering to take the can of beans.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xfe3d660" />
+    </children>
+  </item>
+  <item nodeId="node-0xfe3d660">
+    <command xml:space="preserve">take gray bar</command>
+    <result xml:space="preserve">You yank the bar out of the stool&apos;s socket.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xf3ccff0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3ccff0">
+    <command xml:space="preserve">put berry in gray bar</command>
+    <result xml:space="preserve">You drop the berry into the gray tube.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="638">YES</temporary>
+    <children>
+      <child nodeId="node-0xe6f0ab0" />
+    </children>
+  </item>
+  <item nodeId="node-0xe6f0ab0">
+    <command xml:space="preserve">blow berry at coffee</command>
+    <result xml:space="preserve">You ain&apos;t able to see no such thing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="637">YES</temporary>
+  </item>
+  <item nodeId="node-0xf2c3e90">
     <command xml:space="preserve"> </command>
     <result xml:space="preserve">In the twilight, you sight the sheriff&apos;s sturdy brick office near the edge of town. &quot;That&apos;s mighty fine construction,&quot; notes Muddy, sounding less feisty now. &quot;Mighty fine indeed.&quot; The coach rolls to a halt and a thick arm yanks you roughly from your seat. You land awkwardly in the rutted street, where the sheriff holds you in place with the heel of one boot. He yells to his men, &quot;Bring the coach around back, we got to impound that evidence.&quot; You are shoved into the sheriff&apos;s office and then into a small holding cell.
 
@@ -52,144 +1034,138 @@ In the corner of the cell, a disheveled man in a black suit is stretched out on 
     <annotation xml:space="preserve">(space)</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cf10" />
-      <child nodeId="node-0x1621c6a0" />
-      <child nodeId="node-0x1611cda0" />
+      <child nodeId="node-0xf3cb6a0" />
+      <child nodeId="node-0xf3cae30" />
+      <child nodeId="node-0xf2c3f80" />
     </children>
   </item>
-  <item nodeId="node-0x1611cda0">
+  <item nodeId="node-0xf2c3f80">
     <command xml:space="preserve">x bench</command>
-    <result xml:space="preserve">A long wood bench made of rough, splintery planks. Under the bench, you notice the remnants of a meal.
+    <result xml:space="preserve">A long wooden bench made of rough, splintery planks. Under the bench, you notice a piece of questionable meat, a spoon and a metallic can.
 
-In the office, the deputy repeatedly counts his fingers, but is unable to get a firm answer. 
-
-&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x1611ce30" />
-    </children>
-  </item>
-  <item nodeId="node-0x1611ce30">
-    <command xml:space="preserve">x meal</command>
-    <result xml:space="preserve">On closer inspection, it looks like a rancid piece of meat, a metallic can and a spoon.
-
-The deputy has been watching you and he smiles sardonically. &quot;I see you found your dinner. Or was that last week&apos;s dinner? Har, har!&quot;
-
-Muddy spends some time looking over at the door in the office. 
+On the other side of the jail bars in the office, the deputy repeatedly counts his fingers, but is unable to get a firm answer. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1611cec0" />
+      <child nodeId="node-0xf2c4010" />
     </children>
   </item>
-  <item nodeId="node-0x1611cec0">
+  <item nodeId="node-0xf2c4010">
+    <command xml:space="preserve">x meat</command>
+    <result xml:space="preserve">The deputy has been watching you and he smiles sardonically. &quot;I see you found your dinner. Or was that last week&apos;s dinner? Har, har!&quot;
+
+You are distracted by his comment and forget what you were doing.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
+    <children>
+      <child nodeId="node-0xf2c40a0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf2c40a0">
     <command xml:space="preserve">take can</command>
     <result xml:space="preserve">Fetched.
 
-On the other side of the jail bars in the office, the deputy inspects his LeMat revolver lovingly. 
+Back in the office, the deputy peeks through the jail cell window at the saloon across the street. It&apos;s clear he&apos;d rather be there. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1611cf50" />
+      <child nodeId="node-0xf2c4130" />
     </children>
   </item>
-  <item nodeId="node-0x1611cf50">
+  <item nodeId="node-0xf2c4130">
     <command xml:space="preserve">take spoon</command>
     <result xml:space="preserve">Fetched.
 
-In the office, the deputy stares at Muddy. 
-
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1611cfe0" />
+      <child nodeId="node-0xf2c41c0" />
     </children>
   </item>
-  <item nodeId="node-0x1611cfe0">
+  <item nodeId="node-0xf2c41c0">
     <command xml:space="preserve">x can</command>
-    <result xml:space="preserve">A closed metal can with a paper label saying &quot;BEANS&quot;. On the back, some fine print says, &quot;Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.&quot;
-
-On the other side of the jail bars in the office, the deputy reaches into his pocket, produces a strip of beef jerky and chews on it for a while. 
+    <result xml:space="preserve">A closed metal can labeled &quot;BEANS&quot;. On the back, some fine print says, &quot;Precooked beans. No claim is made regarding the cardioprotective nature of this product. May cause abdominal distension if ingested. No fitness of purpose is implied. No warranty is provided for personal or other injury, or injury or loss related directly or indirectly to the use of this product. By opening this can, you agree to the terms of service posted in town.&quot;
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16217d90" />
+      <child nodeId="node-0xf3c6190" />
     </children>
   </item>
-  <item nodeId="node-0x16217d90">
+  <item nodeId="node-0xf3c6190">
     <command xml:space="preserve">x boots</command>
     <result xml:space="preserve">Black boots that have seen better days. The left boot is missing its heel spur.
 
-It feels cooler than it did last night.
+Muddy paces back and forth impatiently. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16217de0" />
+      <child nodeId="node-0xf3c6220" />
     </children>
   </item>
-  <item nodeId="node-0x16217de0">
+  <item nodeId="node-0xf3c6220">
     <command xml:space="preserve">x right boot</command>
     <result xml:space="preserve">A cowhide boot that has been rubbed smooth. A metal riding spur is about ready to fall off the worn-down heel.
 
-Muddy rocks back and forth on the balls of his feet. 
+Just to the side of the desk, the boiler creaks.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16217e70" />
+      <child nodeId="node-0xf3c62b0" />
     </children>
   </item>
-  <item nodeId="node-0x16217e70">
+  <item nodeId="node-0xf3c62b0">
     <command xml:space="preserve">take spur</command>
     <result xml:space="preserve">You yank the spurs off your right boot, careful not to cut yourself in the process.
 
-Muddy murmurs to himself about not being able to recall a limerick he once heard that had something to do with cowboys and farmers. 
+On the other side of the jail bars in the office, the deputy stares at Muddy. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16217f00" />
+      <child nodeId="node-0xf3c6340" />
     </children>
   </item>
-  <item nodeId="node-0x16217f00">
+  <item nodeId="node-0xf3c6340">
     <command xml:space="preserve">open can with spur</command>
     <result xml:space="preserve">Muddy cranes his neck to see what you&apos;re doing. He&apos;s never seen someone open a can with heel spurs. You slide the spur into the groove along the top of the can, and wiggle it back and forth. The can revolves, and the lid is nearly sawn off. It is hard to tell which of you is more surprised that this worked. 
 
 [Your score has just gone up by five]
 
-Muddy looks around the sheriff&apos;s office. 
+Over in the office, the deputy runs his hand through his sparse hair. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16217f90" />
+      <child nodeId="node-0xf3c63d0" />
     </children>
   </item>
-  <item nodeId="node-0x16217f90">
+  <item nodeId="node-0xf3c63d0">
     <command xml:space="preserve">eat beans</command>
     <result xml:space="preserve">When you were a child, you remember visiting your cousins, who all liked beans. Your aunt insisted that if they could eat beans, so could you. You choked on them, and coughed them up, and they made fun of you. Since then, you don&apos;t even like the way they smell. The beans, that is. Actually, your cousins are kind of rank too.
 
@@ -197,77 +1173,75 @@ Nonetheless, your stomach is growling and you could do with a meal.
 
 [You have dealt with a repressed childhood memory in a constructive manner, your score just went up by two points]
 
-Back in the office, the deputy looks tired. 
+On the other side of the jail bars in the office, the deputy watches you with a bored expression. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218020" />
+      <child nodeId="node-0xf3c6460" />
     </children>
   </item>
-  <item nodeId="node-0x16218020">
+  <item nodeId="node-0xf3c6460">
     <command xml:space="preserve">eat beans</command>
     <result xml:space="preserve">The beans disgust you even more than the rancid meat.
 
 [The thought is enough to make you lose a point.]
 
-Muddy tugs down on his vest, which had ridden up a bit. 
-
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162181b0" />
+      <child nodeId="node-0xf2c4250" />
     </children>
   </item>
-  <item nodeId="node-0x162181b0">
+  <item nodeId="node-0xf2c4250">
     <command xml:space="preserve">eat beans</command>
     <result xml:space="preserve">No. It&apos;s a matter of principle now.
 
 [Your score just went back up by a point for being so principled.]
 
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x16218200" />
-    </children>
-  </item>
-  <item nodeId="node-0x16218200">
-    <command xml:space="preserve">eat beans</command>
-    <result xml:space="preserve">Give Muddy the damn beans. He likes them, but you can&apos;t stand to even look at them.
-
-Muddy rubs up and down against the brick wall, scratching an itch
+Over in the office, the deputy warms his hands near the boiler. 
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218250" />
+      <child nodeId="node-0xf3c65f0" />
     </children>
   </item>
-  <item nodeId="node-0x16218250">
+  <item nodeId="node-0xf3c65f0">
+    <command xml:space="preserve">eat beans</command>
+    <result xml:space="preserve">Give Muddy the damn beans. He likes them, but you can&apos;t stand to even look at them.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
+    <children>
+      <child nodeId="node-0xf3c6680" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3c6680">
     <command xml:space="preserve">give beans to muddy</command>
     <result xml:space="preserve">Muddy takes the can and stares hungrily at the beans.
 
 Even in the most dire situation, Muddy&apos;s appetite remains intact. He looks expectantly at you and says, &quot;Rick, got a spoon?&quot;
 
-Muddy picks some food from between his teeth. 
+Halfway between the door to the outside and your jail cell, the furnace puffs some steam into the office.
 
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162182e0" />
+      <child nodeId="node-0xf3c6710" />
     </children>
   </item>
-  <item nodeId="node-0x162182e0">
+  <item nodeId="node-0xf3c6710">
     <command xml:space="preserve">give spoon to muddy</command>
     <result xml:space="preserve">Muddy cracks a gap-toothed smile and says, &quot;Much obliged,&quot; before digging into the can of beans like a miner hot on a fresh gold vein. A couple moments later, he finishes circling the inside of the can with the spoon, trying to get every last drop of bean juice into his mouth. Afterwards, he places the can and spoon on the floor and rubs his stomach with satisfaction.
 
@@ -276,12 +1250,12 @@ Muddy has an aura of well-fed contentment.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218370" />
+      <child nodeId="node-0xf3c67a0" />
     </children>
   </item>
-  <item nodeId="node-0x16218370">
+  <item nodeId="node-0xf3c67a0">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -290,12 +1264,12 @@ Muddy holds his belly and comments, &quot;Got a bit of indigestion, I does.&quot
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218400" />
+      <child nodeId="node-0xf3c6830" />
     </children>
   </item>
-  <item nodeId="node-0x16218400">
+  <item nodeId="node-0xf3c6830">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -308,12 +1282,12 @@ The deputy looks up from his reading, curious.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218490" />
+      <child nodeId="node-0xf3c68c0" />
     </children>
   </item>
-  <item nodeId="node-0x16218490">
+  <item nodeId="node-0xf3c68c0">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -323,17 +1297,17 @@ Muddy doubles over, &quot;Rick, you should get to high ground. I&apos;m feeling 
 
 The Deputy looks concerned, but confused. 
 
-&quot;This time my plan is sure fire -- go ahead, ask me. C&apos;mon.&quot; Muddy jibes quietly. 
+&quot;This time my plan is surefire -- go ahead, ask me. C&apos;mon.&quot; Muddy jibes quietly. 
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218520" />
+      <child nodeId="node-0xf3c6950" />
     </children>
   </item>
-  <item nodeId="node-0x16218520">
+  <item nodeId="node-0xf3c6950">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -346,12 +1320,12 @@ Muddy whispers in that understated manner of his, &quot;That were a silent but d
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162185b0" />
+      <child nodeId="node-0xf3c69e0" />
     </children>
   </item>
-  <item nodeId="node-0x162185b0">
+  <item nodeId="node-0xf3c69e0">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -364,13 +1338,13 @@ The fragrance gradually improves as the universe cools.
 
 &gt;</result>
     <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <changed>YES</changed>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218640" />
+      <child nodeId="node-0xf3c6a70" />
     </children>
   </item>
-  <item nodeId="node-0x16218640">
+  <item nodeId="node-0xf3c6a70">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -380,11 +1354,11 @@ Muddy vibrates with excitement and gushes, &quot;I got to tell you, Rick, or thi
 
 He notices the sleeping man in your cell for the first time. &quot;Don&apos;t know about him.&quot; Muddy jerks his thumb towards the sleeping figure. &quot;Might be a spy.&quot;
 
-Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. &quot;Okay, Rick, I&apos;m a-going to tell my plan.&quot; Muddy pauses dramatically. &quot;Here it is: we got to break out of this jail before we get strunged up.&quot;
+Muddy leans towards you, his face barely an inch from your ear and his buzzard-worthy breath even less so from your nose. &quot;Okay, Rick, I&apos;m a-going to tell you my plan.&quot; Muddy pauses dramatically. &quot;Here it is: we got to break out of this jail before we get strunged up.&quot;
 
 &quot;That&apos;s it? That&apos;s your whole damn plan? That don&apos;t count as no plan!&quot; you fume.
 
-&quot;Keep it down, Rick!&quot; Muddy&apos;s gaze darts between the deputy and your third cellmate. &quot;Yeah, that&apos;s it for now. It takes time to cook up a good plan. You need lots of ingredients.&quot;
+&quot;Keep it down, Rick!&quot; Muddy&apos;s gaze darts over to your third cellmate. &quot;Yeah, that&apos;s it for now. It takes time to cook up a good plan. You need lots of ingredients.&quot;
 
 &quot;Muddy Charlie,&quot; you retort, &quot;I heared you was the worst cook in the Confederate Army. Your cooking like as did more damage than Sherman&apos;s March.&quot;
 
@@ -393,40 +1367,38 @@ Muddy gives you a hurt look and sulks in the corner. After a while, you regret b
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162186d0" />
+      <child nodeId="node-0xf3c6b00" />
     </children>
   </item>
-  <item nodeId="node-0x162186d0">
+  <item nodeId="node-0xf3c6b00">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
 The deputy pokes his head back in the office and remarks, &quot;I&apos;ve about had enough of you characters. You can stew in your own juices here. I got important things to do over yonder in the saloon. But I reckon I would be dairy licked to leave you jokers alone.&quot;
 
-The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the door way, tempted by the dinner bell.
+The deputy grabs a dinner bell from the hook where it hangs next to the office door, and he rings the bell slowly a few times. Nothing happens. He rings it again. Minutes go by and the deputy waits impatiently. Finally, a fat bloodhound waddles leisurely through the doorway, tempted by the dinner bell.
 
-The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog&apos;s bowl and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office&apos;s strange looking steam boiler and ties him to it with a leash.
+The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitches it into the dog&apos;s bowl, and the bloodhound gobbles it down. The deputy leads his mangy old dog towards the office&apos;s strange-looking steam boiler and ties him to it with a leash.
 
-&quot;This here&apos;s Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don&apos;t cross him.&quot; Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close and drool drips from his toothless mouth.
+&quot;This here&apos;s Flash, my hunting dog. I got to warn you that he can be vicious when he gets riled up, so don&apos;t cross him.&quot; Flash slowly slumps down next to the boiler, enjoying the heat. His heavy eyes close, and drool drips from his toothless mouth.
 
-&quot;Flash here&apos;s apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff&apos;s fancy steam contraption.&quot; The deputy narrows his eyes distrustfully. &quot;If you boys were so stupid as to make for the jailhouse door, &apos;ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that half way across town, and if&apos;n I do hear it, then you&apos;ll have to deal with me *and* Flash.&quot; The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.
+&quot;Flash here&apos;s apt to rip your throat out if you so much as look at him funny, but I got him hooked up here to the sheriff&apos;s fancy steam contraption.&quot; The deputy narrows his eyes distrustfully. &quot;If you boys were so stupid as to make for the jailhouse door, &apos;ol Flash would yank that lever and set off the steam whistle on the roof. The sheriff installed it special for me, so as I can come when he wants me. I can hear that halfway across town, and if&apos;n I do hear it, then you&apos;ll have to deal with me *and* Flash.&quot; The deputy gives Flash one last pat on the head, swigs the whiskey one more time, and departs for the saloon.
 
 &gt;</result>
     <annotation xml:space="preserve">deputy leaves via beans</annotation>
     <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <changed>YES</changed>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1621bda0" />
-      <child nodeId="node-0x16218760" />
+      <child nodeId="node-0xf3ca530" />
+      <child nodeId="node-0xf3c6b90" />
     </children>
   </item>
-  <item nodeId="node-0x16218760">
+  <item nodeId="node-0xf3c6b90">
     <command xml:space="preserve">ask muddy about plan</command>
-    <result xml:space="preserve">I already done told you -- we got to bust out.
-
-Flash rolls over and takes a few minutes afterwards to catch his breath.
+    <result xml:space="preserve">&quot;I already done told you -- we got to bust out.&quot;
 
 &quot;That worked out well,&quot; says Muddy proudly.
 
@@ -437,28 +1409,28 @@ To which Muddy counters, &quot;Ain&apos;t much worse than your feet, I reckon.&q
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162180b0" />
+      <child nodeId="node-0xf3c64f0" />
     </children>
   </item>
-  <item nodeId="node-0x162180b0">
+  <item nodeId="node-0xf3c64f0">
     <command xml:space="preserve">take harmonica</command>
     <result xml:space="preserve">&quot;I ain&apos;t never seen you play the mouth organ, Muddy.&quot;
 
-Your partner turns the harmonica back and forth, and a chain rattles. &quot;That&apos;s &apos;cuz I ain&apos;t never learned how,&quot; he replies.
+Your partner turns the harmonica back and forth. &quot;That&apos;s &apos;cuz I ain&apos;t never learned how,&quot; he replies.
 
 Muddy hands the harmonica to you.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218140" />
+      <child nodeId="node-0xf3c6580" />
     </children>
   </item>
-  <item nodeId="node-0x16218140">
+  <item nodeId="node-0xf3c6580">
     <command xml:space="preserve">play harmonica</command>
     <result xml:space="preserve">Tentatively, you blow a few notes. The bars in the jail cell rattle sympathetically.
 
@@ -466,47 +1438,43 @@ Muddy hands the harmonica to you.
 
 &gt;</result>
     <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218a30" />
+      <child nodeId="node-0xf3c6e60" />
     </children>
   </item>
-  <item nodeId="node-0x16218a30">
+  <item nodeId="node-0xf3c6e60">
     <command xml:space="preserve">play harmonica</command>
-    <result xml:space="preserve">Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a baluga whale.
+    <result xml:space="preserve">Again, the room resonates with the rich and vibrant tones of a bagpipe connected to the blowhole of a beluga whale.
 
 Muddy points excitedly towards the top of the gray bar, &quot;When you played, that screw worked its way out more. It&apos;s like you got some kind of sonic screwdriver or something! I think one more time will do it.&quot;
 
-It feels cooler than it did last night.
-
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218ac0" />
+      <child nodeId="node-0xf3c6ef0" />
     </children>
   </item>
-  <item nodeId="node-0x16218ac0">
+  <item nodeId="node-0xf3c6ef0">
     <command xml:space="preserve">play harmonica</command>
-    <result xml:space="preserve">The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks and rolls under the deputy&apos;s desk. A gray bar falls loose from the ceiling and lands at your feet.
+    <result xml:space="preserve">The screw vibrates out of the ceiling, rebounds off the concrete floor in a shower of sparks, and rolls under the deputy&apos;s desk. A hollow gray tube falls loose from the upper reaches of the jailbars and lands at your feet.
 
 &quot;You done it!&quot; shouts Muddy.
 
-Flash lazily sniffs the machine.
-
 &gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218b50" />
+      <child nodeId="node-0xf3c6f80" />
     </children>
   </item>
-  <item nodeId="node-0x16218b50">
+  <item nodeId="node-0xf3c6f80">
     <command xml:space="preserve">take bar</command>
-    <result xml:space="preserve">(the gray bar)
+    <result xml:space="preserve">(the gray tube)
 You grab the bar.
 
 
@@ -515,57 +1483,42 @@ You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back a
 &quot;Don&apos;t that just beat all,&quot; ponders Muddy.
 [Your score has just gone up by one]
 
-Muddy seems lost in thought. 
-
 &gt;</result>
     <annotation xml:space="preserve">get gray bar</annotation>
     <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218be0" />
+      <child nodeId="node-0xf3c7010" />
     </children>
   </item>
-  <item nodeId="node-0x16218be0">
+  <item nodeId="node-0xf3c7010">
     <command xml:space="preserve">put bar in socket</command>
-    <result xml:space="preserve">(the gray bar in the socket)
+    <result xml:space="preserve">(the gray tube in the socket)
 You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
 
 &gt;</result>
     <annotation xml:space="preserve">repair stool</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218c70" />
+      <child nodeId="node-0xf3c70a0" />
     </children>
   </item>
-  <item nodeId="node-0x16218c70">
+  <item nodeId="node-0xf3c70a0">
     <command xml:space="preserve">stand on stool</command>
     <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
-
-Jail Cell (on the stool)
-The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
-
-Muddy leans against the wall.
-
-In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
-
-You can also see a can of beans (in which is a spoon) and a hunk of meat here.
-
-A metal food bowl.
-
-In the office you can also see Flash.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218d00" />
+      <child nodeId="node-0xf3c7130" />
     </children>
   </item>
-  <item nodeId="node-0x16218d00">
+  <item nodeId="node-0xf3c7130">
     <command xml:space="preserve">look out window</command>
     <result xml:space="preserve">The jail is at the end of a long street. Directly across the street is a saloon, which is open, unlike the stores on both sides of the street that have pulled down their shades for the evening. Below the window there is a covered barrel; you can almost touch its top. Just to the left of the window, a berry-covered vine has grown up the side of the building. 
 
@@ -574,24 +1527,24 @@ Up in the sky, you notice a couple of hungry, circling vultures.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218d90" />
+      <child nodeId="node-0xf3c71c0" />
     </children>
   </item>
-  <item nodeId="node-0x16218d90">
+  <item nodeId="node-0xf3c71c0">
     <command xml:space="preserve">x vine</command>
-    <result xml:space="preserve">The leafless tip of a wiry vine pokes into the cell through the window. It&apos;s covered with small red berries.
+    <result xml:space="preserve">Only the leafless tip of a wiry vine pokes into the cell through the window. It&apos;s covered with small red berries.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16218e20" />
+      <child nodeId="node-0xf3c7250" />
     </children>
   </item>
-  <item nodeId="node-0x16218e20">
+  <item nodeId="node-0xf3c7250">
     <command xml:space="preserve">take berry</command>
     <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
 [Your score has just gone up by one]
@@ -600,12 +1553,12 @@ Up in the sky, you notice a couple of hungry, circling vultures.
     <annotation xml:space="preserve">get berry</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x160d5cc0" />
+      <child nodeId="node-0xf3c72e0" />
     </children>
   </item>
-  <item nodeId="node-0x160d5cc0">
+  <item nodeId="node-0xf3c72e0">
     <command xml:space="preserve">get down</command>
     <result xml:space="preserve">You jump down to the ground again.
 
@@ -620,35 +1573,34 @@ In the corner of the cell, a disheveled man in a black suit is stretched out on 
 
 You can also see a can of beans (in which is a spoon) and a hunk of meat here.
 
-A metal food bowl.
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
 
 In the office you can also see Flash.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16034270" />
+      <child nodeId="node-0xf3c7370" />
     </children>
   </item>
-  <item nodeId="node-0x16034270">
+  <item nodeId="node-0xf3c7370">
     <command xml:space="preserve">take gray bar</command>
     <result xml:space="preserve">You yank the bar out of the stool&apos;s socket.
-You pick up the gray bar.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x178427c0" />
+      <child nodeId="node-0xf3c7400" />
     </children>
   </item>
-  <item nodeId="node-0x178427c0">
+  <item nodeId="node-0xf3c7400">
     <command xml:space="preserve">put berry in bar</command>
-    <result xml:space="preserve">(the gray bar)
-You drop the berry into the gray bar.
+    <result xml:space="preserve">(the gray tube)
+You drop the berry into the gray tube.
 
 
 &quot;Oh, I get it!&quot; nods Muddy, &quot;You&apos;re making some kind of berry gun. I seen the Injuns do something like that, except you ain&apos;t got no darts in there to blow at people.&quot;
@@ -656,16 +1608,16 @@ You drop the berry into the gray bar.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162f7790" />
+      <child nodeId="node-0xf3c7490" />
     </children>
   </item>
-  <item nodeId="node-0x162f7790">
+  <item nodeId="node-0xf3c7490">
     <command xml:space="preserve">blow berry at bell</command>
     <result xml:space="preserve">Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.
 
-The ameoba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.
+The amoeba-like mass of fat and fur known to you as Flash leaps immediately to his feet, saliva dripping from his toothless jowls. He lunges like a champion fencer for his food bowl. His leash snaps taut, pulling the lever away from the front door and towards the strange machine.
 
 The boiler hisses and gurgles, steam jets from the rivet joints in the pipe that connects to the machine, and the machine itself vibrates and rumbles for a minute. A white cup drops from a chute and brown liquid squirts from a nozzle and fills the cup. The smell of fresh coffee pervades the office.
 
@@ -676,64 +1628,49 @@ Finding no food in his bowl, Flash snorts perfunctorily and resumes his former p
     <annotation xml:space="preserve">ring bell with berry</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17809530" />
+      <child nodeId="node-0xf3c7520" />
     </children>
   </item>
-  <item nodeId="node-0x17809530">
+  <item nodeId="node-0xf3c7520">
     <command xml:space="preserve">put gray bar in socket</command>
     <result xml:space="preserve">You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1781adb0" />
+      <child nodeId="node-0xf3c75b0" />
     </children>
   </item>
-  <item nodeId="node-0x1781adb0">
+  <item nodeId="node-0xf3c75b0">
     <command xml:space="preserve">climb stool</command>
     <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
-
-Jail Cell (on the stool)
-The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
-
-Muddy leans against the wall.
-
-In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
-
-You can also see a can of beans (in which is a spoon) and a hunk of meat here.
-
-A metal food bowl.
-
-On the machine is a cup (in which is some coffee).
-
-In the office you can also see Flash.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1781a690" />
+      <child nodeId="node-0xf3c7640" />
     </children>
   </item>
-  <item nodeId="node-0x1781a690">
+  <item nodeId="node-0xf3c7640">
     <command xml:space="preserve">take berry</command>
     <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x178325f0" />
-      <child nodeId="node-0x1d702b90" />
+      <child nodeId="node-0xf3ca410" />
+      <child nodeId="node-0xf3c76d0" />
     </children>
   </item>
-  <item nodeId="node-0x1d702b90">
+  <item nodeId="node-0xf3c76d0">
     <command xml:space="preserve">get down</command>
     <result xml:space="preserve">You jump down to the ground again.
 
@@ -748,7 +1685,7 @@ In the corner of the cell, a disheveled man in a black suit is stretched out on 
 
 You can also see a can of beans (in which is a spoon) and a hunk of meat here.
 
-A metal food bowl.
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
 
 On the machine is a cup (in which is some coffee).
 
@@ -757,52 +1694,51 @@ In the office you can also see Flash.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x18b87230" />
+      <child nodeId="node-0xf3c7760" />
     </children>
   </item>
-  <item nodeId="node-0x18b87230">
+  <item nodeId="node-0xf3c7760">
     <command xml:space="preserve">take gray bar</command>
     <result xml:space="preserve">You yank the bar out of the stool&apos;s socket.
-You pick up the gray bar.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1629cb70" />
+      <child nodeId="node-0xf3c77f0" />
     </children>
   </item>
-  <item nodeId="node-0x1629cb70">
+  <item nodeId="node-0xf3c77f0">
     <command xml:space="preserve">put berry in bar</command>
-    <result xml:space="preserve">(the gray bar)
-You drop the berry into the gray bar.
+    <result xml:space="preserve">(the gray tube)
+You drop the berry into the gray tube.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162f4900" />
-      <child nodeId="node-0x162375a0" />
+      <child nodeId="node-0xf3c9f90" />
+      <child nodeId="node-0xf3c7880" />
     </children>
   </item>
-  <item nodeId="node-0x162375a0">
+  <item nodeId="node-0xf3c7880">
     <command xml:space="preserve">take off left boot</command>
-    <result xml:space="preserve">There are people within a thousand yards. Are you sure?
+    <result xml:space="preserve">In some states that would be a felony. Are you sure?
 
 (yes or no) &gt;&gt;</result>
     <annotation xml:space="preserve">don&apos;t spike coffee</annotation>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16297140" />
+      <child nodeId="node-0xf3c7910" />
     </children>
   </item>
-  <item nodeId="node-0x16297140">
+  <item nodeId="node-0xf3c7910">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
@@ -810,35 +1746,35 @@ Muddy&apos;s eyes water as he complains, &quot;Ain&apos;t you got no sense of sm
 
 To which you reply, &quot;Not after I been downwind of you around feeding time, nope. This ain&apos;t nothing next to what you can do with a can of beans!&quot;
 
-Flash wakes with a start and sneezes loudly. The fur on his back bristles and he opens his eyes to stare in horror at your feet. He backs away, towards the front door. The leash pulls taut. He seems caught in the balance between an urge to run away from your stinky foot and his own laziness which holds him to the spot.
+Flash wakes with a start and sneezes loudly. The fur on his back bristles, and he opens his eyes to stare in horror at your feet. He backs away, towards the front door. The leash pulls taut. He seems caught in the balance between an urge to run away from your stinky foot and his own laziness, which holds him to the spot.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16296090" />
+      <child nodeId="node-0xf3c79a0" />
     </children>
   </item>
-  <item nodeId="node-0x16296090">
+  <item nodeId="node-0xf3c79a0">
     <command xml:space="preserve">take off right boot</command>
     <result xml:space="preserve">Oh, you really don&apos;t want to do that. Not indoors at least. Are you sure?
 
 (yes or no) &gt;&gt;</result>
     <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16237670" />
+      <child nodeId="node-0xf3c7a30" />
     </children>
   </item>
-  <item nodeId="node-0x16237670">
+  <item nodeId="node-0xf3c7a30">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
 Muddy&apos;s eyes water as he complains, &quot;Not again! My poor nose!&quot;
 
-One foot was bad enough, but two is more than the old dog can handle. Trying not to sniff the air, Flash turns tail and breaks for the door, straining against his leash which is tied to the steam pipe lever. The lever swings towards the door, and from the roof you hear the ear-splitting drone of a railway steam whistle.
+One foot was bad enough, but two is more than the old dog can handle. Trying not to sniff the air, Flash turns tail and breaks for the door, straining against his leash, which is tied to the steam pipe lever. The lever swings towards the door, and from the roof you hear the ear-splitting drone of a railway steam whistle.
 
 You agree with with Muddy that the deputy is not likely to be in a good mood when he arrives, so you put your boots back on.
 
@@ -846,114 +1782,101 @@ You agree with with Muddy that the deputy is not likely to be in a good mood whe
     <annotation xml:space="preserve">blow whistle with boots</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d791c80" />
+      <child nodeId="node-0xf3c6c20" />
     </children>
   </item>
-  <item nodeId="node-0x1d791c80">
+  <item nodeId="node-0xf3c6c20">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
 The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty-handed, aside from a nearly empty bottle of whiskey.
 
-The deputy thunders, &quot;What the saddle sore slapping blazes is the matter here?&quot; The deputy surveys the office quickly and then rattles the gate to make sure it is still locked. In his drunk rage, he doesn&apos;t notice the missing metal bar. 
+The deputy thunders, &quot;What the saddle sore slapping blazes is the matter here?&quot; The deputy surveys the office quickly and then rattles the gate to make sure it is still locked. In his drunken rage, he doesn&apos;t notice the missing metal bar. 
 
-Satisfied that you haven&apos;t escaped, he pushes the lever back to the middle position and warns, &quot;I don&apos;t know what you were up to what made old Flash trigger-happy, but don&apos;t let it happen again.&quot;&quot;Dumb dog,&quot; he mumbles, &quot;I was doing important business.&quot; The deputy spits on the ground once and turns to leave the office.
+Satisfied that you haven&apos;t escaped, he pushes the lever back to the middle position and warns, &quot;I don&apos;t know what you were up to what made old Flash trigger-happy, but don&apos;t let it happen again.&quot;
+
+&quot;Dumb dog,&quot; he mumbles, &quot;I was doing important business.&quot; The deputy shakes his head in frustration and sets off again towards the door.
 
 The deputy brightens. &quot;Ummm. I do smell me some coffee.&quot; The deputy drains the mug with a single gulp. &quot;That&apos;s good. I got to wake me up some.&quot;
 
 The deputy looks at the two of you.  &quot;Enough is enough.  You jokers stay put, I&apos;ll be back again in a bit.&quot;
 
-The deputy watches Flash slink back into the office before sauntering out again.
+Flash slinks back to his spot near the boiler and lays down again.
 
 &gt;</result>
     <annotation xml:space="preserve">deputy returns and leaves again</annotation>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16017470" />
+      <child nodeId="node-0xf3c6cb0" />
     </children>
   </item>
-  <item nodeId="node-0x16017470">
+  <item nodeId="node-0xf3c6cb0">
     <command xml:space="preserve">blow berry at bell</command>
     <result xml:space="preserve">Your projectile ricochets off the bell with a metallic &quot;ding!&quot;
 
-Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow causing the machine to rattle and buzz. Finding no food, the despondent dog returns to favorite place in front of the boiler, shutting off the coffee machine.
+Flash reflexively jumps towards his feeding bowl, pulling the lever and somehow causing the machine to rattle and buzz. Finding no food, the despondent dog returns to his favorite place in front of the boiler, shutting off the coffee machine.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17c6e440" />
+      <child nodeId="node-0xf3c6d40" />
     </children>
   </item>
-  <item nodeId="node-0x17c6e440">
+  <item nodeId="node-0xf3c6d40">
     <command xml:space="preserve">x cup</command>
-    <result xml:space="preserve">A white porcelain mugcontaining hot coffee.
+    <result xml:space="preserve">A white porcelain mug containing hot coffee.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x160f4950" />
+      <child nodeId="node-0xf3c6dd0" />
     </children>
   </item>
-  <item nodeId="node-0x160f4950">
+  <item nodeId="node-0xf3c6dd0">
     <command xml:space="preserve">put gray bar in socket</command>
     <result xml:space="preserve">You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d799db0" />
+      <child nodeId="node-0xf3c7b00" />
     </children>
   </item>
-  <item nodeId="node-0x1d799db0">
+  <item nodeId="node-0xf3c7b00">
     <command xml:space="preserve">climb stool</command>
     <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
-
-Jail Cell (on the stool)
-The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
-
-Muddy leans against the wall.
-
-In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
-
-You can also see a can of beans (in which is a spoon) and a hunk of meat here.
-
-A metal food bowl.
-
-On the machine is a cup (in which is some coffee).
-
-In the office you can also see Flash.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7b5940" />
+      <child nodeId="node-0xf3c7b90" />
     </children>
   </item>
-  <item nodeId="node-0x1d7b5940">
+  <item nodeId="node-0xf3c7b90">
     <command xml:space="preserve">take berry</command>
     <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15ba5260" />
+      <child nodeId="node-0xf3c7c20" />
     </children>
   </item>
-  <item nodeId="node-0x15ba5260">
+  <item nodeId="node-0xf3c7c20">
     <command xml:space="preserve">get down</command>
     <result xml:space="preserve">You jump down to the ground again.
 
@@ -968,7 +1891,7 @@ In the corner of the cell, a disheveled man in a black suit is stretched out on 
 
 You can also see a can of beans (in which is a spoon) and a hunk of meat here.
 
-A metal food bowl.
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
 
 On the machine is a cup (in which is some coffee).
 
@@ -977,63 +1900,37 @@ In the office you can also see Flash.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7defc0" />
+      <child nodeId="node-0xf3c7d40" />
     </children>
   </item>
-  <item nodeId="node-0x1d7defc0">
-    <command xml:space="preserve">take bar</command>
-    <result xml:space="preserve">(the bars)
-That ain&apos;t hardly what a body would aim to carry about.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x2157e0" />
-    </children>
-  </item>
-  <item nodeId="node-0x2157e0">
+  <item nodeId="node-0xf3c7d40">
     <command xml:space="preserve">take gray bar</command>
     <result xml:space="preserve">You yank the bar out of the stool&apos;s socket.
-You pick up the gray bar.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15bf4b70" />
+      <child nodeId="node-0xf3c7e60" />
     </children>
   </item>
-  <item nodeId="node-0x15bf4b70">
-    <command xml:space="preserve">blow berry at coffee</command>
-    <result xml:space="preserve">You might use your bar as a blow-gun, but it&apos;s got an emptiness to it right now.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x15b33e70" />
-    </children>
-  </item>
-  <item nodeId="node-0x15b33e70">
+  <item nodeId="node-0xf3c7e60">
     <command xml:space="preserve">put berry in bar</command>
-    <result xml:space="preserve">(the gray bar)
-You drop the berry into the gray bar.
+    <result xml:space="preserve">(the gray tube)
+You drop the berry into the gray tube.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b8be50" />
+      <child nodeId="node-0xf3c7ef0" />
     </children>
   </item>
-  <item nodeId="node-0x15b8be50">
+  <item nodeId="node-0xf3c7ef0">
     <command xml:space="preserve">blow berry at coffee</command>
     <result xml:space="preserve">The berry splatters against the side of the cup, and its juice dribbles downwards.
 
@@ -1047,58 +1944,58 @@ You sure like the way Muddy thinks.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17838350" />
+      <child nodeId="node-0xf3c7f80" />
     </children>
   </item>
-  <item nodeId="node-0x17838350">
+  <item nodeId="node-0xf3c7f80">
     <command xml:space="preserve">remove left boot</command>
-    <result xml:space="preserve">There are people within a thousand yards. Are you sure?
-
-(yes or no) &gt;&gt;</result>
-    <played>YES</played>
-    <changed>YES</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x160f2cf0" />
-    </children>
-  </item>
-  <item nodeId="node-0x160f2cf0">
-    <command xml:space="preserve">yes</command>
-    <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
-
-Muddy&apos;s eyes water as he complains, &quot;Man, them feets of yours stinks powerful bad!&quot;
-
-Flash wakes with a start and sneezes loudly. The fur on his back bristles and he opens his eyes to stare in horror at your feet. He backs away, towards the front door. The leash pulls taut. He seems caught in the balance between an urge to run away from your stinky foot and his own laziness which holds him to the spot.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x1d7acf10" />
-    </children>
-  </item>
-  <item nodeId="node-0x1d7acf10">
-    <command xml:space="preserve">remove right boot</command>
     <result xml:space="preserve">In some states that would be a felony. Are you sure?
 
 (yes or no) &gt;&gt;</result>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17870840" />
+      <child nodeId="node-0xf3c8010" />
     </children>
   </item>
-  <item nodeId="node-0x17870840">
+  <item nodeId="node-0xf3c8010">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
 Muddy&apos;s eyes water as he complains, &quot;Man, them feets of yours stinks powerful bad!&quot;
 
-One foot was bad enough, but two is more than the old dog can handle. Trying not to sniff the air, Flash turns tail and breaks for the door, straining against his leash which is tied to the steam pipe lever. The lever swings towards the door, and from the roof you hear the ear-splitting drone of a railway steam whistle.
+Flash wakes with a start and sneezes loudly. The fur on his back bristles, and he opens his eyes to stare in horror at your feet. He backs away, towards the front door. The leash pulls taut. He seems caught in the balance between an urge to run away from your stinky foot and his own laziness, which holds him to the spot.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
+    <children>
+      <child nodeId="node-0xf3c80a0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3c80a0">
+    <command xml:space="preserve">remove right boot</command>
+    <result xml:space="preserve">Oh, you really don&apos;t want to do that. Not indoors at least. Are you sure?
+
+(yes or no) &gt;&gt;</result>
+    <played>YES</played>
+    <changed>YES</changed>
+    <temporary score="746">NO</temporary>
+    <children>
+      <child nodeId="node-0xf3c8130" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3c8130">
+    <command xml:space="preserve">yes</command>
+    <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
+
+Muddy&apos;s eyes water as he complains, &quot;Man, them feets of yours stinks powerful bad!&quot;
+
+One foot was bad enough, but two is more than the old dog can handle. Trying not to sniff the air, Flash turns tail and breaks for the door, straining against his leash, which is tied to the steam pipe lever. The lever swings towards the door, and from the roof you hear the ear-splitting drone of a railway steam whistle.
 
 You agree with with Muddy that the deputy is not likely to be in a good mood when he arrives, so you put your boots back on.
 
@@ -1106,20 +2003,22 @@ You agree with with Muddy that the deputy is not likely to be in a good mood whe
     <annotation xml:space="preserve">blow whistle with boots</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162f8d70" />
+      <child nodeId="node-0xf3c81c0" />
     </children>
   </item>
-  <item nodeId="node-0x162f8d70">
+  <item nodeId="node-0xf3c81c0">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
-The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty-handed, aside from a nearly empty bottle of whiskey. Flash is so scared that yanks the leash and snaps the lever clear off the machine.
+The Deputy slams through the swinging doors to the office, lurching to the side as he struggles to put his other leg into his pants. He is bare-chested and empty-handed, aside from a nearly empty bottle of whiskey. Flash is so scared that he yanks the leash and snaps the lever clear off the machine.
 
-The deputy thunders, &quot;What the cow-poking sheep-sheering bear-baiting turkey-trotting blazes is the matter here?&quot; The deputy surveys the office quickly and then rattles the gate to make sure it is still locked. In his drunk rage, he doesn&apos;t notice the missing metal bar. 
+The deputy thunders, &quot;What the hoot-hollering blazes is the matter here?&quot; The deputy surveys the office quickly and then rattles the gate to make sure it is still locked. In his drunken rage, he doesn&apos;t notice the missing metal bar. 
 
-&quot;Dumb dog,&quot; he mumbles, &quot;I was doing important business.&quot; He looks around for Flash, but the dog has already slid out of the office. The deputy gives you a mean look and turns to leave the office.
+
+
+&quot;Dumb dog,&quot; he mumbles, &quot;I was doing important business.&quot; He looks around for Flash, but the dog has already slid out of the office. The deputy checks the gate again and sets off again towards the door.
 
 The deputy brightens. &quot;Ummm. I do smell me some coffee.&quot; The deputy drains the mug with a single gulp. &quot;That&apos;s good. I got to wake me up some.&quot;
 
@@ -1130,136 +2029,99 @@ Almost immediately, the deputy spins on his heel and drops to the floor just in 
     <annotation xml:space="preserve">deputy passes out</annotation>
     <played>YES</played>
     <changed>YES</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x18b5fd00" />
+      <child nodeId="node-0xf3c82e0" />
     </children>
   </item>
-  <item nodeId="node-0x18b5fd00">
-    <command xml:space="preserve">put gray bar in stool</command>
-    <result xml:space="preserve">That can&apos;t contain things.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x16035970" />
-    </children>
-  </item>
-  <item nodeId="node-0x16035970">
+  <item nodeId="node-0xf3c82e0">
     <command xml:space="preserve">put gray bar in socket</command>
     <result xml:space="preserve">You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1621ace0" />
+      <child nodeId="node-0xf3c8370" />
     </children>
   </item>
-  <item nodeId="node-0x1621ace0">
+  <item nodeId="node-0xf3c8370">
     <command xml:space="preserve">climb stool</command>
     <result xml:space="preserve">Muddy holds it steady as you climb up. Your head is now even with the top of the window.
-
-Jail Cell (on the stool)
-The small jail cell is brick on three sides, metal bars on the other, with a tightly locked gate. A small window is set into the brickwork above your head. Through the jail bars you can see the sheriff&apos;s office.
-
-Muddy leans against the wall.
-
-In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
-
-You can also see a can of beans (in which is a spoon) and a hunk of meat here.
-
-A metal food bowl.
-
-In the office you can also see a deputy.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17883100" />
+      <child nodeId="node-0xf3c8400" />
     </children>
   </item>
-  <item nodeId="node-0x17883100">
+  <item nodeId="node-0xf3c8400">
     <command xml:space="preserve">put meat on barrel</command>
     <result xml:space="preserve">The hunk of meat drops on top of the covered barrel that is just beneath the window. Almost immediately, a vulture drops from the sky, lands on the barrel, and begins tearing into the rancid meat.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162e0030" />
+      <child nodeId="node-0xf3c8490" />
     </children>
   </item>
-  <item nodeId="node-0x162e0030">
+  <item nodeId="node-0xf3c8490">
     <command xml:space="preserve">x vulture</command>
-    <result xml:space="preserve">A scrawny black bird, with a bald head, sharp yellow beak and white-tipped tail feathers. Its head is plunged into the putrifying piece of meat on the barrel, and tail waves provocatively in your face, just below the window.
+    <result xml:space="preserve">A scrawny black bird, with a bald head, sharp yellow beak and white-tipped tail feathers. Its head is buried in the putrifying piece of meat on the barrel, and its tail waves provocatively in your face, just below the window.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7d08f0" />
+      <child nodeId="node-0xf3c8520" />
     </children>
   </item>
-  <item nodeId="node-0x1d7d08f0">
+  <item nodeId="node-0xf3c8520">
     <command xml:space="preserve">x tail</command>
     <result xml:space="preserve">The vulture&apos;s tail plumage consists of several long, black feathers with white stripes.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d79d100" />
+      <child nodeId="node-0xf3c85b0" />
     </children>
   </item>
-  <item nodeId="node-0x1d79d100">
+  <item nodeId="node-0xf3c85b0">
     <command xml:space="preserve">take feather</command>
-    <result xml:space="preserve">You pluck a feather from the vulture&apos;s tail, and it twists its head momentarily to glare at you before plunging back to its task of devouring the rotting meat.
+    <result xml:space="preserve">You pluck a feather from the vulture&apos;s tail. The bird twists its head momentarily to glare at you before plunging back into its task of devouring the rotting meat.
 [Your score has just gone up by one]
 
 &gt;</result>
     <annotation xml:space="preserve">get feather</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17c6a040" />
+      <child nodeId="node-0xf3c8640" />
     </children>
   </item>
-  <item nodeId="node-0x17c6a040">
+  <item nodeId="node-0xf3c8640">
     <command xml:space="preserve">take berry</command>
     <result xml:space="preserve">You pluck a plump juicy red berry from the part of the vine growing outside the window.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17853d90" />
+      <child nodeId="node-0xf3c86d0" />
     </children>
   </item>
-  <item nodeId="node-0x17853d90">
-    <command xml:space="preserve">search deputy</command>
-    <result xml:space="preserve">You rifle through his pants pockets and find a federal warrant. You also find a small brass key. Naturally, you take both.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x162e50a0" />
-    </children>
-  </item>
-  <item nodeId="node-0x162e50a0">
-    <command xml:space="preserve">get off stool</command>
+  <item nodeId="node-0xf3c86d0">
+    <command xml:space="preserve">get down</command>
     <result xml:space="preserve">You jump down to the ground again.
 
 Jail Cell
@@ -1273,44 +2135,56 @@ In the corner of the cell, a disheveled man in a black suit is stretched out on 
 
 You can also see a can of beans (in which is a spoon) here.
 
-A metal food bowl.
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
 
-In the office you can also see a deputy.
+In the office you can also see the deputy.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b8ed70" />
+      <child nodeId="node-0xf3c8760" />
     </children>
   </item>
-  <item nodeId="node-0x15b8ed70">
+  <item nodeId="node-0xf3c8760">
+    <command xml:space="preserve">search deputy</command>
+    <result xml:space="preserve">You rifle through his trouser pockets and find a federal warrant. You also find a small brass key. Naturally, you take both.
+
+&gt;</result>
+    <played>YES</played>
+    <changed>NO</changed>
+    <temporary score="746">NO</temporary>
+    <children>
+      <child nodeId="node-0xf3c87f0" />
+    </children>
+  </item>
+  <item nodeId="node-0xf3c87f0">
     <command xml:space="preserve">open gate with key</command>
     <result xml:space="preserve">(the gate with the small brass key)
-The key is way too small to fit the medieval lock which imprisons you.
+That doesn&apos;t seem to fit the lock.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7c15d0" />
+      <child nodeId="node-0xf3c8880" />
     </children>
   </item>
-  <item nodeId="node-0x1d7c15d0">
+  <item nodeId="node-0xf3c8880">
     <command xml:space="preserve">x warrant</command>
     <result xml:space="preserve">A piece of paper with black printing and red handwriting.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162d6990" />
+      <child nodeId="node-0xf3c8910" />
     </children>
   </item>
-  <item nodeId="node-0x162d6990">
+  <item nodeId="node-0xf3c8910">
     <command xml:space="preserve">read warrant</command>
     <result xml:space="preserve">&quot;Muddy, this here&apos;s a federal warrant!&quot;
 
@@ -1328,28 +2202,28 @@ Muddy gives you that familiar old look that always leads to trouble. &quot;I got
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1784c7f0" />
+      <child nodeId="node-0xf3c89a0" />
     </children>
   </item>
-  <item nodeId="node-0x1784c7f0">
+  <item nodeId="node-0xf3c89a0">
     <command xml:space="preserve">ask muddy about plan</command>
     <result xml:space="preserve">Muddy says excitedly, &quot;Here&apos;s my idea: I reckon I could take that warrant and forge a different ending. Maybe trick them into releasing us.&quot;
 
 &quot;That&apos;s a great idea, Muddy, let me get my pen and some ink. Oh, wait a minute. I don&apos;t have either!&quot; You glare at Muddy.
 
-&quot;Oh, yeah. I suppose. I didn&apos;t think of that.&quot; Muddy considers the matter. &quot;Maybe we could make one. If you can find something that I can use as a pen, I reckon that one of them red berries would make a right proper kind of ink for it.&quot;
+&quot;Oh, yeah. I suppose. I didn&apos;t think of that.&quot; Muddy considers the matter. &quot;Maybe we could make one. If you can find something that I can use as a pen, I reckon we can squish something or other up to make some kind of ink for it.&quot;
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15bd2f70" />
+      <child nodeId="node-0xf3c8a30" />
     </children>
   </item>
-  <item nodeId="node-0x15bd2f70">
+  <item nodeId="node-0xf3c8a30">
     <command xml:space="preserve">give feather to muddy</command>
     <result xml:space="preserve">&quot;Thanks, partner. That&apos;ll make a right proper pen.&quot;
 
@@ -1358,12 +2232,12 @@ He continues, &quot;To finish this business with the warrant, I&apos;ll need som
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17c29b70" />
+      <child nodeId="node-0xf3c8ac0" />
     </children>
   </item>
-  <item nodeId="node-0x17c29b70">
+  <item nodeId="node-0xf3c8ac0">
     <command xml:space="preserve">give berry to muddy</command>
     <result xml:space="preserve">&quot;Thank you kindly. I reckon that will make a right fine ink.&quot; Muddy dabs the feather in the berry, soaking up the berry juice. 
 
@@ -1372,12 +2246,12 @@ He continues, &quot;To finish this business with the warrant, I&apos;ll need the
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162c0ab0" />
+      <child nodeId="node-0xf3c8b50" />
     </children>
   </item>
-  <item nodeId="node-0x162c0ab0">
+  <item nodeId="node-0xf3c8b50">
     <command xml:space="preserve">give warrant to muddy</command>
     <result xml:space="preserve">Muddy accepts the document and stares at it for a while, turning it this way and that.
 
@@ -1387,44 +2261,44 @@ Muddy applies his quill to the paper and with a few flourishes, scrawls an addit
     <annotation xml:space="preserve">do forgery</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17c6d500" />
+      <child nodeId="node-0xf3c8be0" />
     </children>
   </item>
-  <item nodeId="node-0x17c6d500">
+  <item nodeId="node-0xf3c8be0">
     <command xml:space="preserve">read warrant</command>
     <result xml:space="preserve">It says: FEDERAL WARRANT. This warrant is issued this eleventh day of December in the year of Our Lord Eighteen Hundred and Seventy-One and duly executed by the hand of United States Army Major General Philip H. Sheridan of Fort Sill, the Indian Territory of these United States of America. The fugitives Mudlark Abercromby MacGyver alias &quot;Muddy Charlie,&quot; alias &quot;Mudshoe,&quot; alias &quot;Pensicola Thelma,&quot; and one Major Richard Carter, alias &quot;Gentleman Rick,&quot; alias &quot;Poor Richard,&quot; alias &quot;Gumball Ricky,&quot; both formerly of the Confederate States Army, having been implicated by observation and circumstance of innumerable delicta, dacoiteries, iniquities, infringements, infractions, and indeed immorality, as well as trangressions, trespassing and trainstopping, are considered deleterious and detrimental to the welfare of the State, and THEREFORE, ordered thereupon that a Mittimus be made out to keep them confined until such time as they be discharged for proper hanging of the Sheriff&apos;s portrait on the office wall.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17871b50" />
+      <child nodeId="node-0xf3c8c70" />
     </children>
   </item>
-  <item nodeId="node-0x17871b50">
+  <item nodeId="node-0xf3c8c70">
     <command xml:space="preserve">x deputy</command>
     <result xml:space="preserve">You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gun belt, no boots.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162f4400" />
+      <child nodeId="node-0xf3c8d00" />
     </children>
   </item>
-  <item nodeId="node-0x162f4400">
+  <item nodeId="node-0xf3c8d00">
     <command xml:space="preserve">wake deputy</command>
-    <result xml:space="preserve">The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.
+    <result xml:space="preserve">The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to disheveled man and finally fix on Muddy, who gives him a full-toothed (as many as Muddy still has, at any rate) grin.
 
 The disoriented deputy asks, &quot;What? What in tarnation happened?&quot;
 
 Muddy takes the initiative, &quot;I reckon you must&apos;ve drunk some potent firewater, deputy. You plumb passed out. Now, why don&apos;t you get up and let us out, we got work to do -- just like it says on that federal warrant.&quot;
 
-The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.
+The dull-witted deputy, still stunned by the recent turn of events, stares at the warrant.
 
 Muddy leans forward and points out, &quot;Down there, near the bottom. It says that we should be discharged to hang up the sheriff&apos;s portrait, don&apos;t it?&quot;
 
@@ -1432,301 +2306,117 @@ The deputy yawns and rubs his eyes, &quot;I reckon it do. But I thought you was 
 
 &quot;Oh shucks, no, deputy.&quot; Muddy puts on his most endearing smile. &quot;Don&apos;t you remember the sheriff asking you to take care of his guests? We were just staying here overnight. Now, why don&apos;t you let us out? The sheriff&apos;s going to be mad at us all if that picture ain&apos;t hung by morning.&quot;
 
-The deputy reaches down and does something arcane to the lock. You don&apos;t quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office.
+The deputy reaches down and does something arcane to the lock. You don&apos;t quite see what he did, but it clicks open. He slumps wearily against the jail bars, and the gate swings open, permitting passage eastward into the office.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d77c830" />
+      <child nodeId="node-0xf3c8d90" />
     </children>
   </item>
-  <item nodeId="node-0x1d77c830">
+  <item nodeId="node-0xf3c8d90">
     <command xml:space="preserve">e</command>
-    <result xml:space="preserve">As you leave to go, the harmonica is yanked away from you by the wall-chain.
-
-[Your score has just gone up by five]
+    <result xml:space="preserve">[Your score has just gone up by five]
 
 Office
-A one room jailhouse is fitting for this jerkwater town. There&apos;s a big, wooden desk in the middle of the room. Just behind the desk is a fancy cabinet, with real glass in the door. Next to the cabinet, a large, framed picture of the sheriff stands on the floor. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town. Flash&apos;s empty dog food bowl is nailed to the floor just in front of your jail cell.
+A one-room jailhouse is fitting for this jerkwater town. There&apos;s a big, wooden desk in the middle of the room. Just behind the desk is a fancy cabinet, with real glass in the door. Next to the cabinet, a large, framed picture of the sheriff stands on the floor. To the side of the desk, there is a weird-looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange-looking machine. On the opposite side of the room, two swinging doors lead back to town; a small bell hangs on a hook attached to the door. Flash&apos;s empty dog food bowl is nailed to the floor just in front of your jail cell.
 
 Muddy leans against the wall.
 
-A metal food bowl.
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
 
-You can also see a deputy here.
+You can also see the deputy here.
 
 A repaired stool stands upright.
 
 In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
 
-In the jail cell you can also see a harmonica and a can of beans (in which is a spoon).
+In the jail cell you can also see a can of beans (in which is a spoon).
 
 &gt;</result>
     <annotation xml:space="preserve">escape into office!</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17861490" />
+      <child nodeId="node-0xf3c8e20" />
     </children>
   </item>
-  <item nodeId="node-0x17861490">
-    <command xml:space="preserve">tree</command>
-    <result xml:space="preserve">compass (6) 
-  the north
-  the northeast
-  the northwest
-  the south
-  the southeast
-  the southwest
-  the east
-  the west
-  the up
-  the down
-  the inside
-  the outside
-(darkness object) (7) 
-(Inform Parser) (8) 
-(Inform Library) (9) 
-(property_numberspace_forcer) (10) 
-(ValuePropertyHolder) (32) 
-Library message debug (45) 
-I7_LibraryMessages (46) 
-jail cell (47) 
-  a harmonica
-  a can of beans (open)
-    a spoon
-  a footwear
-  a cell window
-  a stool
-  a bench
-  some bars
-  Pete
-your former self (48) 
-office (65) 
-  Muddy
-    a feather
-    a frock coat (being worn)
-    suit (being worn)
-  a saloon
-  a gate
-  a corn
-  a deer
-  some fields
-  a range
-  an outdoors
-  some vultures
-  a sky
-  some walls
-  a ceiling
-  yourself
-    a warrant
-    a small brass key
-    your right boot (being worn)
-    your left boot (being worn)
-    a spur
-    your pocketwatch
-    your hat (being worn, and open but empty)
-    your pants (being worn)
-    a scrap of paper
-    your overcoat (being worn)
-  a deputy
-    a cigar
-    a bottle of whiskey
-  some swinging doors
-  a boiler
-  a cabinet (closed)
-    a banana
-    a gun belt
-  a chair
-  a desk
-  a food bowl
-  a portrait
-  a machine
-Limbo (78) 
-  a lever
-  Flash
-  a cup
-  some coffee
-  a screw
-  a stain
-  some army guards
-  a marshal
-  a sheriff
-gap (86) 
-jailhouse (93) 
-hook (98) 
-  a bell
-junction (100) 
-grate (101) 
-ball (102) 
-top of the cabinet (104) 
-cabinet door (106) 
-holster (107) 
-  your gun
-drawer (109) 
-  a folder (closed)
-    a telegram
-    a patent
-    a note
-    a receipt
-small lock (115) 
-paper (116) 
-antelope (121) 
-iron pipe (123) 
-nozzle (124) 
-chute (125) 
-whiskey bottle (126) 
-jail door (127) 
-floor (128) 
-gate lock (130) 
-bronze plate (131) 
-seat (132) 
-initials (133) 
-socket (134) 
-harmonica-textbox (135) 
-chain (136) 
-gray bar (137) 
-street (139) 
-  a barrel
-    a hunk of meat
-    a vulture
-  a vine
-rods (143) 
-berry (144) 
-collar (146) 
-colar (147) 
-leash (148) 
-pocket (149) 
-  a pamphlet
-  a tin (closed)
-    a wad of tobacco
-mouth (153) 
-your mouth (154) 
-mount (157) 
-tail (158) 
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x1610d3e0" />
-    </children>
-  </item>
-  <item nodeId="node-0x1610d3e0">
+  <item nodeId="node-0xf3c8e20">
     <command xml:space="preserve">x desk</command>
-    <result xml:space="preserve">A beat-up old wooden desk with time-worn corners, and a pitted, scratched surfacee. The rear of the desk has a small drawer.
+    <result xml:space="preserve">A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface. The rear of the desk has a drawer with a small lock.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16271490" />
+      <child nodeId="node-0xf3c8fd0" />
     </children>
   </item>
-  <item nodeId="node-0x16271490">
-    <command xml:space="preserve">open drawer</command>
-    <result xml:space="preserve">It seems to be locked.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x1d7a0a40" />
-    </children>
-  </item>
-  <item nodeId="node-0x1d7a0a40">
-    <command xml:space="preserve">search deputy</command>
-    <result xml:space="preserve">The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.
-
-The disoriented deputy asks, &quot;What? What in tarnation happened?&quot;
-
-Muddy takes the initiative, &quot;I reckon you must&apos;ve drunk some potent firewater, deputy. You plumb passed out. Now, why don&apos;t you get up and let us out, we got work to do -- just like it says on that federal warrant.&quot;
-
-The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.
-
-Muddy leans forward and points out, &quot;Down there, near the bottom. It says that we should be discharged to hang up the sheriff&apos;s portrait, don&apos;t it?&quot;
-
-The deputy yawns and rubs his eyes, &quot;I reckon it do. But I thought you was criminals.&quot;
-
-&quot;Oh shucks, no, deputy.&quot; Muddy puts on his most endearing smile. &quot;Don&apos;t you remember the sheriff asking you to take care of his guests? We were just staying here overnight. Now, why don&apos;t you let us out? The sheriff&apos;s going to be mad at us all if that picture ain&apos;t hung by morning.&quot;
-
-The deputy reaches down and does something arcane to the lock. You don&apos;t quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x17819bc0" />
-    </children>
-  </item>
-  <item nodeId="node-0x17819bc0">
+  <item nodeId="node-0xf3c8fd0">
     <command xml:space="preserve">open drawer with key</command>
     <result xml:space="preserve">You unlock the drawer.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7b2a00" />
+      <child nodeId="node-0xf3c9060" />
     </children>
   </item>
-  <item nodeId="node-0x1d7b2a00">
+  <item nodeId="node-0xf3c9060">
     <command xml:space="preserve">open drawer</command>
     <result xml:space="preserve">You open the drawer, revealing a folder.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16100970" />
+      <child nodeId="node-0xf3c90f0" />
     </children>
   </item>
-  <item nodeId="node-0x16100970">
+  <item nodeId="node-0xf3c90f0">
     <command xml:space="preserve">open folder</command>
     <result xml:space="preserve">You open the folder, revealing a telegram, a patent, a note, and a receipt.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b9a630" />
+      <child nodeId="node-0xf3c9180" />
     </children>
   </item>
-  <item nodeId="node-0x15b9a630">
+  <item nodeId="node-0xf3c9180">
     <command xml:space="preserve">read telegram</command>
     <result xml:space="preserve">It says: &quot;AGREE TO YOUR OFFER [STOP] WILL SUPPLY MACHINE PARTS IN EXCHANGE FOR 5000 US DOLLARS IN SILVER COIN [STOP] CONGRATULATIONS ON WINNING LOTTERY [STOP] SIGNED JEFFRIES &amp; BRAND STEAMWORKS CO LTD [STOP][END]&quot;.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x162d8790" />
+      <child nodeId="node-0xf3c9210" />
     </children>
   </item>
-  <item nodeId="node-0x162d8790">
+  <item nodeId="node-0xf3c9210">
     <command xml:space="preserve">x patent</command>
     <result xml:space="preserve">A thick technical document describing the coffee machine invented by the sheriff. Reading through it, you can see his plans to make these machines in factories and to sell them throughout the country. Your mind reels in horror at the prospect of coffee shops on every street corner selling fancy, steamed beverages.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x160b7d00" />
+      <child nodeId="node-0xf3c92a0" />
     </children>
   </item>
-  <item nodeId="node-0x160b7d00">
+  <item nodeId="node-0xf3c92a0">
     <command xml:space="preserve">x note</command>
     <result xml:space="preserve">The note is written in a flowing cursive script. It reads:
 
@@ -1739,97 +2429,73 @@ Ella&quot;.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17edcbb0" />
+      <child nodeId="node-0xf3c9330" />
     </children>
   </item>
-  <item nodeId="node-0x17edcbb0">
+  <item nodeId="node-0xf3c9330">
     <command xml:space="preserve">x receipt</command>
     <result xml:space="preserve">A receipt from Jeffries &amp; Brand Steam Works Co Ltd of Witchita Falls. The receipt is for four hundred dollars worth of pipes and fittings purchased by Sheriff Sam Cheney of Crawdad&apos;s Gulch. At the bottom of the note, written in red is the following postscriptum: &quot;Your account with us is severely in arrears. No further credit will be extended. Remit all payments immediately or we will take legal or other actions as required.&quot;.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7064b0" />
+      <child nodeId="node-0xf3c94e0" />
     </children>
   </item>
-  <item nodeId="node-0x1d7064b0">
-    <command xml:space="preserve">take all</command>
-    <result xml:space="preserve">You can&apos;t use multiple objects with that verb.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x16187d20" />
-    </children>
-  </item>
-  <item nodeId="node-0x16187d20">
-    <command xml:space="preserve">take telegram, patent, receipt</command>
-    <result xml:space="preserve">You can&apos;t use multiple objects with that verb.
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x161cd480" />
-    </children>
-  </item>
-  <item nodeId="node-0x161cd480">
+  <item nodeId="node-0xf3c94e0">
     <command xml:space="preserve">take telegram</command>
     <result xml:space="preserve">Fetched.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b2c670" />
+      <child nodeId="node-0xf3c9570" />
     </children>
   </item>
-  <item nodeId="node-0x15b2c670">
+  <item nodeId="node-0xf3c9570">
     <command xml:space="preserve">take patent</command>
     <result xml:space="preserve">Fetched.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7a8d10" />
+      <child nodeId="node-0xf3c9600" />
     </children>
   </item>
-  <item nodeId="node-0x1d7a8d10">
+  <item nodeId="node-0xf3c9600">
     <command xml:space="preserve">take receipt</command>
     <result xml:space="preserve">Fetched.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b046c0" />
+      <child nodeId="node-0xf3c9690" />
     </children>
   </item>
-  <item nodeId="node-0x15b046c0">
+  <item nodeId="node-0xf3c9690">
     <command xml:space="preserve">x cabinet</command>
     <result xml:space="preserve">(the cabinet)
-About three feet tall, and made of oak. The cabinet&apos;s top is covered with circular stains from drinking bottles, but the rest of the cabinet is in good shape. Its door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet&apos;s uneven glass. Despite the distortion, you see what looks like a gun belt some kind of shiny yellow object. Maybe gold, you think, hopefully.
+About three feet tall, and made of oak. The cabinet&apos;s top is covered with circular stains from drink bottles, but the rest of the cabinet is in good shape. Its door covers the front of the cabinet and opens on brass hinges. The contents of the cabinet are recognizable through the cabinet&apos;s uneven glass. Despite the distortion, you see what looks like a gun belt some kind of shiny yellow object. Maybe gold, you think, hopefully.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b69690" />
+      <child nodeId="node-0xf3c9720" />
     </children>
   </item>
-  <item nodeId="node-0x15b69690">
+  <item nodeId="node-0xf3c9720">
     <command xml:space="preserve">open cabinet</command>
     <result xml:space="preserve">(the cabinet)
 The cabinet opens to reveal two gun belts and a banana.
@@ -1839,97 +2505,85 @@ The cabinet opens to reveal two gun belts and a banana.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16071cf0" />
+      <child nodeId="node-0xf3c97b0" />
     </children>
   </item>
-  <item nodeId="node-0x16071cf0">
+  <item nodeId="node-0xf3c97b0">
     <command xml:space="preserve">take gun belt</command>
     <result xml:space="preserve">You strap on your gun belt.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17851e60" />
+      <child nodeId="node-0xf3c9840" />
     </children>
   </item>
-  <item nodeId="node-0x17851e60">
+  <item nodeId="node-0xf3c9840">
     <command xml:space="preserve">take gun</command>
     <result xml:space="preserve">It feels good in your hand.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x16060ad0" />
+      <child nodeId="node-0xf3c98d0" />
     </children>
   </item>
-  <item nodeId="node-0x16060ad0">
+  <item nodeId="node-0xf3c98d0">
     <command xml:space="preserve">x gun</command>
     <result xml:space="preserve">You quickly inspect your gun and are alarmed to discover that it&apos;s unloaded.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15bdffc0" />
+      <child nodeId="node-0xf2e3de0" />
     </children>
   </item>
-  <item nodeId="node-0x15bdffc0">
-    <command xml:space="preserve">x muddy</command>
-    <result xml:space="preserve">Muddy is well... muddy. His dated tweed three-piece suit is tattered, and doesn&apos;t at all match his formal frock coat, which is covered with dust and mud. In short, he hasn&apos;t changed a jot since the day you were both picked up for desertion and thrown in the stockade.
+  <item nodeId="node-0xf2e3de0">
+    <command xml:space="preserve">put gun in holster</command>
+    <result xml:space="preserve">You put the gun into the holster.
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x15b59760" />
+      <child nodeId="node-0xf3c99f0" />
     </children>
   </item>
-  <item nodeId="node-0x15b59760">
+  <item nodeId="node-0xf3c99f0">
     <command xml:space="preserve">l</command>
     <result xml:space="preserve">Office
-There&apos;s a big, wooden desk in the middle of the room. Just behind the desk is a fancy cabinet, with real glass in the door. Next to the cabinet, a large, framed picture of the sheriff stands on the floor. To the side of the desk, there is a weird looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange looking machine. On the opposite side of the room, two swinging doors lead back to town. Flash&apos;s empty dog food bowl is nailed to the floor just in front of your jail cell.
+There&apos;s a big, wooden desk in the middle of the room. Just behind the desk is a fancy cabinet, with real glass in the door. Next to the cabinet, a large, framed picture of the sheriff stands on the floor. To the side of the desk, there is a weird-looking contraption: clearly, some sort of steam boiler which is connected by pipes to a strange-looking machine. On the opposite side of the room, two swinging doors lead back to town; a small bell hangs on a hook attached to the door. Flash&apos;s empty dog food bowl is nailed to the floor just in front of your jail cell.
 
 Muddy leans against the wall.
 
-A metal food bowl.
+A dented food bowl sits on the office floor, only a few feet from the jail bars.
 
-You can also see a deputy here.
+You can also see the deputy here.
 
 A repaired stool stands upright.
 
 In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence.
 
-In the jail cell you can also see a harmonica and a can of beans (in which is a spoon).
+In the jail cell you can also see a can of beans (in which is a spoon).
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x17eefe70" />
+      <child nodeId="node-0xf3c9b10" />
     </children>
   </item>
-  <item nodeId="node-0x17eefe70">
-    <command xml:space="preserve">hang picture</command>
-    <result xml:space="preserve">What do you want to hang the portrait on?
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x1d7c9330" />
-    </children>
-  </item>
-  <item nodeId="node-0x1d7c9330">
+  <item nodeId="node-0xf3c9b10">
     <command xml:space="preserve">hang portrait on wall</command>
     <result xml:space="preserve">Muddy walks over to the portrait and hangs it on the wall, calling back to you, &quot;Do this look centered?&quot;
 
@@ -1948,18 +2602,18 @@ Muddy raises his eyebrows, but doesn&apos;t say anything.
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x2c2ab0" />
+      <child nodeId="node-0xf3c9ba0" />
     </children>
   </item>
-  <item nodeId="node-0x2c2ab0">
+  <item nodeId="node-0xf3c9ba0">
     <command xml:space="preserve">e</command>
     <result xml:space="preserve">Muddy relents and says, &quot;All right, Rick. I reckon we done what we can done. Let&apos;s make for the hills.&quot;
 
 As you head out of the office, two men appear in the door way: Sheriff Cheney and Federal Marshal McLuhan. They are followed by a small detachment of U.S. Army guards.
 
-Sheriff Cheney surges forward pointing his finger at you and Muddy, &quot;It were these two what blown up that train tunnel! They&apos;s escaping when we walked in! Look, they done killed my deputy! We should drop &apos;em where they stand.&quot;
+Sheriff Cheney surges forward, pointing his finger at you and Muddy, &quot;It were these two what blown up that train tunnel! They&apos;s escaping when we walked in! Look, they done killed my deputy! We should drop &apos;em where they stand.&quot;
 
 The marshal looks uncertain and waves the army guards forward. They train their pistols on you. 
 
@@ -1968,42 +2622,34 @@ The marshal rests his hand on the sheriff&apos;s trigger arm and says, &quot;She
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7b79b0" />
+      <child nodeId="node-0xf3c9c30" />
     </children>
   </item>
-  <item nodeId="node-0x1d7b79b0">
+  <item nodeId="node-0xf3c9c30">
     <command xml:space="preserve">wake deputy</command>
-    <result xml:space="preserve">The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to Pastor Pete and finally fix on Muddy who gives him a full-toothed (as many as Muddy still has, at any rate) grin.
+    <result xml:space="preserve">Seeing the sheriff, the deputy sobers up immediately and jumps to his feet. &quot;I was just resting my eyes for a moment, sir, and helping these gentlemen hang your portrait up.&quot;
 
-The disoriented deputy asks, &quot;What? What in tarnation happened?&quot;
+The marshal looks confused and asks the deputy, &quot;Hang up his portrait?&quot;
 
-Muddy takes the initiative, &quot;I reckon you must&apos;ve drunk some potent firewater, deputy. You plumb passed out. Now, why don&apos;t you get up and let us out, we got work to do -- just like it says on that federal warrant.&quot;
+&quot;Well sure, mister marshal, sir. The sheriff done told me they was our welcome guests and that he wanted his picture hung up.&quot;
 
-The dull-witted deputy, still stunned by the recent turn of events stares at the warrant.
-
-Muddy leans forward and points out, &quot;Down there, near the bottom. It says that we should be discharged to hang up the sheriff&apos;s portrait, don&apos;t it?&quot;
-
-The deputy yawns and rubs his eyes, &quot;I reckon it do. But I thought you was criminals.&quot;
-
-&quot;Oh shucks, no, deputy.&quot; Muddy puts on his most endearing smile. &quot;Don&apos;t you remember the sheriff asking you to take care of his guests? We were just staying here overnight. Now, why don&apos;t you let us out? The sheriff&apos;s going to be mad at us all if that picture ain&apos;t hung by morning.&quot;
-
-The deputy reaches down and does something arcane to the lock. You don&apos;t quite see what he did, but it clicks open. He slumps wearily against the jail bars and the gate swings open, permitting passage eastward into the office.
+The marshal raises his eyebrows suspiciously, &quot;You had federal suspects tidying up your office? Sheriff Cheney, I have to say that seems quite sloppy, and not in keeping with the public trust inherent in your position.&quot;
 
 Muddy whispers, &quot;Rick, we ain&apos;t got long. I reckon that marshal is someone what can be reasoned with.&quot;
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d777830" />
+      <child nodeId="node-0xf3c9cc0" />
     </children>
   </item>
-  <item nodeId="node-0x1d777830">
+  <item nodeId="node-0xf3c9cc0">
     <command xml:space="preserve">show patent to marshal</command>
-    <result xml:space="preserve">You show the patent to marshal, and intimate that the sheriff had extensive business plans, far beyond his his mandate as a public servant. 
+    <result xml:space="preserve">You show the patent to the marshal and intimate that the sheriff had extensive business plans, far beyond his mandate as a public servant. 
 
 The marshal flips through the patent for the sheriff&apos;s invention and looks at you questioningly.
 
@@ -2011,64 +2657,50 @@ The marshal flips through the patent for the sheriff&apos;s invention and looks 
 
 The marshal advises, &quot;Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.&quot;
 
-The sheriff rolls his eyes, &quot;For the sake of the all that&apos;s Hog-Tied and Rightful, whyn&apos;t we shoot &apos;em dead right here?&quot;
+The sheriff rolls his eyes, &quot;For the sake of all that&apos;s Hog-Tied and Rightful, whyn&apos;t we shoot &apos;em dead right here?&quot;
 
 The marshal looks at Sheriff Cheney and answers, &quot;Because some of us believe in maintaining some semblance of due process.&quot;
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d799120" />
+      <child nodeId="node-0xf3c9d50" />
     </children>
   </item>
-  <item nodeId="node-0x1d799120">
+  <item nodeId="node-0xf3c9d50">
     <command xml:space="preserve">show telegram to marshal</command>
-    <result xml:space="preserve">You show the telegram to Marshal McLuhan, telling him that he&apos;ll find the sheriff&apos;s stage coach full of stolen silver just behind the jail.
+    <result xml:space="preserve">You show the telegram to Marshal McLuhan, telling him that he&apos;ll find the sheriff&apos;s stagecoach full of stolen silver just behind the jail.
 
 Sheriff Cheney wipes his brow nervously, &quot;I forgot that&apos;s where we left that coach. I do reckon I&apos;m always forgetting where I park. I was going to mention the silver as evidence any second now.&quot;
 
-The marshal strokes his chin. &quot;You&apos;re saying that the sheriff intended to abscond with these funds instead of turning them to state&apos;s evidence? Can you show me any additional evidence that would corroborate this grave accusation? I&apos;m not inclined to distrust an officer of the law. It is true that the sheriff had some personal business concerns, but I have seen nothing to make me suspect that he was lacking for funds.&quot;
+The marshal strokes his chin. &quot;You&apos;re saying that the sheriff intended to abscond with these funds instead of turning them over to state&apos;s evidence? Can you show me any additional evidence that would corroborate this grave accusation? I&apos;m not inclined to distrust an officer of the law. It is true that the sheriff had some personal business concerns, but I have seen nothing to make me suspect that he was lacking for funds.&quot;
 
 Muddy whispers, &quot;We got to show that marshal something. I reckon maybe we could make up some kind of excuse or shift the blame, maybe.&quot;
 
 &gt;</result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="827">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7b0800" />
+      <child nodeId="node-0xf3c9e70" />
     </children>
   </item>
-  <item nodeId="node-0x1d7b0800">
-    <command xml:space="preserve">show receipt</command>
-    <result xml:space="preserve">Who all are you talking to?
-
-&gt;</result>
-    <played>YES</played>
-    <changed>NO</changed>
-    <temporary score="827">NO</temporary>
-    <children>
-      <child nodeId="node-0x17ef2cf0" />
-    </children>
-  </item>
-  <item nodeId="node-0x17ef2cf0">
+  <item nodeId="node-0xf3c9e70">
     <command xml:space="preserve">show receipt to marshal</command>
     <result xml:space="preserve">You show the marshal the receipt and suggest that the sheriff is quite in debt, and might turn to illegal activities to pay it off. 
 
 The marshal dispatches two guards to search behind the office, and when they return with corroboration about the stolen silver, the marshal instructs his guards to restrain and disarm the sheriff, concluding, &quot;So, now it is clear. The sheriff took advantage of the railway incident to rob the train&apos;s silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.&quot;
 
-The marshal rips the gold star off the Sheriff Cheney&apos;s shirt and instructs the guards, &quot;Place Mr. Cheney behind bars.&quot;
+The marshal rips the gold star off Sheriff Cheney&apos;s shirt and instructs the guards, &quot;Place Mr. Cheney behind bars.&quot;
 
-Pastor Pete yawns and walks out of the cell as the guards wrestle the sheriff past him. &quot;I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,&quot; and he walks out the front door.
+disheveled man yawns and walks out of the cell as the guards wrestle the sheriff past him. &quot;I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,&quot; and he walks out the front door.
 
-The marshal raises his eyebrows, but continues, &quot;Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad&apos;s Gulch. Congratulations.&quot; The newly appointed sheriff grins and shakes his hand. As the marshal pins the star on Jimbo&apos;s chest he advises, &quot;James, you&apos;ll probably want to get yourself some deputies -- men you can trust.&quot;
+The marshal raises his eyebrows but continues, &quot;Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad&apos;s Gulch. Congratulations.&quot; The newly appointed sheriff grins and shakes his hand. The marshal almost pins the star to Jimbo&apos;s bare chest, but stops short and just hands it to him. The marshal advises him, &quot;James, you&apos;ll probably want to get yourself some deputies -- men you can trust.&quot;
 
 Sheriff Jim looks over to you and Muddy. The color drains from Muddy&apos;s face.
 [Your score has just gone up by five]
-
-Sheriff Cheney walks behind the office desk and is alarmed to see that the drawer has been unlocked.
 
 *** YOU WIN ***
 
@@ -2076,12 +2708,12 @@ Would you like to RESTART, RESTORE a saved game, see some suggestions for AMUSIN
 &gt; </result>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="826">NO</temporary>
+    <temporary score="746">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7cd430" />
+      <child nodeId="node-0xf3c9f00" />
     </children>
   </item>
-  <item nodeId="node-0x1d7cd430">
+  <item nodeId="node-0xf3c9f00">
     <command xml:space="preserve">amusing</command>
     <result xml:space="preserve">Congratulations, partner. That sure could have turned a whole mess more ugly, but you same out of it with your neck. Before you ride off into the sunset, why don&apos;t you rest your eyeballs on some of the stuff in the game that maybe you ain&apos;t run into:
 
@@ -2109,11 +2741,12 @@ Finally, if you&apos;ve read this far down the page, you deserve to know about t
 
 Would you like to RESTART, RESTORE a saved game, see some suggestions for AMUSING things to do, or QUIT?
 &gt; </result>
+    <annotation xml:space="preserve">amusing</annotation>
     <played>YES</played>
     <changed>NO</changed>
-    <temporary score="708">NO</temporary>
+    <temporary score="745">NO</temporary>
   </item>
-  <item nodeId="node-0x162f4900">
+  <item nodeId="node-0xf3c9f90">
     <command xml:space="preserve">blow berry at coffee</command>
     <result xml:space="preserve">The berry splatters against the side of the cup, and its juice dribbles downwards.
 
@@ -2130,10 +2763,10 @@ You sure like the way Muddy thinks.
     <changed>NO</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x17814b10" />
+      <child nodeId="node-0xf3ca020" />
     </children>
   </item>
-  <item nodeId="node-0x17814b10">
+  <item nodeId="node-0xf3ca020">
     <command xml:space="preserve">take off left shoe</command>
     <result xml:space="preserve">You ain&apos;t able to see no such thing.
 
@@ -2142,10 +2775,10 @@ You sure like the way Muddy thinks.
     <changed>NO</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x16294d70" />
+      <child nodeId="node-0xf3ca0b0" />
     </children>
   </item>
-  <item nodeId="node-0x16294d70">
+  <item nodeId="node-0xf3ca0b0">
     <command xml:space="preserve">take off left boot</command>
     <result xml:space="preserve">In some states that would be a felony. Are you sure?
 
@@ -2154,10 +2787,10 @@ You sure like the way Muddy thinks.
     <changed>YES</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x1d795570" />
+      <child nodeId="node-0xf3ca140" />
     </children>
   </item>
-  <item nodeId="node-0x1d795570">
+  <item nodeId="node-0xf3ca140">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
@@ -2172,10 +2805,10 @@ Flash wakes with a start and sneezes loudly. The fur on his back bristles and he
     <changed>NO</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x1629ae10" />
+      <child nodeId="node-0xf3ca1d0" />
     </children>
   </item>
-  <item nodeId="node-0x1629ae10">
+  <item nodeId="node-0xf3ca1d0">
     <command xml:space="preserve">take off right boot</command>
     <result xml:space="preserve">There are people within a thousand yards. Are you sure?
 
@@ -2184,10 +2817,10 @@ Flash wakes with a start and sneezes loudly. The fur on his back bristles and he
     <changed>YES</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x1d7bad80" />
+      <child nodeId="node-0xf3ca260" />
     </children>
   </item>
-  <item nodeId="node-0x1d7bad80">
+  <item nodeId="node-0xf3ca260">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
@@ -2203,10 +2836,10 @@ You agree with with Muddy that the deputy is not likely to be in a good mood whe
     <changed>NO</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x17823480" />
+      <child nodeId="node-0xf3ca2f0" />
     </children>
   </item>
-  <item nodeId="node-0x17823480">
+  <item nodeId="node-0xf3ca2f0">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -2227,10 +2860,10 @@ Almost immediately, the deputy spins on his heel and drops to the floor just in 
     <changed>YES</changed>
     <temporary score="343">NO</temporary>
     <children>
-      <child nodeId="node-0x1627bad0" />
+      <child nodeId="node-0xf3ca380" />
     </children>
   </item>
-  <item nodeId="node-0x1627bad0">
+  <item nodeId="node-0xf3ca380">
     <command xml:space="preserve">x deputy</command>
     <result xml:space="preserve">You are relieved to find that the deputy is unconscious, but breathing. He is wearing only a pair of pants -- no shirt, no gun belt, no boots.
 
@@ -2239,7 +2872,7 @@ Almost immediately, the deputy spins on his heel and drops to the floor just in 
     <changed>NO</changed>
     <temporary score="342">NO</temporary>
   </item>
-  <item nodeId="node-0x178325f0">
+  <item nodeId="node-0xf3ca410">
     <command xml:space="preserve">eat berry</command>
     <result xml:space="preserve">Muddy stops you, &quot;Don&apos;t be a coward -- if&apos;n you eat that, you&apos;ll sleep clear through to the afternoon -- and we only got till eight in the &quot;A&quot; of &quot;M&quot; to get out of here.&quot;
 
@@ -2248,10 +2881,10 @@ Almost immediately, the deputy spins on his heel and drops to the floor just in 
     <changed>YES</changed>
     <temporary score="515">NO</temporary>
     <children>
-      <child nodeId="node-0x17842090" />
+      <child nodeId="node-0xf3ca4a0" />
     </children>
   </item>
-  <item nodeId="node-0x17842090">
+  <item nodeId="node-0xf3ca4a0">
     <command xml:space="preserve">eat berry</command>
     <result xml:space="preserve">Eight in the morning comes faster than you expected, and the sheriff and marshal show up punctually. You, Muddy and Pete are loaded into a wagon and escorted to Fort Sill. The three of you are marched up the gallows, and ropes are tightened around your necks.
 
@@ -2276,7 +2909,7 @@ Would you like to RESTART, RESTORE a saved game, or QUIT?
     <changed>YES</changed>
     <temporary score="514">NO</temporary>
   </item>
-  <item nodeId="node-0x1621bda0">
+  <item nodeId="node-0xf3ca530">
     <command xml:space="preserve">x man</command>
     <result xml:space="preserve">The man crumpled in the corner wears a black suit and a pastor&apos;s neck tie. He&apos;d almost look respectable, if it weren&apos;t for the immediate environment. He reeks of booze and snores loudly. A pamphlet is sticking out of his pocket. You don&apos;t consider yourself a common pickpocket, but it makes you wonder what else he might have on him.
 
@@ -2293,10 +2926,10 @@ To which Muddy counters, &quot;Ain&apos;t much worse than your feet, I reckon.&q
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621be30" />
+      <child nodeId="node-0xf3ca5c0" />
     </children>
   </item>
-  <item nodeId="node-0x1621be30">
+  <item nodeId="node-0xf3ca5c0">
     <command xml:space="preserve">take pamphlet</command>
     <result xml:space="preserve">You carefully slip the pamphlet out of the sleeping man&apos;s pocket.  He almost wakes up, but doesn&apos;t.
 
@@ -2309,10 +2942,10 @@ Flash snores loudly, his jowls fluttering with each breath.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621bec0" />
+      <child nodeId="node-0xf3ca650" />
     </children>
   </item>
-  <item nodeId="node-0x1621bec0">
+  <item nodeId="node-0xf3ca650">
     <command xml:space="preserve">x pamphlet</command>
     <result xml:space="preserve">The pamphlet depicts God in a cowboy hat roasting sinners over a camp fire. A sermon is printed below the picture.
 
@@ -2321,10 +2954,10 @@ Flash snores loudly, his jowls fluttering with each breath.
     <changed>NO</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621bf50" />
+      <child nodeId="node-0xf3ca6e0" />
     </children>
   </item>
-  <item nodeId="node-0x1621bf50">
+  <item nodeId="node-0xf3ca6e0">
     <command xml:space="preserve">read pamphlet</command>
     <result xml:space="preserve">You read it aloud:
 
@@ -2347,10 +2980,10 @@ Dumbfounded, you stop reading halfway through the pamphlet to stare incredulousl
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621bfe0" />
+      <child nodeId="node-0xf3ca770" />
     </children>
   </item>
-  <item nodeId="node-0x1621bfe0">
+  <item nodeId="node-0xf3ca770">
     <command xml:space="preserve">read pamphlet</command>
     <result xml:space="preserve">You straighten out the pamphlet and skim it, paraphrasing for Muddy.
 
@@ -2365,10 +2998,10 @@ Flash swallows loudly.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c070" />
+      <child nodeId="node-0xf3ca800" />
     </children>
   </item>
-  <item nodeId="node-0x1621c070">
+  <item nodeId="node-0xf3ca800">
     <command xml:space="preserve">give pamphlet to muddy</command>
     <result xml:space="preserve">Muddy grabs it from you, squinting and sounding out words silently with his mouth. His eyes open wide in amazement.
 
@@ -2385,10 +3018,10 @@ The grubby preacher collapses back on the bench, eyes closed and snoring before 
     <changed>NO</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c100" />
+      <child nodeId="node-0xf3ca890" />
     </children>
   </item>
-  <item nodeId="node-0x1621c100">
+  <item nodeId="node-0xf3ca890">
     <command xml:space="preserve">search pete</command>
     <result xml:space="preserve">You find a tin of chewing tobacco. It looks interesting, so you borrow it.
 
@@ -2399,10 +3032,10 @@ Muddy drums his fingers against the wall.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c190" />
+      <child nodeId="node-0xf3ca920" />
     </children>
   </item>
-  <item nodeId="node-0x1621c190">
+  <item nodeId="node-0xf3ca920">
     <command xml:space="preserve">i</command>
     <result xml:space="preserve">You&apos;re carrying a tin, a pamphlet, a spur, your pocketwatch, and a scrap of paper. You are wearing your hat, pants, overcoat, left boot, and right boot. 
 
@@ -2413,10 +3046,10 @@ Your revolver was confiscated, it seems.
     <changed>NO</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c220" />
+      <child nodeId="node-0xf3ca9b0" />
     </children>
   </item>
-  <item nodeId="node-0x1621c220">
+  <item nodeId="node-0xf3ca9b0">
     <command xml:space="preserve">open tin</command>
     <result xml:space="preserve">You open the tin, revealing a wad of tobacco.
 
@@ -2429,10 +3062,10 @@ Pete collapses onto the bench and resumes his previous position as if nothing ha
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c2b0" />
+      <child nodeId="node-0xf3caa40" />
     </children>
   </item>
-  <item nodeId="node-0x1621c2b0">
+  <item nodeId="node-0xf3caa40">
     <command xml:space="preserve">read tin</command>
     <result xml:space="preserve">A rectangular tin of &quot;Spitting Image&quot; chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is opened revealing some shredded black chewing tobacco.
 
@@ -2443,10 +3076,10 @@ Flash almost moves, but then doesn&apos;t.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c340" />
+      <child nodeId="node-0xf3caad0" />
     </children>
   </item>
-  <item nodeId="node-0x1621c340">
+  <item nodeId="node-0xf3caad0">
     <command xml:space="preserve">x tin</command>
     <result xml:space="preserve">A rectangular tin of &quot;Spitting Image&quot; chewing tobacco. The cover shows a cowboy painting a portrait of an Indian, and true to its name, the image on the canvas looks just like the Indian. The tin is opened revealing some shredded black chewing tobacco.
 
@@ -2457,10 +3090,10 @@ Muddy cracks his knuckles loudly.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c3d0" />
+      <child nodeId="node-0xf3cab60" />
     </children>
   </item>
-  <item nodeId="node-0x1621c3d0">
+  <item nodeId="node-0xf3cab60">
     <command xml:space="preserve">chew tobacco</command>
     <result xml:space="preserve">(first sticking some in your maw)
 The tobacco is getting juicy and soft.
@@ -2470,10 +3103,10 @@ The tobacco is getting juicy and soft.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c460" />
+      <child nodeId="node-0xf3cabf0" />
     </children>
   </item>
-  <item nodeId="node-0x1621c460">
+  <item nodeId="node-0xf3cabf0">
     <command xml:space="preserve">chew tobacco</command>
     <result xml:space="preserve">It tastes pretty horrid.
 
@@ -2483,10 +3116,10 @@ Pastor Pete shakes and twists spasmodically.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c4f0" />
+      <child nodeId="node-0xf3cac80" />
     </children>
   </item>
-  <item nodeId="node-0x1621c4f0">
+  <item nodeId="node-0xf3cac80">
     <command xml:space="preserve">chew tobacco</command>
     <result xml:space="preserve">You wonder if tobacco is really good for you, like the doctors say.
 
@@ -2497,10 +3130,10 @@ Muddy closes his eyes and rubs his temples.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c580" />
+      <child nodeId="node-0xf3cad10" />
     </children>
   </item>
-  <item nodeId="node-0x1621c580">
+  <item nodeId="node-0xf3cad10">
     <command xml:space="preserve">chew tobacco</command>
     <result xml:space="preserve">The taste of the tobacco is beginning to disgust you. You&apos;d like to get it out of your mouth.
 
@@ -2511,10 +3144,10 @@ It feels cooler than it did last night.
     <changed>YES</changed>
     <temporary score="74">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c610" />
+      <child nodeId="node-0xf3cada0" />
     </children>
   </item>
-  <item nodeId="node-0x1621c610">
+  <item nodeId="node-0xf3cada0">
     <command xml:space="preserve">spit tobacco at bell</command>
     <result xml:space="preserve">Ding! The bell is hit so hard that it spins around on the hook several times, clanging like a church bell on Sunday.
 
@@ -2533,7 +3166,7 @@ Muddy stares out the window.
     <changed>YES</changed>
     <temporary score="73">NO</temporary>
   </item>
-  <item nodeId="node-0x1621c6a0">
+  <item nodeId="node-0xf3cae30">
     <command xml:space="preserve">take harmonica</command>
     <result xml:space="preserve">&quot;I ain&apos;t never seen you play the mouth organ, Muddy.&quot;
 
@@ -2546,10 +3179,10 @@ Muddy hands the harmonica to you.
     <changed>NO</changed>
     <temporary score="79">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c730" />
+      <child nodeId="node-0xf3caec0" />
     </children>
   </item>
-  <item nodeId="node-0x1621c730">
+  <item nodeId="node-0xf3caec0">
     <command xml:space="preserve">play harmonica</command>
     <result xml:space="preserve">You tentatively blow on it a bit, but you&apos;re not rightly sure what you&apos;re doing.
 
@@ -2562,11 +3195,11 @@ On the other side of the jail bars in the office, the deputy watches you with a 
     <changed>YES</changed>
     <temporary score="79">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cdf0" />
-      <child nodeId="node-0x1621c7c0" />
+      <child nodeId="node-0xf3cb580" />
+      <child nodeId="node-0xf3caf50" />
     </children>
   </item>
-  <item nodeId="node-0x1621c7c0">
+  <item nodeId="node-0xf3caf50">
     <command xml:space="preserve">hit bars</command>
     <result xml:space="preserve">Muddy stands back as you let loose with your full fury and pound on the metal bars.
 As you beat them senseless, you notice that one of them sounds hollow. But which was it?
@@ -2579,10 +3212,10 @@ The deputy looks up from the warrant, annoyed at the distraction. &quot;Them jai
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c850" />
+      <child nodeId="node-0xf3cafe0" />
     </children>
   </item>
-  <item nodeId="node-0x1621c850">
+  <item nodeId="node-0xf3cafe0">
     <command xml:space="preserve">hit rods</command>
     <result xml:space="preserve">The deputy shifts forward in his seat, &quot;I done told you once, don&apos;t mess with the metal bars, not the jail bars, and not them rods in the window. It ain&apos;t like it&apos;s going to help you none anyhow, but it don&apos;t seem proper, what with me sitting here. Keep it up, and I may have to shoot some lead in your direction. That&apos;s a metaphor. It means, I&apos;m going to have to shoot you, in case you don&apos;t know what a metaphor is. See. Lead is what&apos;s in bullets, so in this case, lead is a symbol for... um, lead. I can see I&apos;m wasting my time explaining this to the likes of you.&quot;
 
@@ -2591,10 +3224,10 @@ The deputy looks up from the warrant, annoyed at the distraction. &quot;Them jai
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c8e0" />
+      <child nodeId="node-0xf3cb070" />
     </children>
   </item>
-  <item nodeId="node-0x1621c8e0">
+  <item nodeId="node-0xf3cb070">
     <command xml:space="preserve">scream</command>
     <result xml:space="preserve">That ain&apos;t no verb I got knowledge of.
 
@@ -2603,10 +3236,10 @@ The deputy looks up from the warrant, annoyed at the distraction. &quot;Them jai
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621c970" />
+      <child nodeId="node-0xf3cb100" />
     </children>
   </item>
-  <item nodeId="node-0x1621c970">
+  <item nodeId="node-0xf3cb100">
     <command xml:space="preserve">sing</command>
     <result xml:space="preserve">You got a right fine voice. Just not for singing.
 
@@ -2615,10 +3248,10 @@ The deputy looks up from the warrant, annoyed at the distraction. &quot;Them jai
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621ca00" />
+      <child nodeId="node-0xf3cb190" />
     </children>
   </item>
-  <item nodeId="node-0x1621ca00">
+  <item nodeId="node-0xf3cb190">
     <command xml:space="preserve">dance</command>
     <result xml:space="preserve">That ain&apos;t no verb I got knowledge of.
 
@@ -2627,10 +3260,10 @@ The deputy looks up from the warrant, annoyed at the distraction. &quot;Them jai
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621ca90" />
+      <child nodeId="node-0xf3cb220" />
     </children>
   </item>
-  <item nodeId="node-0x1621ca90">
+  <item nodeId="node-0xf3cb220">
     <command xml:space="preserve">hit bars</command>
     <result xml:space="preserve">Muddy stands back as you let loose with your full fury and pound on the metal bars.
 As you beat them senseless, you notice that one of them sounds hollow. But which was it?
@@ -2649,10 +3282,10 @@ Muddy raises his eyebrows at you to get your attention and whispers, &quot;He ai
     <changed>YES</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cb20" />
+      <child nodeId="node-0xf3cb2b0" />
     </children>
   </item>
-  <item nodeId="node-0x1621cb20">
+  <item nodeId="node-0xf3cb2b0">
     <command xml:space="preserve">hit bars</command>
     <result xml:space="preserve">Muddy stands back as you let loose with your full fury and pound on the metal bars.
 As you beat them senseless, you notice that one of them sounds hollow. But which was it?
@@ -2665,10 +3298,10 @@ Without bothering to get up from his comfortable position behind the desk, the d
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cbb0" />
+      <child nodeId="node-0xf3cb340" />
     </children>
   </item>
-  <item nodeId="node-0x1621cbb0">
+  <item nodeId="node-0xf3cb340">
     <command xml:space="preserve">hit bars</command>
     <result xml:space="preserve">Muddy stands back as you let loose with your full fury and pound on the metal bars.
 As you beat them senseless, you notice that one of them sounds hollow. But which was it?
@@ -2683,10 +3316,10 @@ Muddy shakes his head, motioning you back. &quot;Rick, this guy&apos;s one stage
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cc40" />
+      <child nodeId="node-0xf3cb3d0" />
     </children>
   </item>
-  <item nodeId="node-0x1621cc40">
+  <item nodeId="node-0xf3cb3d0">
     <command xml:space="preserve">hit bars</command>
     <result xml:space="preserve">Muddy stands back as you let loose with your full fury and pound on the metal bars.
 As you beat them senseless, you notice that one of them sounds hollow. But which was it?
@@ -2703,10 +3336,10 @@ The bullets ricocheting off the jailhouse walls every which way are enough to sh
     <changed>YES</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621ccd0" />
+      <child nodeId="node-0xf3cb460" />
     </children>
   </item>
-  <item nodeId="node-0x1621ccd0">
+  <item nodeId="node-0xf3cb460">
     <command xml:space="preserve">hit bars</command>
     <result xml:space="preserve">Muddy stands back as you let loose with your full fury and pound on the metal bars.
 As you beat them senseless, you notice that one of them sounds hollow. But which was it?
@@ -2720,10 +3353,10 @@ A look of fear washes over Muddy&apos;s face, &quot;Don&apos;t do it, Rick. Don&
     <changed>NO</changed>
     <temporary score="28">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cd60" />
+      <child nodeId="node-0xf3cb4f0" />
     </children>
   </item>
-  <item nodeId="node-0x1621cd60">
+  <item nodeId="node-0xf3cb4f0">
     <command xml:space="preserve">sing</command>
     <result xml:space="preserve">The deputy sighs, raises his gun and fires. You catch the bullet smack dab in forehead.
 
@@ -2738,7 +3371,7 @@ Would you like to RESTART, RESTORE a saved game, or QUIT?
     <changed>NO</changed>
     <temporary score="27">NO</temporary>
   </item>
-  <item nodeId="node-0x1621cdf0">
+  <item nodeId="node-0xf3cb580">
     <command xml:space="preserve">play harmonica</command>
     <result xml:space="preserve">The deputy cringes, as you blow not only the notes that are built into the harmonica, but every note in between as well. He stands up, shoves the warrant into his pocket, and grabs a bottle of whiskey off the cabinet.
 
@@ -2761,10 +3394,10 @@ A fly buzzes past your ear and lands on the ceiling.
     <changed>YES</changed>
     <temporary score="79">NO</temporary>
     <children>
-      <child nodeId="node-0x1621ce80" />
+      <child nodeId="node-0xf3cb610" />
     </children>
   </item>
-  <item nodeId="node-0x1621ce80">
+  <item nodeId="node-0xf3cb610">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 
@@ -2784,7 +3417,7 @@ The deputy reaches into his pocket and retrieves a scrap of beef jerky. He pitch
     <changed>YES</changed>
     <temporary score="33">NO</temporary>
   </item>
-  <item nodeId="node-0x1621cf10">
+  <item nodeId="node-0xf3cb6a0">
     <command xml:space="preserve">x boots</command>
     <result xml:space="preserve">Black boots that have seen better days. The left boot is missing its heel spur.
 
@@ -2795,10 +3428,10 @@ On the other side of the jail bars in the office, the deputy peeks through the j
     <changed>YES</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621cfa0" />
+      <child nodeId="node-0xf3cb730" />
     </children>
   </item>
-  <item nodeId="node-0x1621cfa0">
+  <item nodeId="node-0xf3cb730">
     <command xml:space="preserve">remove boot</command>
     <result xml:space="preserve">Which all do you mean, the left boot, or the right boot?
 
@@ -2807,10 +3440,10 @@ On the other side of the jail bars in the office, the deputy peeks through the j
     <changed>NO</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d030" />
+      <child nodeId="node-0xf3cb7c0" />
     </children>
   </item>
-  <item nodeId="node-0x1621d030">
+  <item nodeId="node-0xf3cb7c0">
     <command xml:space="preserve">left</command>
     <result xml:space="preserve">In some states that would be a felony. Are you sure?
 
@@ -2819,10 +3452,10 @@ On the other side of the jail bars in the office, the deputy peeks through the j
     <changed>YES</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d0c0" />
+      <child nodeId="node-0xf3cb850" />
     </children>
   </item>
-  <item nodeId="node-0x1621d0c0">
+  <item nodeId="node-0xf3cb850">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
@@ -2837,10 +3470,10 @@ The deputy wrinkles his nose in distaste and produces a fat cigar from his pocke
     <changed>NO</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d150" />
+      <child nodeId="node-0xf3cb8e0" />
     </children>
   </item>
-  <item nodeId="node-0x1621d150">
+  <item nodeId="node-0xf3cb8e0">
     <command xml:space="preserve">smell</command>
     <result xml:space="preserve">The whole place reeks of cheap cigar smoke.
 
@@ -2851,10 +3484,10 @@ Back in the office, the deputy stares at Muddy.
     <changed>YES</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d1e0" />
+      <child nodeId="node-0xf3cb970" />
     </children>
   </item>
-  <item nodeId="node-0x1621d1e0">
+  <item nodeId="node-0xf3cb970">
     <command xml:space="preserve">remove boot</command>
     <result xml:space="preserve">(the right boot)
 Oh, you really don&apos;t want to do that. Not indoors at least. Are you sure?
@@ -2864,10 +3497,10 @@ Oh, you really don&apos;t want to do that. Not indoors at least. Are you sure?
     <changed>YES</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d270" />
+      <child nodeId="node-0xf3cba00" />
     </children>
   </item>
-  <item nodeId="node-0x1621d270">
+  <item nodeId="node-0xf3cba00">
     <command xml:space="preserve">yes</command>
     <result xml:space="preserve">You rock back and forth on the floor, locked in a death struggle with your foot. Beads of sweat form on your head, as you struggle to twist and pull the boot off. With a sudden sucking pop, the boot relents and you tumble backwards.
 
@@ -2885,10 +3518,10 @@ The fragrance gradually improves as the universe cools.
     <changed>NO</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d300" />
+      <child nodeId="node-0xf3cba90" />
     </children>
   </item>
-  <item nodeId="node-0x1621d300">
+  <item nodeId="node-0xf3cba90">
     <command xml:space="preserve">smell</command>
     <result xml:space="preserve">It stinks to high heaven.
 
@@ -2899,10 +3532,10 @@ Muddy drums his fingers against the wall.
     <changed>YES</changed>
     <temporary score="13">NO</temporary>
     <children>
-      <child nodeId="node-0x1621d390" />
+      <child nodeId="node-0xf3cbb20" />
     </children>
   </item>
-  <item nodeId="node-0x1621d390">
+  <item nodeId="node-0xf3cbb20">
     <command xml:space="preserve">z</command>
     <result xml:space="preserve">Time passes.
 

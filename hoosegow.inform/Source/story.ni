@@ -1375,7 +1375,7 @@ times-used		verbage
 	
 Table of Rare Flash Actions
 times-used		verbage
-0					"streches slowly and then settles back down"
+0					"stretches slowly and then settles back down"
 0					"prepares to bark at something he sees outside, but gets winded and breathes heavily for a few minutes"	
 0					"rolls over and takes a few minutes afterwards to catch his breath"
 0					"stands up, turns around once, and lays back down again"
@@ -1394,12 +1394,12 @@ This is the Pete's stage business rule:
 		be either by Muddy getting the pamphlet, or a certain amount of time after Pete is examined (as a failsafe)]
 	if Pete is not in Limbo and a random chance of 4 in 20 succeeds:
 		if a random chance of 4 in 20 succeeds:
-			say "[Pete] [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
+			say "[the pete] [one of]jumps straight up, immediately animate[or]springs off the bench[or]spins in the air[or]leaps into the middle of the jail cell[or]throws his head back, howls, and stands on the bench[or]somersaults from the bench into the center of the jail cell[or]climbs up the jail bars, his arms swinging wildly[or]bounces from wall to wall[at random]. ";
 			say "He [one of]rant[or]scream[or]yell[or]exclaim[or]shriek[or]chant[or]bellow[or]holler[at random]s, [quotation mark]";
 			pick a phrase from the Table of Pete's Rants;
-			say "![quotation mark][paragraph break][Pete] [one of]collapses[or]dives[or]crumples[or]faints[or]falls[at random] onto the bench and [one of]falls back to sleep immediately[or]is soon lost in dreams again[or]resumes snoring without missing a beat[or]resumes his previous position as if nothing had happened[at random].";
+			say "![quotation mark][paragraph break][the pete] [one of]collapses[or]dives[or]crumples[or]faints[or]falls[at random] onto the bench and [one of]falls back to sleep immediately[or]is soon lost in dreams again[or]resumes snoring without missing a beat[or]resumes his previous position as if nothing had happened[at random].";
 		otherwise:
-			say "[Pete] ";
+			say "[the pete] ";
 			pick a phrase from the table of Pete's Strange Behavior;
 			say paragraph break;
 		the rule succeeds.
@@ -2288,7 +2288,7 @@ Check playing the harmonica:
 		stop the action.
 
 Carry out playing the harmonica:
-	if the deputy is in the office:
+	if the deputy is in the office and the deputy is awake:
 		if the harmonica is not first-heard-by-deputy:
 			say "You tentatively blow on it a bit, but you're not rightly sure what you're doing.[paragraph break]The deputy grimaces, 'Knock off that racket, you two. A noise like that, a man can't get to thinking straight. Settle down now, you hear? I got me some reading to do.' The deputy unfolds the warrant, furrows his brow and begins reading. You can tell because his lips are moving. Slowly.";
 			now the harmonica is first-heard-by-deputy;
@@ -2521,7 +2521,7 @@ Visibility rule when in the jail cell:
 	if examining the barrel and the player is tall:
 		there is sufficient light.
 
-The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no shortage of mystery about it. Don't look so edible." The scent of the berry is "sweet, but ominous".  The berry can be first-held.  The berry is not first-held. The berry can be almost-eaten. The berry is not almost-eaten.
+The berry is a prop.  The berry is part of the vine.  Understand "berries" as the berry.  The description of the berry is "Each berry is plump and red, and got no short of mystery about it. Don't look so edible." The scent of the berry is "sweet, but ominous".  The berry can be first-held.  The berry is not first-held. The berry can be almost-eaten. The berry is not almost-eaten.
 
 Instead of taking the berry:
 	if the player carries the berry:
@@ -2694,7 +2694,7 @@ Instead of doing something with pete:
 			pick a phrase from the Table of Pete's Rants;
 			say "[quotation mark]. He then collapses on the bench again and falls fast asleep."	
 
-The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into [Pete]'s suit."
+The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into [the pete]'s suit."
 
 Instead of taking the pamphlet when the pamphlet is in the pocket:
 	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
@@ -2704,7 +2704,7 @@ Instead of inserting something (called the item) into the pocket (this is the bl
 	if the player does not enclose the item:
 		say "You ain't got [the item] to put anywhere no how.";
 	otherwise:
-		say "Muddy catches your hand before you can put [the item] into [Pete]'s pocket. He chides you, [quotation mark]Taking stuff out of people's pockets is one thing, Rick, but you ain't got no business putting stuff in. It's a violation of a person's privacy I do reckon."
+		say "Muddy catches your hand before you can put [the item] into [the pete]'s pocket. He chides you, [quotation mark]Taking stuff out of people's pockets is one thing, Rick, but you ain't got no business putting stuff in. It's a violation of a person's privacy I do reckon."
 
 Check examining the pamphlet:
 	if the player does not carry the pamphlet,  say "You need it in your hand first." instead.
@@ -2747,11 +2747,11 @@ Instead of searching the pocket:
 		say "You find a tin of chewing tobacco. It looks interesting, so you borrow it."; 
 		move the tin to the player;
 	otherwise:
-		say "You don't find anything that [Pete] wasn't born with."
+		say "You don't find anything that [the pete] wasn't born with."
 		
 Before taking the tin:
 	if the tin is in the pocket:
-		say "You borrow [Pete]'s tin of chewing tobacco. It don't look like he'll mind, seeing as how he's unconscious and all.";
+		say "You borrow [the pete]'s tin of chewing tobacco. It don't look like he'll mind, seeing as how he's unconscious and all.";
 		move the tin to the player;
 		stop the action.
 
@@ -2881,7 +2881,7 @@ Instead of taking inventory: [purloined from Persephone, example 62 in I7 docume
 
 Rick carries a scrap of paper.   The scrap of paper is a prop.  Understand "scrap" and "paper" as the scrap of paper.  The description of the scrap of paper is "Muddy's scribbled instructions for holding up the train, which you carried out faithfully before the Sheriff showed up." The inscription of the scrap of paper is "In smeared scribbles: 'DEER RICK, 1. GET DYNA-MITE FROM MTNSIDE, 2. INSERT SPARKER, 3. BLOW UP TUNNEL, 4. WAIT FOR ME'[one of].[paragraph break]That was Muddy's cunning plan, and unlike most of his plans, it went off without a hitch: you got the silver, nobody got hurt. Yup, not a single hitch -- except for getting caught[or][stopping]." Understand "instructions" as the scrap of paper.
 
-Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction went awry, the hole on the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Each flaw in the garment reminds you of one of Muddy's plans, each of which sounded so reasonable at the time...[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten". Understand "coat" as overcoat.
+Rick wears an overcoat. The indefinite article of the overcoat is "your". The description of the overcoat is "[one of]The gray riding coat reminds you of past adventures with Muddy Charlie: the speckled holes on the side where you caught a shotgun blast when a bank transaction done gone awry, the hole on the other side from the time you and Muddy got to fooling around with a bow, an arrow, and a bottle of whiskey, and the charred, frayed edges of the coat from the time you and Muddy were almost burnt as witches. Each flaw in the garment reminds you of one of Muddy's plans, each of which sounded so reasonable at the time...[or]A gray riding coat that has been cut, stabbed, perforated, flayed, frayed, spindled, and mutilated. Many fond memories[stopping]." The scent of the overcoat is "ripe". The texture of the overcoat is "weatherbeaten". Understand "coat" as overcoat.
 
 Instead of searching the overcoat:
 	say "[one of]Your hands slip into where your pockets used to be. Nothing is left of your pockets, except holes. Not that your overcoat needed more holes[or]You don't find anything[stopping]."
@@ -2931,7 +2931,7 @@ Instead of touching the spur:
 
 Instead of taking or pulling or attacking or taking off the spur when the spur is part of the right boot:
 	now the player carries the spur;
-	say "You yank the spurs off your right boot, careful not to cut yourself in the process."
+	say "You yank the spur off your right boot, careful not to cut yourself in the process."
 
 Section Sheriff
 
@@ -3011,7 +3011,7 @@ To say deputy drinks some normal coffee:
 	say "The deputy brightens. [quotation mark]Ummm. I do smell me some coffee.[quotation mark] The deputy drains the mug with a single gulp. [quotation mark]That's good. I got to wake me up some.[quotation mark][paragraph break]The deputy looks at the two of you.  [quotation mark]Enough is enough.  You jokers stay put, I'll be back again in a bit.[quotation mark][paragraph break]Flash slinks back to his spot near the boiler and lays down again."
 	
 To say get out of jail free:
-	say "The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to [Pete] and finally fix on Muddy, who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events, stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars, and the gate swings open, permitting passage eastward into the office."
+	say "The deputy groans deeply and curls up into a ball, rolling towards you and blinking quickly. His half-focused eyes drift from you to [the pete] and finally fix on Muddy, who gives him a full-toothed (as many as Muddy still has, at any rate) grin.[paragraph break]The disoriented deputy asks, [quotation mark]What? What in tarnation happened?[quotation mark][paragraph break]Muddy takes the initiative, [quotation mark]I reckon you must've drunk some potent firewater, deputy. You plumb passed out. Now, why don't you get up and let us out, we got work to do -- just like it says on that federal warrant.[quotation mark][paragraph break]The dull-witted deputy, still stunned by the recent turn of events, stares at the warrant.[paragraph break]Muddy leans forward and points out, [quotation mark]Down there, near the bottom. It says that we should be discharged to hang up the sheriff's portrait, don't it?[quotation mark][paragraph break]The deputy yawns and rubs his eyes, [quotation mark]I reckon it do. But I thought you was criminals.[quotation mark][paragraph break][quotation mark]Oh [italic type]shucks, no[roman type], deputy.[quotation mark] Muddy puts on his most endearing smile. [quotation mark]Don't you remember the sheriff asking you to take care of his [italic type]guests[roman type]? We were just staying here overnight. Now, why don't you let us out? The sheriff's going to be mad at us all if that picture ain't hung by morning.[quotation mark][paragraph break]The deputy reaches down and does something arcane to the lock. You don't quite see what he did, but it clicks open. He slumps wearily against the jail bars, and the gate swings open, permitting passage eastward into the office."
 	
 To say rather not hang around:
 	say "[quotation mark]I reckon,[quotation mark] agrees Muddy. [quotation mark]I ain't keen to hang around here no more neither.[quotation mark] You walk out into the pitch-dark night, poor but free.[paragraph break]From somewhere ahead of you, Muddy offers, [quotation mark]You know, Rick. While we were in there I did some thinking, and this time I reckon I got a plan that can't fail...[quotation mark][paragraph break]".
@@ -3058,7 +3058,7 @@ To say need-more-evidence-than-patent:
 	say "The marshal flips through the patent for the sheriff's invention and looks at you questioningly.[paragraph break][quotation mark]So?[quotation mark] he asks. [quotation mark]It seems like a clever enough invention, and I presume this work was not done on public time, or using town resources[if silver-found is false]. I also would guess that he will need some big-time investors to put a plan like this into action, but I don't see anything wrong with that. The sheriff's a businessman pure and simple. There isn't anything more American than a man willing to make a profit, when the profit is there for the taking[otherwise]. It isn't like the sheriff is in debt. I am sure a man of his caliber can find some associates to invest in his fine invention[end if].[quotation mark][paragraph break]". 
 	
 To say happy-ending:
-	say "[if sent-for-silver is not true]The marshal dispatches two guards to search behind the office, and when they return with corroboration about the stolen silver, the marshal[otherwise]Marshal McLuhan[end if] instructs his guards to restrain and disarm the sheriff, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break][Pete] yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark] The newly appointed sheriff grins and shakes his hand. The marshal almost pins the star to Jimbo's bare chest, but stops short and just hands it to him. The marshal advises him, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
+	say "[if sent-for-silver is not true]The marshal dispatches two guards to search behind the office, and when they return with corroboration about the stolen silver, the marshal[otherwise]Marshal McLuhan[end if] instructs his guards to restrain and disarm the sheriff, concluding, [quotation mark]So, now it is clear. The sheriff took advantage of the railway incident to rob the train's silver himself in order to finance the development of his invention into a business. He framed these two itinerant laborers to shift the blame. No wonder he wanted them killed so quickly.[quotation mark][paragraph break]The marshal rips the gold star off Sheriff Cheney's shirt and instructs the guards, [quotation mark]Place Mr. Cheney behind bars.[quotation mark][paragraph break][the pete] yawns and walks out of the cell as the guards wrestle the sheriff past him. [quotation mark]I do reckon I slept like the dead last night. Thank you for a peaceful night, deputy,[quotation mark] and he walks out the front door.[paragraph break]The marshal raises his eyebrows but continues, [quotation mark]Deputy James Smith Bush, by the power invested in me as federal marshal of this district, I hereby promote you to Sheriff of the Town of Crawdad's Gulch. Congratulations.[quotation mark] The newly appointed sheriff grins and shakes his hand. The marshal almost pins the star to Jimbo's bare chest, but stops short and just hands it to him. The marshal advises him, [quotation mark]James, you'll probably want to get yourself some deputies -- men you can trust.[quotation mark][paragraph break]Sheriff Jim looks over to you and Muddy. The color drains from Muddy's face."
 
 To say capital-charges:
 	say "The marshal advises, [quotation mark]Citizens, I am required by federal law as it applies to the Territory to advise you that CAPITAL CHARGES have been filed against you, and summary execution will take place, unless evidence to the contrary can be brought to light.[quotation mark][paragraph break]The sheriff rolls his eyes, [quotation mark]For the sake of all that's Hog-Tied and Rightful, whyn't we shoot [apostrophe]em dead right here?[quotation mark][paragraph break]The marshal looks at Sheriff Cheney and answers, [quotation mark]Because [italic type]some[roman type] of us believe in maintaining some semblance of due process.[quotation mark][paragraph break]".
@@ -3070,7 +3070,7 @@ To say death-note:
 	say "Several hours later, from your high platform, you and Muddy have an excellent view of the area around Fort Sill.[paragraph break]Muddy turns to you, [quotation mark]Well, reckon we'll be seeing each other again real soon now. It was an honor and a pleasure, sir.[quotation mark]There is a creaking sound followed by a falling sensation."
 	
 To say 8AM-text:
-	say "Eight in the morning comes faster than you expected, and the sheriff and marshal show up punctually. You, Muddy and [Pete] are loaded into a wagon and escorted to Fort Sill. The three of you are marched up the gallows, and ropes are tightened around your necks.[paragraph break]From the other side of the preacher, Muddy yells over to you, [quotation mark]Rick...Rick....[quotation mark][paragraph break]You ignore him. You're just not in the mood.[paragraph break]Muddy persists. [quotation mark]Rick... Rick....[quotation mark][paragraph break][quotation mark]What?[quotation mark] you huff. [quotation mark]I hope this ain't another of your plans. It would be a little late.[quotation mark][paragraph break][quotation mark]Nope, no plan Rick. I just wanted to mention that from up here, I can see our house.[quotation mark][paragraph break]The floor falls away, and everything goes dark."
+	say "Eight in the morning comes faster than you expected, and the sheriff and marshal show up punctually. You, Muddy and [the pete] are loaded into a wagon and escorted to Fort Sill. The three of you are marched up the gallows, and ropes are tightened around your necks.[paragraph break]From the other side of the preacher, Muddy yells over to you, [quotation mark]Rick...Rick....[quotation mark][paragraph break]You ignore him. You're just not in the mood.[paragraph break]Muddy persists. [quotation mark]Rick... Rick....[quotation mark][paragraph break][quotation mark]What?[quotation mark] you huff. [quotation mark]I hope this ain't another of your plans. It would be a little late.[quotation mark][paragraph break][quotation mark]Nope, no plan Rick. I just wanted to mention that from up here, I can see our house.[quotation mark][paragraph break]The floor falls away, and everything goes dark."
 	
 To say meat-text:
 	say "[one of]When your eyes refocus, you can see Muddy leaning over you, his face an expression of concern.[paragraph break][quotation mark]You done fainted, Rick. Flat out like a board. Didn't say nothing, at all. Just went down like a hog at a rodeo[quotation mark][or]After some time, you pick yourself up off the ground, where you have collapsed. Muddy just shakes his head, incredulous of your inability to learn from your mistakes. Like he should talk[or]You wake up with a pain in your [one of]head[or]back[or]leg[or]arm[or]neck[or]feet[at random], having once again passed out[stopping].[paragraph break]". 
@@ -3079,7 +3079,7 @@ To say muddy-clues:
 	say "Muddy whispers, [quotation mark][one of]Rick, we ain't got long. I reckon that marshal is someone what can be reasoned with[or]We got to show that marshal something. I reckon maybe we could make up some kind of excuse or shift the blame, maybe[or]Rick, we're almost out of time. You got to convince that marshal that we ain't no more crooked than that sheriff[stopping].[quotation mark][paragraph break]"
 
 To say whistled-to-death:
-	say "The deputy stumbles in from the street, barely able to stand. Regarding you through bloodshot and unfocused eyes, he whines, [quotation mark]I done told you enough times not to set off that whistle and did you listen? Heck, no. Well, maybe this will teach you a lesson![quotation mark][paragraph break]He staggers forward and draws his gun. The first shot goes into the pipe above the steam boiler, puncturing the pipe and sending a jet of hot steam into the Deputy's face. The deputy howls in pain and shoots again, hitting the dinner bell. Flash darts forward, tripping the deputy and sending him sprawling on the floor. The deputy curses and fires a volley of three more shots into the ceiling, which showers him with concrete fragments, blinding him. The next shot goes wide, straight out the jail cell window, and brings down a hawk that had been circling overhead. With his final shot, the deputy shoots the floor just in front of his left boot.[paragraph break]By some quirk of physics and happenstance, the exact nature of which is debated to this very day, the bullet ricochets off the wooden cabinet, clips the ends of the portrait frame, rebounds off the bricks above [Pete]'s bench, vibrates rapidly between the jail bars, kicks the bean can into the air, and flies in a final straight line that includes both your head and Muddy's."
+	say "The deputy stumbles in from the street, barely able to stand. Regarding you through bloodshot and unfocused eyes, he whines, [quotation mark]I done told you enough times not to set off that whistle and did you listen? Heck, no. Well, maybe this will teach you a lesson![quotation mark][paragraph break]He staggers forward and draws his gun. The first shot goes into the pipe above the steam boiler, puncturing the pipe and sending a jet of hot steam into the Deputy's face. The deputy howls in pain and shoots again, hitting the dinner bell. Flash darts forward, tripping the deputy and sending him sprawling on the floor. The deputy curses and fires a volley of three more shots into the ceiling, which showers him with concrete fragments, blinding him. The next shot goes wide, straight out the jail cell window, and brings down a hawk that had been circling overhead. With his final shot, the deputy shoots the floor just in front of his left boot.[paragraph break]By some quirk of physics and happenstance, the exact nature of which is debated to this very day, the bullet ricochets off the wooden cabinet, clips the ends of the portrait frame, rebounds off the bricks above [the pete]'s bench, vibrates rapidly between the jail bars, kicks the bean can into the air, and flies in a final straight line that includes both your head and Muddy's."
 	
 To say lifting text:
 	say "[one of][quotation mark]Muddy, give me a hand up,[quotation mark] you ask. Muddy stretches his back and boosts you up to the window[or]Muddy knows the drill, and bends down to give you a boost, saying, [quotation mark]Go gentle. I got a bad back, you know. Age ain't kind to them that is in our profession.[quotation mark][or]Muddy rubs his back but lifts you up[or]Muddy looks like his back hurts; he's walking kind of bent over now but still gives you a boost up to the window[stopping]."
@@ -3478,7 +3478,7 @@ A hint activation rule (this is the stool fixing hint activation rule):
 		activate the Table of Stool Fixing.
 		
 A hint deactivation rule (this is the stool fixing hint deactivation rule):
-	if the socket is occupied then deactivate the Table of Trap Setting.
+	if the socket is occupied then deactivate the Table of Stool Fixing.
 
 
 Table of Stool Fixing
