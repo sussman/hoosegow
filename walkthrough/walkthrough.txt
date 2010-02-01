@@ -1,0 +1,108 @@
+[press space]
+>x bench
+>x meat
+>take can
+>take spoon
+>x can
+>x boots
+>x right boot
+>take spur
+>open can with spur
+>eat beans
+>eat beans
+>eat beans
+>eat beans
+>give beans to muddy
+>give spoon to muddy
+>z
+>z
+>z
+>z
+>z
+>z
+>z
+>ask muddy about plan
+>take harmonica
+>play harmonica
+>play harmonica
+>play harmonica
+>take bar
+>put bar in socket
+>stand on stool
+>look out window
+>x vine
+>take berry
+>get down
+>take gray bar
+>put berry in bar
+>blow berry at bell
+>put gray bar in socket
+>climb stool
+>take berry
+>get down
+>take gray bar
+>put berry in bar
+>take off left boot
+(yes or no) >>yes
+>take off right boot
+(yes or no) >>yes
+>z
+>blow berry at bell
+>x cup
+>put gray bar in socket
+>climb stool
+>take berry
+>get down
+>take gray bar
+>put berry in bar
+>blow berry at coffee
+>remove left boot
+(yes or no) >>yes
+>remove right boot
+(yes or no) >>yes
+>z
+>put gray bar in socket
+>climb stool
+>put meat on barrel
+>x vulture
+>x tail
+>take feather
+>take berry
+>get down
+>search deputy
+>open gate with key
+>x warrant
+>read warrant
+>ask muddy about plan
+>give feather to muddy
+>give berry to muddy
+>give warrant to muddy
+>read warrant
+>x deputy
+>wake deputy
+>e
+>x desk
+>open drawer with key
+>open drawer
+>open folder
+>read telegram
+>x patent
+>x note
+>x receipt
+>take telegram
+>take patent
+>take receipt
+>x cabinet
+>open cabinet
+>take gun belt
+>take gun
+>x gun
+>put gun in holster
+>l
+>hang portrait on wall
+>e
+>wake deputy
+>show patent to marshal
+>show telegram to marshal
+>show receipt to marshal
+> amusing
