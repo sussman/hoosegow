@@ -3881,7 +3881,7 @@ Every turn during crunch time:
 		-- 13:
 			say "An army guard enters the office and hands a yellow telegram form to the federal marshal.";
 		-- 14:
-			say "The marshal telegram, shaking his head sadly.";
+			say "The marshal reads the telegram, shaking his head sadly.";
 		-- 15:
 			say "The marshal commands his men to take you into custody and escort you out to the waiting coach.";
 		-- 16:
@@ -3939,7 +3939,7 @@ Instead of showing something (called the evidence) to someone (called the specta
 				-- otherwise:
 					say "The marshal looks at [the evidence] briefly but does not seem impressed.";
 		-- otherwise:
-			say "The marshal demands, [quotation mark]As the senior lawman present, all evidence must be presented to me.[quotation mark][paragraph break]".
+			say "The marshal demands, [quotation mark]As the senior lawman present, I must be the one to examine all evidence.[quotation mark][paragraph break]".
 	
 	
 Chapter Time Out
