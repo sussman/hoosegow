@@ -608,6 +608,28 @@ Section Jumping
 
 Understand "jump in place" as jumping.
 
+Section Kissing
+
+Understand the command "kiss" as something new.
+
+Understand "kiss [a thing]" as kissing.
+
+Report kissing:
+	if the noun is:
+		-- Rick:
+			say "You may be as good-looking as ever, but that's no reason to go around kissing yourself.";
+		-- Muddy:
+			say "Muddy blushes.";
+		-- vulture:
+			say "The vulture gives you a little peck back.";
+		-- Pete:
+			say "You approach [the Pete], but just don't have the stomach to go through with it.";
+		-- otherwise:
+			if the noun is a person:
+				say "That don't seem to be a wise course of action just now.";
+			otherwise:
+				say "You give [the noun] a nice wet kiss.";
+
 
 Section Listening
 [Listen is implemented through insteads. Override this general instead rule with more specific ones as needed]
@@ -1664,11 +1686,14 @@ Instead of putting the meat on something (called the target):
 		move the vulture to the barrel;
 		move the meat to the barrel.
 	
+To say meat-away:
+	say "You'd rather put the meat somewhere you don't have to look at it."
+
 Instead of putting the meat on anything that is enclosed by the jail cell:
-	say "You'd rather not put it on anything that you might sit on."
+	say "[meat-away]".
 	
 Instead of throwing the meat at anything that is enclosed by the office:
-	say "You'd rather put the meat somewhere you don't have to look at it."
+	say "[meat-away]".
 	
 Instead of inserting the meat into the hat:
 	say "There ain't no way that rotting chunk of meat is coming anywhere near your fine hat." 
@@ -2554,7 +2579,7 @@ Chapter Characters
 
 Section Army
 
-The army guards are a person in Limbo. The army guards are plural-named. The army guards are fixed in place. The description of the army guards is "A number of well-armed young frontier men in regimental uniforms. They look tough." Understand "men" or "young" as the army guards.
+The army guards are a person in Limbo. The army guards are plural-named. The army guards are fixed in place. The description of the army guards is "A number of well-armed young frontier men in regimental uniforms. They look tough." Understand "men" or "young" or "guard" or "soldier" as the army guards.
 
 Section Deputy
 
