@@ -70,7 +70,6 @@
 >take berry
 >get down
 >search deputy
->open gate with key
 >x warrant
 >read warrant
 >ask muddy about plan
