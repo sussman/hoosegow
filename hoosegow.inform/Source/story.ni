@@ -638,8 +638,8 @@ times-used		verbage
 0			"Concentrating, you can hear the paint drying on the walls"
 0			"You hear [if Flash is in the office]Flash's slow, easy[otherwise]Muddy's wheezy[end if] breathing"
 0			"From somewhere off in the hills, you hear a coyote howling at the moon"
-0			"Through the window, you hear the strums of a neary banjo."
-0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure."
+0			"Through the window, you hear the strums of a neary banjo"
+0			"You hear kids playing in the street, or perhaps a gang of drunken vigilantes exacting mob justice. It's hard to tell for sure"
 
 Section Looking Under
 
