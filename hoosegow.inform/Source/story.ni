@@ -2403,7 +2403,7 @@ Instead of taking or pulling or pushing the gray bar:
 				say ".";
 			otherwise:
 				if the bar is not first-held:
-					say "You grab the bar.[if the gray bar is not blowgun-discussed][paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you. [paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy.[end if]";
+					say "You grab the bar[if the gray bar is not blowgun-discussed].[paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you.[paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy[end if].";
 					adjust points by one;
 					now the bar is first-held;
 				otherwise:
