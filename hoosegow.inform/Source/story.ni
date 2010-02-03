@@ -2714,7 +2714,7 @@ Instead of giving something to pete:
 	try poking pete. [to trigger the next rule...]
 
 Instead of doing something with pete:
-	if the current action is examining or searching:
+	if the current action is examining or searching or smelling:
 		continue the action;
 	otherwise:
 		if Pete is recognized:
