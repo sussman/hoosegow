@@ -300,7 +300,22 @@ To say spoon-deputy:
 	say "To get every drop".
 	
 To say warrant-muddy:
-	say "It gives law men their marching orders".
+	if the gate is not locked:
+		say "I'd just keep that between us for now. It fooled the deputy, but I don't figure there's but two people in the world that corn-dogged dumb, and my Aunt Heloise ain't here, neither";
+		the rule succeeds;
+	if Rick carries the warrant and the warrant is not recognized:
+		say "Hang on a minute, Rick. What exactly do you got there? Let me take a gander";
+	otherwise:
+		if the current plan is not two:[the warrant forging plan]
+			say "A piece of fancy paper what gives lawmen their marching orders";
+		otherwise:
+			if the ask-me counter is not six:[muddy's said his plan]
+				say "That's what I'm thinking about";
+			otherwise:
+				if the warrant is not edited:
+					say "To complete my cunning plan, I'm going to need [forgery-supplies]";
+				otherwise:
+					say "I think we're good to go, Rick. Show that to the deputy and let's see if it'll work"
 	
 To say warrant-deputy:
 	say "A very complicated legal document the likes of which ain't nobody really understand".
@@ -1740,7 +1755,6 @@ Instead of showing the warrant to muddy:
 	otherwise:
 		continue the action.
 	
-	
 Instead of reading the warrant:
 	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][line break][or]It says: [warrant-text].[stopping]";
 	change the block stage business flag to true;
@@ -1822,16 +1836,17 @@ Check WarrantForging:
 	if Muddy carries the warrant and Muddy carries the feather and Muddy is inked:		
 		continue the action;
 	otherwise:
-		say "He continues, [quotation mark]To finish this business with the warrant, I'll need ";
-		if Muddy does not carry the feather and Muddy is not inked:
-			say "both [need-pen] and another [need-ink]";
-		otherwise if Muddy carries the feather and Muddy is not inked:
-			say "[need-ink]";	
-		otherwise if Muddy does not carry the feather and Muddy is inked:
-			say "[need-pen]";
-		otherwise:
-			say "the warrant itself";
-		say ".[quotation mark][paragraph break]" instead.
+		say "He continues, [quotation mark]To finish this business with the warrant, I'll need [forgery-supplies].[quotation mark][paragraph break]" instead.
+		
+To say forgery-supplies:
+	if Muddy does not carry the feather and Muddy is not inked:
+		say "both [need-pen] and another [need-ink]";
+	otherwise if Muddy carries the feather and Muddy is not inked:
+		say "[need-ink]";	
+	otherwise if Muddy does not carry the feather and Muddy is inked:
+		say "[need-pen]";
+	otherwise:
+		say "the warrant itself".
 				
 Carry out WarrantForging:
 	say "Muddy applies his quill to the paper and with a few flourishes, scrawls an additional sentence on the warrant. He blows gently on it to dry the [quotation mark]ink[quotation mark] and hands the warrant back to you for your inspection.";
@@ -3832,7 +3847,7 @@ Cue the vulture is a number that varies. Cue the vulture is zero.
 Forgery is a scene. Forgery begins when Rick has the warrant. Forgery ends when the warrant is edited.
 
 When forgery begins:
-	Muddy gets curious in ten turns from now.
+	Muddy gets curious in five turns from now.
 	
 At the time when Muddy gets curious:
 	if the warrant is not recognized:
