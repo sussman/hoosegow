@@ -2911,6 +2911,12 @@ Instead of searching the hat:
 	
 Rick wears some pants. The pants are plural-named. The description of the pants is "Rugged, blue denim." The indefinite article of the pants is "your". The scent of the pants is "grubby". The texture of the pants is "abrasive".
 
+Instead of searching the pants:
+	if the deputy is not awake:
+		try searching the deputy;
+	otherwise:
+		continue the action.
+
 Instead of taking off pants:
 	say "Etiquette, if not just plain old common sense, suggests that you keep them on in a jail cell."
 
