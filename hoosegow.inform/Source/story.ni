@@ -3683,11 +3683,11 @@ hint												used
 
 A hint activation rule (this is the ink finding hint activation rule):
 	if Forgery is happening and the current plan is two and the ask-me counter is six and Muddy is not inked:[muddy has told his plan about forging the warrant]
-		activate the Table of Pen Hints.
+		activate the Table of Inklings.
 
 A hint deactivation rule (this is the ink finding hint deactivation rule):
 	if Forgery is not happening:
-		deactivate the Table of Pen Hints.
+		deactivate the Table of Inklings.
 		
 Table of Inklings
 hint												used
