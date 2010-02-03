@@ -22,26 +22,12 @@ Release along with cover art.
 Book 1 Mechanics
 
 Chapter No More Get All
-[In the standard rules, Take is defined with the grammar token "things" rather than "thing". To expurge "get all" from the game, "take" must be redefined as something new, with full grammar here. This is based on a helpful usenet post by Khelwood, dated 21 December 2006.]
+[A more efficient no more get all, suggested by Radical Al:]
 
-Understand the commands "take","carry" and "hold" as something new.
-
-Understand "take [thing]" as taking.
-Understand "take off [thing]" as taking off.
-Understand "take [thing] from [thing]" as removing it from.
-Understand "take [thing] off [thing]" as removing it from.
-Understand "take inventory" as taking inventory.
-Understand the commands "carry" and "hold" as "take".
-
-Understand the command "get" as something new.
-Understand "get out/off/up" as exiting.
-Understand "get [thing]" as taking.
-Understand "get in/into/on/onto [thing]" as entering.
-Understand "get off [thing]" as getting off.
-Understand "get [thing] from [thing]" as removing it from.
-
-Understand the command "pick" as something new.
-Understand "pick up [thing]" or "pick [thing] up" as taking. 
+After reading a command:
+	if the player's command includes "all":
+		say "You can't take but one thing at a time. You ain't no juggler.";
+		reject the player's command.
 	
 Chapter Rules Modifications
 
@@ -728,6 +714,10 @@ Check poking:
 		try waking the deputy;
 	otherwise:
 		try attacking the noun.
+		
+Section Putting
+
+Understand the command "place" as "put".
 
 Section Reading
 		
