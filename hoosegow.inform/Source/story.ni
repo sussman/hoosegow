@@ -2295,7 +2295,7 @@ To say third initials:
 
 Section Harmonica
 
-The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "A standard prison-issue harmonica.  In the fading light from outside the window, you can barely make out some kind of inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy. The scent of the harmonica is "like last week's saliva". Understand "inscription" as the harmonica. Understand "engraving" as harmonica.
+The jail cell contains a harmonica.  The harmonica is a prop.  The description of the harmonica is "A standard prison-issue harmonica.  In the fading light from outside the window, you can barely read the inscription on it.".  The harmonica can be discussed.  The harmonica is not discussed.  The harmonica can be first-heard-by-deputy.  The harmonica is not first-heard-by-deputy. The scent of the harmonica is "like last week's saliva". Understand "inscription" as the harmonica. Understand "engraving" as harmonica.
 
 The play-counter is a number that varies.  The play-counter is zero. [Number of times harmonica is played AFTER deputy has left.]
 
