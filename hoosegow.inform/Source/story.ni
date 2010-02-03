@@ -2710,12 +2710,21 @@ Section Pete
 
 Pete is a man in the jail cell. Pete is not proper-named.  "In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner wears a black suit and a pastor's necktie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a campfire[or]like bourbon[or]strongly of gin[at random]". The printed name of Pete is "[if Pete is recognized]Pastor Pete[otherwise]disheveled man[end if]". 
 
+	
+
 Instead of giving something to pete:
 	try poking pete. [to trigger the next rule...]
 
 Instead of doing something with pete:
 	if the current action is examining or searching or smelling:
 		continue the action;
+	if the current action is attacking:		
+		say "You whack [the pete], making a sound similar to [one of]a salmon hitting the side of a barn[or]a frozen cow pattie shattering in a sea of lava[or]a penguin shot out of a cannon and into a bowl of custard some four hundred yards away[stopping]. ";
+		try poking pete;
+		the rule succeeds;
+	if the current action is blowing at or shooting:
+		say "You reckon you'd do some time in the hot place for berry-shooting a man of the cloth. Muddy calls you [quotation mark]chicken[quotation mark], but you got your principles in this matter.";
+		the rule succeeds;
 	otherwise:
 		if Pete is recognized:
 			follow the Pete's stage business rule;
