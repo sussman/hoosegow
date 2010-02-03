@@ -1516,7 +1516,7 @@ The cigar is a prop in Limbo. The description of the cigar is "A stogie."
 
 Section Can
 
-The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "[cob-description]". The scent of the can of beans is "[if the can of beans is open]like beans. No surprise there[otherwise]metallic[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]". The can of beans can be consumed. The can of beans is not consumed.
+The can of beans is a openable closed container in Limbo. Understand "metal", "metallic" or "bean" or "beans" or "can" as the can of beans. The description of the can of beans is "[cob-description]". The scent of the can of beans is "[if the can of beans is open]like beans. No surprise there[otherwise]metallic[end if]". The texture of the can of beans is "[if open][metallic][otherwise]slimy and gelatinous[end if]". The can of beans can be consumed. The can of beans is not consumed. The printed name of the can of beans is "[if the can of beans is not consumed]can of beans[otherwise]empty can[end if]".
 
 To say cob-description:
 	say "A[if the can of beans is open]n open[otherwise] closed[end if] metal can labeled [quotation mark]BEANS[quotation mark]. ";
