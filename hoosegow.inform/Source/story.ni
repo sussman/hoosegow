@@ -69,7 +69,8 @@ Rule for reaching inside a room (called target) which is connected with the loca
 	try going way;
 	if the player is in the target, allow access;
 	otherwise deny access.
-	
+
+[This stops crazy messages like >put meat in bowl --> you can't reach the meat ]	
 To say item-too-far:
 	if the second noun is not nothing:
 		say the second noun;
