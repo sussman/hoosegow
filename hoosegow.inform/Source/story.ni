@@ -2736,6 +2736,9 @@ Instead of doing something with pete:
 
 The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into [the pete]'s suit."
 
+Instead of examining the pocket:
+	try searching pete.
+
 Instead of taking the pamphlet when the pamphlet is in the pocket:
 	say "You carefully slip the pamphlet out of the sleeping man's pocket.  He almost wakes up, but doesn't.[paragraph break]'Whatizit?', Muddy rasps.";
 	move the pamphlet to the player.
