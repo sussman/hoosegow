@@ -63,12 +63,19 @@ Rule for reaching inside a room (called target) which is connected with the loca
 	if the noun is the gate lock, allow access;
 	let way be the best route from the location to the target;
 	if the way is not a direction:
-		say "[if the gate is closed]You can reach through the bars, but not far enough to touch [the noun][otherwise]You'd have to go over to [the target] first[end if].";
+		say "[if the gate is closed]You can reach through the bars, but not far enough to touch [item-too-far][otherwise]You'd have to go over to [the target] first[end if].";
 		deny access;
 	say "(first heading [way])[command clarification break]";
 	try going way;
 	if the player is in the target, allow access;
 	otherwise deny access.
+	
+To say item-too-far:
+	if the second noun is not nothing:
+		say the second noun;
+	otherwise:
+		say the noun.
+	
 
 After looking when the location is an inter-visible room:
 	repeat with other place running through rooms which are connected with the location:
@@ -1683,6 +1690,12 @@ Instead of putting the meat on something (called the target):
 	
 To say meat-away:
 	say "You'd rather put the meat somewhere you don't have to look at it."
+	
+Instead of throwing something at something:
+	say "[no-throw]."
+	
+To say no-throw:
+	say "Your throwing arm ain't been any good since the accident with the musk ox and the hedge clippers"
 
 Instead of putting the meat on anything that is enclosed by the jail cell:
 	say "[meat-away]".
@@ -3441,7 +3454,7 @@ LibMsg <block singing>			"You got a right fine voice. Just not for singing.[para
 LibMsg <block thinking>			"What a plumb good idea.[paragraph break]"  
 LibMsg <block sleeping>			"[youAint]feeling especially drowsy.[paragraph break]"  
 LibMsg <block waking up>		"The dreadful truth is, this [aintNo]dream.[paragraph break]"  
-LibMsg <block throwing at>		"Your throwing arm ain't been any good since the accident with the musk ox and the hedge clippers.[line break]"
+LibMsg <block throwing at>		"[no-throw].[line break]"
 
 Section Hints
 [Note: In thinking about hint activation, remember that the set up of the extension is such that once a hint is deactivated, the activation rule will not reset it. The table row is deleted, so one doesn't need to worry about recurrent activation of a hint. Still, it's good to make the activation rules specific.]
