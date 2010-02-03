@@ -3965,7 +3965,12 @@ Instead of showing something (called the evidence) to someone (called the specta
 					say "The marshal looks at [the evidence] briefly but does not seem impressed.";
 		-- otherwise:
 			say "The marshal demands, [quotation mark]As the senior lawman present, I must be the one to examine all evidence.[quotation mark][paragraph break]".
-	
+
+Instead of giving something (called the item) to the marshal during the plusquedenouement:
+	if the item is the warrant or the item is the the telegram or item is the the receipt or the item is the note or the item is the patent:
+		try showing the item to the marshal;
+	otherwise:
+		continue the action.
 	
 Chapter Time Out
 
