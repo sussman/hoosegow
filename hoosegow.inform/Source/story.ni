@@ -548,6 +548,11 @@ Carry out FunnyLooking:
 	
 Section TakeFromming
 
+[This seemingly redunant line is here because the stool leg to be removed is not actually held by the socket, but is rather a part of it. The remove it from action would otherwise use the "things inside" token. Without this line, the parser would not even "see" the stool leg.]
+
+Understand "remove [things] from [other things]" as removing it from.
+Understand "take [things] from [other things]" as removing it from.
+
 Instead of removing something from something:
 	try taking the noun.	
 
@@ -2400,12 +2405,13 @@ Instead of taking or pulling or pushing the gray bar:
 			say "The gray bar is loose, but still held in place by a large screw that connects it to the ceiling.";
 		otherwise:
 			if the gray bar is part of the stool:
-				say "You yank the bar out of the stool's socket";
+				say "You yank the gray tube out of the stool's socket";
 				now the socket is not occupied;
 				if the player is on the stool:
 					say ", lose your balance, topple [one of]forwards[or]backwards[or]to the side[at random] and plant your face smartly in the prison floor. Muddy looks away in embarrassment";
 					now the player is not tall;
 				say ".";
+				the rule succeeds;
 			otherwise:
 				if the bar is not first-held:
 					say "You grab the bar[if the gray bar is not blowgun-discussed].[paragraph break]You hold it lengthwise and stare down its hollow shaft at Muddy. He looks back at you.[paragraph break][quotation mark]Don't that just beat all,[quotation mark] ponders Muddy[end if].";
