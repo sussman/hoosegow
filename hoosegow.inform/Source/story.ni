@@ -2114,7 +2114,7 @@ The flanges are part of the protocappuccinomatic. The description of the flanges
 
 The iron pipe is a large part of the protocappuccinomatic. The description of the iron pipe is "Heavy-duty fitted steam pipes, like they use on locomotives." Understand "pipes" as the iron pipe. The texture of the iron pipe is "hot". Understand "pipes" or "output" as the iron pipe.
 
-The cup is in Limbo. The description of the cup is "A white porcelain mug[if the coffee is in the cup] containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee".
+The cup is in Limbo. The description of the cup is "A white porcelain mug[if the coffee is in the cup] containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee". Understand "mug" as the cup.
 
 Rule for printing room description details of the the cup:
 	do nothing.
