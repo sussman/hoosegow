@@ -2421,6 +2421,7 @@ Instead of taking or pulling or pushing the gray bar:
 			if the gray bar is part of the stool:
 				say "You yank the gray tube out of the stool's socket";
 				now the socket is not occupied;
+				now the player carries the gray bar;
 				if the player is on the stool:
 					say ", lose your balance, topple [one of]forwards[or]backwards[or]to the side[at random] and plant your face smartly in the prison floor. Muddy looks away in embarrassment";
 					now the player is not tall;
