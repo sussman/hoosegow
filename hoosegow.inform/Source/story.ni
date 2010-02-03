@@ -1979,7 +1979,9 @@ The scent of the chair is "like an amalgam of the butts that have sat on it over
 
 Section Desk
 
-The desk is a large furniture in the office. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface[if the player is in the office]. The rear of the desk has a drawer with a small lock[end if]." The texture of the desk is "old and battered".
+The desk is a large furniture in the office. The description of the desk is "A beat-up old wooden desk with time-worn corners, and a pitted, scratched surface[if the player is in the office]. The rear of the desk has a drawer with a small lock[end if]." The texture of the desk is "old and battered". The desk can be lockable. The desk is lockable. The desk can be either unlocked or locked. The desk is locked. 
+
+[The desk can be openable. The desk is openable. The desk can be either open or closed. The desk is closed.]
 
 The drawer is part of the desk. The drawer is a closed openable lockable locked container. The description of the drawer is "A small, [if the drawer is closed]closed[otherwise]open[end if] drawer built into the back of the desk. It has a small lock." The drawer can be recognized. The drawer is not recognized. The matching key of the drawer is the small brass key. The scent of the drawer is "like cedar. Maybe this is where they keep their hamsters?" The drawer can be rewarded. The drawer is not rewarded.
 
@@ -2056,6 +2058,19 @@ To say postscriptum:
 	
 Instead of reading the receipt:
 	say "[quotation mark]Well, Muddy,[quotation mark] you say, [quotation mark]it's a business receipt of some kind, from J&B Steam Works down in Witchita Falls. Looks like Sheriff Cheney done gotten himself deep into debt on account of his coffee invention.[quotation mark][paragraph break]Muddy looks at the receipt and replies, [quotation mark][one of]I reckon, he's got more debt than we ever had loot[or]I don't twig how a jerk water town two-bit sheriff like Cheney could get that kind of greenery[or]Indeed[stopping].[quotation mark][paragraph break]".
+
+
+Instead of unlocking the desk with the brass key:
+	try unlocking the drawer with the brass key.
+	
+Instead of opening the desk:
+	try opening the drawer.
+	
+Instead of locking the desk with the brass key:
+	try locking the drawer with the brass key.
+	
+Instead of closing the desk:
+	try closing the drawer.
 	
 Section Food Bowl
 
