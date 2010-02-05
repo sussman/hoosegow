@@ -2960,7 +2960,7 @@ Instead of searching the overcoat:
 Instead of taking off the overcoat:
 	say "Your overcoat is so threadbare it doesn't matter if it's on or off."
 	
-The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." The scent of the footwear is "monumentally repulsive". The texture of the footwear is "leathery".
+The footwear is privately-named backdrop in the jail cell. Understand "boots" and "shoes" and "shoe" and "heel" as footwear. The description of the footwear is "Black boots that have seen better days. [if the spur is part of the right boot]The left boot is missing its heel spur[otherwise]Both boots are missing their heel spurs[end if]." The scent of the footwear is "monumentally repulsive". The texture of the footwear is "leathery".
 
 Instead of doing something other than examining with the footwear:
 	say "You need to say the left one or the right one."
