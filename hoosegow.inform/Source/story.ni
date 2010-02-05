@@ -2471,7 +2471,7 @@ Section Window and Street
 The street is a room.  "This is a dusty road with a few buildings lining it, including the sheriff's office."
 
 [Taken from example 20]
-The cell window is a door.  The cell window is scenery.  The description of the cell window is "Pretty far up on the wall, as wide as your shoulders, and secured by four vertical iron rods as thick as your thumb. And you have thick thumbs. The green tip of a vine pokes in from outside."  The cell window is west of the jail cell and east of the street.  The cell window is locked.
+The cell window is a privately-named door.  The cell window is scenery.  The description of the cell window is "Pretty far up on the wall, as wide as your shoulders, and secured by four vertical iron rods as thick as your thumb. And you have thick thumbs. The green tip of a vine pokes in from outside."  The cell window is west of the jail cell and east of the street.  The cell window is locked. Understand "window" as the cell window.
 
 The rods are plural-named part of the cell window. The description of the rods are "The rods are firmly embedded in the solid brick walls."
 
@@ -3568,6 +3568,7 @@ hint												used
 "You need to put a substitute leg in the socket to fix the stool."
 "You have [if the gray bar is not part of the bars]already[otherwise]not yet[end if] found the substitute leg."
 "[if the gray bar is part of the bars]One of the jail bars is different from the others. You can use sound to help find the one that you need[otherwise]Try putting the gray tube into the socket[end if]."
+"[if the gray bar is part of the bars]The gray bar is held in place by a screw. You can't reach the screw, but you can try to vibrate it loose using a certain sound[otherwise]Try putting the gray tube into the socket[end if]."
 
 A hint activation rule (this is the setting the trap hint activation rule):
 	if the berry is first-held and flashing is happening:
