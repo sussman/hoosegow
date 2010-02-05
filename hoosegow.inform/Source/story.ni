@@ -1507,7 +1507,8 @@ The Machine stage business rule is listed after the Deputy's stage business rule
 
 This is the Machine stage business rule:
 	if the player is in the jail cell and a random chance of 3 in 20 succeeds:
-		say "[one of]Over in the office[or]Not far from your jail cell[or]Halfway between the door to the outside and your jail cell[or]Just to the side of the desk[at random], the [one of]boiler[or]furnace[or]metal contraption[or]sheriff's invention[or]bronze machine[at random] [one of]gurgles and bubbles quietly[or]hisses, venting some steam[or]creaks[or]percolates[or]rumbles for a moment and then stops[or]ticks like a clock[or]puffs some steam into the office[at random]."
+		say "[one of]Over in the office[or]Not far from your jail cell[or]Halfway between the door to the outside and your jail cell[or]Just to the side of the desk[at random], the [one of]boiler[or]furnace[or]metal contraption[or]sheriff's invention[or]bronze machine[at random] [one of]gurgles and bubbles quietly[or]hisses, venting some steam[or]creaks[or]percolates[or]rumbles for a moment and then stops[or]ticks like a clock[or]puffs some steam into the office[at random].";
+	the rule succeeds.
 	
 The Environmental stage business rule is listed last in the stage business rules.
 
