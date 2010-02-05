@@ -2223,6 +2223,9 @@ After examining the plate for the first time:
 
 The seat is part of the stool.  The description of the seat is "The top of the wooden stool's seat is covered by intriguing initials, some old, some new. [if the socket is not occupied]When you flip it over, it is immediately apparent that the stool is missing a leg. In its place, there is just an empty socket.[end if]".
 
+Instead of entering the seat:
+	try entering the stool.
+
 The initials are part of the stool.
 The initial-counter is number that varies.  The initial-counter is zero.
 
@@ -2731,7 +2734,7 @@ After going a direction:
 
 Section Pete
 
-Pete is a man in the jail cell. Pete is not proper-named.  "In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "disheveled", "man", "pastor", "priest", or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner wears a black suit and a pastor's necktie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a campfire[or]like bourbon[or]strongly of gin[at random]". The printed name of Pete is "[if Pete is recognized]Pastor Pete[otherwise]disheveled man[end if]". 
+Pete is a man in the jail cell. Pete is not proper-named.  "In the corner of the cell, a disheveled man in a black suit is stretched out on a crude wooden bench and is snoring loudly, oblivious to your presence."  Understand "disheveled", "man", "pastor", "priest", "vestment", "vestments", "necktie" or "drunk" as Pete.  The description of Pete is "The man crumpled in the corner wears black vestments and a pastor's necktie. He'd almost look respectable, if it weren't for the immediate environment. He reeks of booze and snores loudly[if Pete encloses the pamphlet]. A pamphlet is sticking out of his pocket[one of]. You don't consider yourself a common pickpocket, but it makes you wonder what else he might have on him[or][stopping][end if][if the pamphlet is not in the pocket and the tin is in the pocket]. The pocket where you found the pamphlet gapes open. Priests are the trusting sort, you guess[end if]." Pete can be recognized. Pete is not recognized. The scent of Pete is "[one of]musty[or]like chewing tobacco[or]like a campfire[or]like bourbon[or]strongly of gin[at random]". The printed name of Pete is "[if Pete is recognized]Pastor Pete[otherwise]disheveled man[end if]". 
 
 	
 
