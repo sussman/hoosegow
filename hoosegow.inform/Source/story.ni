@@ -2892,6 +2892,9 @@ Instead of examining the Rick, say "[if the player wears the left boot or the pl
 
 The Rick carries a pocketwatch.   The pocketwatch is a prop.  Understand "watch" and "timepiece" and "pocket watch" as the pocketwatch. The description of the pocketwatch is "It's the wind-up timepiece you received when you were commissioned as an officer in the Confederate Army. [one of]You may have lost everything else in that war, but at least you have this fine pocket watch.[or]It is some small consolation that your jailers were so incompetent as to overlook your one treasure.[or][stopping] It currently reads [time of day + 1 minute in words] in the [if the hours part of the time of day is greater than 12]evening[otherwise]morning[end if]  -- [remaining time]." The indefinite article of the pocketwatch is "your". The texture of the pocketwatch is "[metallic]".
 
+Instead of reading the pocketwatch:
+	try examining the pocketwatch.
+
 To say remaining time:
 	let H be the hours part of the time of day;
 	let M be the minutes part of the time of day;
