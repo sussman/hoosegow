@@ -3518,7 +3518,7 @@ hint												used
 "The deputy is in a perpetual bad mood and has a headache, which got worse the moment you two arrived. He was looking forward to a quiet evening in the saloon, but all that's gone out the window now."
 "The deputy's headache is teetering on the edge of a full-blown migraine, and the whiskey can only help so much. The last thing he needs is any kind of sensory overload."
 "Certain loud sounds and unpleasant smells bother the deputy."
-"The deputy is not a big fan of the harmonica and has attempted on several occassions to rip it out of the wall."
+"The deputy is not a big fan of the harmonica."
 "The deputy dislikes strong odors as well."
 "Since the deputy is basically lazy, it may take more than one attempt to drive him out of the office."
 "You and Muddy have a couple ways of producing unpleasant odors, but it may take more than one step."
