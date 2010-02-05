@@ -2269,11 +2269,11 @@ Instead of entering the stool:
 	if the socket is not occupied: [stool is broken]
 		if the broken-stool-sit-count is:
 			-- 0:
-			say "[if the deputy is not in limbo]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You carefully climb onto the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off. [paragraph break][if the deputy is not in limbo]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich. Maybe he'll try again.'[end if]";
+			say "[if the deputy is not in limbo and the deputy is awake]The deputy folds down the warrant he is reading and smiles encouragingly, 'Please, go ahead. The stool is stronger than it looks.'[paragraph break][end if]You carefully climb onto the precariously balanced two-legged stool and subsequently find yourself face down on the dusty jail floor. Muddy helps you up and brushes you off. [paragraph break][if the deputy is not in limbo and the deputy is awake]The deputy laughs himself hoarse. 'I declare, that were powerful entertaining!' The deputy continues to chuckle to himself, even as he turns back to his newspaper, 'I said, please go ahead, and he sits on it. That were rich. Maybe he'll try again.'[end if]";
 			-- 1:
-			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now. [if the deputy is not in limbo][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.'[paragraph break][end if]";
+			say "You teeter momentarily on the stool and then topple face first into the floor, like a blacksmith's hammer striking the anvil. This is getting old real fast now. [if the deputy is not in limbo and the deputy is awake][paragraph break]The deputy shakes his head. 'You done it again! You know what they say in Texas? I'm a-telling you. They says, 'Fool me once, shame on — shame on you. Fool me — you can't get fooled again.'[paragraph break][end if]";
 			-- otherwise:
-			say "[if the deputy is not in limbo]You are tired of entertaining the deputy. [end if]You ain't gonna get onto the stool unless it stands solidly on three good legs.";
+			say "[if the deputy is not in limbo and the deputy is awake]You are tired of entertaining the deputy. [end if]You ain't gonna get onto the stool unless it stands solidly on three good legs.";
 		increase the broken-stool-sit-count by one;
 	otherwise: [stool is repaired]
 		continue the action.
