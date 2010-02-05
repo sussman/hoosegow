@@ -1524,7 +1524,7 @@ times-used		verbage
 0			"A faint breeze wafts by"
 0			"Outside, there is a brief cloudburst. The wind comes right behind the rain"
 0			"A yellow-fringed surrey trots past the sheriff's office"
-0			"A cockroach scuttles by, making a detour around Muddy. Cockroaches have noses, you figure"
+0			"A cockroach scuttles by, making a detour around Muddy. Cockroaches have noses, you figure (not that you smell all that flowery neither)"
 
 Chapter Limbo
 [A place for offstage stuff]
