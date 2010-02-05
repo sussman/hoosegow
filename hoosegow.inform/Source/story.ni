@@ -2242,12 +2242,14 @@ Instead of examining the initials:
 		say "You can't make out any more initials.";
 	increase the initial-counter by one.
 
-The socket is part of the seat.  The socket is a container. The socket can be occupied.  The socket is not occupied.  The description of the socket is "[if the socket is not occupied]Once upon a time, a stool leg about two feet long must have occupied the now empty hole in the stool seat. Without that leg, the stool isn't much good.[otherwise]A nice piece of gray jail bar is wedged into it, acting as a third leg.[end if]".
+Definition:
+	The socket is occupied if the gray bar is part of the stool.
+
+The socket is part of the seat.  The socket is a container. The description of the socket is "[if the socket is not occupied]Once upon a time, a stool leg about two feet long must have occupied the now empty hole in the stool seat. Without that leg, the stool isn't much good.[otherwise]A nice piece of gray jail bar is wedged into it, acting as a third leg.[end if]".
 
 Instead of inserting something (called the filler) into the socket:
 	if the filler is the gray bar:
 		say "You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.";
-		now the socket is occupied;
 		now the gray bar is part of the stool;
 	otherwise:
 		say "Putting [the filler] into the socket don't make a lick of sense.  Not likely to fit well anyway.".
@@ -2283,16 +2285,16 @@ After entering the stool:
 		now the player is tall;
 		say "Muddy holds it steady as you climb up. Your head is now even with the top of the window.";
 
-Instead of getting off the stool:
+Instead of getting off the stool when the player is on the stool:
 	say "You jump down to the ground again.";
-	move the player to the location of the stool;
+	move the player to the location, without printing a room description;
 	now the player is not tall.
 	
 Instead of going a direction (called the way) when the player is tall:
 	if the way is down:
 		if the player is on the stool:
 			say "You jump down to the ground again.";
-			move the player to the location;
+			move the player to the location, without printing a room description;			
 			now the player is not tall;
 		otherwise:
 			say "Muddy doesn't anticipate your action, and struggles to keep you aloft.";
@@ -2383,22 +2385,6 @@ The inscription of the harmonica is "'Donated to the Crawdad's Gulch Municipal H
 Instead of reading harmonica for the first time:
 	say "[initial harmonica inscription]" as dialogue.
 	
-[
-The chain is part of the harmonica.  The description of the chain is "The harmonica is tethered by a heavy chain embedded directly into the wall. It looks like they're dead serious about making sure this harmonica doesn't sprout legs and walk away."
-
-Instead of pulling the harmonica:
-	say "You give the harmonica a little tug, and then you pull harder, putting your back into it. The fine silver chain pulls taut, but is well-crafted and doesn't give at all."
-
-Instead of pulling the chain:
-	say "The chain won't break, it's powerful strong.".
-
-Instead of going when the player is in the jail cell:
-	if player is carrying the harmonica:
-		move the harmonica to the jail cell;
-		say "As you leave to go, the harmonica is yanked away from you by the wall-chain.[paragraph break]";
-	continue the action.
-]
-
 Section Bars
 
 The bars are plural-named scenery in the jail cell.   Understand "jail" as the bars. The description of the bars is "[one of]You look across the street at the saloon. Oh wait, did you mean the prison bars? Yeah, probably. Anyhow, the bars to your cell reach from floor to ceiling and are made of matte black metal. [if the gray bar is part of the bars]All except one, which is sort of gray in color and as short as a table leg. [end if]They are a bit under an inch thick, and they are reinforced by three tiers of horizontal bars. The gate to your cell is framed in the same black metal and inset into this meshwork of bars.[or]Your jail cell is bordered by freshly painted brick walls on three sides and metal bars on the fourth. The bars are matte black[if the gray bar is part of the bars], except for one that is slightly lighter in color -- a gray one[otherwise] with a tiny gap where a gray bar used to be[end if].[stopping]". The texture of the bars is "[metallic]".
@@ -2435,11 +2421,11 @@ Instead of taking or pulling or pushing the gray bar:
 		otherwise:
 			if the gray bar is part of the stool:
 				say "You yank the gray tube out of the stool's socket";
-				now the socket is not occupied;
 				now the player carries the gray bar;
 				if the player is on the stool:
-					say ", lose your balance, topple [one of]forwards[or]backwards[or]to the side[at random] and plant your face smartly in the prison floor. Muddy looks away in embarrassment";
+					say ", lose your balance, topple [one of]forwards[or]backwards[or]to the side[at random] and plant your face smartly in the prison floor. Muddy looks away in embarrassment[run paragraph on]";
 					now the player is not tall;
+					move the player to the location, without printing a room description;
 				say ".";
 				the rule succeeds;
 			otherwise:
