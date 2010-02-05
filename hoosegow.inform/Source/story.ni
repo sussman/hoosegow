@@ -2969,7 +2969,7 @@ Rick wears the left boot. The description of the left boot is "A cowhide boot th
 
 Rick wears the right boot. The description of the right boot is "A cowhide boot that has been rubbed [smooth][if the spur is part of the right boot]. A metal riding spur is about ready to fall off the worn-down heel[end if]."
 
-A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "monumentally repulsive". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" as the spur.
+A spur is part of the right boot.  The description of the spur is "A sharp, round disc that rotates within a mount[if the spur is part of the right boot]. The spur is loosely attached to the heel of the right boot[end if]." The mount is part of the spur. The description of the mount is "The mount is part of the spur." The scent of a the right boot is "monumentally repulsive". The indefinite article of the right boot is "your". The texture of the right boot is "[smooth]". Understand "spurs" and "disc" as the spur.
 
 
 [Note -- attempts to make a shoe class ran afoul of I7 somewhere -- apparently, it creates another right boot due to the spur which is part of the right boot. Some kind of namespacecollisiony unpleasnantness. Hence the duplication of effort here and the need to make a "bootlike" adjective by definition to treat things that are booklike as a pseudoclass.]
