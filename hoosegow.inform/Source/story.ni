@@ -7,7 +7,7 @@ The story genre is "Western".
 
 The story description is "Muddy's plan done landed you and your partner in the hoosegow. Now you're fixing to rectificate the matter before the marshal introduces you to the business end of a hangin' rope at dawn."
 
-The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, Sheriff Cheney angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and a pile of  silver dollars, which until recently had been the property of the Missouri, Kansas & Texas Line.[paragraph break]Muddy whispers, 'Don't fret none, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the... [paragraph break]".
+The intro-text is a text that varies.  Intro-text is "As the sun sets on the plains, Sheriff Cheney angrily snaps on the cuffs. You are shoved into the coach and land on top of Muddy Charlie and a pile of silver dollars, which until recently had been the property of the Missouri, Kansas & Texas Line.[paragraph break]Muddy whispers, 'Don't fret none, Rick! You done good blowing up that tunnel -- I just didn't plan on the sheriff getting word ahead of time, is all. That were powerful bad luck.'[paragraph break]The sheriff climbs onto his horse, spits, and you begin to rumble forward. 'You boys really got it coming this time,' he yells back cheerfully.[paragraph break]Muddy shakes his head. 'No offense, Sheriff, but I reckon you got the wrong men. We was just on our way to the theater.'[paragraph break]The sheriff disagrees. 'The only place you boys are heading is straight to the... [paragraph break]".
 
 Include Menus by Emily Short.
 Include Adaptive Hints by Eric Eve.
@@ -4042,7 +4042,7 @@ Rule for printing the player's obituary:
 			
 Rule for amusing a victorious player:
 say "Congratulations, partner. That sure could have turned a whole mess more ugly, but you came out of it with your neck. Before you ride off into the sunset, why don't you rest your eyeballs on some of the stuff in the game that maybe you ain't run into:[paragraph break]";
-say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How 'bout old Flash?[paragraph break]";
+say "[if flash is not spat upon]* Did you try chewing the tobacco and spitting at everything in sight? How [apostrophe]bout old Flash?[paragraph break]";
 say "* There are three ways of driving the deputy out of the jail; how many did you find?[paragraph break]";
 say "* Did you try reading the initials engraved on the stool?  Repeatedly?[paragraph break]";
 say "Some other random trivia:[paragraph break]";
