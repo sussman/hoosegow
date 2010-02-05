@@ -2710,7 +2710,7 @@ The scent of Muddy is "[one of]unwashed[or]like he's in need of a bath[or]like y
 After examining Muddy:
 	change the current plan to one.
 	
-The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit." The scent of the frock coat is "faintly of mothballs". The texture of the frock coat is "soft".
+The frock coat and suit are worn by muddy. The description of the frock coat is "A fancy coat that was stylish in its day." The description of the suit is "A three-piece suit, which due to wear and tear is now about a two-and-a-half piece suit." The scent of the frock coat is "faintly of mothballs". The texture of the frock coat is "soft". Understand "mud" as the suit.
 
 Instead of searching muddy:
 	say "Muddy squirms. [quotation mark]Hey, cut that out Rick. This ain't no time to be tickling me.[quotation mark][paragraph break]".
