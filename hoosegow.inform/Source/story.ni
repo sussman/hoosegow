@@ -1742,7 +1742,8 @@ The stain is scenery in Limbo. The description of the stain is "A dark brown sta
 
 Section Warrant
 
-The warrant is a sheet. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper".
+The warrant is a sheet. The description of the warrant is "A piece of paper with black printing and red handwriting." The warrant can be edited. The warrant is not edited. The texture of the warrant is "like expensive paper". Understand "handwriting" or "writing" as the warrant.
+
  The warrant can be recognized. The warrant is not recognized. [by muddy, as a cue for second plan]
 
 The warrant can be acknowledged. The warrant is not acknowledged.[by the deputy after editing]
@@ -2263,7 +2264,7 @@ Instead of inserting something (called the filler) into the stool:
 
 The broken-stool-sit-count is a number that varies.  The broken-stool-sit-count is zero.
 
-Does the player mean climbing the stool:  it is very likely.
+Does the player mean climbing the stool:  it is likely.
 
 Instead of climbing the stool:
 	try entering the stool.
@@ -2449,7 +2450,7 @@ Instead of inserting something (called the ammo) into the gray bar:
 			say "You drop the berry into the gray tube.";
 			move the berry to the gray bar;
 			if the gray bar is not blowgun-discussed:
-				say "[paragraph break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
+				say "[line break]'Oh, I get it!' nods Muddy, 'You're making some kind of berry gun. I seen the Injuns do something like that, except you ain't got no darts in there to blow at people.'";
 				now the gray bar is blowgun-discussed;
 	otherwise:
 		say "You don't reckon there's much point in that."
@@ -2482,6 +2483,9 @@ Instead of doing something with the rods during introduction:
 	warn about the noun.
 
 Understand "look out [something]" as searching.
+
+Does the player mean climbing the window:
+	it is very likely.
 
 Instead of searching the window:
 	if the player is tall:
@@ -3485,6 +3489,8 @@ title													subtable
 "The deputy's out cold. Now what?"				Table of Post-knockout Hints
 "Where to find a pen?"							Table of Pen Hints
 "Where to find some ink?"						Table of Inklings
+"What else does Muddy need?"						Table of Give Muddy The Warrant
+"Warrant doctored. How does that help?"		Table of Warrant Showing
 "Uh oh. The marshal!"								Table of Evidence Hints
 "Fixing the wobbly stool."						Table of Stool Fixing
 
@@ -3575,7 +3581,7 @@ A hint activation rule (this is the setting the trap hint activation rule):
 		activate the Table of Trap Setting.
 		
 A hint deactivation rule (this is the setting the trap hint deactivation rule):
-	if flashing is not happening or the coffee is spiked then deactivate the Table of Trap Setting.
+	if the coffee is spiked then deactivate the Table of Trap Setting.
 	
 Table of Trap Setting
 hint												used
@@ -3623,7 +3629,7 @@ A hint activation rule (this is the operating the strange machine hint activatio
 		activate the Table of Machine Operation.
 
 A hint deactivation rule (this is the operating the strange machine hint deactivation rule):
-	if Flashing is not happening:
+	if the cup is not in limbo:
 		deactivate the Table of Machine Operation.
 	
 Table of Machine Operation
@@ -3652,7 +3658,7 @@ A hint activation rule (this is the what now after knockout hint activation rule
 		activate the Table of Post-knockout Hints.
 
 A hint deactivation rule (this is the what now after knockout hint deactivation rule):
-	if forgery is happening:
+	if denouement is happening:
 		deactivate the Table of Post-knockout Hints.
 
 Table of Post-knockout Hints
@@ -3667,7 +3673,7 @@ A hint activation rule (this is the pen finding hint activation rule):
 		activate the Table of Pen Hints.
 	
 A hint deactivation rule (this is the pen finding hint deactivation rule):
-	if Forgery is not happening:
+	if muddy carries the feather:
 		deactivate the Table of Pen Hints.
 
 Table of Pen Hints
@@ -3695,7 +3701,7 @@ A hint activation rule (this is the ink finding hint activation rule):
 		activate the Table of Inklings.
 
 A hint deactivation rule (this is the ink finding hint deactivation rule):
-	if Forgery is not happening:
+	if muddy is inked:
 		deactivate the Table of Inklings.
 		
 Table of Inklings
@@ -3706,9 +3712,35 @@ hint												used
 "How about a vegetable dye?"
 "When you find something suitable, give it to Muddy."
 
+A hint activation rule (this is the give the warrant to Muddy hint activation rule):
+	if forgery is happening and Muddy carries the feather and Muddy is inked:
+		activate the table of Give Muddy The Warrant.
+		
+A hint deactivation rule (this is the give the warrant to Muddy hint deactivation rule):
+	if the warrant is edited:
+		deactivate the Table of Give Muddy the Warrant.
+		
+Table of Give Muddy The Warrant
+hint											used
+"Muddy has everything he needs to forge the warrant except one very key thing."
+"You need to give Muddy the warrant itself, so he can doctor it."
+
 A hint activation rule (this is the showing evidence hint activation rule):
 	If the PlusQueDenouement is happening:
 		activate the Table of Evidence Hints.
+		
+A hint activation rule (this is the show the warrant to the deputy hint activation rule):
+	if the warrant is edited:
+		activate the Table of Warrant Showing.
+		
+A hint activation rule (this is the show the warrant to the deputy hint deactivation rule):
+	if the gate is unlocked:
+		deactivate the Table of Warrant Showing.
+		
+Table of Warrant Showing
+hint											used
+"At this point, you just need to show the warrant to the deputy!"
+"You'll have to wake him up first. Maybe snoozeberries don't mix well with whiskey..."
 
 Table of Evidence Hints
 hint												used
@@ -3855,7 +3887,8 @@ Every turn during forgery:
 
 Chapter Denouement
 
-Denouement is a scene. Denouement begins when Rick is not in the jail cell. Denouement ends when the drawer is open.
+[using enclosure here because climbing the stool means that Rick is not in the jail cell]
+Denouement is a scene. Denouement begins when the jail cell does not enclose Rick. Denouement ends when the drawer is open.
 
 When denouement begins:
 	now the drawer is recognized.
