@@ -1,7 +1,7 @@
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
 
 The story headline is "A Wild West Wreck".
-The release number is 10.
+The release number is 11.
 The story creation year is 2010.
 The story genre is "Western".
 
@@ -1981,7 +1981,7 @@ Instead of doing something other than examining with the shiny yellow object:
 To say rawhide:
 	say "like old rawhide. Rollin', rollin', rollin'.";
 
-The gunbelt is a wearable prop. The gunbelt is in the cabinet. The printed name of gunbelt is "gun belt". The description of the gunbelt is "A leather gun belt with holster[if the gun is in the holster], which contains your trusty six-shooter[end if]." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]". Understand "gun belt" as the gunbelt. [because compiler gets upset if we call it a gun-space-belt]
+The gunbelt is a wearable prop. The gunbelt is in the cabinet. The printed name of gunbelt is "gun belt". The description of the gunbelt is "A leather gun belt with holster[if the gun is in the holster], which contains your trusty six-shooter[end if]." The texture of the gunbelt is "well broken-in and soft". The scent of the gunbelt is "[rawhide]". Understand "gun belt" or "belt" or "belts" as the gunbelt. [because compiler gets upset if we call it a gun-space-belt]
 
 The holster is an open container that is part of the gunbelt. The description of the holster is "The leather pocket in which your trusty six-shooter [if the gun is in the holster]now sits[otherwise]would normally sit, but which is empty at the moment[end if]." The scent of the holster is "[rawhide]". The carrying capacity of the holster is one.
 
