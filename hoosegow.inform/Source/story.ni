@@ -1701,7 +1701,7 @@ Instead of putting the meat on something (called the target):
 			move the vulture to the barrel;
 			move the meat to the barrel;
 		-- the window sill:
-			say "You put the hunk of meat on the window sill and almost immediately, a vulture drops from the sky, lands just beneath the window and drags the meat outside. You can hear it munching away on the meat, and see it's tail waving back and forth just outside the window.";
+			say "You put the hunk of meat on the window sill and almost immediately, a vulture drops from the sky, lands just beneath the window and drags the meat outside. You can hear it munching away on the meat, and see its tail waving back and forth just outside the window.";
 			move the vulture to the barrel;
 			move the meat to the barrel;
 		-- otherwise:
