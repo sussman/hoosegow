@@ -1786,9 +1786,13 @@ Instead of giving the berry to Muddy during forgery:
 			try WarrantForging.
 		
 Instead of giving the feather to Muddy:
-	say "[quotation mark]Thanks, partner. That'll make a right proper pen.[quotation mark][paragraph break]";
-	now Muddy carries the feather;
-	try WarrantForging.  
+	if the current plan is two and the ask-me counter is six:
+		say "[quotation mark]Thanks, partner. That'll make a right proper pen.[quotation mark][paragraph break]";
+		now Muddy carries the feather;
+		try WarrantForging;
+	otherwise:
+		say "Muddy replies, [quotation mark]You hang on to it for now.[quotation mark][paragraph break]";
+		change the block stage business flag to true.
 	
 Instead of giving the tobacco to Muddy during forgery:
 	if the ask-me counter is 6:
