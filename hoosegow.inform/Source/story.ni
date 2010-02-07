@@ -1,7 +1,7 @@
 "Hoosegow" by Ben Collins-Sussman and Jack Welch
 
 The story headline is "A Wild West Wreck".
-The release number is 13.
+The release number is 14.
 The story creation year is 2010.
 The story genre is "Western".
 
