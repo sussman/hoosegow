@@ -2758,12 +2758,9 @@ Instead of doing something with pete:
 		say "You reckon you'd do some time in the hot place for berry-shooting a man of the cloth. Muddy calls you [quotation mark]chicken[quotation mark], but you got your principles in this matter.";
 		the rule succeeds;
 	otherwise:
-		if Pete is recognized:
-			follow the Pete's stage business rule;
-		otherwise:
-			say "[line break]Suddenly the man leaps up and rants, [quotation mark]";
-			pick a phrase from the Table of Pete's Rants;
-			say "[quotation mark]. He then collapses on the bench again and falls fast asleep."	
+		say "[line break]Suddenly, [the Pete] leaps up and rants, [quotation mark]";
+		pick a phrase from the Table of Pete's Rants;
+		say "[quotation mark]. He then collapses on the bench again and falls fast asleep."	
 
 The pocket is part of Pete. The description of the pocket is "A deep pocket sewn into [the pete]'s suit."
 
