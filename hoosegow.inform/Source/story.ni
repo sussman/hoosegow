@@ -2251,8 +2251,11 @@ The socket is part of the seat.  The socket is a container. The description of t
 
 Instead of inserting something (called the filler) into the socket:
 	if the filler is the gray bar:
-		say "You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.";
-		now the gray bar is part of the stool;
+		if the player carries the gray bar:
+			say "You flip the stool over and wiggle the hollow gray tube into the empty socket. It fits perfectly and remains in place when you let go of the bar, but you think you could yank the gray bar out again if you needed it. You now have a stool with three even legs: two wood, one metal.";
+			now the gray bar is part of the stool;
+		otherwise:
+			say "You don't have the gray bar.";
 	otherwise:
 		say "Putting [the filler] into the socket don't make a lick of sense.  Not likely to fit well anyway.".
 
