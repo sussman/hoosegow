@@ -11,7 +11,7 @@ The intro-text is a text that varies.  Intro-text is "As the sun sets on the pla
 
 Include Menus by Emily Short.
 Include Adaptive Hints by Eric Eve.
-Include Plurality by Emily Short.
+Include Plurality by Emily Short.;
 Include Default Messages by David Fisher.
 
 Use full-length room descriptions, american dialect and the serial comma.
@@ -1751,7 +1751,7 @@ Instead of showing the warrant to muddy:
 		continue the action.
 	
 Instead of reading the warrant:
-	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][line break][or]It says: [warrant-text].[stopping]";
+	say "[one of][quotation mark]Muddy, this here's a federal warrant![quotation mark][paragraph break][quotation mark]What's it say, Rick?[quotation mark][paragraph break][quotation mark]I'm a-reading it now: [warrant-text] -- It's signed by the General.[quotation mark][paragraph break][quotation mark]Mittimus?[quotation mark][paragraph break][quotation mark]I reckon it's after Thanksgiving, before Easter.[quotation mark][line break][or]It says: [warrant-text].[stopping]";
 	change the block stage business flag to true;
 	if the warrant is not recognized:
 		change the current plan to two;
