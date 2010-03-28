@@ -691,6 +691,8 @@ Section Looking
 Understand "look [a visible thing]" as examining.
 ['Look outside' or 'look stool' should work.]
 
+Understand "look [room]" as examining.
+
 Section LS
 
 LSing is an action applying to nothing. Understand "ls" as LSing.
