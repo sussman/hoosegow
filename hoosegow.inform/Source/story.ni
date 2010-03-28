@@ -410,10 +410,14 @@ To say tube-deputy:
 Section Blowing
 
 Understand "berry" or "bar" or "gray bar" or "tube" or "hollow" or "hollow tube" as "[weapon]".
-Understand "shoot [weapon] at/on/onto/towards [something]" as blowing at.
-Understand "fire [weapon] at/on/onto/towards [something]" as blowing at.
+Understand "shoot [weapon] at/on/onto/towards/toward/in/into [something]" as blowing at.
+Understand "fire [weapon] at/on/onto/towards/toward/in/into [something]" as blowing at.
 
-Blowing at is an action applying to one visible thing. Understand "blow [weapon] at/on/onto/towards [something]" as blowing at.
+Blowing at is an action applying to one visible thing. Understand "blow [weapon] at/on/onto/towards/toward/in/into [something]" as blowing at.
+
+Understand "blow [weapon] [something]" as blowing at.
+Understand "shoot [weapon] [something]" as blowing at.
+Understand "fire [weapon] [something]" as blowing at.
 
 This is the blowing rule:
 	if the player carries the gray bar and the gray bar contains the berry:
