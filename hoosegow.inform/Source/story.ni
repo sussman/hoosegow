@@ -703,6 +703,19 @@ Check opening it with:
 		say "That don't work none. What kind of crazy talk is you up to?" instead;
 	if the noun is the tin:
 		say "You ain't got to use not a thing but your own two hands to open the tin." instead.
+		
+Section Peel
+
+Peeling is an action applying to one thing. Understand "peel [something preferably held]" as peeling.
+
+Check peeling:
+	if the noun is the player:
+		say "Peeling down in a jail cell is not appealing. Thanks.";
+	otherwise if the noun is the banana:
+		say "You ain't got no time for pussy-footing around.[paragraph break]";
+		try eating the banana;
+	otherwise:
+		say "That ain't something what you can peel."
 	
 Section Picking
 
