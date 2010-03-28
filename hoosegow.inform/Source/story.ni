@@ -2490,6 +2490,11 @@ The street is a room.  "This is a dusty road with a few buildings lining it, inc
 [Taken from example 20]
 The cell window is a privately-named door.  The cell window is scenery.  The description of the cell window is "Pretty far up on the wall, as wide as your shoulders, and secured by four vertical iron rods as thick as your thumb. And you have thick thumbs. [if the vulture is on the barrel][bob-tail][end if]The green tip of a vine pokes in from outside and lies on the narrow window sill."  The cell window is west of the jail cell and east of the street.  The cell window is locked. Understand "window" as the cell window.
 
+Understand "out" or "down" or "outside" or "around" as the window when the player is tall. [To make "look out, look around, etc., give a view of the street]
+
+Instead of examining the window when the player is tall:
+	try searching the window.
+
 The window sill is a privately-named furniture in the jail cell. Understand "window sill" or "sill" or "ledge" or "narrow ledge" as the window sill. The description of the window sill is "A three or four inch wide ledge just inside the small window that looks out onto the street."
 
 The rods are plural-named part of the cell window. The description of the rods are "The rods are firmly embedded in the solid brick walls."
