@@ -410,10 +410,14 @@ To say tube-deputy:
 Section Blowing
 
 Understand "berry" or "bar" or "gray bar" or "tube" or "hollow" or "hollow tube" as "[weapon]".
-Understand "shoot [weapon] at/on/onto/towards [something]" as blowing at.
-Understand "fire [weapon] at/on/onto/towards [something]" as blowing at.
+Understand "shoot [weapon] at/on/onto/towards/toward/in/into [something]" as blowing at.
+Understand "fire [weapon] at/on/onto/towards/toward/in/into [something]" as blowing at.
 
-Blowing at is an action applying to one visible thing. Understand "blow [weapon] at/on/onto/towards [something]" as blowing at.
+Blowing at is an action applying to one visible thing. Understand "blow [weapon] at/on/onto/towards/toward/in/into [something]" as blowing at.
+
+Understand "blow [weapon] [something]" as blowing at.
+Understand "shoot [weapon] [something]" as blowing at.
+Understand "fire [weapon] [something]" as blowing at.
 
 This is the blowing rule:
 	if the player carries the gray bar and the gray bar contains the berry:
@@ -687,6 +691,8 @@ Section Looking
 Understand "look [a visible thing]" as examining.
 ['Look outside' or 'look stool' should work.]
 
+Understand "look [room]" as examining.
+
 Section LS
 
 LSing is an action applying to nothing. Understand "ls" as LSing.
@@ -703,6 +709,19 @@ Check opening it with:
 		say "That don't work none. What kind of crazy talk is you up to?" instead;
 	if the noun is the tin:
 		say "You ain't got to use not a thing but your own two hands to open the tin." instead.
+		
+Section Peel
+
+Peeling is an action applying to one thing. Understand "peel [something preferably held]" as peeling.
+
+Check peeling:
+	if the noun is the player:
+		say "Peeling down in a jail cell is not appealing. Thanks.";
+	otherwise if the noun is the banana:
+		say "You ain't got no time for pussy-footing around.[paragraph break]";
+		try eating the banana;
+	otherwise:
+		say "That ain't something what you can peel."
 	
 Section Picking
 
@@ -2473,6 +2492,11 @@ The street is a room.  "This is a dusty road with a few buildings lining it, inc
 
 [Taken from example 20]
 The cell window is a privately-named door.  The cell window is scenery.  The description of the cell window is "Pretty far up on the wall, as wide as your shoulders, and secured by four vertical iron rods as thick as your thumb. And you have thick thumbs. [if the vulture is on the barrel][bob-tail][end if]The green tip of a vine pokes in from outside and lies on the narrow window sill."  The cell window is west of the jail cell and east of the street.  The cell window is locked. Understand "window" as the cell window.
+
+Understand "out" or "down" or "outside" or "around" as the window when the player is tall. [To make "look out, look around, etc., give a view of the street]
+
+Instead of examining the window when the player is tall:
+	try searching the window.
 
 The window sill is a privately-named furniture in the jail cell. Understand "window sill" or "sill" or "ledge" or "narrow ledge" as the window sill. The description of the window sill is "A three or four inch wide ledge just inside the small window that looks out onto the street."
 
