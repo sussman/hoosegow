@@ -1736,13 +1736,13 @@ Instead of inserting the meat into the hat:
 	say "There ain't no way that rotting chunk of meat is coming anywhere near your fine hat." 
 	
 Instead of eating the meat:
-	say "[meat-text]" as dialogue;
+	speak "[meat-text]" as dialogue;
 	increase the time of day by one hour;
 	if the hours part of the time of day is greater than 7 and the hours part of the time of day is less than 9:
 		change the time of day to 8 AM.
 		
 Instead of giving the meat to Muddy:
-	say "[one of]Muddy reaches eagerly, but stops just short of taking it. You've never seen Muddy turn down food before, so you're not sure how this experiment will work out. He sniffs it tentatively, hoping that the smell will be better than the sight. His eyes cross and he staggers backward, fanning the air and loosening his collar. [quotation mark]I think I'll pass,[quotation mark] he says weakly[or][quotation mark]No thanks, Rick. I'm on a diet this week -- I'm trying to avoid vulture food[stopping].[quotation mark][paragraph break]" as dialogue. 
+	speak "[one of]Muddy reaches eagerly, but stops just short of taking it. You've never seen Muddy turn down food before, so you're not sure how this experiment will work out. He sniffs it tentatively, hoping that the smell will be better than the sight. His eyes cross and he staggers backward, fanning the air and loosening his collar. [quotation mark]I think I'll pass,[quotation mark] he says weakly[or][quotation mark]No thanks, Rick. I'm on a diet this week -- I'm trying to avoid vulture food[stopping].[quotation mark][paragraph break]" as dialogue. 
 
 Section Spoon
 
@@ -2361,13 +2361,13 @@ The play-counter is a number that varies.  The play-counter is zero. [Number of 
 
 Instead of examining the harmonica for the first time:
 	if the harmonica is not discussed:
-		say "[initial harmonica]" as dialogue;
+		speak "[initial harmonica]" as dialogue;
 	now the harmonica is discussed;
 	try examining the harmonica.
 	
 Instead of taking the harmonica:
 	if the harmonica is not discussed:
-		say "[initial harmonica]" as dialogue;
+		speak "[initial harmonica]" as dialogue;
 		now the harmonica is discussed;
 	otherwise:
 		continue the action.
@@ -2407,7 +2407,7 @@ Carry out playing the harmonica:
 The inscription of the harmonica is "'Donated to the Crawdad's Gulch Municipal Hoosegow by the Gunslinger's Widows Association, Chapter Forty-One'". The texture of the harmonica-textbox is "lightly engraved".
 
 Instead of reading harmonica for the first time:
-	say "[initial harmonica inscription]" as dialogue.
+	speak "[initial harmonica inscription]" as dialogue.
 	
 Section Bars
 
@@ -2535,7 +2535,7 @@ Instead of going through the window:
 			say "You are already high enough up to reach through the windows.";
 			the rule fails;
 		if mud-lifted is less than 4:
-			say "[lifting text]" as dialogue;
+			speak "[lifting text]" as dialogue;
 			increase mud-lifted by one;
 			now Rick is tall;
 			Muddy whimpers in one turn from now;
@@ -2545,7 +2545,7 @@ Instead of going through the window:
 			
 Instead of doing something when the player is tall and mud-lifted is less than 4:
 	change the block stage business flag to true;
-	if the action-name part of the current action is:
+	if the action name part of the current action is:
 		-- the jumping action:
 			say "Muddy [one of]screams[or]bellows[or]yells[or]hollers[at random], [quotation mark][one of]Ow[or]Dang it all[or]Ouch[at random]! [one of]What in the heck do you think you're doing, Rick[or]Are you trying to break my back[or]Could you have some consideration for my back[or]Do you want me to jump on your back and see how it feels, mister bucking bronco[at random]?[quotation mark][paragraph break]";
 			the rule succeeds;
@@ -2565,12 +2565,12 @@ To say shifty:
 	say "Muddy shifts around too much for you to even attempt the shot."
 			
 At the time when Muddy whimpers:
-	say "[whimper text]" as dialogue;
+	speak "[whimper text]" as dialogue;
 	Rick falls in one turn from now.
 			
 At the time when Rick falls:
 	now Rick is not tall;
-	say "[falling text]" as dialogue.
+	speak "[falling text]" as dialogue.
 
 Instead of opening the window:
 	say "There is no glass in the window; it is already open."
@@ -2633,7 +2633,7 @@ Instead of eating the berry:
 		say "Muddy stops you, 'Don't be a coward -- if'n you eat that, you'll sleep clear through to the afternoon -- and we only got till eight in the 'A' of 'M' to get out of here.'";
 		now the berry is almost-eaten;
 	otherwise:
-		say "[8AM-text]" as dialogue;
+		speak "[8AM-text]" as dialogue;
 		change the endgame to hanged;
 		end the game in death.
 
@@ -2708,7 +2708,7 @@ Instead of searching the deputy when the deputy is not awake:
 		
 Instead of doing something with the deputy when the deputy is asleep or the deputy is drugged:
 	if the sheriff is in the jailhouse:
-		say "[wake-deputy]" as dialogue;
+		speak "[wake-deputy]" as dialogue;
 		now the deputy is awake;
 		the rule fails;
 	if the current action is searching or examining or shooting:
@@ -2817,7 +2817,7 @@ Instead of giving the pamphlet to muddy:
 
 Instead of showing the pamphlet to muddy:
 	if Pete is not recognized:
-		say "[Hot diggity dog]" as dialogue;
+		speak "[Hot diggity dog]" as dialogue;
 		now Pete is recognized;
 		now Pete is proper-named;
 	otherwise:
@@ -2872,7 +2872,7 @@ After eating tobacco:
 		move the tobacco to the player;
 	otherwise:
 		now the tobacco is ingested;
-		say "[swallowed chaw]" as dialogue;
+		speak "[swallowed chaw]" as dialogue;
 		move the tobacco to the tin.
 		
 Before inserting the tobacco into the mouth:
@@ -2886,7 +2886,7 @@ After inserting the tobacco into the mouth:
 	
 Before doing something when the tobacco is in the mouth:
 	[All of these do-nothings are to allow the otherwise to continue the action]
-	if the action-name part of the current action is:
+	if the action name part of the current action is:
 		-- the playing action:
 		-- the asking it for action:
 		-- the saying yes action: 
@@ -3046,7 +3046,7 @@ The sheriff is a man in Limbo. The scent of the sheriff is "like trouble". The d
 
 Chapter Scripted Conversations
 
-To say (verbage - some text) as dialogue:
+To speak (verbage - some text) as dialogue:
 	say "[verbage]";
 	change the block stage business flag to true.
 
@@ -3796,12 +3796,12 @@ This is the introduction stink rule:
 			[I'm darn impressed that the next line works in terms of grammar]
 			if the number of bootlike things that are worn is:
 				-- 0:[when returning to the state of both shoes worn...]
-					say "[doubledeshoed]" as dialogue;
+					speak "[doubledeshoed]" as dialogue;
 				-- 1:[deputy lights his cigar whenever only one shoe is worn]
-					say "[hello cigar]" as dialogue;
+					speak "[hello cigar]" as dialogue;
 					now the deputy carries the cigar;
 				-- 2:[Rick puts on both shoes, de-escalating]
-					say "[goodbye cigar]" as dialogue;
+					speak "[goodbye cigar]" as dialogue;
 					move the cigar to Limbo;
 		if the ambient odor is 100:[for any reason]
 			decrease the ambient odor by ten;
@@ -3849,12 +3849,12 @@ This is the flashing stink rule:
 			change boot activity to false;
 			if the number of bootlike things that are worn is:
 				-- 0:[when returning to the state of both shoes worn...]
-					say "[two foot dog]" as dialogue;
+					speak "[two foot dog]" as dialogue;
 				-- 1:[deputy lights his cigar whenever only one shoe is worn]
-					say "[semistinky]" as dialogue;
+					speak "[semistinky]" as dialogue;
 					now the deputy carries the cigar;
 				-- 2:[Rick puts on both shoes, de-escalating]
-					say "[happy doggie]" as dialogue;
+					speak "[happy doggie]" as dialogue;
 					move the cigar to Limbo;
 		if the ambient odor is 100:[for any reason]
 			say repel the dog;
@@ -3927,7 +3927,7 @@ Instead of going a direction (called the way) during the denouement:
 		if the player is in the office:
 			say "[one of]Muddy holds up a hand, [quotation mark]Now rein in them horsies one minute, Rick. If we’re a-staying to search for loot, by gum and sticky black tarnation, I mean to take me a good long gander. There’s just got to be another hidey-hole around here somewheres. You sure you want to just ride on out of here[or][quotation mark]You sure, Rick[stopping]?[quotation mark][paragraph break](yes or no) >>"; 
 			if the player consents:
-				say "[rather not hang around]" as dialogue;
+				speak "[rather not hang around]" as dialogue;
 				change the endgame to escaped;
 				adjust points by 3;
 				end the game in victory;
@@ -4087,7 +4087,7 @@ Instead of giving something (called the item) to the marshal during the plusqued
 Chapter Time Out
 
 At 8 AM:
-	say "[8AM-text]" as dialogue;
+	speak "[8AM-text]" as dialogue;
 	change the endgame to hanged;
 	end the game in death.
 
