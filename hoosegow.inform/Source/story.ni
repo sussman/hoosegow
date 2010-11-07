@@ -17,7 +17,7 @@ Include Default Messages by David Fisher.
 Use full-length room descriptions, american dialect and the serial comma.
 Use memory economy.
 
-Release along with cover art.
+Release along with cover art, an interpreter, and the introductory booklet.
 
 Book 1 Mechanics
 
