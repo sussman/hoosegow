@@ -1171,6 +1171,7 @@ After touching something (called the item):
 		say "You feel normal. Nothing out of the ordinary, really.";
 	otherwise:
 		let the regverb be "feel";
+		let T be "";
 		if the texture of the item is "":
 			let the T be "[one of]unremarkable[or]as you'd expect[or]like [it-they] should[or]normal[in random order]";
 		otherwise:
@@ -2158,7 +2159,7 @@ The iron pipe is a large part of the protocappuccinomatic. The description of th
 
 The cup is in Limbo. The description of the cup is "A white porcelain mug[if the coffee is in the cup] containing hot coffee[end if][if the coffee is tainted], which has been laced with the juice of the Peruvian Snoozeberry[end if]." The texture of the cup is "[if the cup contains coffee]warm[otherwise]cool[end if]". The scent of the cup is "of [if the cup contains coffee]fresh[otherwise]stale[end if] coffee". Understand "mug" as the cup.
 
-Rule for printing room description details of the the cup:
+Rule for printing room description details of the cup:
 	do nothing.
 
 The coffee is in the cup. The description of some coffee is "Steaming hot, black joe." The indefinite article of coffee is "some". The coffee can be tainted. The coffee is not tainted. The scent of the coffee is "[one of]delicious[or]inviting[or]irresistible[or]tantalizing[at random]". The texture of the coffee is "steaming hot".  The coffee can be spiked.  The coffee is not spiked.
@@ -2929,6 +2930,7 @@ Instead of reading the pocketwatch:
 	try examining the pocketwatch.
 
 To say remaining time:
+	let D be 0;
 	let H be the hours part of the time of day;
 	let M be the minutes part of the time of day;
 	if H is 7:
