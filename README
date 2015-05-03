@@ -21,6 +21,12 @@ typically tell Inform to compile it to a .z8 file.
 
 The game's source code lives in a single file called 'story.ni'.
 
+To play the game:
+-----------------
+
+To play the game "live" in your web browser, visit:
+   http://iplayif.com/?story=http://hoosegow.googlecode.com/files/hoosegow16.z8
+
 
 To build the game:
 ------------------
